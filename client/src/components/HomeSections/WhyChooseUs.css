@@ -1,0 +1,52 @@
+/* client/src/components/HomeSections/WhyChooseUs.css */
+
+.why-choose-us-section {
+    padding: 60px 20px;
+    text-align: center;
+    background-color: #e0f7fa; /* Light blue background for contrast */
+}
+
+.why-choose-us-section .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section-headline {
+    font-size: 2.5em;
+    color: #004d40;
+    margin-bottom: 40px;
+}
+
+.section-paragraph {
+    font-size: 1.1em;
+    max-width: 800px;
+    margin: 0 auto 30px auto;
+    color: #555;
+}
+
+.benefits-list {
+    list-style: none; /* Remove default bullet points */
+    padding: 0;
+    text-align: left; /* Align text to the left within the list */
+    max-width: 700px; /* Constrain list width */
+    margin: 20px auto;
+}
+
+.benefits-list li {
+    font-size: 1.1em;
+    margin-bottom: 12px;
+    padding-left: 30px; /* Space for custom bullet/icon */
+    position: relative; /* For absolute positioning of custom bullet */
+    color: #333;
+}
+
+/* Custom bullet point using pseudo-elements */
+.benefits-list li::before {
+    content: '✓'; /* Checkmark icon */
+    color: #00796b; /* Green color for checkmark */
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+    top: 0;
+}

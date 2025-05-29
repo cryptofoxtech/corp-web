@@ -1,0 +1,41 @@
+/* client/src/pages/OtherServicesPage/OtherServicesPage.css */
+.other-services-page {
+  background-color: var(--bs-light);
+}
+
+.other-services-page h1 {
+  color: var(--bs-primary);
+  font-size: 2.8rem;
+  margin-top: 30px;
+}
+
+.other-services-page h2 {
+  color: var(--bs-dark);
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+}
+
+.other-services-page h3 {
+  color: var(--bs-secondary);
+  font-size: 2rem;
+  margin-top: 30px;
+}
+
+.other-services-page p {
+  color: var(--bs-gray-700);
+  line-height: 1.7;
+}
+
+.other-services-page ul {
+  list-style-type: disc;
+  padding-left: 20px;
+  color: var(--bs-gray-700);
+}
+
+.other-services-page ul li {
+  margin-bottom: 8px;
+}
+
+.other-services-page .img-fluid {
+  border: 1px solid var(--bs-gray-300);
+}

@@ -1,0 +1,101 @@
+/* client/src/components/Footer/Footer.css */
+
+.cryptofox-footer {
+  background-color: var(--bs-dark); /* Dark background for the footer, from your :root in index.css */
+  color: var(--bs-white); /* White text for contrast */
+  padding: 40px 0; /* Vertical padding */
+  font-size: 0.95rem; /* Slightly smaller base font size for footer text */
+}
+
+.footer-heading {
+  color: var(--bs-primary); /* Use your primary brand color for headings */
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem; /* Spacing below headings */
+}
+
+.footer-text {
+  color: var(--bs-gray-300); /* A lighter grey for general text for readability on dark background */
+  line-height: 1.6;
+}
+
+/* Styling for links within the footer (Quick Links, Contact Email/Phone) */
+.footer-link {
+  color: var(--bs-gray-400); /* Slightly lighter grey for links */
+  text-decoration: none; /* No underline by default */
+  transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+  color: var(--bs-white); /* White on hover for better visibility */
+  text-decoration: underline; /* Underline on hover for interactivity */
+}
+
+.list-unstyled {
+  padding-left: 0;
+  list-style: none; /* Remove bullet points from lists */
+}
+
+.list-unstyled li {
+  margin-bottom: 0.5rem; /* Space between list items */
+}
+
+/* Social Media Icons Styling */
+.social-icons {
+  display: flex; /* Arrange icons in a row */
+  gap: 15px; /* Space between icons/links */
+  margin-top: 10px; /* Space from "Follow Us" heading */
+}
+
+.social-icon-link {
+  color: var(--bs-white); /* White color for social media icons/text */
+  font-size: 1.5rem; /* Adjust size for icons (if using Font Awesome) */
+  text-decoration: none; /* Remove underline */
+  transition: color 0.3s ease;
+  display: inline-flex; /* To align icons/text vertically */
+  align-items: center;
+  justify-content: center;
+}
+
+.social-icon-link:hover {
+  color: var(--bs-primary); /* Primary color on hover */
+  text-decoration: none; /* Ensure no underline on hover */
+}
+
+/* Horizontal rule divider */
+.footer-divider {
+  border-color: rgba(255, 255, 255, 0.1); /* Subtle white divider */
+  margin-top: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Copyright text */
+.copyright-text {
+  color: var(--bs-gray-500); /* Even lighter grey for copyright */
+  font-size: 0.85rem;
+}
+
+/* Responsive adjustments for the footer */
+@media (max-width: 767.98px) { /* Bootstrap's 'md' breakpoint */
+  .cryptofox-footer .col-md-4,
+  .cryptofox-footer .col-md-3,
+  .cryptofox-footer .col-md-2 {
+    text-align: center; /* Center align columns on small screens */
+  }
+
+  .social-icons {
+    justify-content: center; /* Center social icons */
+  }
+}
+
+/* Ensure body has min-height for sticky footer effect */
+html, body, #root {
+  height: 100%;
+}
+#root {
+  display: flex;
+  flex-direction: column;
+}
+main {
+  flex-grow: 1; /* Allows main content to take up available space, pushing footer down */
+}

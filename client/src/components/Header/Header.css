@@ -1,0 +1,171 @@
+/* client/src/components/Header/Header.css */
+
+.cryptofox-navbar {
+  background-color: var(--bs-white); /* Uses the white defined in your :root or Bootstrap's default */
+  box-shadow: 0 2px 4px rgba(0,0,0,.1);
+  padding: 1rem 0;
+  position: sticky; /* Keep the header fixed at the top */
+  top: 0;
+  z-index: 1020; /* Ensure it stays on top of other content */
+  width: 100%;
+}
+
+.cryptofox-brand {
+  display: flex; /* Aligns logo and text horizontally */
+  align-items: center; /* Vertically centers logo and text */
+  text-decoration: none; /* Remove underline from brand link */
+  color: var(--bs-dark); /* Default color for brand text, if no specific text color is set below */
+}
+
+.cryptofox-logo {
+  max-height: 50px; /* Adjusted: Slightly larger logo height */
+  width: auto; /* Maintain aspect ratio */
+  margin-right: 10px; /* Space between logo and text */
+  vertical-align: middle; /* Align with text if present */
+}
+
+.cryptofox-company-name {
+  font-size: 1.25rem; /* Adjust font size for the company name */
+  font-weight: bold;
+  color: var(--bs-dark); /* Adjusted: Changed color to a dark tone */
+  white-space: nowrap; /* Prevent text wrapping on a single line */
+}
+
+/* Default Nav.Link styling */
+.navbar-nav .nav-link {
+  color: var(--bs-dark); /* Dark text for navigation links, sourced from :root */
+  padding: 0.5rem 1rem;
+  font-weight: 500;
+  transition: color 0.3s ease, transform 0.2s ease; /* Added transform for hover effect */
+}
+
+.navbar-nav .nav-link:hover {
+  color: var(--bs-primary); /* Uses your custom primary color from :root */
+  transform: translateY(-2px); /* Subtle lift effect */
+}
+
+/* Active Nav.Link styling */
+.navbar-nav .nav-link.active {
+  color: var(--bs-primary); /* Uses your custom primary color from :root */
+  font-weight: 600;
+  /* Optional: Add a bottom border for active link */
+  /* border-bottom: 2px solid var(--bs-primary); */
+}
+
+/* Specific styling for the phone number */
+.navbar-nav .phone-number {
+  color: var(--bs-success); /* Uses your custom success color from :root */
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  transition: color 0.3s ease;
+}
+.navbar-nav .phone-number:hover {
+  color: var(--bs-success); /* Keep color consistent on hover, or define a --bs-success-hover in :root */
+}
+
+/* Styling for the "Get a Quote" button in the header */
+.navbar-nav .get-a-quote-btn {
+  background-color: var(--bs-danger); /* Uses your custom danger color from :root */
+  color: var(--bs-white) !important; /* Important to override Bootstrap's default link color */
+  border-radius: 0.3rem; /* Slightly rounded corners */
+  padding: 0.5rem 1.25rem;
+  margin-left: 15px; /* Spacing from other nav items */
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  border: 1px solid var(--bs-danger); /* Match border to background */
+  text-decoration: none !important; /* Ensure no underline */
+  display: inline-flex; /* To align text and prevent block-level issues */
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar-nav .get-a-quote-btn:hover {
+  background-color: var(--bs-danger-hover); /* Uses the specific hover color defined in :root */
+  transform: translateY(-1px); /* Slight lift effect */
+  border-color: var(--bs-danger-hover);
+}
+
+/* NavDropdown styling (for Services dropdown) */
+.navbar-nav .dropdown-toggle {
+  color: var(--bs-dark); /* Dark text for dropdown toggle, sourced from :root */
+  padding: 0.5rem 1rem;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+.navbar-nav .dropdown-toggle::after {
+  vertical-align: middle; /* Align dropdown arrow */
+}
+.navbar-nav .dropdown-toggle:hover {
+  color: var(--bs-primary); /* Uses your custom primary color from :root */
+}
+
+.dropdown-menu {
+  background-color: var(--bs-white); /* Uses white from :root */
+  border: 1px solid rgba(0,0,0,.15);
+  box-shadow: 0 0.5rem 1rem rgba(0,0,0,.175);
+}
+
+.dropdown-item {
+  color: var(--bs-dark); /* Dark text for dropdown items, sourced from :root */
+  font-weight: 400;
+  padding: 0.5rem 1rem;
+}
+
+.dropdown-item:hover,
+.dropdown-item.active {
+  background-color: var(--bs-primary); /* Uses your custom primary color from :root */
+  color: var(--bs-white); /* White text on hover/active */
+}
+
+
+/* Responsive adjustments for the Navbar */
+@media (max-width: 991.98px) { /* Bootstrap's 'lg' breakpoint for collapsing */
+  .navbar-collapse {
+    background-color: var(--bs-white); /* Background for collapsed menu, sourced from :root */
+    position: absolute;
+    top: 100%; /* Position below the toggler */
+    left: 0;
+    width: 100%;
+    padding: 1rem;
+    box-shadow: 0 4px 8px rgba(0,0,0,.1);
+    z-index: 1000; /* Ensure it's above other content */
+    border-top: 1px solid rgba(0,0,0,.1);
+  }
+
+  .navbar-nav {
+    flex-direction: column; /* Stack nav items vertically */
+    align-items: flex-start;
+  }
+
+  .navbar-nav .nav-link,
+  .navbar-nav .dropdown-toggle {
+    width: 100%; /* Full width links */
+    text-align: left;
+    padding: 0.75rem 1rem;
+  }
+
+  .navbar-nav .get-a-quote-btn {
+    margin-left: 0; /* Remove left margin on small screens */
+    margin-top: 15px; /* Add top margin */
+    width: auto; /* Allow button to size naturally */
+    min-width: 150px; /* Or a fixed width for consistency */
+  }
+
+  .dropdown-menu.show {
+    position: static !important; /* Ensure dropdowns stack within the collapsed menu */
+    float: none;
+    width: 100%;
+    margin-top: 0;
+    border: none;
+    box-shadow: none;
+  }
+}
+
+@media (max-width: 575.98px) { /* Bootstrap's 'sm' breakpoint for smaller adjustments */
+  .cryptofox-company-name {
+    font-size: 1rem; /* Smaller font size on very small screens if it breaks layout */
+  }
+  .cryptofox-logo {
+    max-height: 45px; /* Slightly smaller logo on very small screens, keeping it relative to desktop */
+  }
+}
