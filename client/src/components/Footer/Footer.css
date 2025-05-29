@@ -1,101 +1,96 @@
 /* client/src/components/Footer/Footer.css */
 
 .cryptofox-footer {
-  background-color: var(--bs-dark); /* Dark background for the footer, from your :root in index.css */
-  color: var(--bs-white); /* White text for contrast */
-  padding: 40px 0; /* Vertical padding */
-  font-size: 0.95rem; /* Slightly smaller base font size for footer text */
+    background-color: var(--cf-primary-dark-teal); /* Dark Teal - Primary Theme Color */
+    color: var(--cf-white); /* Default text color for the footer */
+    padding: 40px 20px;
+    box-shadow: 0 -2px 5px rgba(0,0,0,0.2);
+}
+
+.cryptofox-footer .container {
+    max-width: 1200px; /* Max width to align with header container */
+    margin: 0 auto;
+    padding: 0 20px;
+    text-align: left; /* Default text alignment */
 }
 
 .footer-heading {
-  color: var(--bs-primary); /* Use your primary brand color for headings */
-  font-size: 1.25rem;
-  font-weight: bold;
-  margin-bottom: 1.5rem; /* Spacing below headings */
+    color: var(--cf-secondary-teal); /* Brighter teal for headings */
+    font-size: 1.4em;
+    margin-bottom: 20px;
+    font-weight: 600;
 }
 
 .footer-text {
-  color: var(--bs-gray-300); /* A lighter grey for general text for readability on dark background */
-  line-height: 1.6;
+    font-size: 0.95em;
+    line-height: 1.6;
+    color: var(--cf-white); /* Pure white for body text */
+    margin-bottom: 10px;
 }
 
-/* Styling for links within the footer (Quick Links, Contact Email/Phone) */
+.list-unstyled { /* For quick links list */
+    padding-left: 0;
+    list-style: none;
+}
+
 .footer-link {
-  color: var(--bs-gray-400); /* Slightly lighter grey for links */
-  text-decoration: none; /* No underline by default */
-  transition: color 0.3s ease;
+    color: var(--cf-white); /* Pure white for links */
+    text-decoration: none;
+    transition: color 0.3s ease;
+    display: inline-block; /* Helps with padding and hover */
+    margin-bottom: 8px; /* Space between links */
 }
 
 .footer-link:hover {
-  color: var(--bs-white); /* White on hover for better visibility */
-  text-decoration: underline; /* Underline on hover for interactivity */
+    color: var(--cf-secondary-teal); /* Links turn brighter teal on hover */
+    text-decoration: underline;
 }
 
-.list-unstyled {
-  padding-left: 0;
-  list-style: none; /* Remove bullet points from lists */
-}
-
-.list-unstyled li {
-  margin-bottom: 0.5rem; /* Space between list items */
-}
-
-/* Social Media Icons Styling */
+/* Social Icons */
 .social-icons {
-  display: flex; /* Arrange icons in a row */
-  gap: 15px; /* Space between icons/links */
-  margin-top: 10px; /* Space from "Follow Us" heading */
+    display: flex;
+    gap: 15px; /* Space between icons */
+    margin-top: 15px;
+    justify-content: flex-start; /* Align with column text */
 }
 
 .social-icon-link {
-  color: var(--bs-white); /* White color for social media icons/text */
-  font-size: 1.5rem; /* Adjust size for icons (if using Font Awesome) */
-  text-decoration: none; /* Remove underline */
-  transition: color 0.3s ease;
-  display: inline-flex; /* To align icons/text vertically */
-  align-items: center;
-  justify-content: center;
+    font-size: 1.8em; /* Size of social icons */
+    color: var(--cf-white); /* Pure white for icons */
+    transition: color 0.3s ease;
 }
 
 .social-icon-link:hover {
-  color: var(--bs-primary); /* Primary color on hover */
-  text-decoration: none; /* Ensure no underline on hover */
+    color: var(--cf-secondary-teal); /* Icons turn brighter teal on hover */
 }
 
-/* Horizontal rule divider */
 .footer-divider {
-  border-color: rgba(255, 255, 255, 0.1); /* Subtle white divider */
-  margin-top: 2rem;
-  margin-bottom: 1.5rem;
+    border-top: 1px solid rgba(255,255,255,0.2); /* Light transparent white line */
+    margin-top: 30px;
+    margin-bottom: 20px;
 }
 
-/* Copyright text */
 .copyright-text {
-  color: var(--bs-gray-500); /* Even lighter grey for copyright */
-  font-size: 0.85rem;
+    font-size: 0.9em;
+    color: rgba(255,255,255,0.7); /* Slightly muted white for copyright */
+    text-align: center; /* Center copyright text */
 }
 
-/* Responsive adjustments for the footer */
+/* Responsive adjustments */
 @media (max-width: 767.98px) { /* Bootstrap's 'md' breakpoint */
-  .cryptofox-footer .col-md-4,
-  .cryptofox-footer .col-md-3,
-  .cryptofox-footer .col-md-2 {
-    text-align: center; /* Center align columns on small screens */
-  }
+    .cryptofox-footer .container {
+        text-align: center; /* Center content on smaller screens */
+    }
 
-  .social-icons {
-    justify-content: center; /* Center social icons */
-  }
-}
+    .social-icons {
+        justify-content: center; /* Center social icons on smaller screens */
+    }
 
-/* Ensure body has min-height for sticky footer effect */
-html, body, #root {
-  height: 100%;
-}
-#root {
-  display: flex;
-  flex-direction: column;
-}
-main {
-  flex-grow: 1; /* Allows main content to take up available space, pushing footer down */
+    .mb-4.mb-md-0 { /* Adjust margin for columns on small screens */
+        margin-bottom: 20px !important; /* Override Bootstrap's default for consistency */
+    }
+
+    .footer-heading {
+        margin-bottom: 15px;
+    }
 }

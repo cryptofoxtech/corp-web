@@ -8,7 +8,7 @@ import cryptofoxLogo from '../../assets/images/cryptofox-logo.png';
 
 const Header = () => {
   return (
-    <Navbar expand="lg" className="bg-body-tertiary cryptofox-navbar">
+    <Navbar expand="lg" data-bs-theme="dark" className="cryptofox-navbar">
       <Container>
         <Navbar.Brand as={Link} to="/" className="cryptofox-brand">
           <img
