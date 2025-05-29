@@ -1,175 +1,235 @@
 /* client/src/pages/Contact/Contact.css */
 
 .contact-page {
-  padding: 40px 0 80px 0;
+    padding: 60px 0; /* Add padding top/bottom */
+    background-color: var(--cf-light-blue-green); /* Light background for the page */
+    min-height: calc(100vh - var(--header-height) - var(--footer-height)); /* Ensure it takes up viewport height */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .contact-page h1 {
-  text-align: center;
-  margin-bottom: 20px;
-  color: var(--bs-primary);
+    color: var(--cf-primary-dark-teal); /* Dark teal for main heading */
+    font-size: 3em;
+    margin-bottom: 20px;
+    font-weight: 700;
+    text-align: center;
 }
 
-.contact-page .page-intro {
-  text-align: center;
-  font-size: 1.2rem;
-  max-width: 800px;
-  margin: 0 auto 50px auto;
-  color: var(--bs-secondary);
+.page-intro {
+    font-size: 1.2em;
+    color: #555;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 50px auto; /* Centered with bottom margin */
+    line-height: 1.6;
 }
 
 .contact-grid {
-  display: grid;
-  grid-template-columns: 1fr 2fr; /* Info on left, form on right */
-  gap: 40px;
-  background-color: var(--bs-white);
-  padding: 40px;
-  border-radius: 8px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    display: grid;
+    grid-template-columns: 1fr; /* Stack columns on small screens */
+    gap: 40px; /* Space between columns */
+    width: 100%;
+    max-width: 1200px; /* Max width for the content */
+    background-color: var(--cf-white); /* White background for the grid content area */
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    padding: 40px;
 }
 
+/* Contact Info Section */
 .contact-info-section {
-  padding-right: 20px;
+    padding: 20px;
+    background-color: #f8fbfb; /* Slightly off-white background */
+    border-radius: 8px;
 }
 
-.contact-info-section h2,
-.contact-form-section h2 {
-  color: var(--bs-dark);
-  font-size: 2rem;
-  margin-bottom: 25px;
+.contact-info-section h2 {
+    color: var(--cf-primary-dark-teal); /* Dark teal for sub-heading */
+    font-size: 2em;
+    margin-bottom: 25px;
+    font-weight: 600;
 }
 
 .contact-info-section p {
-  color: var(--bs-secondary);
-  line-height: 1.7;
-  margin-bottom: 20px;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 20px;
 }
 
-.contact-info-section .info-item {
-  display: flex;
-  align-items: center;
-  margin-bottom: 15px;
-  color: var(--bs-dark);
+.info-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    color: #333;
 }
 
-.contact-info-section .info-item i { /* Placeholder for icons */
-  font-size: 1.2rem;
-  color: var(--bs-primary);
-  margin-right: 15px;
-  width: 25px; /* Fixed width for icon */
-  text-align: center;
+.info-item i {
+    color: var(--cf-secondary-teal); /* Brighter teal for icons */
+    font-size: 1.3em;
+    margin-right: 15px;
+    width: 25px; /* Fixed width for icon alignment */
+    text-align: center;
 }
 
-.contact-info-section .info-item span {
-  font-weight: 600;
-  margin-right: 5px;
+.info-item span {
+    font-weight: 600;
+    margin-right: 8px;
+    color: var(--cf-primary-dark-teal); /* Dark teal for labels */
 }
 
-.contact-info-section .info-item a {
-  color: var(--bs-dark);
-  text-decoration: none;
-}
-
-.contact-info-section .info-item a:hover {
-  color: var(--bs-primary);
-  text-decoration: underline;
-}
-
-.social-links-contact {
-    margin-top: 30px;
-}
-
-.social-links-contact a {
-    display: inline-block;
-    color: var(--bs-dark);
-    font-size: 1.8rem;
-    margin-right: 20px;
+.info-item a {
+    color: var(--cf-secondary-teal); /* Brighter teal for contact links */
+    text-decoration: none;
     transition: color 0.3s ease;
 }
 
+.info-item a:hover {
+    color: var(--cf-primary-dark-teal); /* Darker teal on hover */
+    text-decoration: underline;
+}
+
+/* Social Links in Contact Section */
+.social-links-contact {
+    margin-top: 30px;
+    display: flex;
+    gap: 20px;
+    justify-content: center; /* Center social icons on small screens */
+}
+
+.social-links-contact a {
+    color: var(--cf-primary-dark-teal); /* Dark teal for social icons */
+    font-size: 1.8em;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
 .social-links-contact a:hover {
-    color: var(--bs-primary);
+    color: var(--cf-secondary-teal); /* Brighter teal on hover */
+    transform: translateY(-3px);
 }
 
-
-/* Contact Form */
-.contact-form-section .form-group {
-  margin-bottom: 20px;
-  text-align: left;
+/* Contact Form Section */
+.contact-form-section {
+    padding: 20px;
+    background-color: #f8fbfb; /* Slightly off-white background */
+    border-radius: 8px;
 }
 
-.contact-form-section label {
-  display: block;
-  margin-bottom: 8px;
-  font-weight: 600;
-  color: var(--bs-dark);
-}
-
-.contact-form-section input[type="text"],
-.contact-form-section input[type="email"],
-.contact-form-section textarea {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid var(--bs-light);
-  border-radius: 5px;
-  font-family: var(--font-body);
-  font-size: 1rem;
-  color: var(--bs-dark);
-  background-color: var(--bs-body-bg);
-  box-sizing: border-box; /* Include padding in width */
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.contact-form-section input[type="text"]:focus,
-.contact-form-section input[type="email"]:focus,
-.contact-form-section textarea:focus {
-  border-color: var(--bs-primary);
-  outline: none;
-  box-shadow: 0 0 0 0.2rem rgba(255, 107, 107, 0.25); /* Focus highlight */
-}
-
-.contact-form-section textarea {
-  resize: vertical; /* Allow vertical resizing only */
-}
-
-.contact-form-section .btn-primary {
-  width: auto;
-  padding: 12px 25px;
-  font-size: 1.1rem;
-  margin-top: 10px;
-}
-
-.contact-form-section .form-status {
-    margin-top: 20px;
+.contact-form-section h2 {
+    color: var(--cf-primary-dark-teal); /* Dark teal for sub-heading */
+    font-size: 2em;
+    margin-bottom: 25px;
     font-weight: 600;
-    color: var(--bs-info); /* Use info color for status */
 }
 
-
-/* Responsive adjustments for Contact page */
-@media (max-width: 992px) {
-  .contact-grid {
-    grid-template-columns: 1fr; /* Stack columns on smaller screens */
-    gap: 30px;
-    padding: 30px;
-  }
-  .contact-info-section {
-    padding-right: 0; /* Remove padding when stacked */
-  }
-  .contact-form-section h2 {
-      margin-top: 0;
-  }
+.form-group {
+    margin-bottom: 20px;
 }
 
-@media (max-width: 576px) {
-  .contact-page h1 {
-    font-size: 2rem;
-  }
-  .contact-page .page-intro {
-    font-size: 1rem;
-  }
-  .contact-info-section h2,
-  .contact-form-section h2 {
-    font-size: 1.8rem;
-  }
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--cf-primary-dark-teal); /* Dark teal for labels */
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+    box-sizing: border-box; /* Include padding and border in element's total width and height */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group textarea:focus {
+    border-color: var(--cf-secondary-teal); /* Brighter teal on focus */
+    box-shadow: 0 0 0 0.2rem rgba(0, 121, 107, 0.25); /* Subtle focus shadow */
+    outline: none;
+}
+
+/* Style the submit button */
+.contact-form-section .btn {
+    background-color: var(--cf-secondary-teal); /* Brighter teal for button */
+    color: var(--cf-white);
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    width: auto; /* Allow button to size naturally */
+}
+
+.contact-form-section .btn:hover {
+    background-color: var(--cf-primary-dark-teal); /* Darker teal on hover */
+    transform: translateY(-2px);
+}
+
+.form-status {
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: 600;
+}
+.form-status.success {
+    background-color: #d4edda; /* Light green */
+    color: #155724; /* Dark green text */
+}
+.form-status.error {
+    background-color: #f8d7da; /* Light red */
+    color: #721c24; /* Dark red text */
+}
+
+/* Responsive adjustments */
+@media (min-width: 768px) { /* On medium screens and up */
+    .contact-grid {
+        grid-template-columns: 1fr 1fr; /* Two columns */
+        padding: 50px;
+    }
+    .contact-info-section {
+        padding-right: 30px; /* More space between content and form */
+    }
+    .contact-form-section {
+        padding-left: 30px; /* More space between content and form */
+    }
+    .social-links-contact {
+        justify-content: flex-start; /* Align social icons left on larger screens */
+    }
+}
+
+@media (max-width: 767.98px) { /* On small screens */
+    .contact-page {
+        padding: 30px 0;
+    }
+    .contact-page h1 {
+        font-size: 2.5em;
+    }
+    .page-intro {
+        font-size: 1em;
+        margin-bottom: 30px;
+    }
+    .contact-grid {
+        padding: 20px;
+    }
+    .contact-info-section,
+    .contact-form-section {
+        padding: 20px;
+    }
+    .contact-info-section h2,
+    .contact-form-section h2 {
+        font-size: 1.8em;
+        margin-bottom: 20px;
+    }
+    .social-links-contact {
+        justify-content: center; /* Ensure social links are centered on small screens */
+    }
 }
