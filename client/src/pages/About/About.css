@@ -1,0 +1,152 @@
+/* client/src/pages/About/About.css */
+
+.about-page {
+  padding: 40px 0 80px 0; /* Vertical padding for the entire page content */
+}
+
+.about-page h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: var(--bs-primary);
+}
+
+.about-page .page-intro {
+  text-align: center;
+  font-size: 1.2rem;
+  max-width: 800px;
+  margin: 0 auto 50px auto;
+  color: var(--bs-secondary);
+}
+
+.about-section {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 60px;
+  padding: 30px;
+  background-color: var(--bs-white);
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+.about-section.even-section {
+  flex-direction: row-reverse;
+}
+
+.about-section .about-content {
+  flex: 1;
+  padding: 0 30px;
+}
+
+.about-section .about-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 400px;
+}
+
+.about-section .about-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.about-section h2 {
+  color: var(--bs-dark);
+  font-size: 2.2rem;
+  margin-bottom: 1.5rem;
+}
+
+.about-section h3 {
+  color: var(--bs-primary);
+  font-size: 1.5rem;
+  margin-top: 1rem;
+  margin-bottom: 0.8rem;
+}
+
+.about-section p {
+  line-height: 1.8;
+  margin-bottom: 1rem;
+  color: var(--bs-dark);
+}
+
+.values-section {
+    text-align: center;
+    padding: 40px 0;
+}
+
+.values-section h2 {
+    margin-bottom: 40px;
+    color: var(--bs-dark);
+}
+
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.value-item {
+    background-color: var(--bs-white);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    text-align: left; /* Align text left within value items */
+}
+
+.value-item h3 {
+    color: var(--bs-info);
+    font-size: 1.6rem;
+    margin-bottom: 15px;
+}
+
+.value-item p {
+    color: var(--bs-secondary);
+    line-height: 1.7;
+    font-size: 0.95rem;
+}
+
+
+/* Responsive adjustments for About page */
+@media (max-width: 992px) {
+  .about-section, .about-section.even-section {
+    flex-direction: column;
+    padding: 20px;
+  }
+  .about-section .about-content {
+    padding: 0;
+    order: 2;
+  }
+  .about-section.even-section .about-content {
+      order: 2;
+  }
+  .about-section .about-image {
+    min-width: unset;
+    width: 100%;
+    order: 1;
+    margin-bottom: 20px;
+  }
+  .about-section .about-image img {
+      max-width: 90%;
+  }
+}
+
+@media (max-width: 576px) {
+  .about-page h1 {
+    font-size: 2rem;
+  }
+  .about-page .page-intro {
+    font-size: 1rem;
+  }
+  .about-section h2 {
+    font-size: 1.8rem;
+  }
+  .about-section h3 {
+    font-size: 1.3rem;
+  }
+  .values-grid {
+    grid-template-columns: 1fr; /* Single column on very small screens */
+  }
+}

@@ -1,0 +1,50 @@
+/* client/src/index.css */
+
+/* Global styles and custom Bootstrap variable overrides */
+
+:root {
+  /* Define your custom theme colors here */
+  --bs-primary: #2A52BE;   /* A nice corporate blue, replaces Bootstrap's default blue */
+  --bs-secondary: #6c757d; /* Standard grey, you can change this */
+  --bs-success: #28a745;   /* Standard green */
+  --bs-info: #17a2b8;      /* Standard cyan */
+  --bs-warning: #ffc107;   /* Standard yellow */
+  --bs-danger: #D62828;    /* Your chosen red for "Get a Quote" */
+  --bs-light: #f8f9fa;     /* Standard light grey */
+  --bs-dark: #343a40;      /* Standard dark grey */
+
+  /* Additional Bootstrap variables you might want to customize */
+  --bs-body-bg: #fff; /* Main background color for the page body */
+  --bs-body-color: #212529; /* Default text color */
+
+  /* You can also define custom shades */
+  --bs-primary-hover: #357bd1; /* Slightly darker primary for hover states */
+  --bs-danger-hover: #c02323; /* Slightly darker danger for hover states */
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--bs-body-bg); /* Use the global body background */
+  color: var(--bs-body-color); /* Use the global body text color */
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* Ensure the container class is still effective */
+.container {
+  max-width: 1200px; /* Or whatever you prefer */
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+/* Any other global styles you might have */

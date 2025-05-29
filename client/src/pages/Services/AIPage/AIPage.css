@@ -1,0 +1,41 @@
+/* client/src/pages/AIPage/AIPage.css */
+.ai-page {
+  background-color: var(--bs-light);
+}
+
+.ai-page h1 {
+  color: var(--bs-primary);
+  font-size: 2.8rem;
+  margin-top: 30px;
+}
+
+.ai-page h2 {
+  color: var(--bs-dark);
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+}
+
+.ai-page h3 {
+  color: var(--bs-secondary);
+  font-size: 2rem;
+  margin-top: 30px;
+}
+
+.ai-page p {
+  color: var(--bs-gray-700);
+  line-height: 1.7;
+}
+
+.ai-page ul {
+  list-style-type: disc;
+  padding-left: 20px;
+  color: var(--bs-gray-700);
+}
+
+.ai-page ul li {
+  margin-bottom: 8px;
+}
+
+.ai-page .img-fluid {
+  border: 1px solid var(--bs-gray-300);
+}

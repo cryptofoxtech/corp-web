@@ -1,0 +1,41 @@
+/* client/src/components/HomeSections/HeroSection.css */
+
+.hero-section {
+    background-color: #e0f7fa; /* Light blue */
+    padding: 80px 20px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 400px; /* Example min height */
+}
+
+.hero-section .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.hero-headline {
+    font-size: 3em;
+    margin-bottom: 20px;
+    color: #00796b; /* Darker blue-green */
+    line-height: 1.2;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: #00796b;
+    color: white;
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #004d40; /* Slightly darker on hover */
+}

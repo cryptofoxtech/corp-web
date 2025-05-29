@@ -1,0 +1,145 @@
+/* client/src/pages/Services/Services.css */
+
+.services-page {
+  padding: 40px 0 80px 0; /* Vertical padding for the entire page content */
+}
+
+.services-page h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: var(--bs-primary);
+}
+
+.services-page .page-intro {
+  text-align: center;
+  font-size: 1.2rem;
+  max-width: 800px;
+  margin: 0 auto 50px auto;
+  color: var(--bs-secondary);
+}
+
+.service-section {
+  display: flex;
+  flex-direction: row; /* Default: image left, content right */
+  align-items: center;
+  margin-bottom: 60px;
+  padding: 30px;
+  background-color: var(--bs-white);
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+.service-section.even-section {
+  flex-direction: row-reverse; /* For alternating layout: image right, content left */
+}
+
+.service-section .service-content {
+  flex: 1;
+  padding: 0 30px;
+}
+
+.service-section .service-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 400px; /* Minimum width for image before wrapping */
+}
+
+.service-section .service-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.service-section h2 {
+  color: var(--bs-dark);
+  font-size: 2.2rem;
+  margin-bottom: 1.5rem;
+}
+
+.service-section h3 {
+  color: var(--bs-primary);
+  font-size: 1.5rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.service-section p {
+  line-height: 1.8;
+  margin-bottom: 1rem;
+  color: var(--bs-dark);
+}
+
+.service-section ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 1.5rem;
+}
+
+.service-section ul li {
+  position: relative;
+  padding-left: 25px;
+  margin-bottom: 10px;
+  color: var(--bs-secondary);
+}
+
+.service-section ul li::before {
+  content: '\2022'; /* Bullet point character */
+  color: var(--bs-primary); /* Primary color for bullet */
+  font-weight: bold;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.service-section .note {
+  font-style: italic;
+  font-size: 0.9em;
+  color: var(--bs-info);
+  margin-top: 20px;
+}
+
+
+/* Responsive adjustments for Services page */
+@media (max-width: 992px) {
+  .service-section, .service-section.even-section {
+    flex-direction: column; /* Stack content and image vertically */
+    padding: 20px;
+  }
+  .service-section .service-content {
+    padding: 0; /* Remove horizontal padding when stacked */
+    order: 2; /* Content below image by default */
+  }
+  .service-section.even-section .service-content {
+      order: 2; /* Content below image for even sections too */
+  }
+  .service-section .service-image {
+    min-width: unset; /* Remove min-width */
+    width: 100%; /* Take full width */
+    order: 1; /* Image above content by default */
+    margin-bottom: 20px;
+  }
+  .service-section .service-image img {
+      max-width: 90%; /* Adjust image size for smaller screens */
+  }
+}
+
+@media (max-width: 576px) {
+  .services-page h1 {
+    font-size: 2rem;
+  }
+  .services-page .page-intro {
+    font-size: 1rem;
+  }
+  .service-section h2 {
+    font-size: 1.8rem;
+  }
+  .service-section h3 {
+    font-size: 1.3rem;
+  }
+}

@@ -1,0 +1,83 @@
+/* client/src/pages/Partners/Partners.css */
+
+.partners-page {
+  padding-top: 60px; /* Space from header */
+  padding-bottom: 60px;
+}
+
+.partners-page h1 {
+  font-size: 3em;
+  color: var(--bs-primary); /* Uses your primary theme color */
+  margin-bottom: 20px;
+}
+
+.partners-page p.lead { /* Styling for the introductory paragraph */
+  font-size: 1.25em;
+  color: var(--bs-dark);
+}
+
+.partners-grid {
+  display: flex; /* Bootstrap Row already does this, but good to be explicit for flex properties */
+  flex-wrap: wrap; /* Allows cards to wrap to next line */
+  /* No need for specific column width here, Col component handles it */
+}
+
+.partner-card {
+  background-color: var(--bs-white);
+  border: 1px solid var(--bs-gray-200);
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08); /* More pronounced shadow */
+  padding: 25px;
+  text-align: center;
+  display: flex; /* Use flexbox for internal alignment */
+  flex-direction: column; /* Stack content vertically */
+  justify-content: space-between; /* Pushes button to bottom */
+  height: 100%; /* Important: ensures all cards in a row have same height */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.partner-card:hover {
+  transform: translateY(-8px); /* More noticeable lift effect */
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12); /* Enhanced shadow on hover */
+}
+
+.partner-logo {
+  max-width: 120px; /* Adjusted: Larger max-width for logos */
+  max-height: 80px; /* Adjusted: Ensure height accommodates placeholder text */
+  width: auto;
+  height: auto; /* Maintain aspect ratio */
+  margin: 0 auto 20px auto; /* Center logo and add space below */
+  display: block; /* Ensures margin: auto works for centering */
+  object-fit: contain; /* Ensures logo fits within bounds without cropping */
+  filter: grayscale(80%); /* More subtle grayscale */
+  opacity: 0.8; /* Slightly more opaque */
+  transition: filter 0.3s ease, opacity 0.3s ease;
+}
+
+.partner-card:hover .partner-logo {
+  filter: grayscale(0%); /* Full color on hover */
+  opacity: 1; /* Fully opaque on hover */
+}
+
+.partner-card h3 {
+  font-size: 1.4rem;
+  color: var(--bs-dark);
+  margin-bottom: 10px;
+}
+
+.partner-card p {
+  font-size: 0.95rem;
+  color: var(--bs-gray-700);
+  margin-bottom: 20px;
+  flex-grow: 1; /* Allows description to take up available space, pushing button down */
+}
+
+.partners-page .btn {
+  margin-top: 20px; /* Space from the paragraph above it */
+}
+
+.partners-page h3 { /* Style for the "Interested in Partnering" heading */
+  color: var(--bs-secondary);
+  margin-top: 40px;
+  margin-bottom: 20px;
+}

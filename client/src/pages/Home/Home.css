@@ -1,0 +1,133 @@
+/* client/src/pages/Home/Home.css */
+
+.home-page {
+  /* No specific padding here, sections will handle their own */
+}
+
+/* Hero Section */
+.hero-section {
+  /*
+    Background image is now set via inline style in Home.js
+    Ensure background-size, position, and repeat are here for proper rendering
+  */
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+
+  color: var(--bs-white); /* Ensures text is white/light for contrast */
+  text-align: center;
+  padding: 100px 20px; /* Padding for the hero content */
+  margin-bottom: 50px;
+  min-height: 500px; /* Ensure hero section has a minimum height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.hero-section h1 {
+  font-size: 3em;
+  margin-bottom: 20px;
+  /* Stronger text shadow for better readability against the background */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.hero-section .subtitle {
+  font-size: 1.5em;
+  margin-bottom: 40px;
+  /* Stronger text shadow for better readability against the background */
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+}
+
+.hero-buttons .btn {
+  margin: 0 10px;
+}
+
+/* About Intro Section */
+.about-intro-section {
+  text-align: center;
+  padding: 50px 20px;
+  margin-bottom: 50px;
+  background-color: var(--bs-light); /* Example background color */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.about-intro-section h2 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  color: var(--bs-dark);
+}
+
+.about-intro-section p {
+  font-size: 1.1em;
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto 30px auto;
+  color: var(--bs-gray-dark);
+}
+
+/* Image Section Grid (Home page - DevOps, Cloud, AI images) */
+.image-section {
+  padding: 50px 0;
+  margin-bottom: 50px;
+  background-color: var(--bs-body-bg); /* Or a lighter color */
+}
+
+.image-grid {
+  display: grid;
+  /* Creates responsive columns: at least 300px wide, max 1 fraction of available space */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px; /* Space between grid items */
+  justify-content: center; /* Center items if they don't fill the grid */
+  align-items: start; /* Align items to the start of their grid area */
+}
+
+.image-grid img {
+  width: 100%; /* Make images take full width of their grid cell */
+  max-height: 250px; /* Limit image height for consistency */
+  object-fit: cover; /* Maintain aspect ratio and cover the area, cropping if necessary */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease; /* Smooth hover effect */
+}
+
+.image-grid img:hover {
+  transform: translateY(-5px); /* Simple lift effect on hover */
+}
+
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .hero-section h1 {
+    font-size: 2.5em;
+  }
+
+  .hero-section .subtitle {
+    font-size: 1.2em;
+  }
+
+  .hero-buttons .btn {
+    display: block; /* Stack buttons vertically */
+    margin: 15px auto;
+    width: 80%; /* Make buttons wider */
+  }
+
+  .image-grid {
+    grid-template-columns: 1fr; /* Stack images on small screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-section h1 {
+    font-size: 2em;
+  }
+
+  .hero-section .subtitle {
+    font-size: 1em;
+  }
+
+  .about-intro-section h2 {
+    font-size: 2em;
+  }
+}
