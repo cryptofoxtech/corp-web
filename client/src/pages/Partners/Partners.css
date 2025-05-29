@@ -1,83 +1,117 @@
 /* client/src/pages/Partners/Partners.css */
 
 .partners-page {
-  padding-top: 60px; /* Space from header */
-  padding-bottom: 60px;
+    padding-top: 60px; /* Adjust for fixed header if needed */
+    padding-bottom: 60px;
+    background-color: #f8fbfb; /* Very light background */
 }
 
 .partners-page h1 {
-  font-size: 3em;
-  color: var(--bs-primary); /* Uses your primary theme color */
-  margin-bottom: 20px;
+    color: #004d40; /* Dark teal */
+    font-size: 3em;
+    font-weight: 700;
 }
 
-.partners-page p.lead { /* Styling for the introductory paragraph */
-  font-size: 1.25em;
-  color: var(--bs-dark);
+.partners-page .lead {
+    color: #555;
+    font-size: 1.2em;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .partners-grid {
-  display: flex; /* Bootstrap Row already does this, but good to be explicit for flex properties */
-  flex-wrap: wrap; /* Allows cards to wrap to next line */
-  /* No need for specific column width here, Col component handles it */
+    display: flex;
+    flex-wrap: wrap; /* Allows cards to wrap to next line */
+    justify-content: center; /* Centers cards in the grid */
 }
 
 .partner-card {
-  background-color: var(--bs-white);
-  border: 1px solid var(--bs-gray-200);
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08); /* More pronounced shadow */
-  padding: 25px;
-  text-align: center;
-  display: flex; /* Use flexbox for internal alignment */
-  flex-direction: column; /* Stack content vertically */
-  justify-content: space-between; /* Pushes button to bottom */
-  height: 100%; /* Important: ensures all cards in a row have same height */
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    display: flex; /* Flex container for content inside card */
+    flex-direction: column; /* Stack content vertically */
+    align-items: center; /* Center content horizontally */
 }
 
 .partner-card:hover {
-  transform: translateY(-8px); /* More noticeable lift effect */
-  box-shadow: 0 8px 20px rgba(0,0,0,0.12); /* Enhanced shadow on hover */
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
 .partner-logo {
-  max-width: 120px; /* Adjusted: Larger max-width for logos */
-  max-height: 80px; /* Adjusted: Ensure height accommodates placeholder text */
-  width: auto;
-  height: auto; /* Maintain aspect ratio */
-  margin: 0 auto 20px auto; /* Center logo and add space below */
-  display: block; /* Ensures margin: auto works for centering */
-  object-fit: contain; /* Ensures logo fits within bounds without cropping */
-  filter: grayscale(80%); /* More subtle grayscale */
-  opacity: 0.8; /* Slightly more opaque */
-  transition: filter 0.3s ease, opacity 0.3s ease;
+    max-width: 120px; /* Adjust logo size */
+    height: auto;
+    margin-bottom: 20px;
+    filter: grayscale(90%); /* Start with grayscale */
+    opacity: 0.7;
+    transition: filter 0.3s ease-in-out, opacity 0.3s ease-in-out;
 }
 
 .partner-card:hover .partner-logo {
-  filter: grayscale(0%); /* Full color on hover */
-  opacity: 1; /* Fully opaque on hover */
+    filter: grayscale(0%); /* Color on hover */
+    opacity: 1;
 }
 
 .partner-card h3 {
-  font-size: 1.4rem;
-  color: var(--bs-dark);
-  margin-bottom: 10px;
+    color: #00796b; /* Teal */
+    font-size: 1.5em;
+    margin-bottom: 10px;
 }
 
 .partner-card p {
-  font-size: 0.95rem;
-  color: var(--bs-gray-700);
-  margin-bottom: 20px;
-  flex-grow: 1; /* Allows description to take up available space, pushing button down */
+    color: #666;
+    font-size: 0.95em;
+    line-height: 1.6;
+    flex-grow: 1; /* Allows description to take up available space */
+    margin-bottom: 15px; /* Space before button */
 }
 
-.partners-page .btn {
-  margin-top: 20px; /* Space from the paragraph above it */
+.partner-card .btn-outline-info {
+    color: #00796b;
+    border-color: #00796b;
+    background-color: transparent;
+    font-weight: 500;
+    transition: all 0.3s ease;
 }
 
-.partners-page h3 { /* Style for the "Interested in Partnering" heading */
-  color: var(--bs-secondary);
-  margin-top: 40px;
-  margin-bottom: 20px;
+.partner-card .btn-outline-info:hover {
+    color: #fff;
+    background-color: #00796b;
+    border-color: #00796b;
+}
+
+/* Call to action section */
+.partners-page .mt-5 h3 {
+    color: #004d40;
+    font-size: 2em;
+    margin-bottom: 15px;
+}
+
+.partners-page .mt-5 p {
+    color: #555;
+    font-size: 1.1em;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 25px;
+}
+
+.partners-page .btn-primary {
+    background-color: #00796b;
+    border-color: #00796b;
+    padding: 12px 25px;
+    font-size: 1.1em;
+    font-weight: 600;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.partners-page .btn-primary:hover {
+    background-color: #004d40;
+    border-color: #004d40;
 }
