@@ -1,0 +1,30 @@
+/* client/src/components/AboutSections/CoreDifferentiator.css */
+
+.core-differentiator-section {
+    padding: 60px 20px;
+    text-align: center;
+    background-color: #e0f7fa; /* Light blue background */
+}
+
+.core-differentiator-section .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section-headline {
+    font-size: 2.5em;
+    color: #004d40;
+    margin-bottom: 30px;
+}
+
+.differentiator-content p {
+    font-size: 1.1em;
+    line-height: 1.7;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.differentiator-content p strong {
+    color: #00796b;
+}

@@ -1,0 +1,82 @@
+/* client/src/components/AboutSections/MeetTheFounder.css */
+
+.meet-the-founder-section {
+    padding: 60px 20px;
+    text-align: center;
+    background-color: white; /* White background */
+}
+
+.meet-the-founder-section .container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section-headline {
+    font-size: 2.5em;
+    color: #004d40;
+    margin-bottom: 40px;
+}
+
+.founder-card {
+    display: flex;
+    flex-direction: column; /* Stack on small screens */
+    align-items: center;
+    gap: 30px;
+    background-color: #f4f4f4;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    text-align: left; /* Align text within card */
+}
+
+@media (min-width: 768px) {
+    .founder-card {
+        flex-direction: row; /* Side-by-side on larger screens */
+        text-align: left;
+    }
+}
+
+.founder-image-wrapper {
+    flex-shrink: 0; /* Don't let image shrink */
+    width: 200px; /* Fixed width for image container */
+    height: 200px; /* Fixed height */
+    border-radius: 50%; /* Circular image */
+    overflow: hidden; /* Hide overflow for circular shape */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.founder-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Cover the area, cropping if necessary */
+    display: block; /* Remove extra space below image */
+}
+
+.founder-bio {
+    flex-grow: 1; /* Allow bio to take remaining space */
+}
+
+.founder-bio h3 {
+    color: #00796b;
+    font-size: 2em;
+    margin-bottom: 5px;
+}
+
+.founder-title {
+    font-size: 1.1em;
+    color: #666;
+    margin-bottom: 15px;
+    font-style: italic;
+}
+
+.founder-bio p {
+    font-size: 1em;
+    line-height: 1.7;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.founder-bio p strong {
+    color: #004d40;
+}
