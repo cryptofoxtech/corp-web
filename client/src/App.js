@@ -11,11 +11,18 @@ import Partners from './pages/Partners/Partners';
 import Contact from './pages/Contact/Contact';
 import Quote from './pages/Quote/Quote';
 
-// Import the new service pages from the correct nested path
-import DevOpsPage from './pages/Services/DevOpsPage/DevOpsPage'; // <--- UPDATED PATH
-import CloudPage from './pages/Services/CloudPage/CloudPage';     // <--- UPDATED PATH
-import AIPage from './pages/Services/AIPage/AIPage';             // <--- UPDATED PATH
-import OtherServicesPage from './pages/Services/OtherServicesPage/OtherServicesPage'; // <--- UPDATED PATH
+// Import the NEW main Services landing page
+import Services from './pages/Services/Services';
+
+// Import individual service detail pages (existing and new ones)
+import DevOpsPage from './pages/Services/DevOpsPage/DevOpsPage';
+import CloudPage from './pages/Services/CloudPage/CloudPage';
+import AIPage from './pages/Services/AIPage/AIPage';
+// NEW specific service pages (will be created in next steps)
+import WebDevPage from './pages/Services/WebDevPage/WebDevPage';
+import SysAdminPage from './pages/Services/SysAdminPage/SysAdminPage';
+import BlockchainPage from './pages/Services/BlockchainPage/BlockchainPage';
+
 
 function App() {
   return (
@@ -29,11 +36,17 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/quote" element={<Quote />} />
 
-          {/* Routes for Service Pages - paths remain the same, just the component import changed */}
+          {/* Route for the NEW Services Landing Page */}
+          <Route path="/services" element={<Services />} />
+
+          {/* Routes for Individual Service Detail Pages */}
           <Route path="/services/devops" element={<DevOpsPage />} />
           <Route path="/services/cloud" element={<CloudPage />} />
           <Route path="/services/ai" element={<AIPage />} />
-          <Route path="/services/other" element={<OtherServicesPage />} />
+          {/* NEW Routes for specific services */}
+          <Route path="/services/webdev" element={<WebDevPage />} />
+          <Route path="/services/sysadmin" element={<SysAdminPage />} />
+          <Route path="/services/blockchain" element={<BlockchainPage />} />
 
           {/* Add a Catch-all 404 page later if desired */}
           {/* <Route path="*" element={<NotFoundPage />} /> */}

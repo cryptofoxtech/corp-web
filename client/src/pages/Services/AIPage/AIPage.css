@@ -1,41 +1,212 @@
-/* client/src/pages/AIPage/AIPage.css */
-.ai-page {
-  background-color: var(--bs-light);
+/* client/src/pages/Services/AIPage/AIPage.css */
+
+/* Reusing general service detail page wrapper and main content styles */
+.service-detail-page-wrapper {
+    min-height: calc(100vh - var(--header-height) - var(--footer-height));
+    display: flex;
+    flex-direction: column;
 }
 
-.ai-page h1 {
-  color: var(--bs-primary);
-  font-size: 2.8rem;
-  margin-top: 30px;
+.service-detail-main-content {
+    flex-grow: 1;
 }
 
-.ai-page h2 {
-  color: var(--bs-dark);
-  font-size: 2.2rem;
-  margin-bottom: 20px;
+/* Hero Section Specific to AI Services */
+.service-hero-ai {
+    background-color: var(--cf-primary-dark-teal); /* Consistent hero background */
+    color: var(--cf-white);
+    padding-top: 80px;
+    padding-bottom: 80px;
 }
 
-.ai-page h3 {
-  color: var(--bs-secondary);
-  font-size: 2rem;
-  margin-top: 30px;
+.service-detail-headline {
+    font-size: 3.2em;
+    margin-bottom: 20px;
+    font-weight: 700;
 }
 
-.ai-page p {
-  color: var(--bs-gray-700);
-  line-height: 1.7;
+.service-detail-intro {
+    font-size: 1.2em;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto;
+    color: rgba(255,255,255,0.85);
 }
 
-.ai-page ul {
-  list-style-type: disc;
-  padding-left: 20px;
-  color: var(--bs-gray-700);
+/* Content Section (reused from previous detail page CSS) */
+.service-content-section {
+    background-color: var(--cf-white);
+    padding-top: 60px;
+    padding-bottom: 60px;
 }
 
-.ai-page ul li {
-  margin-bottom: 8px;
+.service-detail-content h2,
+.service-detail-offerings h2 {
+    color: var(--cf-primary-dark-teal);
+    font-size: 2.5em;
+    margin-bottom: 25px;
+    font-weight: 700;
 }
 
-.ai-page .img-fluid {
-  border: 1px solid var(--bs-gray-300);
+.service-detail-content h3,
+.service-detail-offerings h3 {
+    color: var(--cf-secondary-teal);
+    font-size: 1.8em;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.service-detail-content p,
+.service-detail-offerings p {
+    color: #555;
+    line-height: 1.7;
+    margin-bottom: 15px;
+    font-size: 1em;
+}
+
+.service-detail-content ul,
+.service-detail-offerings ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+.service-detail-content ul li,
+.service-detail-offerings ul li {
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 10px;
+    color: #444;
+    line-height: 1.5;
+    font-size: 1em;
+}
+
+.service-detail-content ul li::before,
+.service-detail-offerings ul li::before {
+    content: '\f058'; /* Font Awesome check-circle icon */
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    color: var(--cf-secondary-teal);
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 1.1em;
+}
+
+.service-detail-content .note {
+    font-style: italic;
+    font-size: 0.9em;
+    color: var(--cf-info); /* Using info color for notes */
+    margin-top: 20px;
+    margin-bottom: 0; /* Remove bottom margin if last element */
+}
+
+.service-detail-image-container {
+    padding: 20px;
+}
+
+.service-detail-image-container img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+/* Call to Action Section (reused from previous detail page CSS) */
+.service-detail-cta-section {
+    background-color: var(--cf-primary-dark-teal);
+    color: var(--cf-white);
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+.service-detail-cta-section .cta-title {
+    font-size: 2.5em;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.service-detail-cta-section .cta-description {
+    font-size: 1.1em;
+    line-height: 1.6;
+    max-width: 700px;
+    margin: 0 auto 30px auto;
+    color: rgba(255,255,255,0.85);
+}
+
+.service-detail-cta-section .cta-button {
+    background-color: var(--cf-secondary-teal);
+    color: var(--cf-white) !important;
+    border: 2px solid var(--cf-secondary-teal);
+    border-radius: 5px;
+    padding: 12px 35px;
+    font-size: 1.1em;
+    font-weight: 700;
+    transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
+}
+
+.service-detail-cta-section .cta-button:hover {
+    background-color: var(--cf-primary-dark-teal);
+    border-color: var(--cf-secondary-teal);
+    transform: translateY(-3px);
+}
+
+
+/* Responsive adjustments (reused from previous detail page CSS) */
+@media (max-width: 991.98px) { /* Medium devices */
+    .service-detail-headline {
+        font-size: 2.8em;
+    }
+    .service-detail-intro {
+        font-size: 1.1em;
+    }
+    .service-detail-content h2, .service-detail-offerings h2 {
+        font-size: 2em;
+    }
+    .service-detail-content h3, .service-detail-offerings h3 {
+        font-size: 1.6em;
+    }
+    .service-content-section .row {
+        flex-direction: column; /* Stack content and image */
+    }
+    .service-detail-image-container {
+        order: 1; /* Image on top */
+        margin-bottom: 30px;
+    }
+    .service-detail-content, .service-detail-offerings {
+        order: 2; /* Content below */
+    }
+    .service-detail-cta-section .cta-title {
+        font-size: 2.2em;
+    }
+}
+
+@media (max-width: 767.98px) { /* Small devices */
+    .service-hero-ai,
+    .service-content-section,
+    .service-detail-cta-section {
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+    .service-detail-headline {
+        font-size: 2.2em;
+    }
+    .service-detail-intro {
+        font-size: 1em;
+    }
+    .service-detail-content h2, .service-detail-offerings h2 {
+        font-size: 1.8em;
+    }
+    .service-detail-content h3, .service-detail-offerings h3 {
+        font-size: 1.4em;
+    }
+    .service-detail-cta-section .cta-title {
+        font-size: 1.8em;
+    }
+    .service-detail-cta-section .cta-button {
+        padding: 10px 25px;
+        font-size: 1em;
+    }
 }

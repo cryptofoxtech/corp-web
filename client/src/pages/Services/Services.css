@@ -1,145 +1,194 @@
 /* client/src/pages/Services/Services.css */
 
-.services-page {
-  padding: 40px 0 80px 0; /* Vertical padding for the entire page content */
+.services-page-wrapper {
+    min-height: calc(100vh - var(--header-height) - var(--footer-height)); /* Ensure it fills viewport height */
+    display: flex;
+    flex-direction: column;
 }
 
-.services-page h1 {
-  text-align: center;
-  margin-bottom: 20px;
-  color: var(--bs-primary);
+.services-main-content {
+    flex-grow: 1;
 }
 
-.services-page .page-intro {
-  text-align: center;
-  font-size: 1.2rem;
-  max-width: 800px;
-  margin: 0 auto 50px auto;
-  color: var(--bs-secondary);
+/* Hero Section */
+.services-hero {
+    background-color: var(--cf-primary-dark-teal); /* Dark teal background */
+    color: var(--cf-white); /* White text */
+    padding-top: 80px; /* More padding for hero */
+    padding-bottom: 80px;
 }
 
-.service-section {
-  display: flex;
-  flex-direction: row; /* Default: image left, content right */
-  align-items: center;
-  margin-bottom: 60px;
-  padding: 30px;
-  background-color: var(--bs-white);
-  border-radius: 8px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-}
-
-.service-section.even-section {
-  flex-direction: row-reverse; /* For alternating layout: image right, content left */
-}
-
-.service-section .service-content {
-  flex: 1;
-  padding: 0 30px;
-}
-
-.service-section .service-image {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-width: 400px; /* Minimum width for image before wrapping */
-}
-
-.service-section .service-image img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
-
-.service-section h2 {
-  color: var(--bs-dark);
-  font-size: 2.2rem;
-  margin-bottom: 1.5rem;
-}
-
-.service-section h3 {
-  color: var(--bs-primary);
-  font-size: 1.5rem;
-  margin-top: 2rem;
-  margin-bottom: 1rem;
-}
-
-.service-section p {
-  line-height: 1.8;
-  margin-bottom: 1rem;
-  color: var(--bs-dark);
-}
-
-.service-section ul {
-  list-style: none;
-  padding: 0;
-  margin-bottom: 1.5rem;
-}
-
-.service-section ul li {
-  position: relative;
-  padding-left: 25px;
-  margin-bottom: 10px;
-  color: var(--bs-secondary);
-}
-
-.service-section ul li::before {
-  content: '\2022'; /* Bullet point character */
-  color: var(--bs-primary); /* Primary color for bullet */
-  font-weight: bold;
-  display: inline-block;
-  width: 1em;
-  margin-left: -1em;
-  position: absolute;
-  left: 0;
-  top: 0;
-}
-
-.service-section .note {
-  font-style: italic;
-  font-size: 0.9em;
-  color: var(--bs-info);
-  margin-top: 20px;
-}
-
-
-/* Responsive adjustments for Services page */
-@media (max-width: 992px) {
-  .service-section, .service-section.even-section {
-    flex-direction: column; /* Stack content and image vertically */
-    padding: 20px;
-  }
-  .service-section .service-content {
-    padding: 0; /* Remove horizontal padding when stacked */
-    order: 2; /* Content below image by default */
-  }
-  .service-section.even-section .service-content {
-      order: 2; /* Content below image for even sections too */
-  }
-  .service-section .service-image {
-    min-width: unset; /* Remove min-width */
-    width: 100%; /* Take full width */
-    order: 1; /* Image above content by default */
+.services-headline {
+    font-size: 3.5em; /* Larger headline */
     margin-bottom: 20px;
-  }
-  .service-section .service-image img {
-      max-width: 90%; /* Adjust image size for smaller screens */
-  }
+    font-weight: 700;
 }
 
-@media (max-width: 576px) {
-  .services-page h1 {
-    font-size: 2rem;
-  }
-  .services-page .page-intro {
-    font-size: 1rem;
-  }
-  .service-section h2 {
-    font-size: 1.8rem;
-  }
-  .service-section h3 {
-    font-size: 1.3rem;
-  }
+.services-intro {
+    font-size: 1.3em;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto;
+    color: rgba(255,255,255,0.85); /* Slightly muted white */
+}
+
+/* Services Grid Section */
+.services-grid-section {
+    background-color: var(--cf-light-blue-green); /* Light background for service cards */
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+.services-grid-section .section-title {
+    color: var(--cf-primary-dark-teal); /* Dark teal for section titles */
+    font-size: 2.5em;
+    font-weight: 700;
+    margin-bottom: 40px;
+}
+
+.service-card {
+    border: none; /* Remove default card border */
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1); /* Soft shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15); /* More prominent shadow on hover */
+}
+
+.service-card-image {
+    height: 180px; /* Fixed height for consistent card images */
+    object-fit: cover; /* Cover the area, cropping if necessary */
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.service-icon {
+    font-size: 3.5em; /* Large icons */
+    color: var(--cf-secondary-teal); /* Brighter teal for icons */
+    margin-bottom: 20px;
+}
+
+.service-card-title {
+    color: var(--cf-primary-dark-teal); /* Dark teal for card titles */
+    font-size: 1.6em;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.service-card-description {
+    color: #666;
+    font-size: 0.95em;
+    line-height: 1.6;
+    flex-grow: 1; /* Allows text to take available space before button */
+    margin-bottom: 20px;
+}
+
+.service-learn-more-btn {
+    background-color: var(--cf-secondary-teal); /* Brighter teal for button */
+    color: var(--cf-white) !important; /* Ensure white text */
+    border: none;
+    border-radius: 5px;
+    padding: 10px 25px;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.service-learn-more-btn:hover {
+    background-color: var(--cf-primary-dark-teal); /* Darker teal on hover */
+    transform: translateY(-2px);
+}
+
+/* Call to Action Section */
+.services-cta-section {
+    background-color: var(--cf-primary-dark-teal); /* Dark teal background */
+    color: var(--cf-white);
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+.cta-title {
+    font-size: 2.8em;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.cta-description {
+    font-size: 1.2em;
+    line-height: 1.6;
+    max-width: 700px;
+    margin: 0 auto 40px auto;
+    color: rgba(255,255,255,0.85);
+}
+
+.cta-button {
+    background-color: var(--cf-secondary-teal); /* Brighter teal for CTA button */
+    color: var(--cf-white) !important;
+    border: 2px solid var(--cf-secondary-teal); /* Solid border matching color */
+    border-radius: 5px;
+    padding: 15px 40px;
+    font-size: 1.2em;
+    font-weight: 700;
+    transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
+}
+
+.cta-button:hover {
+    background-color: var(--cf-primary-dark-teal); /* Darker teal on hover */
+    border-color: var(--cf-secondary-teal); /* Keep border consistent or change slightly */
+    transform: translateY(-3px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 991.98px) { /* Medium devices */
+    .services-headline {
+        font-size: 3em;
+    }
+    .services-intro {
+        font-size: 1.1em;
+    }
+    .services-grid-section .section-title {
+        font-size: 2.2em;
+    }
+    .service-card-title {
+        font-size: 1.4em;
+    }
+    .service-icon {
+        font-size: 3em;
+    }
+    .cta-title {
+        font-size: 2.4em;
+    }
+}
+
+@media (max-width: 767.98px) { /* Small devices */
+    .services-hero,
+    .services-grid-section,
+    .services-cta-section {
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+    .services-headline {
+        font-size: 2.5em;
+    }
+    .services-intro {
+        font-size: 1em;
+    }
+    .services-grid-section .section-title {
+        font-size: 2em;
+    }
+    .service-card-title {
+        font-size: 1.2em;
+    }
+    .service-icon {
+        font-size: 2.8em;
+    }
+    .cta-title {
+        font-size: 2em;
+    }
+    .cta-button {
+        padding: 12px 30px;
+        font-size: 1.1em;
+    }
 }
