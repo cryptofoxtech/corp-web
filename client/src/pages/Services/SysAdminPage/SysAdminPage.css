@@ -1,5 +1,6 @@
-/* client/src/pages/Services/DevOpsPage/DevOpsPage.css */
+/* client/src/pages/Services/SysAdminPage/SysAdminPage.css */
 
+/* Reusing general service detail page wrapper and main content styles */
 .service-detail-page-wrapper {
     min-height: calc(100vh - var(--header-height) - var(--footer-height));
     display: flex;
@@ -10,10 +11,10 @@
     flex-grow: 1;
 }
 
-/* Hero Section Specific to DevOps */
-.service-hero-devops {
-    background-color: var(--cf-primary-dark-teal); /* Dark teal background */
-    color: var(--cf-white); /* White text */
+/* Hero Section Specific to System Administration */
+.service-hero-sysadmin {
+    background-color: var(--cf-primary-dark-teal); /* Consistent hero background */
+    color: var(--cf-white);
     padding-top: 80px;
     padding-bottom: 80px;
 }
@@ -32,9 +33,9 @@
     color: rgba(255,255,255,0.85);
 }
 
-/* Content Section (reused for all detail pages) */
+/* Content Section (reused from previous detail page CSS) */
 .service-content-section {
-    background-color: var(--cf-white); /* White background for content */
+    background-color: var(--cf-white);
     padding-top: 60px;
     padding-bottom: 60px;
 }
@@ -49,7 +50,7 @@
 
 .service-detail-content h3,
 .service-detail-offerings h3 {
-    color: var(--cf-secondary-teal); /* Brighter teal for subheadings */
+    color: var(--cf-secondary-teal);
     font-size: 1.8em;
     margin-top: 30px;
     margin-bottom: 15px;
@@ -74,7 +75,7 @@
 .service-detail-content ul li,
 .service-detail-offerings ul li {
     position: relative;
-    padding-left: 30px; /* Space for icon */
+    padding-left: 30px;
     margin-bottom: 10px;
     color: #444;
     line-height: 1.5;
@@ -83,10 +84,10 @@
 
 .service-detail-content ul li::before,
 .service-detail-offerings ul li::before {
-    content: '\f058'; /* Font Awesome check-circle icon (make sure Font Awesome is loaded) */
-    font-family: 'Font Awesome 5 Free'; /* Specify font family for icon */
-    font-weight: 900; /* Solid icon */
-    color: var(--cf-secondary-teal); /* Primary color for icon */
+    content: '\f058'; /* Font Awesome check-circle icon */
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    color: var(--cf-secondary-teal);
     position: absolute;
     left: 0;
     top: 0;
@@ -94,7 +95,7 @@
 }
 
 .service-detail-image-container {
-    padding: 20px; /* Padding around image */
+    padding: 20px;
 }
 
 .service-detail-image-container img {
@@ -102,10 +103,10 @@
     height: auto;
     object-fit: cover;
     border-radius: 10px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.15); /* More prominent shadow for main images */
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
 }
 
-/* Call to Action Section (reused from landing page) */
+/* Call to Action Section (reused from previous detail page CSS) */
 .service-detail-cta-section {
     background-color: var(--cf-primary-dark-teal);
     color: var(--cf-white);
@@ -145,7 +146,7 @@
 }
 
 
-/* Responsive adjustments */
+/* Responsive adjustments (reused from previous detail page CSS) */
 @media (max-width: 991.98px) { /* Medium devices */
     .service-detail-headline {
         font-size: 2.8em;
@@ -175,7 +176,7 @@
 }
 
 @media (max-width: 767.98px) { /* Small devices */
-    .service-hero-devops,
+    .service-hero-sysadmin,
     .service-content-section,
     .service-detail-cta-section {
         padding-top: 40px;
