@@ -1,55 +1,32 @@
 /* client/src/index.css */
 
-/* In client/src/index.css or client/src/App.css */
-
+/* --- GLOBAL CSS VARIABLES (Color Palette) --- */
+/* These variables are defined once and can be used throughout your application's CSS */
 :root {
-  /* Cryptofox Primary Colors */
-  --cf-primary-dark-teal: #004d40; /* Our darkest teal for strong elements */
-  --cf-secondary-teal: #00796b; /* A brighter teal for accents and hover */
-  --cf-light-blue-green: #e0f7fa; /* Light background for sections */
-  --cf-white: #ffffff; /* Explicit white */
-  --cf-black: #000000; /* Explicit black */
+    /* Primary Colors */
+    --cf-primary-dark-teal: #004d40;
+    --cf-secondary-teal: #26a69a; /* Used for bright teal, buttons, interactive elements */
 
-  /* Potentially map them to Bootstrap variables if you want to use them consistently */
-  --bs-primary: var(--cf-secondary-teal); /* Example: Bootstrap primary uses our secondary teal */
-  --bs-success: var(--cf-secondary-teal); /* Example: Phone number might use this */
-  --bs-danger: #e74c3c; /* Example: A strong accent color for buttons like "Get a Quote" */
-  --bs-danger-hover: #c0392b; /* Darker shade for hover */
-  --bs-white: var(--cf-white); /* Ensure Bootstrap's white is our white */
-  --bs-dark: #343a40; /* Bootstrap's dark is a good default for text */
-  --bs-body-color: var(--bs-dark); /* Default text color */
+    /* Accent Colors */
+    --cf-accent-warm-gold: #ffb300;
+    --cf-accent-soft-coral: #ff7043;
+
+    /* Neutral Colors */
+    --cf-neutral-light-mint: #b2dfdb;
+    --cf-neutral-charcoal: #263238;
+    --cf-neutral-light-gray: #f5f5f5;
+    --cf-white: #ffffff;
+
+    /* Support Colors (use sparingly for highlights) */
+    --cf-support-slate-blue: #1976d2;
+    --cf-support-soft-purple: #7e57c2;
+
+    /* Global layout variables (adjust these values based on your Header/Footer's actual heights) */
+    --header-height: 80px; /* Example: If your Header is 80px tall */
+    --footer-height: 60px; /* Example: If your Footer is 60px tall */
 }
 
-body {
-  font-family: 'Arial', sans-serif; /* Example font */
-  color: var(--bs-body-color);
-  background-color: #f0f0f0; /* Overall site background */
-}
-
-/* Any other global styles */
-
-/* Global styles and custom Bootstrap variable overrides */
-
-:root {
-  /* Define your custom theme colors here */
-  --bs-primary: #2A52BE;   /* A nice corporate blue, replaces Bootstrap's default blue */
-  --bs-secondary: #6c757d; /* Standard grey, you can change this */
-  --bs-success: #28a745;   /* Standard green */
-  --bs-info: #17a2b8;      /* Standard cyan */
-  --bs-warning: #ffc107;   /* Standard yellow */
-  --bs-danger: #D62828;    /* Your chosen red for "Get a Quote" */
-  --bs-light: #f8f9fa;     /* Standard light grey */
-  --bs-dark: #343a40;      /* Standard dark grey */
-
-  /* Additional Bootstrap variables you might want to customize */
-  --bs-body-bg: #fff; /* Main background color for the page body */
-  --bs-body-color: #212529; /* Default text color */
-
-  /* You can also define custom shades */
-  --bs-primary-hover: #357bd1; /* Slightly darker primary for hover states */
-  --bs-danger-hover: #c02323; /* Slightly darker danger for hover states */
-}
-
+/* Base global styles (typically present in index.css) */
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -57,8 +34,10 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: var(--bs-body-bg); /* Use the global body background */
-  color: var(--bs-body-color); /* Use the global body text color */
+  
+  /* Apply default text and background colors from your new palette */
+  color: var(--cf-neutral-charcoal);
+  background-color: var(--cf-white);
 }
 
 code {
@@ -66,13 +45,8 @@ code {
     monospace;
 }
 
-/* Ensure the container class is still effective */
-.container {
-  max-width: 1200px; /* Or whatever you prefer */
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 15px;
-  padding-right: 15px;
-}
-
-/* Any other global styles you might have */
+/*
+   If you are including Font Awesome via an NPM package (e.g., @fortawesome/fontawesome-svg-core),
+   you might need specific imports here or in App.js based on their documentation.
+   If you are using a CDN link in public/index.html, no further CSS import is strictly needed here for the icons.
+*/

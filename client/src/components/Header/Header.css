@@ -1,173 +1,85 @@
 /* client/src/components/Header/Header.css */
 
-.cryptofox-navbar {
-  background-color: var(--cf-primary-dark-teal); /* Changed to your darkest teal */
-  box-shadow: 0 2px 4px rgba(0,0,0,.1);
-  padding: 1rem 0;
-  position: sticky;
-  top: 0;
-  z-index: 1020;
-  width: 100%;
+.navbar {
+    background-color: var(--cf-primary-dark-teal); /* Deep Teal background for the header */
+    padding: 15px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.cryptofox-brand {
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  color: var(--cf-white); /* Changed to white for better contrast on dark teal */
+.navbar-brand img {
+    height: 40px; /* Adjust as needed for your logo size */
+    margin-right: 10px;
 }
 
-.cryptofox-logo {
-  max-height: 50px;
-  width: auto;
-  margin-right: 10px;
-  vertical-align: middle;
-  /* If your logo is dark and needs to be white on a dark background: */
-  /* filter: brightness(0) invert(1); */
+.navbar-brand span {
+    color: var(--cf-white); /* White text for brand name */
+    font-size: 1.5rem;
+    font-weight: 700;
 }
 
-.cryptofox-company-name {
-  font-size: 1.25rem;
-  font-weight: bold;
-  color: var(--cf-white); /* Changed to white for better contrast */
-  white-space: nowrap;
+.nav-link {
+    color: var(--cf-white) !important; /* White text for main nav links */
+    font-weight: 500;
+    margin-right: 15px;
+    transition: color 0.3s ease;
 }
 
-/* Default Nav.Link styling */
-.navbar-nav .nav-link {
-  color: var(--cf-light-blue-green); /* Changed to a lighter shade for links */
-  padding: 0.5rem 1rem;
-  font-weight: 500;
-  transition: color 0.3s ease, transform 0.2s ease;
+.nav-link:hover {
+    color: var(--cf-secondary-teal) !important; /* Bright Teal on hover */
 }
 
-.navbar-nav .nav-link:hover {
-  color: var(--cf-white); /* Links turn pure white on hover */
-  transform: translateY(-2px);
-}
-
-/* Active Nav.Link styling */
-.navbar-nav .nav-link.active {
-  color: var(--cf-white); /* Active link is pure white */
-  font-weight: 600;
-  /* Optional: Add a bottom border for active link */
-  border-bottom: 2px solid var(--cf-secondary-teal); /* Accent color for active */
-}
-
-/* Specific styling for the phone number */
-.navbar-nav .phone-number {
-  color: var(--cf-light-blue-green); /* Changed to lighter color for phone */
-  font-weight: bold;
-  display: flex;
-  align-items: center;
-  transition: color 0.3s ease;
-}
-.navbar-nav .phone-number:hover {
-  color: var(--cf-white); /* Phone number turns white on hover */
-}
-
-/* Styling for the "Get a Quote" button in the header */
-.navbar-nav .get-a-quote-btn {
-  background-color: var(--cf-secondary-teal); /* Changed to your secondary teal */
-  color: var(--cf-white) !important;
-  border-radius: 0.3rem;
-  padding: 0.5rem 1.25rem;
-  margin-left: 15px;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-  border: 1px solid var(--cf-secondary-teal);
-  text-decoration: none !important;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.navbar-nav .get-a-quote-btn:hover {
-  background-color: var(--cf-primary-dark-teal); /* Darker teal on hover */
-  transform: translateY(-1px);
-  border-color: var(--cf-primary-dark-teal);
-}
-
-/* NavDropdown styling (for Services dropdown) */
-.navbar-nav .dropdown-toggle {
-  color: var(--cf-light-blue-green); /* Changed to lighter color */
-  padding: 0.5rem 1rem;
-  font-weight: 500;
-  transition: color 0.3s ease;
-}
-.navbar-nav .dropdown-toggle::after {
-  vertical-align: middle;
-}
-.navbar-nav .dropdown-toggle:hover {
-  color: var(--cf-white); /* White on hover */
-}
-
+/* --- Dropdown Specific Styles --- */
 .dropdown-menu {
-  background-color: var(--cf-primary-dark-teal); /* Dark teal background for dropdown menu */
-  border: 1px solid rgba(255,255,255,.1); /* Lighter border */
-  box-shadow: 0 0.5rem 1rem rgba(0,0,0,.175);
+    background-color: var(--cf-white) !important; /* White background for dropdown */
+    border: 1px solid var(--cf-neutral-light-gray); /* Light gray border */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    padding: 10px 0;
 }
 
 .dropdown-item {
-  color: var(--cf-light-blue-green); /* Lighter text for dropdown items */
-  font-weight: 400;
-  padding: 0.5rem 1rem;
+    color: var(--cf-neutral-charcoal) !important; /* Charcoal text for dropdown items */
+    padding: 10px 20px;
+    font-weight: 400;
+    transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .dropdown-item:hover,
-.dropdown-item.active {
-  background-color: var(--cf-secondary-teal); /* Accent color on hover/active */
-  color: var(--cf-white); /* White text on hover/active */
+.dropdown-item:focus {
+    background-color: var(--cf-neutral-light-mint) !important; /* Light Mint on hover/focus */
+    color: var(--cf-primary-dark-teal) !important; /* Deep Teal text on hover */
 }
 
-
-/* Responsive adjustments for the Navbar */
-@media (max-width: 991.98px) {
-  .navbar-collapse {
-    background-color: var(--cf-primary-dark-teal); /* Dark teal background for collapsed menu */
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    padding: 1rem;
-    box-shadow: 0 4px 8px rgba(0,0,0,.1);
-    z-index: 1000;
-    border-top: 1px solid rgba(255,255,255,.1); /* Lighter border */
-  }
-
-  .navbar-nav {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .navbar-nav .nav-link,
-  .navbar-nav .dropdown-toggle {
-    width: 100%;
-    text-align: left;
-    padding: 0.75rem 1rem;
-  }
-
-  .navbar-nav .get-a-quote-btn {
-    margin-left: 0;
-    margin-top: 15px;
-    width: auto;
-    min-width: 150px;
-  }
-
-  .dropdown-menu.show {
-    position: static !important;
-    float: none;
-    width: 100%;
-    margin-top: 0;
+/* --- Get a Quote Button in Header --- */
+/* --- Get a Quote Button in Header --- */
+.btn-get-quote {
+    background-color: var(--cf-secondary-teal) !important; /* ADDED !important HERE */
+    color: var(--cf-white) !important;
     border: none;
-    box-shadow: none;
-  }
+    border-radius: 5px;
+    padding: 8px 20px;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-@media (max-width: 575.98px) {
-  .cryptofox-company-name {
-    font-size: 1rem;
-  }
-  .cryptofox-logo {
-    max-height: 45px;
-  }
+.btn-get-quote:hover {
+    background-color: var(--cf-accent-soft-coral) !important; /* ADDED !important HERE */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive adjustments */
+@media (max-width: 991.98px) {
+    .navbar-collapse {
+        background-color: var(--cf-primary-dark-teal); /* Dark Teal for collapsed menu background */
+        padding: 15px;
+    }
+    .nav-link {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .btn-get-quote {
+        width: 100%;
+        margin-top: 15px;
+    }
 }
