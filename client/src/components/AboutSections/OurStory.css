@@ -3,7 +3,8 @@
 .our-story-section {
     padding: 60px 20px;
     text-align: center;
-    background-color: #f9f9f9; /* Light background */
+    background-color: var(--cf-neutral-light-gray); /* Light gray background */
+    font-family: var(--cf-font-body); /* Apply body font to the entire section */
 }
 
 .our-story-section .container {
@@ -13,17 +14,36 @@
 }
 
 .section-headline {
-    font-size: 2.5em;
-    color: #004d40;
+    font-size: var(--cf-font-size-xxl); /* Using a larger font size variable for main section headlines */
+    font-family: var(--cf-font-heading); /* Ensuring heading font */
+    font-weight: 700; /* Bold weight */
+    color: var(--cf-primary-dark-teal); /* Dark Teal */
     margin-bottom: 30px;
 }
 
 .section-paragraph {
-    font-size: 1.1em;
-    line-height: 1.8;
-    color: #555;
+    font-size: var(--cf-font-size-base); /* Using base font size variable */
+    line-height: 1.8; /* Good line height for readability */
+    color: var(--cf-neutral-charcoal); /* Charcoal gray for paragraph text */
 }
 
 .section-paragraph strong {
-    color: #00796b; /* Highlight important terms */
+    color: var(--cf-secondary-teal); /* Bright Teal to highlight important terms */
+    font-weight: 600; /* Semi-bold for strong text */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .section-headline {
+        font-size: var(--cf-font-size-xl); /* Adjust for smaller screens */
+    }
+    .our-story-section {
+        padding: 40px 15px; /* Adjust padding for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .section-headline {
+        font-size: var(--cf-font-size-lg); /* Further adjust for very small screens */
+    }
 }

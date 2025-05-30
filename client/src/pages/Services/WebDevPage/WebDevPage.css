@@ -2,13 +2,17 @@
 
 /* Reusing general service detail page wrapper and main content styles */
 .service-detail-page-wrapper {
-    min-height: calc(100vh - var(--header-height) - var(--footer-height));
+    min-height: calc(100vh - var(--cf-header-height) - var(--cf-footer-height));
     display: flex;
     flex-direction: column;
+    font-family: var(--cf-font-body); /* Apply body font to the entire page */
+    color: var(--cf-neutral-charcoal); /* Default text color for the page */
 }
 
 .service-detail-main-content {
     flex-grow: 1;
+    background-color: var(--cf-neutral-light-gray); /* Ensures the background is consistent */
+    padding: 0 20px; /* Add horizontal padding for general content areas */
 }
 
 /* Hero Section Specific to Web Development */
@@ -17,20 +21,22 @@
     color: var(--cf-white);
     padding-top: 80px;
     padding-bottom: 80px;
+    text-align: center; /* Center content in hero */
 }
 
 .service-detail-headline {
-    font-size: 3.2em;
+    font-size: var(--cf-font-size-xxxxl); /* Using XXXXL for main heading (approx 3.2rem) */
     margin-bottom: 20px;
     font-weight: 700;
+    font-family: var(--cf-font-heading); /* Ensure heading font */
 }
 
 .service-detail-intro {
-    font-size: 1.2em;
+    font-size: var(--cf-font-size-lg); /* Using large font size (approx 1.2rem) */
     line-height: 1.6;
     max-width: 800px;
     margin: 0 auto;
-    color: rgba(255,255,255,0.85);
+    color: var(--cf-white-alpha-85); /* Using defined variable */
 }
 
 /* Content Section (reused from previous detail page CSS) */
@@ -43,26 +49,28 @@
 .service-detail-content h2,
 .service-detail-offerings h2 {
     color: var(--cf-primary-dark-teal);
-    font-size: 2.5em;
+    font-size: var(--cf-font-size-xxxl); /* Using XXXL (approx 2.5rem) */
     margin-bottom: 25px;
     font-weight: 700;
+    font-family: var(--cf-font-heading); /* Ensure heading font */
 }
 
 .service-detail-content h3,
 .service-detail-offerings h3 {
     color: var(--cf-secondary-teal);
-    font-size: 1.8em;
+    font-size: var(--cf-font-size-xxl); /* Using XXL (approx 1.8rem) */
     margin-top: 30px;
     margin-bottom: 15px;
     font-weight: 600;
+    font-family: var(--cf-font-heading); /* Ensure heading font */
 }
 
 .service-detail-content p,
 .service-detail-offerings p {
-    color: #555;
+    color: var(--cf-neutral-dark-gray); /* Using charcoal for general text */
     line-height: 1.7;
     margin-bottom: 15px;
-    font-size: 1em;
+    font-size: var(--cf-font-size-base); /* Base font size */
 }
 
 .service-detail-content ul,
@@ -77,9 +85,9 @@
     position: relative;
     padding-left: 30px;
     margin-bottom: 10px;
-    color: #444;
+    color: var(--cf-neutral-charcoal); /* Using charcoal for list items */
     line-height: 1.5;
-    font-size: 1em;
+    font-size: var(--cf-font-size-base); /* Base font size */
 }
 
 .service-detail-content ul li::before,
@@ -91,7 +99,7 @@
     position: absolute;
     left: 0;
     top: 0;
-    font-size: 1.1em;
+    font-size: var(--cf-font-size-md); /* Using medium font size for icons */
 }
 
 .service-detail-image-container {
@@ -103,7 +111,7 @@
     height: auto;
     object-fit: cover;
     border-radius: 10px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    box-shadow: 0 8px 25px var(--cf-shadow-color-medium); /* Using medium shadow variable */
 }
 
 /* Call to Action Section (reused from previous detail page CSS) */
@@ -112,20 +120,22 @@
     color: var(--cf-white);
     padding-top: 60px;
     padding-bottom: 60px;
+    text-align: center; /* Center content in CTA */
 }
 
 .service-detail-cta-section .cta-title {
-    font-size: 2.5em;
+    font-size: var(--cf-font-size-xxxl); /* Using XXXL (approx 2.5rem) */
     font-weight: 700;
     margin-bottom: 20px;
+    font-family: var(--cf-font-heading); /* Ensure heading font */
 }
 
 .service-detail-cta-section .cta-description {
-    font-size: 1.1em;
+    font-size: var(--cf-font-size-lg); /* Using large font size (approx 1.1rem) */
     line-height: 1.6;
     max-width: 700px;
     margin: 0 auto 30px auto;
-    color: rgba(255,255,255,0.85);
+    color: var(--cf-white-alpha-85); /* Using defined variable */
 }
 
 .service-detail-cta-section .cta-button {
@@ -134,31 +144,34 @@
     border: 2px solid var(--cf-secondary-teal);
     border-radius: 5px;
     padding: 12px 35px;
-    font-size: 1.1em;
+    font-size: var(--cf-font-size-md); /* Using medium font size (approx 1.1rem) */
     font-weight: 700;
-    transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
+    transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    text-decoration: none; /* Remove underline */
+    display: inline-block; /* Ensure padding and sizing */
 }
 
 .service-detail-cta-section .cta-button:hover {
     background-color: var(--cf-primary-dark-teal);
     border-color: var(--cf-secondary-teal);
     transform: translateY(-3px);
+    box-shadow: 0 4px 8px var(--cf-shadow-color-strong); /* Using strong shadow variable */
 }
 
 
 /* Responsive adjustments (reused from previous detail page CSS) */
 @media (max-width: 991.98px) { /* Medium devices */
     .service-detail-headline {
-        font-size: 2.8em;
+        font-size: var(--cf-font-size-xxl); /* Adjust to XXL */
     }
     .service-detail-intro {
-        font-size: 1.1em;
+        font-size: var(--cf-font-size-base); /* Adjust to base */
     }
     .service-detail-content h2, .service-detail-offerings h2 {
-        font-size: 2em;
+        font-size: var(--cf-font-size-xl); /* Adjust to XL */
     }
     .service-detail-content h3, .service-detail-offerings h3 {
-        font-size: 1.6em;
+        font-size: var(--cf-font-size-lg); /* Adjust to LG */
     }
     .service-content-section .row {
         flex-direction: column; /* Stack content and image */
@@ -171,7 +184,7 @@
         order: 2; /* Content below */
     }
     .service-detail-cta-section .cta-title {
-        font-size: 2.2em;
+        font-size: var(--cf-font-size-xxl); /* Adjust to XXL */
     }
 }
 
@@ -183,22 +196,22 @@
         padding-bottom: 40px;
     }
     .service-detail-headline {
-        font-size: 2.2em;
+        font-size: var(--cf-font-size-xl); /* Adjust to XL */
     }
     .service-detail-intro {
-        font-size: 1em;
+        font-size: var(--cf-font-size-sm); /* Adjust to small */
     }
     .service-detail-content h2, .service-detail-offerings h2 {
-        font-size: 1.8em;
+        font-size: var(--cf-font-size-lg); /* Adjust to LG */
     }
     .service-detail-content h3, .service-detail-offerings h3 {
-        font-size: 1.4em;
+        font-size: var(--cf-font-size-base); /* Adjust to base */
     }
     .service-detail-cta-section .cta-title {
-        font-size: 1.8em;
+        font-size: var(--cf-font-size-lg); /* Adjust to LG */
     }
     .service-detail-cta-section .cta-button {
         padding: 10px 25px;
-        font-size: 1em;
+        font-size: var(--cf-font-size-base); /* Adjust to base */
     }
 }

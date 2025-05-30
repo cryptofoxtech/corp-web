@@ -1,15 +1,13 @@
 /* client/src/App.css */
 
-.App {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh; /* Ensure the app takes at least the full viewport height */
-}
+/* Styles for the main content area to clear the fixed header */
+.app-main-content {
+    /* This padding pushes the main content down to clear the fixed header. */
+    /* It uses the header height variable defined in index.css. */
+    padding-top: var(--cf-header-height);
 
-main {
-  flex: 1; /* This makes the <main> content area grow and push the footer down */
-  padding-top: 20px; /* Adjust this if your header becomes fixed or taller */
-  padding-bottom: 20px; /* Adjust this if your footer becomes fixed or taller */
+    /* These are good default layout properties for the main content area */
+    flex-grow: 1; /* Allows this content to expand and push the footer down */
+    display: flex; /* Often needed for inner layout within main */
+    flex-direction: column; /* To stack content vertically within main */
 }
-
-/* Any other general app layout styles can go here */

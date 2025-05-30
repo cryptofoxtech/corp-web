@@ -4,7 +4,10 @@
     background-color: var(--cf-primary-dark-teal); /* Dark Teal - Primary Theme Color */
     color: var(--cf-white); /* Default text color for the footer */
     padding: 40px 20px;
-    box-shadow: 0 -2px 5px rgba(0,0,0,0.2);
+    /* Consider making a variable for consistent shadows if used across the site */
+    box-shadow: 0 -2px 5px var(--cf-shadow-color-dark); /* Using a new variable for consistency */
+    font-family: var(--cf-font-body); /* Apply body font to the entire footer */
+    font-size: var(--cf-font-size-base); /* Apply base font size */
 }
 
 .cryptofox-footer .container {
@@ -16,13 +19,14 @@
 
 .footer-heading {
     color: var(--cf-secondary-teal); /* Brighter teal for headings */
-    font-size: 1.4em;
+    font-size: var(--cf-font-size-lg); /* Using large font size variable for headings */
     margin-bottom: 20px;
-    font-weight: 600;
+    font-weight: 700; /* Using bold weight from Montserrat, or 600 from Open Sans */
+    font-family: var(--cf-font-heading); /* Apply heading font for consistency */
 }
 
 .footer-text {
-    font-size: 0.95em;
+    font-size: var(--cf-font-size-sm); /* Using small font size variable for footer text */
     line-height: 1.6;
     color: var(--cf-white); /* Pure white for body text */
     margin-bottom: 10px;
@@ -39,11 +43,12 @@
     transition: color 0.3s ease;
     display: inline-block; /* Helps with padding and hover */
     margin-bottom: 8px; /* Space between links */
+    font-size: var(--cf-font-size-sm); /* Apply small font size for links as well */
 }
 
 .footer-link:hover {
     color: var(--cf-secondary-teal); /* Links turn brighter teal on hover */
-    text-decoration: underline;
+    text-decoration: none; /* Removed underline on hover for cleaner look, similar to header */
 }
 
 /* Social Icons */
@@ -55,7 +60,7 @@
 }
 
 .social-icon-link {
-    font-size: 1.8em; /* Size of social icons */
+    font-size: var(--cf-font-size-xl); /* Using XL font size variable for icon size (approx 1.8rem) */
     color: var(--cf-white); /* Pure white for icons */
     transition: color 0.3s ease;
 }
@@ -65,14 +70,15 @@
 }
 
 .footer-divider {
-    border-top: 1px solid rgba(255,255,255,0.2); /* Light transparent white line */
+    /* Using rgba on a pure white for transparency is fine, but could be a variable like --cf-divider-color if needed elsewhere */
+    border-top: 1px solid var(--cf-white-alpha-20); /* Using new alpha-white variable */
     margin-top: 30px;
     margin-bottom: 20px;
 }
 
 .copyright-text {
-    font-size: 0.9em;
-    color: rgba(255,255,255,0.7); /* Slightly muted white for copyright */
+    font-size: var(--cf-font-size-sm); /* Using small font size variable for copyright text */
+    color: var(--cf-white-alpha-70); /* Using new alpha-white variable for copyright text */
     text-align: center; /* Center copyright text */
 }
 

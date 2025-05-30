@@ -18,17 +18,20 @@ import Services from './pages/Services/Services';
 import DevOpsPage from './pages/Services/DevOpsPage/DevOpsPage';
 import CloudPage from './pages/Services/CloudPage/CloudPage';
 import AIPage from './pages/Services/AIPage/AIPage';
-// NEW specific service pages (will be created in next steps)
+// NEW specific service pages
 import WebDevPage from './pages/Services/WebDevPage/WebDevPage';
 import SysAdminPage from './pages/Services/SysAdminPage/SysAdminPage';
 import BlockchainPage from './pages/Services/BlockchainPage/BlockchainPage';
 
+// Import the global App.css - we will create/add to this in the next step
+import './App.css'; // Make sure this import is present
 
 function App() {
   return (
     <Router>
       <Header />
-      <main> {/* The 'main' tag is important for sticky footer */}
+      {/* --- ADDED className="app-main-content" HERE --- */}
+      <main className="app-main-content">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />

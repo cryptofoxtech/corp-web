@@ -1,41 +1,59 @@
 /* client/src/components/HomeSections/HeroSection.css */
 
 .hero-section {
-    background-color: #e0f7fa; /* Light blue */
+    /* Background color will depend on the image and desired overlay effect. */
+    /* If you want a solid color behind the image, use a variable. */
+    /* background-color: var(--cf-neutral-light-mint); */ /* Example: a soft background */
+
     padding: 80px 20px;
     text-align: center;
     display: flex;
     align-items: center;
     justify-content: center;
     min-height: 400px; /* Example min height */
+    /* Assuming background image is applied in HeroSection.js via inline style or directly here */
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    position: relative; /* Needed if you use an overlay (if added back later) */
+    color: var(--cf-white); /* Text color for contrast over image */
 }
 
-.hero-section .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
+/*
+    NOTE: The previous problematic commented-out blocks for ::before and .hero-section .container
+    have been removed entirely to resolve the SyntaxError. If you wish to implement
+    an overlay or specific container styling for the hero section in the future,
+    these styles can be re-added, ensuring correct CSS syntax and comment structure.
+*/
 
 .hero-headline {
-    font-size: 3em;
+    font-size: 3.5rem; /* Using h1 size from index.css for consistency */
+    font-family: var(--cf-font-heading); /* Ensuring heading font */
+    font-weight: 700; /* Bold weight */
     margin-bottom: 20px;
-    color: #00796b; /* Darker blue-green */
+    color: var(--cf-white); /* White for contrast on hero */
     line-height: 1.2;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* Keeping specific text shadow for readability over image */
 }
 
-.cta-button {
-    display: inline-block;
-    background-color: #00796b;
-    color: white;
-    padding: 15px 30px;
-    text-decoration: none;
-    border-radius: 5px;
-    font-size: 1.2em;
-    font-weight: bold;
-    margin-top: 20px;
-    transition: background-color 0.3s ease;
+/*
+    NOTE: The .cta-button styles were replaced by .btn-get-quote from Header.css
+    and have been removed entirely from this file for cleanliness and to avoid conflicts.
+*/
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .hero-headline {
+        font-size: 2.5rem; /* Adjusting font size for smaller screens */
+    }
 }
 
-.cta-button:hover {
-    background-color: #004d40; /* Slightly darker on hover */
+@media (max-width: 480px) {
+    .hero-headline {
+        font-size: 2rem; /* Further adjustment for very small screens */
+    }
+    .hero-section {
+        padding: 60px 15px; /* Adjust padding for smaller screens */
+        min-height: 300px;
+    }
 }

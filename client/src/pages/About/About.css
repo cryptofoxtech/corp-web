@@ -1,75 +1,86 @@
 /* client/src/pages/About/About.css */
 
 .about-page {
-  padding: 40px 0 80px 0; /* Vertical padding for the entire page content */
+    padding: 40px 0 80px 0; /* Vertical padding for the entire page content */
+    font-family: var(--cf-font-body); /* Apply body font to the entire page */
+    color: var(--cf-neutral-charcoal); /* Default text color for the page */
 }
 
 .about-page h1 {
-  text-align: center;
-  margin-bottom: 20px;
-  color: var(--bs-primary);
+    text-align: center;
+    margin-bottom: 20px;
+    color: var(--cf-primary-dark-teal); /* Using Dark Teal for primary headlines */
+    font-family: var(--cf-font-heading); /* Ensuring heading font */
+    font-weight: 700; /* Bold weight */
+    font-size: 3rem; /* Aligned with global h1, adjust if needed */
 }
 
 .about-page .page-intro {
-  text-align: center;
-  font-size: 1.2rem;
-  max-width: 800px;
-  margin: 0 auto 50px auto;
-  color: var(--bs-secondary);
+    text-align: center;
+    font-size: var(--cf-font-size-lg); /* Using large font size variable */
+    max-width: 800px;
+    margin: 0 auto 50px auto;
+    color: var(--cf-neutral-charcoal); /* Using Charcoal for introductory text */
+    line-height: 1.6;
 }
 
 .about-section {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  margin-bottom: 60px;
-  padding: 30px;
-  background-color: var(--bs-white);
-  border-radius: 8px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 60px;
+    padding: 30px;
+    background-color: var(--cf-white); /* White background for sections */
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08); /* Keeping rgba for specific shadow effect */
 }
 
 .about-section.even-section {
-  flex-direction: row-reverse;
+    flex-direction: row-reverse;
 }
 
 .about-section .about-content {
-  flex: 1;
-  padding: 0 30px;
+    flex: 1;
+    padding: 0 30px;
 }
 
 .about-section .about-image {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-width: 400px;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 400px;
 }
 
 .about-section .about-image img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Keeping rgba for specific shadow effect */
 }
 
 .about-section h2 {
-  color: var(--bs-dark);
-  font-size: 2.2rem;
-  margin-bottom: 1.5rem;
+    color: var(--cf-primary-dark-teal); /* Dark Teal for sub-headlines within sections */
+    font-size: var(--cf-font-size-xl); /* Using extra large font size */
+    font-family: var(--cf-font-heading); /* Ensuring heading font */
+    font-weight: 700; /* Bold weight */
+    margin-bottom: 1.5rem;
 }
 
 .about-section h3 {
-  color: var(--bs-primary);
-  font-size: 1.5rem;
-  margin-top: 1rem;
-  margin-bottom: 0.8rem;
+    color: var(--cf-secondary-teal); /* Bright Teal for smaller headings */
+    font-size: var(--cf-font-size-lg); /* Using large font size */
+    font-family: var(--cf-font-heading); /* Ensuring heading font */
+    font-weight: 600; /* Semi-bold weight */
+    margin-top: 1rem;
+    margin-bottom: 0.8rem;
 }
 
 .about-section p {
-  line-height: 1.8;
-  margin-bottom: 1rem;
-  color: var(--bs-dark);
+    line-height: 1.8;
+    margin-bottom: 1rem;
+    color: var(--cf-neutral-charcoal); /* Charcoal for paragraph text */
+    font-size: var(--cf-font-size-base); /* Base font size */
 }
 
 .values-section {
@@ -79,7 +90,10 @@
 
 .values-section h2 {
     margin-bottom: 40px;
-    color: var(--bs-dark);
+    color: var(--cf-primary-dark-teal); /* Dark Teal for values section headline */
+    font-family: var(--cf-font-heading); /* Ensuring heading font */
+    font-weight: 700; /* Bold weight */
+    font-size: var(--cf-font-size-xxl); /* Using extra extra large font size */
 }
 
 .values-grid {
@@ -89,64 +103,75 @@
 }
 
 .value-item {
-    background-color: var(--bs-white);
+    background-color: var(--cf-white); /* White background for value cards */
     padding: 30px;
     border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05); /* Keeping rgba for specific shadow effect */
     text-align: left; /* Align text left within value items */
 }
 
 .value-item h3 {
-    color: var(--bs-info);
-    font-size: 1.6rem;
+    color: var(--cf-accent-soft-coral); /* Soft Coral for value item headings (using cf-info equivalent) */
+    font-size: var(--cf-font-size-lg); /* Using large font size */
+    font-family: var(--cf-font-heading); /* Ensuring heading font */
+    font-weight: 600; /* Semi-bold weight */
     margin-bottom: 15px;
 }
 
 .value-item p {
-    color: var(--bs-secondary);
+    color: var(--cf-neutral-charcoal); /* Charcoal for value item paragraph text (using cf-secondary equivalent) */
     line-height: 1.7;
-    font-size: 0.95rem;
+    font-size: var(--cf-font-size-sm); /* Using small font size */
 }
 
 
 /* Responsive adjustments for About page */
 @media (max-width: 992px) {
-  .about-section, .about-section.even-section {
-    flex-direction: column;
-    padding: 20px;
-  }
-  .about-section .about-content {
-    padding: 0;
-    order: 2;
-  }
-  .about-section.even-section .about-content {
-      order: 2;
-  }
-  .about-section .about-image {
-    min-width: unset;
-    width: 100%;
-    order: 1;
-    margin-bottom: 20px;
-  }
-  .about-section .about-image img {
-      max-width: 90%;
-  }
+    .about-section, .about-section.even-section {
+        flex-direction: column;
+        padding: 20px;
+    }
+    .about-section .about-content {
+        padding: 0;
+        order: 2;
+    }
+    .about-section.even-section .about-content {
+        order: 2;
+    }
+    .about-section .about-image {
+        min-width: unset;
+        width: 100%;
+        order: 1;
+        margin-bottom: 20px;
+    }
+    .about-section .about-image img {
+        max-width: 90%;
+    }
+    .about-page h1 {
+        font-size: 2.5rem; /* Adjust for tablet */
+    }
+    .about-page .page-intro {
+        font-size: var(--cf-font-size-base); /* Adjust for tablet */
+    }
 }
 
 @media (max-width: 576px) {
-  .about-page h1 {
-    font-size: 2rem;
-  }
-  .about-page .page-intro {
-    font-size: 1rem;
-  }
-  .about-section h2 {
-    font-size: 1.8rem;
-  }
-  .about-section h3 {
-    font-size: 1.3rem;
-  }
-  .values-grid {
-    grid-template-columns: 1fr; /* Single column on very small screens */
-  }
+    .about-page h1 {
+        font-size: 2rem;
+    }
+    .about-page .page-intro {
+        font-size: var(--cf-font-size-sm); /* Further adjust for mobile */
+    }
+    .about-section h2 {
+        font-size: var(--cf-font-size-lg); /* Adjust for mobile */
+    }
+    .about-section h3 {
+        font-size: var(--cf-font-size-base); /* Adjust for mobile */
+    }
+    .values-grid {
+        grid-template-columns: 1fr; /* Single column on very small screens */
+    }
+    .values-section h2 {
+        font-size: var(--cf-font-size-xl); /* Adjust for mobile */
+    }
 }

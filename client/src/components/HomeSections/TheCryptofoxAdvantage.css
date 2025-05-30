@@ -3,7 +3,8 @@
 .value-proposition-section {
     padding: 60px 20px;
     text-align: center;
-    background-color: #f9f9f9; /* Light background for contrast */
+    background-color: var(--cf-neutral-light-gray); /* Light gray background for contrast */
+    font-family: var(--cf-font-body); /* Apply body font to the entire section */
 }
 
 .value-proposition-section .container {
@@ -13,16 +14,19 @@
 }
 
 .section-headline {
-    font-size: 2.5em;
-    color: #004d40;
+    font-size: var(--cf-font-size-xxl); /* Using a larger font size variable for main section headlines */
+    font-family: var(--cf-font-heading); /* Ensuring heading font */
+    font-weight: 700; /* Bold weight */
+    color: var(--cf-primary-dark-teal); /* Dark Teal */
     margin-bottom: 40px;
 }
 
 .section-paragraph {
-    font-size: 1.1em;
+    font-size: var(--cf-font-size-base); /* Using base font size variable */
+    line-height: 1.6;
     max-width: 800px;
     margin: 0 auto 30px auto;
-    color: #555;
+    color: var(--cf-neutral-charcoal); /* Charcoal gray */
 }
 
 .icon-grid {
@@ -36,8 +40,8 @@
 .icon-item {
     padding: 20px;
     border-radius: 8px;
-    background-color: white;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    background-color: var(--cf-white); /* White background for icon cards */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Keeping rgba for specific shadow effect */
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -47,9 +51,10 @@
 
 .icon-item p {
     margin-top: 10px;
-    font-size: 1em;
-    font-weight: bold;
-    color: #00796b;
+    font-size: var(--cf-font-size-md); /* Using medium font size for icon text */
+    font-weight: 600; /* Semi-bold for emphasis */
+    color: var(--cf-secondary-teal); /* Bright Teal for emphasis */
+    font-family: var(--cf-font-body); /* Ensure paragraph in icon item uses body font */
 }
 
 /* Placeholder for icon styling within .icon-item if Allan uses background images or ::before */
@@ -57,4 +62,21 @@
     /* Example: Allan might add an SVG icon here */
     /* content: url('/path/to/icon.svg'); */
     /* width: 50px; height: 50px; display: block; margin-bottom: 10px; */
+    /* If icons are images, ensure they are vertically aligned as part of the flex container */
+}
+
+/* Responsive adjustments if needed for smaller headings/paragraphs */
+@media (max-width: 768px) {
+    .section-headline {
+        font-size: var(--cf-font-size-xl); /* Adjust for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .section-headline {
+        font-size: var(--cf-font-size-lg); /* Further adjust for very small screens */
+    }
+    .value-proposition-section {
+        padding: 40px 15px; /* Reduce padding on smaller screens */
+    }
 }
