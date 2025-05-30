@@ -2,24 +2,27 @@
 
 .contact-page {
     padding: 60px 0; /* Add padding top/bottom */
-    background-color: var(--cf-light-blue-green); /* Light background for the page */
-    min-height: calc(100vh - var(--header-height) - var(--footer-height)); /* Ensure it takes up viewport height */
+    background-color: var(--cf-neutral-light-gray); /* Using light gray for the page background */
+    min-height: calc(100vh - var(--cf-header-height) - var(--cf-footer-height)); /* Ensure it takes up viewport height, using defined variables */
     display: flex;
     flex-direction: column;
     align-items: center;
+    font-family: var(--cf-font-body); /* Apply body font to the entire page */
+    color: var(--cf-neutral-charcoal); /* Default text color for the page */
 }
 
 .contact-page h1 {
     color: var(--cf-primary-dark-teal); /* Dark teal for main heading */
-    font-size: 3em;
+    font-size: var(--cf-font-size-xxxl); /* Using XXXL for the main page heading */
     margin-bottom: 20px;
     font-weight: 700;
     text-align: center;
+    font-family: var(--cf-font-heading); /* Ensure heading font */
 }
 
 .page-intro {
-    font-size: 1.2em;
-    color: #555;
+    font-size: var(--cf-font-size-lg); /* Using large font size */
+    color: var(--cf-neutral-charcoal); /* Charcoal gray */
     text-align: center;
     max-width: 800px;
     margin: 0 auto 50px auto; /* Centered with bottom margin */
@@ -34,40 +37,43 @@
     max-width: 1200px; /* Max width for the content */
     background-color: var(--cf-white); /* White background for the grid content area */
     border-radius: 10px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    box-shadow: 0 8px 20px var(--cf-shadow-color-light); /* Using light shadow variable */
     padding: 40px;
 }
 
 /* Contact Info Section */
 .contact-info-section {
     padding: 20px;
-    background-color: #f8fbfb; /* Slightly off-white background */
+    background-color: var(--cf-neutral-light-mint); /* Light mint background */
     border-radius: 8px;
 }
 
 .contact-info-section h2 {
     color: var(--cf-primary-dark-teal); /* Dark teal for sub-heading */
-    font-size: 2em;
+    font-size: var(--cf-font-size-xxl); /* Using XXL for sub-headings */
     margin-bottom: 25px;
     font-weight: 600;
+    font-family: var(--cf-font-heading); /* Ensure heading font */
 }
 
 .contact-info-section p {
-    color: #666;
+    color: var(--cf-neutral-dark-gray); /* Dark gray for paragraph text */
     line-height: 1.6;
     margin-bottom: 20px;
+    font-size: var(--cf-font-size-base); /* Base font size for paragraphs */
 }
 
 .info-item {
     display: flex;
     align-items: center;
     margin-bottom: 15px;
-    color: #333;
+    color: var(--cf-neutral-charcoal); /* Charcoal for info item text */
+    font-size: var(--cf-font-size-base); /* Base font size for info items */
 }
 
 .info-item i {
     color: var(--cf-secondary-teal); /* Brighter teal for icons */
-    font-size: 1.3em;
+    font-size: var(--cf-font-size-xl); /* XL font size for icons */
     margin-right: 15px;
     width: 25px; /* Fixed width for icon alignment */
     text-align: center;
@@ -100,7 +106,7 @@
 
 .social-links-contact a {
     color: var(--cf-primary-dark-teal); /* Dark teal for social icons */
-    font-size: 1.8em;
+    font-size: var(--cf-font-size-xxl); /* XXL font size for social icons */
     transition: color 0.3s ease, transform 0.2s ease;
 }
 
@@ -112,15 +118,16 @@
 /* Contact Form Section */
 .contact-form-section {
     padding: 20px;
-    background-color: #f8fbfb; /* Slightly off-white background */
+    background-color: var(--cf-neutral-light-mint); /* Light mint background */
     border-radius: 8px;
 }
 
 .contact-form-section h2 {
     color: var(--cf-primary-dark-teal); /* Dark teal for sub-heading */
-    font-size: 2em;
+    font-size: var(--cf-font-size-xxl); /* XXL for sub-headings */
     margin-bottom: 25px;
     font-weight: 600;
+    font-family: var(--cf-font-heading); /* Ensure heading font */
 }
 
 .form-group {
@@ -132,6 +139,7 @@
     margin-bottom: 8px;
     font-weight: 600;
     color: var(--cf-primary-dark-teal); /* Dark teal for labels */
+    font-size: var(--cf-font-size-base); /* Base font size for labels */
 }
 
 .form-group input[type="text"],
@@ -139,18 +147,20 @@
 .form-group textarea {
     width: 100%;
     padding: 12px;
-    border: 1px solid #ddd;
+    border: 1px solid var(--cf-border-light); /* Using border variable */
     border-radius: 5px;
-    font-size: 1em;
+    font-size: var(--cf-font-size-base); /* Base font size */
     box-sizing: border-box; /* Include padding and border in element's total width and height */
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    font-family: var(--cf-font-body); /* Ensure form fields use body font */
+    color: var(--cf-neutral-charcoal); /* Default text color in inputs */
 }
 
 .form-group input[type="text"]:focus,
 .form-group input[type="email"]:focus,
 .form-group textarea:focus {
     border-color: var(--cf-secondary-teal); /* Brighter teal on focus */
-    box-shadow: 0 0 0 0.2rem rgba(0, 121, 107, 0.25); /* Subtle focus shadow */
+    box-shadow: 0 0 0 0.2rem var(--cf-focus-shadow-color); /* Using focus shadow variable */
     outline: none;
 }
 
@@ -161,11 +171,12 @@
     padding: 12px 25px;
     border: none;
     border-radius: 5px;
-    font-size: 1.1em;
+    font-size: var(--cf-font-size-md); /* Medium font size for button text */
     font-weight: 600;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
     width: auto; /* Allow button to size naturally */
+    font-family: var(--cf-font-body); /* Ensure button uses body font */
 }
 
 .contact-form-section .btn:hover {
@@ -179,14 +190,15 @@
     border-radius: 5px;
     text-align: center;
     font-weight: 600;
+    font-size: var(--cf-font-size-base); /* Base font size for status messages */
 }
 .form-status.success {
-    background-color: #d4edda; /* Light green */
-    color: #155724; /* Dark green text */
+    background-color: var(--cf-success-bg); /* Light green */
+    color: var(--cf-success-text); /* Dark green text */
 }
 .form-status.error {
-    background-color: #f8d7da; /* Light red */
-    color: #721c24; /* Dark red text */
+    background-color: var(--cf-error-bg); /* Light red */
+    color: var(--cf-error-text); /* Dark red text */
 }
 
 /* Responsive adjustments */
@@ -211,10 +223,10 @@
         padding: 30px 0;
     }
     .contact-page h1 {
-        font-size: 2.5em;
+        font-size: var(--cf-font-size-xxl); /* Adjust for smaller screens */
     }
     .page-intro {
-        font-size: 1em;
+        font-size: var(--cf-font-size-base); /* Adjust for smaller screens */
         margin-bottom: 30px;
     }
     .contact-grid {
@@ -226,7 +238,7 @@
     }
     .contact-info-section h2,
     .contact-form-section h2 {
-        font-size: 1.8em;
+        font-size: var(--cf-font-size-xl); /* Adjust for smaller screens */
         margin-bottom: 20px;
     }
     .social-links-contact {

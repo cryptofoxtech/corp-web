@@ -8,7 +8,7 @@ import './Services.css'; // Import the specific CSS for the Services page
 // Import your existing image assets
 import devopsImage from '../../assets/images/services-devops.png';
 import cloudImage from '../../assets/images/services-cloud.png';
-import aiImage from '../../assets/images/services-ai.png';
+import aiImage from '../../assets/images/services-ai.png'; // <-- CORRECTED THIS LINE
 import otherServicesImage from '../../assets/images/services-other.png'; // Using this for webdev, sysadmin, blockchain for now
 
 const Services = () => {
@@ -96,8 +96,7 @@ const Services = () => {
                                             <Button
                                                 as={Link}
                                                 to={service.link}
-                                                variant="primary"
-                                                className="mt-auto service-learn-more-btn"
+                                                className="mt-auto btn-learn-more" // Use our custom class
                                             >
                                                 Learn More
                                             </Button>
@@ -116,7 +115,11 @@ const Services = () => {
                         <p className="cta-description">
                             Contact us today to discuss how Cryptofox Technology can help you achieve your goals.
                         </p>
-                        <Button as={Link} to="/contact" className="cta-button">
+                        <Button
+                            as={Link}
+                            to="/contact"
+                            className="cta-button btn-contact" // Use our custom class
+                        >
                             Get a Free Consultation
                         </Button>
                     </Container>

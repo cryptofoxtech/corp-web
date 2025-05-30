@@ -14,7 +14,7 @@
   background-position: center center;
   background-repeat: no-repeat;
 
-  color: var(--bs-white); /* Ensures text is white/light for contrast */
+  color: var(--cf-white); /* Using our white variable for text contrast */
   text-align: center;
   padding: 100px 20px; /* Padding for the hero content */
   margin-bottom: 50px;
@@ -26,21 +26,34 @@
 }
 
 .hero-section h1 {
-  font-size: 3em;
+  font-size: 3.5rem; /* Using rem for consistency, matching global h1 if appropriate */
+  font-family: var(--cf-font-heading); /* Applying heading font */
+  font-weight: 700; /* Using bold weight from Montserrat */
   margin-bottom: 20px;
   /* Stronger text shadow for better readability against the background */
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* Keeping rgba for specific shadow effect */
 }
 
 .hero-section .subtitle {
-  font-size: 1.5em;
+  font-size: var(--cf-font-size-lg); /* Using large font size variable */
+  font-family: var(--cf-font-body); /* Applying body font */
+  font-weight: 400; /* Using regular weight from Open Sans */
   margin-bottom: 40px;
   /* Stronger text shadow for better readability against the background */
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); /* Keeping rgba for specific shadow effect */
 }
 
 .hero-buttons .btn {
   margin: 0 10px;
+  /* Button styles should primarily come from global Bootstrap overrides or direct usage of theme variables.
+     Ensure these buttons use:
+     background-color: var(--cf-secondary-teal) !important;
+     color: var(--cf-white) !important;
+     Hover: background-color: var(--cf-accent-soft-coral) !important; (or whatever you prefer)
+     And font-family: var(--cf-font-body); font-weight: 600; font-size: var(--cf-font-size-base);
+     These should be set where the actual button classes are defined (e.g., globally or per button).
+     For now, we'll assume they inherit from our global button styling or are set directly in `Home.js`.
+  */
 }
 
 /* About Intro Section */
@@ -48,30 +61,34 @@
   text-align: center;
   padding: 50px 20px;
   margin-bottom: 50px;
-  background-color: var(--bs-light); /* Example background color */
+  background-color: var(--cf-neutral-light-gray); /* Using our light gray for background */
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Keeping rgba for specific shadow effect */
 }
 
 .about-intro-section h2 {
-  font-size: 2.5em;
+  font-size: 2.5rem; /* Using rem for consistency, matching global h2 if appropriate */
+  font-family: var(--cf-font-heading); /* Applying heading font */
+  font-weight: 700; /* Using bold weight from Montserrat */
   margin-bottom: 20px;
-  color: var(--bs-dark);
+  color: var(--cf-primary-dark-teal); /* Using our dark teal variable */
 }
 
 .about-intro-section p {
-  font-size: 1.1em;
+  font-size: var(--cf-font-size-base); /* Using base font size variable */
+  font-family: var(--cf-font-body); /* Applying body font */
+  font-weight: 400; /* Using regular weight from Open Sans */
   line-height: 1.6;
   max-width: 800px;
   margin: 0 auto 30px auto;
-  color: var(--bs-gray-dark);
+  color: var(--cf-neutral-charcoal); /* Using our charcoal variable */
 }
 
 /* Image Section Grid (Home page - DevOps, Cloud, AI images) */
 .image-section {
   padding: 50px 0;
   margin-bottom: 50px;
-  background-color: var(--bs-body-bg); /* Or a lighter color */
+  background-color: var(--cf-white); /* Using our white or another neutral for background */
 }
 
 .image-grid {
@@ -88,7 +105,7 @@
   max-height: 250px; /* Limit image height for consistency */
   object-fit: cover; /* Maintain aspect ratio and cover the area, cropping if necessary */
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Keeping rgba for specific shadow effect */
   transition: transform 0.3s ease; /* Smooth hover effect */
 }
 
@@ -100,11 +117,11 @@
 /* Responsive Adjustments */
 @media (max-width: 768px) {
   .hero-section h1 {
-    font-size: 2.5em;
+    font-size: 2.5rem; /* Using rem */
   }
 
   .hero-section .subtitle {
-    font-size: 1.2em;
+    font-size: 1rem; /* Using rem */
   }
 
   .hero-buttons .btn {
@@ -120,14 +137,14 @@
 
 @media (max-width: 480px) {
   .hero-section h1 {
-    font-size: 2em;
+    font-size: 2rem; /* Using rem */
   }
 
   .hero-section .subtitle {
-    font-size: 1em;
+    font-size: var(--cf-font-size-base); /* Using base font size variable */
   }
 
   .about-intro-section h2 {
-    font-size: 2em;
+    font-size: 2rem; /* Using rem */
   }
 }

@@ -3,7 +3,8 @@
 .meet-the-founder-section {
     padding: 60px 20px;
     text-align: center;
-    background-color: white; /* White background */
+    background-color: var(--cf-white); /* White background */
+    font-family: var(--cf-font-body); /* Apply body font to the entire section */
 }
 
 .meet-the-founder-section .container {
@@ -13,8 +14,10 @@
 }
 
 .section-headline {
-    font-size: 2.5em;
-    color: #004d40;
+    font-size: var(--cf-font-size-xxl); /* Using a larger font size variable for main section headlines */
+    font-family: var(--cf-font-heading); /* Ensuring heading font */
+    font-weight: 700; /* Bold weight */
+    color: var(--cf-primary-dark-teal); /* Dark Teal */
     margin-bottom: 40px;
 }
 
@@ -23,10 +26,10 @@
     flex-direction: column; /* Stack on small screens */
     align-items: center;
     gap: 30px;
-    background-color: #f4f4f4;
+    background-color: var(--cf-neutral-light-gray); /* Light gray background for the card */
     padding: 30px;
     border-radius: 10px;
-    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15); /* Keeping rgba for specific shadow effect */
     text-align: left; /* Align text within card */
 }
 
@@ -43,7 +46,7 @@
     height: 200px; /* Fixed height */
     border-radius: 50%; /* Circular image */
     overflow: hidden; /* Hide overflow for circular shape */
-    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2); /* Keeping rgba for specific shadow effect */
 }
 
 .founder-image {
@@ -58,25 +61,51 @@
 }
 
 .founder-bio h3 {
-    color: #00796b;
-    font-size: 2em;
+    color: var(--cf-secondary-teal); /* Bright Teal for founder's name */
+    font-size: var(--cf-font-size-xl); /* Using extra large font size for name */
+    font-family: var(--cf-font-heading); /* Ensuring heading font */
+    font-weight: 600; /* Semi-bold */
     margin-bottom: 5px;
 }
 
 .founder-title {
-    font-size: 1.1em;
-    color: #666;
+    font-size: var(--cf-font-size-md); /* Using medium font size for title */
+    color: var(--cf-neutral-dark-gray); /* Darker gray for title */
     margin-bottom: 15px;
     font-style: italic;
 }
 
 .founder-bio p {
-    font-size: 1em;
-    line-height: 1.7;
-    color: #333;
+    font-size: var(--cf-font-size-base); /* Using base font size for bio text */
+    line-height: 1.7; /* Good line height for readability */
+    color: var(--cf-neutral-charcoal); /* Charcoal gray for paragraph text */
     margin-bottom: 10px;
 }
 
 .founder-bio p strong {
-    color: #004d40;
+    color: var(--cf-primary-dark-teal); /* Dark Teal for strong text in bio */
+    font-weight: 600; /* Semi-bold for strong text */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .section-headline {
+        font-size: var(--cf-font-size-xl); /* Adjust for smaller screens */
+    }
+    .meet-the-founder-section {
+        padding: 40px 15px; /* Adjust padding for smaller screens */
+    }
+    .founder-bio h3 {
+        font-size: var(--cf-font-size-lg); /* Adjust founder name size */
+    }
+}
+
+@media (max-width: 480px) {
+    .section-headline {
+        font-size: var(--cf-font-size-lg); /* Further adjust for very small screens */
+    }
+    .founder-image-wrapper {
+        width: 150px; /* Smaller image on very small screens */
+        height: 150px;
+    }
 }

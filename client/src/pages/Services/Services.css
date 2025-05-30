@@ -1,9 +1,11 @@
 /* client/src/pages/Services/Services.css */
 
 .services-page-wrapper {
-    min-height: calc(100vh - var(--header-height) - var(--footer-height));
+    min-height: calc(100vh - var(--cf-header-height) - var(--cf-footer-height)); /* Using cf- variables */
     display: flex;
     flex-direction: column;
+    font-family: var(--cf-font-body); /* Apply body font to the entire page */
+    color: var(--cf-neutral-charcoal); /* Default text color */
 }
 
 .services-main-content {
@@ -17,35 +19,38 @@
 .services-hero {
     background-color: var(--cf-primary-dark-teal); /* Keep hero section dark teal for brand presence */
     color: var(--cf-white);
-    padding: 80px 0;
+    padding: 80px 20px; /* Added horizontal padding for responsiveness */
     text-align: center;
 }
 
 .services-hero h1 {
-    font-size: 3.5rem;
+    font-size: var(--cf-font-size-xxxl); /* Using XXXL for hero heading (approx 3.5rem) */
     font-weight: 700;
     margin-bottom: 20px;
+    font-family: var(--cf-font-heading); /* Ensure heading font */
 }
 
 .services-hero p {
-    font-size: 1.3rem;
+    font-size: var(--cf-font-size-lg); /* Using large font size for hero text (approx 1.3rem) */
     max-width: 800px;
     margin: 0 auto;
-    color: rgba(255,255,255,0.85);
+    color: var(--cf-white-alpha-85); /* Using new alpha-white variable */
+    line-height: 1.6; /* Ensure good readability */
 }
 
 /* Services Grid Section */
 .services-grid-section {
-    padding: 60px 0;
+    padding: 60px 20px; /* Added horizontal padding */
     background-color: var(--cf-neutral-light-gray); /* Ensures the section itself is light */
 }
 
 .services-grid-section h2 {
     text-align: center;
-    font-size: 2.8rem;
+    font-size: var(--cf-font-size-xxxl); /* Using XXXL for section heading (approx 2.8rem) */
     font-weight: 700;
     color: var(--cf-primary-dark-teal);
     margin-bottom: 50px;
+    font-family: var(--cf-font-heading); /* Ensure heading font */
 }
 
 /* Individual Service Card Styles */
@@ -53,7 +58,7 @@
     background-color: var(--cf-white); /* White background for cards */
     border: none;
     border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 4px 15px var(--cf-shadow-color-light); /* Using light shadow variable */
     padding: 30px;
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -65,102 +70,115 @@
 
 .service-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 8px 25px var(--cf-shadow-color-medium); /* Using medium shadow variable on hover */
 }
 
 .service-card .card-icon {
-    font-size: 3.5rem;
+    font-size: var(--cf-font-size-xxxl); /* Using XXXL for icon size (approx 3.5rem) */
     color: var(--cf-secondary-teal); /* Bright Teal for icons */
     margin-bottom: 20px;
 }
 
 .service-card h3 {
-    font-size: 1.7rem;
+    font-size: var(--cf-font-size-xl); /* Using XL for card titles (approx 1.7rem) */
     font-weight: 600;
     color: var(--cf-primary-dark-teal); /* Deep Teal for card titles */
     margin-bottom: 15px;
+    font-family: var(--cf-font-heading); /* Ensure heading font */
 }
 
 .service-card p {
-    font-size: 1rem;
+    font-size: var(--cf-font-size-base); /* Base font size for card text */
     color: var(--cf-neutral-charcoal); /* Charcoal for card text */
     line-height: 1.6;
     margin-bottom: 25px; /* Space before button */
 }
 
 .service-card .btn-learn-more {
-    background-color: var(--cf-accent-warm-gold); /* Warm Gold for "Learn More" buttons */
+    background-color: var(--cf-secondary-teal); /* Changed to primary button color */
     color: var(--cf-white) !important;
     border: none;
     border-radius: 5px;
     padding: 10px 25px;
     font-weight: 600;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-size: var(--cf-font-size-md); /* Medium font size for button */
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
     margin-top: auto; /* Push button to bottom */
+    text-decoration: none; /* Remove underline */
+    display: inline-block; /* Ensure padding and sizing */
 }
 
 .service-card .btn-learn-more:hover {
-    background-color: var(--cf-accent-soft-coral); /* Soft Coral on hover */
+    background-color: var(--cf-primary-dark-teal); /* Changed to primary button hover color */
     transform: translateY(-2px);
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 3px 6px var(--cf-shadow-color-light); /* Using light shadow variable */
 }
 
 /* Call to Action Section */
 .services-cta {
     background-color: var(--cf-neutral-light-mint); /* Light Mint background for CTA */
-    padding: 60px 0;
+    padding: 60px 20px; /* Added horizontal padding */
     text-align: center;
     color: var(--cf-primary-dark-teal); /* Text color contrasting with light mint */
 }
 
 .services-cta h2 {
-    font-size: 2.8rem;
+    font-size: var(--cf-font-size-xxxl); /* Using XXXL for CTA heading (approx 2.8rem) */
     font-weight: 700;
     margin-bottom: 20px;
+    font-family: var(--cf-font-heading); /* Ensure heading font */
 }
 
 .services-cta p {
-    font-size: 1.2rem;
+    font-size: var(--cf-font-size-lg); /* Using large font size for CTA text (approx 1.2rem) */
     max-width: 700px;
     margin: 0 auto 30px auto;
     color: var(--cf-neutral-charcoal);
+    line-height: 1.6;
 }
 
 .services-cta .btn-contact {
-    background-color: var(--cf-secondary-teal); /* Bright Teal for CTA button */
+    background-color: var(--cf-secondary-teal); /* Bright Teal for CTA button (already correct) */
     color: var(--cf-white) !important;
     border: none;
     border-radius: 5px;
     padding: 12px 30px;
-    font-size: 1.1rem;
+    font-size: var(--cf-font-size-md); /* Medium font size for button (approx 1.1rem) */
     font-weight: 700;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    text-decoration: none; /* Remove underline */
+    display: inline-block; /* Ensure padding and sizing */
 }
 
 .services-cta .btn-contact:hover {
-    background-color: var(--cf-primary-dark-teal); /* Deep Teal on hover */
+    background-color: var(--cf-primary-dark-teal); /* Deep Teal on hover (already correct) */
     transform: translateY(-3px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px var(--cf-shadow-color-strong); /* Using new strong shadow variable */
 }
 
 
 /* Responsive adjustments */
 @media (max-width: 991.98px) {
     .services-hero h1 {
-        font-size: 2.8rem;
+        font-size: var(--cf-font-size-xxl); /* Adjust for smaller screens */
     }
     .services-hero p {
-        font-size: 1.1rem;
+        font-size: var(--cf-font-size-base); /* Adjust for smaller screens */
     }
     .services-grid-section h2,
     .services-cta h2 {
-        font-size: 2.2rem;
+        font-size: var(--cf-font-size-xxl); /* Adjust for smaller screens */
     }
-    .service-card {
-        margin-bottom: 30px; /* Add space between stacked cards */
-    }
+    /* Margin for grid items needs to be handled by the parent grid gap.
+       If you still have individual cards needing bottom margin when wrapping,
+       consider applying it directly if not using a pure grid or if needed.
+       For now, commenting out as grid gap usually handles this.
+    */
+    /* .service-card {
+        margin-bottom: 30px;
+    } */
     .services-cta p {
-        font-size: 1rem;
+        font-size: var(--cf-font-size-base); /* Adjust for smaller screens */
     }
 }
 
@@ -168,19 +186,20 @@
     .services-hero,
     .services-grid-section,
     .services-cta {
-        padding: 50px 0;
+        padding: 50px 15px; /* Adjust padding for smaller screens */
     }
     .services-hero h1 {
-        font-size: 2.2rem;
+        font-size: var(--cf-font-size-xl);
     }
     .services-hero p {
-        font-size: 1rem;
+        font-size: var(--cf-font-size-sm);
     }
     .services-grid-section h2,
     .services-cta h2 {
-        font-size: 1.8rem;
+        font-size: var(--cf-font-size-xl);
     }
     .service-card h3 {
-        font-size: 1.5rem;
+        font-size: var(--cf-font-size-lg);
     }
+    /* Remove card margin-bottom here too if relying on grid gap */
 }

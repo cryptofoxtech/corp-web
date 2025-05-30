@@ -1,52 +1,133 @@
 /* client/src/index.css */
 
-/* --- GLOBAL CSS VARIABLES (Color Palette) --- */
-/* These variables are defined once and can be used throughout your application's CSS */
+/* --- GLOBAL CSS VARIABLES --- */
 :root {
-    /* Primary Colors */
+    /* --- Color Palette Variables --- */
     --cf-primary-dark-teal: #004d40;
-    --cf-secondary-teal: #26a69a; /* Used for bright teal, buttons, interactive elements */
-
-    /* Accent Colors */
+    --cf-secondary-teal: #26a69a;
     --cf-accent-warm-gold: #ffb300;
     --cf-accent-soft-coral: #ff7043;
-
-    /* Neutral Colors */
     --cf-neutral-light-mint: #b2dfdb;
     --cf-neutral-charcoal: #263238;
     --cf-neutral-light-gray: #f5f5f5;
     --cf-white: #ffffff;
-
-    /* Support Colors (use sparingly for highlights) */
     --cf-support-slate-blue: #1976d2;
     --cf-support-soft-purple: #7e57c2;
 
-    /* Global layout variables (adjust these values based on your Header/Footer's actual heights) */
-    --header-height: 80px; /* Example: If your Header is 80px tall */
-    --footer-height: 60px; /* Example: If your Footer is 60px tall */
+    /* --- Font Variables --- */
+    --cf-font-heading: 'Montserrat', sans-serif;
+    --cf-font-body: 'Open Sans', sans-serif;
+    --cf-font-code: 'Source Code Pro', monospace;
+
+    /* --- Base Font Sizes (use rem for scalability) --- */
+    --cf-font-size-base: 1rem;     /* Equivalent to 16px usually */
+    --cf-font-size-sm: 0.875rem;   /* Small text, e.g., captions */
+    --cf-font-size-md: 1.125rem;   /* Medium text, often for buttons/icons */
+    --cf-font-size-lg: 1.25rem;    /* Large text, e.g., leads */
+    --cf-font-size-xl: 1.8rem;     /* Extra large (approx 2.2em for mobile headings) */
+    --cf-font-size-xxl: 2.3rem;    /* XX Large (approx 2.8em for tablet headings) */
+    --cf-font-size-xxxl: 2.8rem;   /* XXX Large (approx 2.5em for desktop content headings) */
+    --cf-font-size-xxxxl: 3.5rem;  /* XXXX Large (approx 3.2em for desktop hero headlines) */
+
+
+    /* --- Alpha Colors & Shadows --- */
+    --cf-white-alpha-85: rgba(255,255,255,0.85); /* For hero section text opacity */
+    --cf-white-alpha-70: rgba(255,255,255,0.7); /* For muted white text */
+    --cf-white-alpha-20: rgba(255,255,255,0.2); /* For subtle white dividers */
+    --cf-shadow-color-light: rgba(0,0,0,0.05); /* Lighter shadow for general elements */
+    --cf-shadow-color-medium: rgba(0,0,0,0.15); /* Medium shadow for cards/images */
+    --cf-shadow-color-strong: rgba(0, 0, 0, 0.25); /* For stronger hover shadows */
+    --cf-shadow-color-dark: rgba(0,0,0,0.2); /* For darker shadows like footer */
+
+
+    /* --- Form & Feedback Colors --- */
+    --cf-border-light: #ddd;
+    --cf-success-bg: #d4edda;
+    --cf-success-text: #155724;
+    --cf-error-bg: #f8d7da;
+    --cf-error-text: #721c24;
+    --cf-focus-shadow-color: rgba(0, 121, 107, 0.25); /* Based on secondary teal */
+
+    /* --- Partners Page Specific --- */
+    --cf-border-light-alt: #e0e0e0;
+    --cf-partner-logo-grayscale: grayscale(90%);
+    --cf-partner-logo-opacity: 0.7;
+
+    /* --- Global layout variables --- */
+    --cf-header-height: 70px; /* Estimated height of your fixed header */
+    --cf-footer-height: 60px;
 }
 
-/* Base global styles (typically present in index.css) */
+/* --- Base global styles --- */
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  
-  /* Apply default text and background colors from your new palette */
-  color: var(--cf-neutral-charcoal);
-  background-color: var(--cf-white);
+    margin: 0;
+    font-family: var(--cf-font-body);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: var(--cf-neutral-charcoal);
+    background-color: var(--cf-white);
+    font-size: var(--cf-font-size-base);
+    line-height: 1.6;
+    /* --- IMPORTANT: padding-top removed from body --- */
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+    font-family: var(--cf-font-code);
 }
 
-/*
-   If you are including Font Awesome via an NPM package (e.g., @fortawesome/fontawesome-svg-core),
-   you might need specific imports here or in App.js based on their documentation.
-   If you are using a CDN link in public/index.html, no further CSS import is strictly needed here for the icons.
-*/
+/* Global heading styles */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--cf-font-heading);
+    color: var(--cf-primary-dark-teal);
+    margin-top: 0;
+    margin-bottom: 0.8em;
+    line-height: 1.2;
+    font-weight: 700;
+}
+
+/* Specific heading sizes - using rem */
+h1 { font-size: 3.5rem; }
+h2 { font-size: 2.5rem; }
+h3 { font-size: 2rem; }
+h4 { font-size: 1.75rem; }
+h5 { font-size: 1.5rem; }
+h6 { font-size: 1.25rem; }
+
+/* Default link styles */
+a {
+    color: var(--cf-secondary-teal);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--cf-accent-warm-gold);
+    text-decoration: underline;
+}
+
+/* --- Bootstrap overrides for global container padding --- */
+.container {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+@media (min-width: 576px) {
+    .container {
+        max-width: 540px;
+    }
+}
+@media (min-width: 768px) {
+    .container {
+        max-width: 720px;
+    }
+}
+@media (min-width: 992px) {
+    .container {
+        max-width: 960px;
+    }
+}
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1140px;
+    }
+}

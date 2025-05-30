@@ -1,44 +1,103 @@
 /* client/src/pages/Quote/Quote.css */
 .quote-page {
-  background-color: var(--bs-light); /* Light background for the page content */
-  min-height: 70vh; /* Ensure it has some height even if content is minimal */
+    background-color: var(--cf-neutral-light-gray); /* Consistent light background for the page content */
+    min-height: calc(100vh - var(--cf-header-height) - var(--cf-footer-height)); /* Ensure it takes up viewport height */
+    padding: 60px 20px; /* Add padding for content */
+    font-family: var(--cf-font-body); /* Apply body font to the entire page */
+    color: var(--cf-neutral-charcoal); /* Default text color */
+    text-align: center; /* Center most content on the page */
 }
 
 .quote-page h1 {
-  color: var(--bs-primary);
-  font-size: 2.8rem;
-  margin-top: 30px;
+    color: var(--cf-primary-dark-teal); /* Dark teal for main heading */
+    font-size: var(--cf-font-size-xxxl); /* Using XXXL for main page heading */
+    margin-top: 0; /* Reset default margin-top if not needed */
+    margin-bottom: 20px;
+    font-weight: 700;
+    font-family: var(--cf-font-heading); /* Ensure heading font */
 }
 
 .quote-page h3 {
-  color: var(--bs-secondary);
-  font-size: 2rem;
-  margin-top: 30px;
+    color: var(--cf-secondary-teal); /* Brighter teal for sub-headings */
+    font-size: var(--cf-font-size-xxl); /* Using XXL for sub-headings */
+    margin-top: 30px;
+    margin-bottom: 20px; /* Added margin for consistency */
+    font-weight: 600; /* Semi-bold for h3 */
+    font-family: var(--cf-font-heading); /* Ensure heading font */
 }
 
 .quote-page p {
-  color: var(--bs-gray-700);
-  line-height: 1.7;
+    color: var(--cf-neutral-charcoal); /* Charcoal gray for paragraph text */
+    line-height: 1.7;
+    font-size: var(--cf-font-size-base); /* Base font size for paragraphs */
+    margin-bottom: 15px; /* Add margin for consistency */
 }
 
 .quote-form-placeholder {
-  background-color: var(--bs-white);
-  border: 1px solid var(--bs-gray-300);
-  padding: 30px;
+    background-color: var(--cf-white);
+    border: 1px solid var(--cf-border-light); /* Using general light border variable */
+    padding: 30px;
+    border-radius: 8px; /* Added border-radius for consistency */
+    box-shadow: 0 4px 12px var(--cf-shadow-color-light); /* Added light shadow */
+    max-width: 800px; /* Constrain width of the placeholder box */
+    margin: 40px auto; /* Center the box with top/bottom margin */
 }
 
 .quote-form-placeholder p {
-  font-size: 1.1rem;
+    font-size: var(--cf-font-size-lg); /* Large font size for placeholder text */
+    color: var(--cf-neutral-dark-gray); /* Dark gray for placeholder text */
 }
 
 .quote-page ol {
     text-align: left; /* Align list items to the left */
     display: inline-block; /* Allows ol to be centered with text-align: center on parent */
-    padding-left: 20px;
-    color: var(--bs-gray-700);
+    padding-left: 20px; /* Standard padding for list */
+    color: var(--cf-neutral-charcoal); /* Charcoal gray for list text */
+    max-width: 700px; /* Constrain list width for readability */
+    margin: 20px auto; /* Center the list */
 }
 
 .quote-page ol li {
     margin-bottom: 10px;
-    font-size: 1.1rem;
+    font-size: var(--cf-font-size-base); /* Base font size for list items */
+    line-height: 1.6; /* Consistent line height */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .quote-page {
+        padding: 40px 15px; /* Adjust padding for smaller screens */
+    }
+    .quote-page h1 {
+        font-size: var(--cf-font-size-xxl); /* Adjust heading size */
+    }
+    .quote-page h3 {
+        font-size: var(--cf-font-size-xl); /* Adjust subheading size */
+    }
+    .quote-form-placeholder {
+        padding: 20px;
+        margin: 30px auto;
+    }
+    .quote-form-placeholder p,
+    .quote-page ol li {
+        font-size: var(--cf-font-size-base); /* Ensure readability on small screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .quote-page h1 {
+        font-size: var(--cf-font-size-xl);
+    }
+    .quote-page h3 {
+        font-size: var(--cf-font-size-lg);
+    }
+    .quote-form-placeholder p {
+        font-size: var(--cf-font-size-sm);
+    }
+    .quote-page ol {
+        padding-left: 15px;
+    }
+    .quote-page ol li {
+        font-size: var(--cf-font-size-sm);
+    }
 }

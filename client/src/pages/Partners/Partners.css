@@ -3,36 +3,48 @@
 .partners-page {
     padding-top: 60px; /* Adjust for fixed header if needed */
     padding-bottom: 60px;
-    background-color: #f8fbfb; /* Very light background */
+    background-color: var(--cf-neutral-light-gray); /* Very light background, consistent with other pages */
+    font-family: var(--cf-font-body); /* Apply body font to the entire page */
+    color: var(--cf-neutral-charcoal); /* Default text color for the page */
 }
 
 .partners-page h1 {
-    color: #004d40; /* Dark teal */
-    font-size: 3em;
+    color: var(--cf-primary-dark-teal); /* Dark teal for main heading */
+    font-size: var(--cf-font-size-xxxl); /* Using XXXL for the main page heading */
     font-weight: 700;
+    font-family: var(--cf-font-heading); /* Ensure heading font */
+    text-align: center; /* Ensure main heading is centered */
+    margin-bottom: 20px; /* Add margin for spacing */
 }
 
 .partners-page .lead {
-    color: #555;
-    font-size: 1.2em;
+    color: var(--cf-neutral-charcoal); /* Charcoal for lead text */
+    font-size: var(--cf-font-size-lg); /* Using large font size for lead text */
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
+    text-align: center; /* Ensure lead text is centered */
+    margin-bottom: 50px; /* Add bottom margin for spacing */
+    line-height: 1.6;
 }
 
 .partners-grid {
-    display: flex;
-    flex-wrap: wrap; /* Allows cards to wrap to next line */
+    display: grid; /* Using grid for better control over layout */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive grid columns */
+    gap: 30px; /* Space between grid items */
     justify-content: center; /* Centers cards in the grid */
+    padding: 0 20px; /* Add some horizontal padding to the grid */
+    max-width: 1200px; /* Constrain grid width */
+    margin: 0 auto; /* Center the grid */
 }
 
 .partner-card {
-    background-color: #ffffff;
-    border: 1px solid #e0e0e0;
+    background-color: var(--cf-white);
+    border: 1px solid var(--cf-border-light-alt); /* Lighter border for cards */
     border-radius: 8px;
     padding: 25px;
     text-align: center;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 4px 12px var(--cf-shadow-color-light); /* Using light shadow variable */
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
     display: flex; /* Flex container for content inside card */
     flex-direction: column; /* Stack content vertically */
@@ -41,15 +53,15 @@
 
 .partner-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 8px 20px var(--cf-shadow-color-medium); /* Using medium shadow variable on hover */
 }
 
 .partner-logo {
     max-width: 120px; /* Adjust logo size */
     height: auto;
     margin-bottom: 20px;
-    filter: grayscale(90%); /* Start with grayscale */
-    opacity: 0.7;
+    filter: var(--cf-partner-logo-grayscale); /* Start with grayscale variable */
+    opacity: var(--cf-partner-logo-opacity); /* Opacity variable */
     transition: filter 0.3s ease-in-out, opacity 0.3s ease-in-out;
 }
 
@@ -59,59 +71,132 @@
 }
 
 .partner-card h3 {
-    color: #00796b; /* Teal */
-    font-size: 1.5em;
+    color: var(--cf-secondary-teal); /* Brighter teal for partner names */
+    font-size: var(--cf-font-size-lg); /* Large font size for partner names */
+    font-family: var(--cf-font-heading); /* Ensure heading font */
+    font-weight: 600; /* Semi-bold */
     margin-bottom: 10px;
 }
 
 .partner-card p {
-    color: #666;
-    font-size: 0.95em;
+    color: var(--cf-neutral-dark-gray); /* Dark gray for partner description */
+    font-size: var(--cf-font-size-sm); /* Small font size for description */
     line-height: 1.6;
     flex-grow: 1; /* Allows description to take up available space */
     margin-bottom: 15px; /* Space before button */
 }
 
-.partner-card .btn-outline-info {
-    color: #00796b;
-    border-color: #00796b;
+.partner-card .btn-outline-info { /* This class name suggests Bootstrap origin, ensure it's overridden or used carefully */
+    color: var(--cf-secondary-teal);
+    border-color: var(--cf-secondary-teal);
     background-color: transparent;
     font-weight: 500;
     transition: all 0.3s ease;
+    font-size: var(--cf-font-size-base); /* Base font size for button */
+    padding: 8px 15px; /* Adjust padding for better look */
+    border-width: 2px; /* Make border slightly thicker */
+    text-decoration: none; /* <-- ADDED THIS LINE */
 }
 
 .partner-card .btn-outline-info:hover {
-    color: #fff;
-    background-color: #00796b;
-    border-color: #00796b;
+    color: var(--cf-white);
+    background-color: var(--cf-secondary-teal);
+    border-color: var(--cf-secondary-teal);
 }
 
 /* Call to action section */
-.partners-page .mt-5 h3 {
-    color: #004d40;
-    font-size: 2em;
+.partners-page .call-to-action-section { /* Added a wrapper class for clarity */
+    text-align: center;
+    margin-top: 80px; /* Increased margin-top for separation */
+    padding: 0 20px;
+}
+
+.partners-page .call-to-action-section h3 {
+    color: var(--cf-primary-dark-teal); /* Dark teal for call to action heading */
+    font-size: var(--cf-font-size-xxl); /* XXL font size */
+    font-family: var(--cf-font-heading); /* Ensure heading font */
+    font-weight: 700;
     margin-bottom: 15px;
 }
 
-.partners-page .mt-5 p {
-    color: #555;
-    font-size: 1.1em;
+.partners-page .call-to-action-section p {
+    color: var(--cf-neutral-charcoal); /* Charcoal for call to action paragraph */
+    font-size: var(--cf-font-size-lg); /* Large font size */
     max-width: 700px;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 25px;
+    line-height: 1.6;
 }
 
-.partners-page .btn-primary {
-    background-color: #00796b;
-    border-color: #00796b;
+.partners-page .btn-primary { /* Assuming this is a general primary button style */
+    background-color: var(--cf-secondary-teal);
+    border-color: var(--cf-secondary-teal);
+    color: var(--cf-white);
     padding: 12px 25px;
-    font-size: 1.1em;
+    font-size: var(--cf-font-size-md); /* Medium font size */
     font-weight: 600;
     transition: background-color 0.3s ease, border-color 0.3s ease;
+    border-radius: 5px; /* Ensure consistent border-radius */
+    text-decoration: none; /* <-- ADDED THIS LINE */
+    display: inline-block; /* Allow padding and sizing for links */
 }
 
 .partners-page .btn-primary:hover {
-    background-color: #004d40;
-    border-color: #004d40;
+    background-color: var(--cf-primary-dark-teal);
+    border-color: var(--cf-primary-dark-teal);
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) { /* Adjust grid for medium screens */
+    .partners-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 25px;
+    }
+    .partners-page h1 {
+        font-size: var(--cf-font-size-xxl);
+    }
+    .partners-page .lead {
+        font-size: var(--cf-font-size-base);
+    }
+    .partners-page .call-to-action-section h3 {
+        font-size: var(--cf-font-size-xl);
+    }
+    .partners-page .call-to-action-section p {
+        font-size: var(--cf-font-size-base);
+    }
+}
+
+@media (max-width: 768px) {
+    .partners-page {
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+    .partners-grid {
+        grid-template-columns: 1fr; /* Single column on smaller screens */
+        padding: 0 15px;
+    }
+    .partner-card {
+        max-width: 350px; /* Constrain single column card width */
+        margin: 0 auto; /* Center single column card */
+    }
+}
+
+@media (max-width: 480px) {
+    .partners-page h1 {
+        font-size: var(--cf-font-size-xl);
+    }
+    .partners-page .lead {
+        font-size: var(--cf-font-size-sm);
+    }
+    .partners-page .call-to-action-section h3 {
+        font-size: var(--cf-font-size-lg);
+    }
+    .partners-page .call-to-action-section p {
+        font-size: var(--cf-font-size-sm);
+    }
+    .partners-page .btn-primary {
+        font-size: var(--cf-font-size-base);
+        padding: 10px 20px;
+    }
 }

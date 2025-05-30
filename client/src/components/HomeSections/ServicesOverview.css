@@ -3,7 +3,8 @@
 .services-overview-section {
     padding: 60px 20px;
     text-align: center;
-    background-color: white; /* Example: white background */
+    background-color: var(--cf-white); /* White background */
+    font-family: var(--cf-font-body); /* Apply body font to the entire section */
 }
 
 .services-overview-section .container {
@@ -13,16 +14,19 @@
 }
 
 .section-headline {
-    font-size: 2.5em;
-    color: #004d40;
+    font-size: var(--cf-font-size-xxl); /* Using a larger font size variable for main section headlines */
+    font-family: var(--cf-font-heading); /* Ensuring heading font */
+    font-weight: 700; /* Bold weight */
+    color: var(--cf-primary-dark-teal); /* Dark Teal */
     margin-bottom: 40px;
 }
 
 .section-paragraph {
-    font-size: 1.1em;
+    font-size: var(--cf-font-size-base); /* Using base font size variable */
+    line-height: 1.6;
     max-width: 800px;
     margin: 0 auto 30px auto;
-    color: #555;
+    color: var(--cf-neutral-charcoal); /* Charcoal gray */
 }
 
 .service-grid {
@@ -33,37 +37,65 @@
 }
 
 .service-item {
-    background-color: #f4f4f4; /* Light grey background for items */
+    background-color: var(--cf-neutral-light-gray); /* Light gray background for service cards */
     padding: 30px;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Keeping rgba for specific shadow effect */
     text-align: left; /* Align text within item */
 }
 
 .service-item h3 {
-    color: #00796b;
-    font-size: 1.5em;
+    color: var(--cf-secondary-teal); /* Bright Teal for service item headings */
+    font-size: var(--cf-font-size-lg); /* Using large font size for sub-headings */
+    font-family: var(--cf-font-heading); /* Ensuring heading font */
+    font-weight: 600; /* Semi-bold */
     margin-bottom: 15px;
 }
 
 .service-item p {
-    font-size: 0.95em;
-    color: #666;
+    font-size: var(--cf-font-size-sm); /* Using small font size for body text in items */
+    color: var(--cf-neutral-charcoal); /* Charcoal gray for body text */
+    line-height: 1.5; /* Added for better readability */
     margin-bottom: 20px;
 }
 
 .learn-more-link {
     display: inline-block;
-    color: #00796b;
-    text-decoration: none;
-    font-weight: bold;
-    border: 1px solid #00796b;
+    color: var(--cf-secondary-teal); /* Bright Teal for link text */
+    text-decoration: none; /* No underline by default */
+    font-weight: 600; /* Semi-bold */
+    border: 1px solid var(--cf-secondary-teal); /* Bright Teal border */
     padding: 8px 15px;
     border-radius: 5px;
     transition: all 0.3s ease;
+    font-family: var(--cf-font-body); /* Ensure link uses body font */
+    font-size: var(--cf-font-size-base); /* Base font size */
 }
 
 .learn-more-link:hover {
-    background-color: #00796b;
-    color: white;
+    background-color: var(--cf-secondary-teal); /* Bright Teal background on hover */
+    color: var(--cf-white); /* White text on hover */
+    text-decoration: none; /* Ensure no underline on hover */
+}
+
+/* Responsive adjustments if needed for smaller headings/paragraphs */
+@media (max-width: 768px) {
+    .section-headline {
+        font-size: var(--cf-font-size-xl); /* Adjust for smaller screens */
+    }
+    .service-item h3 {
+        font-size: var(--cf-font-size-base); /* Smaller heading on small screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .section-headline {
+        font-size: var(--cf-font-size-lg); /* Further adjust for very small screens */
+    }
+    .services-overview-section {
+        padding: 40px 15px; /* Reduce padding on smaller screens */
+    }
+    .service-grid {
+        grid-template-columns: 1fr; /* Stack items on very small screens */
+    }
 }
