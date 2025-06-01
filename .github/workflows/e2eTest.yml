@@ -8,6 +8,7 @@ on:
       - develop # Assuming you use a develop branch for features
   pull_request:
     branches:
+      - master
       - main
       - develop
 
