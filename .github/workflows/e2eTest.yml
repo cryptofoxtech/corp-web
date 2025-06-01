@@ -40,10 +40,11 @@ jobs:
         run: npx playwright install --with-deps # Installs Chromium, Firefox, WebKit browsers
 
       - name: Run E2E and Visual Regression Tests (Generate Linux Snapshots)
-        # TEMPORARY CHANGE: This will start your app and then run Playwright with --update-snapshots.
+        # TEMPORARY CHANGE: Now correctly using npx to find start-server-and-test
+        # This will start your app and then run Playwright with --update-snapshots.
         # This step will still report a failure because new snapshots are written.
         # We will revert this after downloading the artifacts.
-        run: start-server-and-test "npm run start:all" http://localhost:3000 "npx playwright test --update-snapshots"
+        run: npx start-server-and-test "npm run start:all" http://localhost:3000 "npx playwright test --update-snapshots"
 
       - name: Upload Playwright test results (on failure)
         if: failure() # This step only runs if previous steps fail
