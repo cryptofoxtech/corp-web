@@ -8,7 +8,6 @@ on:
       - main
       - develop # Assuming you use a develop branch for features
 
-
   pull_request:
     branches:
       - master
@@ -40,8 +39,11 @@ jobs:
       - name: Install Playwright browsers
         run: npx playwright install --with-deps # Installs Chromium, Firefox, WebKit browsers
 
-      - name: Run E2E and Visual Regression Tests
-        run: npm run e2e # Executes your custom e2e script
+      - name: Run E2E and Visual Regression Tests (Generate Linux Snapshots)
+        # TEMPORARY CHANGE: This will generate new snapshots on the Linux runner.
+        # This step will still report a failure because new snapshots are written.
+        # We will revert this after downloading the artifacts.
+        run: npx playwright test --update-snapshots
 
       - name: Upload Playwright test results (on failure)
         if: failure() # This step only runs if previous steps fail
