@@ -17,7 +17,7 @@ on:
 # Add workflow run retention policy here
 # This will keep workflow runs and their associated artifacts for 14 days.
 # Adjust this value (e.g., 7, 30, 60) based on your team's needs for history.
-retention-days: 14
+retention-days: 14 # <-- FIX: This line must be exactly 'retention-days: 14' (no space after 14, no text before it)
 
 jobs:
   test:
