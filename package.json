@@ -1,0 +1,29 @@
+{
+  "name": "corp-web",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start:client": "npm start --prefix client",
+    "start:server": "npm start --prefix server",
+    "start:all": "concurrently \"npm run start:client\" \"npm run start:server\"",
+    "e2e": "start-server-and-test \"npm run start:all\" http://localhost:3000 \"npx playwright test\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cryptofoxtech/corp-web.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cryptofoxtech/corp-web/issues"
+  },
+  "homepage": "https://github.com/cryptofoxtech/corp-web#readme",
+  "description": "",
+  "devDependencies": {
+    "@playwright/test": "^1.52.0",
+    "@types/node": "^22.15.29",
+    "concurrently": "^8.2.2",
+    "start-server-and-test": "^2.0.3"
+  }
+}

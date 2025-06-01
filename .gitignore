@@ -32,3 +32,9 @@ log/
 
 # Other common OS generated files
 thumbs.db
+
+# Playwright
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
