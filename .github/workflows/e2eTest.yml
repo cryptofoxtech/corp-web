@@ -4,8 +4,11 @@ name: E2E and Visual Regression Tests
 on:
   push:
     branches:
+      - master
       - main
       - develop # Assuming you use a develop branch for features
+
+
   pull_request:
     branches:
       - master
