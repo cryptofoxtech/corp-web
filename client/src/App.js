@@ -1,30 +1,30 @@
 // client/src/App.js
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Header from './components/Header/Header';
-import Footer from './components/Footer/Footer';
+import Header from './components/Header/Header.js'; // Added .js
+import Footer from './components/Footer/Footer.js'; // Added .js
 
 // Import your general page components
-import Home from './pages/Home/Home';
-import About from './pages/About/About';
-import Partners from './pages/Partners/Partners';
-import Contact from './pages/Contact/Contact';
-import Quote from './pages/Quote/Quote';
+import Home from './pages/Home/Home.js'; // Added .js
+import About from './pages/About/About.js'; // Added .js
+import Partners from './pages/Partners/Partners.js'; // Added .js
+import Contact from './pages/Contact/Contact.js'; // Added .js
+import Quote from './pages/Quote/Quote.js'; // Added .js
 
 // Import the NEW main Services landing page
-import Services from './pages/Services/Services';
+import Services from './pages/Services/Services.js'; // Added .js
 
 // Import individual service detail pages (existing and new ones)
-import DevOpsPage from './pages/Services/DevOpsPage/DevOpsPage';
-import CloudPage from './pages/Services/CloudPage/CloudPage';
-import AIPage from './pages/Services/AIPage/AIPage';
+import DevOpsPage from './pages/Services/DevOpsPage/DevOpsPage.js'; // Added .js
+import CloudPage from './pages/Services/CloudPage/CloudPage.js'; // Added .js
+import AIPage from './pages/Services/AIPage/AIPage.js'; // Added .js
 // NEW specific service pages
-import WebDevPage from './pages/Services/WebDevPage/WebDevPage';
-import SysAdminPage from './pages/Services/SysAdminPage/SysAdminPage';
-import BlockchainPage from './pages/Services/BlockchainPage/BlockchainPage';
+import WebDevPage from './pages/Services/WebDevPage/WebDevPage.js'; // Added .js
+import SysAdminPage from './pages/Services/SysAdminPage/SysAdminPage.js'; // Added .js
+import BlockchainPage from './pages/Services/BlockchainPage/BlockchainPage.js'; // Added .js
 
-// Import the global App.css - we will create/add to this in the next step
-import './App.css'; // Make sure this import is present
+// Import the global App.css - .css imports typically don't need .js
+import './App.css';
 
 function App() {
   return (
