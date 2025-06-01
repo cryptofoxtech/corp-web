@@ -14,7 +14,7 @@ const SITEMAP_FILE = path.join(PUBLIC_DIR, 'sitemap.xml');
 
 // Base URL for your website (important for absolute URLs in sitemap)
 // IMPORTANT: Replace 'https://www.cryptofox.ca' with your actual domain when you deploy!
-const BASE_URL = 'https://www.cryptofox.ca';
+const BASE_URL = 'https://www.cryptofoxtech.com';
 
 const generateSitemap = async () => {
   console.log('Generating sitemap...');

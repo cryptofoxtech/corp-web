@@ -1,7 +1,9 @@
 // server/index.js
-const express = require('express');
-const cors = require('cors');
-require('dotenv').config(); // Load environment variables from .env file
+import express from 'express'; // Changed from require()
+import cors from 'cors';       // Changed from require()
+import dotenv from 'dotenv';   // Changed from require()
+
+dotenv.config(); // Load environment variables from .env file
 
 const app = express();
 const PORT = process.env.PORT || 5000; // Use port from .env or default to 5000
