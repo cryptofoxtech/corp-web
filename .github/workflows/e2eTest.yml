@@ -1,0 +1,48 @@
+# .github/workflows/e2eTest.yml
+name: E2E and Visual Regression Tests
+
+on:
+  push:
+    branches:
+      - main
+      - develop # Assuming you use a develop branch for features
+  pull_request:
+    branches:
+      - main
+      - develop
+
+jobs:
+  test:
+    timeout-minutes: 15 # Set a reasonable timeout for the job
+    runs-on: ubuntu-latest # GitHub-hosted runner with Ubuntu OS
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4 # Action to check out your repository code
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4 # Action to set up Node.js environment
+        with:
+          node-version: '20' # Use the Node.js version you are using locally
+
+      - name: Install root dependencies
+        run: npm install # Installs dependencies from your root package.json
+
+      - name: Install client and server dependencies
+        run: |
+          npm install --prefix client
+          npm install --prefix server
+
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps # Installs Chromium, Firefox, WebKit browsers
+
+      - name: Run E2E and Visual Regression Tests
+        run: npm run e2e # Executes your custom e2e script
+
+      - name: Upload Playwright test results (on failure)
+        if: failure() # This step only runs if previous steps fail
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report
+          path: playwright-report/ # Path to the Playwright HTML report
+          retention-days: 5
