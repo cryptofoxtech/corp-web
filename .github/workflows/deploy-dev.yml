@@ -1,8 +1,8 @@
 # GitHub Actions Workflow for Cryptofox Corp Web Deployment
-# This workflow deploys the React frontend to Azure Static Web Apps
-# and the Node.js backend API to the integrated App Service.
+# This workflow focuses on deploying the React frontend to Azure Static Web Apps.
+# The API deployment is skipped in this version to isolate frontend issues.
 
-name: Deploy Cryptofox Corp Web (Dev)
+name: Deploy Cryptofox Corp Web (Dev) - Frontend Only
 
 on:
   push:
@@ -10,7 +10,7 @@ on:
       - main # Trigger on pushes to the main branch
 
 jobs:
-  build_and_deploy:
+  build_and_deploy_frontend: # Renamed job for clarity
     runs-on: ubuntu-latest # Use a Linux runner for the build and deploy steps
     environment: dev # Associate this job with the 'dev' environment (optional, for GitHub Environments)
 
@@ -21,7 +21,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4 # Use Node.js 18.x as specified in your Bicep
         with:
-          node-version: '18.x' # Ensure this matches your Node.js backend version
+          node-version: '18.x'
           cache: 'npm' # Cache npm dependencies for faster builds
 
       - name: Install Frontend Dependencies
@@ -34,11 +34,10 @@ jobs:
         env:
           CI: false # Suppress warnings treated as errors in CI environments
 
-      - name: Install Backend Dependencies
-        working-directory: ./server # Navigate to the server directory
-        run: npm install # Install npm packages for the Node.js backend
+      # --- API Deployment Steps Removed/Skipped Below ---
+      # The 'Install Backend Dependencies' step is removed as we are not deploying the API in this workflow.
 
-      - name: Deploy to Azure Static Web Apps
+      - name: Deploy Frontend to Azure Static Web Apps
         id: swa_deploy
         uses: azure/static-web-apps-deploy@v1 # Use the Azure Static Web Apps Deploy action
         with:
@@ -46,20 +45,14 @@ jobs:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           action: 'upload'
           app_location: 'client/build' # Points to the built frontend artifacts
-          api_location: '/server' # Path to your Node.js API code
-          output_location: '' # Empty, as app_location is already the output
-          skip_app_build: true
-          skip_api_build: true
-          # Explicitly set the API runtime for Azure Functions
-          api_language: 'nodejs' # Specifies the language for the API
-          api_runtime: 'node:18' # Specifies the Node.js version for the API runtime
-          # Remove api_build_command if `npm install` is sufficient and no other build step is needed
-          # If your API has a specific build step (e.g., TypeScript compilation), add it here.
-          # For a simple Node.js API, `npm install` is often enough, which is done in a prior step.
-          # If you need a specific build script, it would be:
-          # api_build_command: 'npm run build-api' # (assuming you have this script in server/package.json)
+          api_location: '' # <--- CRITICAL CHANGE: Set to empty string to skip API deployment
+          output_location: '' # Empty, as app_location is already the final output
+          skip_app_build: true # We built the app in a previous step
+          skip_api_build: true # <--- CRITICAL CHANGE: Explicitly skip API build
+          # Removed api_language and api_runtime as we are skipping API deployment
           
       - name: Output Deployment Details
         run: |
           echo "Frontend URL: ${{ steps.swa_deploy.outputs.static_web_app_url }}"
-          echo "Backend URL: ${{ steps.swa_deploy.outputs.api_url }}"
+          # The backend URL will not be available in this frontend-only deployment
+          # echo "Backend URL: ${{ steps.swa_deploy.outputs.api_url }}"
