@@ -50,31 +50,15 @@ jobs:
           output_location: '' # Empty, as app_location is already the output
           skip_app_build: true
           skip_api_build: true
-          # Alternative way to specify API runtime, explicitly using 'api_build_command'
-          # and setting the language via an environment variable that Oryx might pick up.
-          # We'll also try a direct 'app_settings' approach if this doesn't work.
-          api_build_command: 'npm install && npm run build-api' # You might need to define 'build-api' in server/package.json if it doesn't exist
-          # This is the key part for the language info.
-          # The SWA deploy action often relies on the 'platform' section in staticwebapp.config.json
-          # or environment variables that Oryx (the build engine) can detect.
-          # Let's try setting an environment variable directly for the action.
-          # This is less common but might force the detection.
-          # Also, ensuring the Node.js version is explicitly set for the API.
-          # Note: api_language and api_runtime are standard, but if they're not working,
-          # this indicates a deeper issue or a need for a different approach.
-          # We will remove api_language and api_runtime to avoid potential conflicts
-          # and rely on the build command and app_settings if needed.
-          # For now, let's try to ensure the build command itself sets the context.
-
-          # Let's try passing the runtime version directly in the `app_settings` for the API.
-          # This is typically for environment variables, but sometimes helps with runtime detection.
-          # This is a less common workaround for this specific error.
-          # The primary fix should be `api_language` and `api_runtime`, but since that failed,
-          # we're exploring alternatives.
-          app_settings: |
-            FUNCTIONS_WORKER_RUNTIME=node
-            NODE_VERSION=~18 # Use the same major version as setup-node
-
+          # Explicitly set the API runtime for Azure Functions
+          api_language: 'nodejs' # Specifies the language for the API
+          api_runtime: 'node:18' # Specifies the Node.js version for the API runtime
+          # Remove api_build_command if `npm install` is sufficient and no other build step is needed
+          # If your API has a specific build step (e.g., TypeScript compilation), add it here.
+          # For a simple Node.js API, `npm install` is often enough, which is done in a prior step.
+          # If you need a specific build script, it would be:
+          # api_build_command: 'npm run build-api' # (assuming you have this script in server/package.json)
+          
       - name: Output Deployment Details
         run: |
           echo "Frontend URL: ${{ steps.swa_deploy.outputs.static_web_app_url }}"
