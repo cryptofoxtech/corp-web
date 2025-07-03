@@ -42,11 +42,10 @@ jobs:
         id: swa_deploy
         uses: azure/static-web-apps-deploy@v1 # Use the Azure Static Web Apps Deploy action
         with:
-          # IMPORTANT: When Deployment authorization policy is 'GitHub',
-          # the azure_static_web_apps_api_token is NOT needed.
-          # The action automatically uses the GITHUB_TOKEN provided by GitHub Actions.
-          # azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_DEV }} # REMOVED THIS LINE
-          repo_token: ${{ secrets.GITHUB_TOKEN }} # This token is automatically provided by GitHub Actions
+          # This token is REQUIRED by the action to authenticate with Azure for deployment.
+          # It must be stored as a GitHub repository secret named AZURE_STATIC_WEB_APPS_API_TOKEN_DEV.
+          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_DEV }}
+          repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for GitHub API interactions (e.g., creating deployment environments)
           action: 'upload' # Specify the action as 'upload' for deployment
           app_location: '/client' # Path to your React app source code relative to repository root
           api_location: '/server' # Path to your Node.js API code relative to repository root
