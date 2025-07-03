@@ -44,7 +44,8 @@ jobs:
         with:
           # This token is REQUIRED by the action to authenticate with Azure for deployment.
           # It must be stored as a GitHub repository secret named AZURE_STATIC_WEB_APPS_API_TOKEN_DEV.
-          azure_static_web_apps_api_token: ${{ secrets.09660f1857e06625b0afb1b80eb97c6b8f809089321df36cb7c8d884fc30e18d01-0a49d7ef-8299-426e-bf81-14c4264a2ff101024020297a1d10 }}
+          # The syntax here refers to the NAME of the secret, not its value.
+          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_DEV }} # THIS IS THE CORRECT LINE
           repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for GitHub API interactions (e.g., creating deployment environments)
           action: 'upload' # Specify the action as 'upload' for deployment
           app_location: '/client' # Path to your React app source code relative to repository root
