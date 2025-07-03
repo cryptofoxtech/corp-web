@@ -38,3 +38,7 @@ thumbs.db
 /playwright-report/
 /blob-report/
 /playwright/.cache/
+
+
+# Playwright test snapshots
+tests/contact.spec.js-snapshots/
