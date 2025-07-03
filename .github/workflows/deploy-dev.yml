@@ -1,0 +1,61 @@
+# GitHub Actions Workflow for Cryptofox Corp Web Deployment
+# This workflow deploys the React frontend to Azure Static Web Apps
+# and the Node.js backend API to the integrated App Service.
+
+name: Deploy Cryptofox Corp Web (Dev)
+
+on:
+  push:
+    branches:
+      - main # Trigger on pushes to the main branch
+
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest # Use a Linux runner for the build and deploy steps
+    environment: dev # Associate this job with the 'dev' environment (optional, for GitHub Environments)
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4 # Checkout the source code from your repository
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4 # Use Node.js 18.x as specified in your Bicep
+        with:
+          node-version: '18.x'
+          cache: 'npm' # Cache npm dependencies for faster builds
+
+      - name: Install Frontend Dependencies
+        working-directory: ./client # Navigate to the client directory
+        run: npm install # Install npm packages for the React frontend
+
+      - name: Build Frontend (React)
+        working-directory: ./client # Navigate to the client directory
+        run: npm run build # Run the build script defined in client/package.json
+        env:
+          CI: false # Suppress warnings treated as errors in CI environments
+
+      - name: Install Backend Dependencies
+        working-directory: ./server # Navigate to the server directory
+        run: npm install # Install npm packages for the Node.js backend
+
+      - name: Deploy to Azure Static Web Apps
+        id: swa_deploy
+        uses: azure/static-web-apps-deploy@v1 # Use the Azure Static Web Apps Deploy action
+        with:
+          # IMPORTANT: When Deployment authorization policy is 'GitHub',
+          # the azure_static_web_apps_api_token is NOT needed.
+          # The action automatically uses the GITHUB_TOKEN provided by GitHub Actions.
+          # azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_DEV }} # REMOVED THIS LINE
+          repo_token: ${{ secrets.GITHUB_TOKEN }} # This token is automatically provided by GitHub Actions
+          action: 'upload' # Specify the action as 'upload' for deployment
+          app_location: '/client' # Path to your React app source code relative to repository root
+          api_location: '/server' # Path to your Node.js API code relative to repository root
+          output_location: 'build' # Build output directory of the React app (relative to app_location)
+          skip_app_build: true # We built the app in a previous step
+          skip_api_build: true # We installed backend dependencies in a previous step
+          app_artifact_location: 'client/build' # Specify the exact path to the built frontend artifacts
+
+      - name: Output Deployment Details
+        run: |
+          echo "Frontend URL: ${{ steps.swa_deploy.outputs.static_web_app_url }}"
+          echo "Backend URL: ${{ steps.swa_deploy.outputs.api_url }}"
