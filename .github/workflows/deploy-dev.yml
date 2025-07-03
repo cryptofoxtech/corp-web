@@ -21,7 +21,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4 # Use Node.js 18.x as specified in your Bicep
         with:
-          node-version: '18.x'
+          node-version: '18.x' # Ensure this matches your Node.js backend version
           cache: 'npm' # Cache npm dependencies for faster builds
 
       - name: Install Frontend Dependencies
@@ -43,17 +43,16 @@ jobs:
         uses: azure/static-web-apps-deploy@v1 # Use the Azure Static Web Apps Deploy action
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_DEV }}
-          repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for GitHub API interactions (e.g., creating deployment environments)
-          action: 'upload' # Specify the action as 'upload' for deployment
-          # IMPORTANT CHANGE: app_location now points directly to the built frontend artifacts
-          app_location: 'client/build' # <--- This is the key change: point to the actual build output
-          api_location: '/server'
-          # IMPORTANT CHANGE: output_location is empty because app_location is already the output
-          output_location: '' # <--- This is the key change: empty string
-          skip_app_build: true # We built the app in a previous step
-          skip_api_build: true # We installed backend dependencies in a previous step
-          # app_artifact_location is no longer needed when app_location points to the build output
-          # app_artifact_location: 'client/build' # <--- REMOVED THIS LINE
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          action: 'upload'
+          app_location: 'client/build' # Points to the built frontend artifacts
+          api_location: '/server' # Path to your Node.js API code
+          output_location: '' # Empty, as app_location is already the output
+          skip_app_build: true
+          skip_api_build: true
+          # NEW: Specify the API language and version for the Azure Functions runtime
+          api_language: 'nodejs' # <--- CRITICAL NEW LINE
+          api_runtime: 'node:18' # <--- CRITICAL NEW LINE (Matches node-version used for setup)
           
       - name: Output Deployment Details
         run: |
