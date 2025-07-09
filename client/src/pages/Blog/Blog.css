@@ -1,0 +1,8 @@
+/* client/src/pages/Blog/Blog.css */
+
+.blog-page-container {
+    padding-top: 20px; /* Add some top padding to avoid header overlap */
+    padding-bottom: 50px; /* Add some bottom padding */
+    min-height: calc(100vh - 150px); /* Adjust based on your header/footer height */
+    /* You can add more general styles for the blog page here later */
+}
