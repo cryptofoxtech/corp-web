@@ -1,202 +1,108 @@
 /* client/src/pages/Partners/Partners.css */
 
+/* Basic page container styling */
 .partners-page {
-    padding-top: 60px; /* Adjust for fixed header if needed */
-    padding-bottom: 60px;
-    background-color: var(--cf-neutral-light-gray); /* Very light background, consistent with other pages */
-    font-family: var(--cf-font-body); /* Apply body font to the entire page */
-    color: var(--cf-neutral-charcoal); /* Default text color for the page */
+    padding: var(--cf-section-padding-vertical-large) 0;
+    /* REMOVED: text-align: center; as it will be handled by .section-text-container for the main text */
 }
 
-.partners-page h1 {
-    color: var(--cf-primary-dark-teal); /* Dark teal for main heading */
-    font-size: var(--cf-font-size-xxxl); /* Using XXXL for the main page heading */
-    font-weight: 700;
-    font-family: var(--cf-font-heading); /* Ensure heading font */
-    text-align: center; /* Ensure main heading is centered */
-    margin-bottom: 20px; /* Add margin for spacing */
+/* NEW: Styling for the wrapper around the main headline and paragraph */
+.section-text-container {
+    max-width: var(--cf-content-max-width-wide); /* Use a wide max-width from your global variables, e.g., 1140px */
+    margin: 0 auto; /* Center the block itself */
+    text-align: center; /* Center the text within this block */
+    margin-bottom: var(--cf-spacing-xxxl); /* Add space below this text block, similar to section-paragraph on Home page */
 }
 
-.partners-page .lead {
-    color: var(--cf-neutral-charcoal); /* Charcoal for lead text */
-    font-size: var(--cf-font-size-lg); /* Using large font size for lead text */
-    max-width: 800px;
+/* Make sure headlines within this container also align center */
+.section-text-container h1,
+.section-text-container p.lead {
     margin-left: auto;
     margin-right: auto;
-    text-align: center; /* Ensure lead text is centered */
-    margin-bottom: 50px; /* Add bottom margin for spacing */
-    line-height: 1.6;
+    text-align: center; /* Ensure text is centered within its potentially limited width */
 }
 
-.partners-grid {
-    display: grid; /* Using grid for better control over layout */
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive grid columns */
-    gap: 30px; /* Space between grid items */
-    justify-content: center; /* Centers cards in the grid */
-    padding: 0 20px; /* Add some horizontal padding to the grid */
-    max-width: 1200px; /* Constrain grid width */
-    margin: 0 auto; /* Center the grid */
-}
 
+/* Styling for the individual partner card */
 .partner-card {
-    background-color: var(--cf-white);
-    border: 1px solid var(--cf-border-light-alt); /* Lighter border for cards */
-    border-radius: 8px;
-    padding: 25px;
-    text-align: center;
-    box-shadow: 0 4px 12px var(--cf-shadow-color-light); /* Using light shadow variable */
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-    display: flex; /* Flex container for content inside card */
-    flex-direction: column; /* Stack content vertically */
-    align-items: center; /* Center content horizontally */
+    border: 1px solid var(--cf-border-light-alt); /* Using global variable */
+    border-radius: var(--cf-border-radius-large); /* Using global variable for 8px */
+    padding: var(--cf-spacing-lg); /* Using global variable for 24px (closest to 20px) */
+    text-align: center; /* Keep this to center content within the card itself (like image/button) */
+    box-shadow: 0 4px 8px var(--cf-shadow-color-light); /* Using global variable */
+    transition: transform var(--cf-transition-medium); /* Using global variable for 0.25s (closest to 0.2s) */
+    background-color: var(--cf-white); /* Using global variable */
+    height: 100%; /* Ensures cards in a row have equal height */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Pushes button to bottom */
+    align-items: center;
 }
 
 .partner-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 8px 20px var(--cf-shadow-color-medium); /* Using medium shadow variable on hover */
+    transform: translateY(-5px);
 }
 
+/* Styling for partner logos - STRONGER SIZE CONSTRAINTS */
 .partner-logo {
-    max-width: 120px; /* Adjust logo size */
-    height: auto;
-    margin-bottom: 20px;
-    filter: var(--cf-partner-logo-grayscale); /* Start with grayscale variable */
-    opacity: var(--cf-partner-logo-opacity); /* Opacity variable */
-    transition: filter 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    max-width: 120px !important; /* Enforce max width */
+    max-height: 60px !important; /* Enforce max height */
+    width: auto !important; /* Allow width to adjust based on aspect ratio */
+    height: auto !important; /* Allow height to adjust based on aspect ratio */
+    object-fit: contain; /* Ensures the entire logo is visible within the bounds */
+    margin-bottom: var(--cf-spacing-md); /* Using global variable for 16px (closest to 15px) */
+    /* Optional: Add grayscale/opacity for a muted look if desired, as per your variables */
+    /* filter: var(--cf-partner-logo-grayscale); */
+    /* opacity: var(--cf-partner-logo-opacity); */
 }
 
-.partner-card:hover .partner-logo {
-    filter: grayscale(0%); /* Color on hover */
-    opacity: 1;
-}
-
+/* Styling for partner name (title) */
 .partner-card h3 {
-    color: var(--cf-secondary-teal); /* Brighter teal for partner names */
-    font-size: var(--cf-font-size-lg); /* Large font size for partner names */
-    font-family: var(--cf-font-heading); /* Ensure heading font */
-    font-weight: 600; /* Semi-bold */
-    margin-bottom: 10px;
+    text-decoration: none !important; /* Keep if needed to override global h3 underline */
+    color: var(--cf-primary-dark-teal); /* Dark Teal */
+    font-size: var(--cf-font-size-lg); /* Using global font size variable */
+    font-family: var(--cf-font-heading); /* Using global font variable */
+    margin-bottom: var(--cf-spacing-sm); /* Using global variable for 12px (closest to 10px) */
 }
 
+/* Styling for partner description */
 .partner-card p {
-    color: var(--cf-neutral-dark-gray); /* Dark gray for partner description */
-    font-size: var(--cf-font-size-sm); /* Small font size for description */
-    line-height: 1.6;
-    flex-grow: 1; /* Allows description to take up available space */
-    margin-bottom: 15px; /* Space before button */
+    font-size: var(--cf-font-size-sm); /* Using global font size variable */
+    color: var(--cf-neutral-charcoal); /* Using global variable */
+    flex-grow: 1; /* Allows description to take available space */
+    text-align: left; /* Ensures text within cards is left-aligned for readability */
 }
 
-.partner-card .btn-outline-info { /* This class name suggests Bootstrap origin, ensure it's overridden or used carefully */
-    color: var(--cf-secondary-teal);
-    border-color: var(--cf-secondary-teal);
-    background-color: transparent;
-    font-weight: 500;
-    transition: all 0.3s ease;
-    font-size: var(--cf-font-size-base); /* Base font size for button */
-    padding: 8px 15px; /* Adjust padding for better look */
-    border-width: 2px; /* Make border slightly thicker */
-    text-decoration: none; /* <-- ADDED THIS LINE */
+/* Styling for the "Visit Website" button */
+.partner-card .btn-outline-info { /* Original was btn-outline-info, not primary */
+    color: var(--cf-primary-dark-teal); /* Dark Teal */
+    border-color: var(--cf-primary-dark-teal); /* Dark Teal border */
+    text-decoration: none; /* Ensure no underline on the button text */
+    margin-top: var(--cf-spacing-md); /* Using global variable for 16px (closest to 15px) */
 }
 
 .partner-card .btn-outline-info:hover {
+    background-color: var(--cf-primary-dark-teal); /* Dark Teal background on hover */
+    color: var(--cf-white); /* White text on hover */
+}
+
+/* Styling for the "Interested in Partnering" section */
+.partners-page .mt-5 {
+    margin-top: var(--cf-spacing-xxxl) !important; /* Using global variable for 64px (closest to 60px) */
+}
+
+/* The 'Get a Quote' button at the bottom uses .btn-primary */
+.partners-page .btn-primary {
+    background-color: var(--cf-primary-dark-teal); /* Dark Teal */
+    border-color: var(--cf-primary-dark-teal); /* Dark Teal */
     color: var(--cf-white);
-    background-color: var(--cf-secondary-teal);
-    border-color: var(--cf-secondary-teal);
-}
-
-/* Call to action section */
-.partners-page .call-to-action-section { /* Added a wrapper class for clarity */
-    text-align: center;
-    margin-top: 80px; /* Increased margin-top for separation */
-    padding: 0 20px;
-}
-
-.partners-page .call-to-action-section h3 {
-    color: var(--cf-primary-dark-teal); /* Dark teal for call to action heading */
-    font-size: var(--cf-font-size-xxl); /* XXL font size */
-    font-family: var(--cf-font-heading); /* Ensure heading font */
-    font-weight: 700;
-    margin-bottom: 15px;
-}
-
-.partners-page .call-to-action-section p {
-    color: var(--cf-neutral-charcoal); /* Charcoal for call to action paragraph */
-    font-size: var(--cf-font-size-lg); /* Large font size */
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 25px;
-    line-height: 1.6;
-}
-
-.partners-page .btn-primary { /* Assuming this is a general primary button style */
-    background-color: var(--cf-secondary-teal);
-    border-color: var(--cf-secondary-teal);
-    color: var(--cf-white);
-    padding: 12px 25px;
-    font-size: var(--cf-font-size-md); /* Medium font size */
-    font-weight: 600;
-    transition: background-color 0.3s ease, border-color 0.3s ease;
-    border-radius: 5px; /* Ensure consistent border-radius */
-    text-decoration: none; /* <-- ADDED THIS LINE */
-    display: inline-block; /* Allow padding and sizing for links */
+    padding: var(--cf-spacing-sm) var(--cf-spacing-lg); /* Using global variables for 12px 24px (closest to 10px 25px) */
+    border-radius: var(--cf-border-radius-default); /* Using global variable for 6px (closest to 5px) */
+    font-weight: 700; /* Explicitly set font-weight to 700 (bold) */
+    transition: background-color var(--cf-transition-fast), border-color var(--cf-transition-fast); /* Using global variable for 0.15s (closest to 0.2s) */
 }
 
 .partners-page .btn-primary:hover {
-    background-color: var(--cf-primary-dark-teal);
-    border-color: var(--cf-primary-dark-teal);
-}
-
-/* Responsive adjustments */
-@media (max-width: 992px) { /* Adjust grid for medium screens */
-    .partners-grid {
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 25px;
-    }
-    .partners-page h1 {
-        font-size: var(--cf-font-size-xxl);
-    }
-    .partners-page .lead {
-        font-size: var(--cf-font-size-base);
-    }
-    .partners-page .call-to-action-section h3 {
-        font-size: var(--cf-font-size-xl);
-    }
-    .partners-page .call-to-action-section p {
-        font-size: var(--cf-font-size-base);
-    }
-}
-
-@media (max-width: 768px) {
-    .partners-page {
-        padding-top: 40px;
-        padding-bottom: 40px;
-    }
-    .partners-grid {
-        grid-template-columns: 1fr; /* Single column on smaller screens */
-        padding: 0 15px;
-    }
-    .partner-card {
-        max-width: 350px; /* Constrain single column card width */
-        margin: 0 auto; /* Center single column card */
-    }
-}
-
-@media (max-width: 480px) {
-    .partners-page h1 {
-        font-size: var(--cf-font-size-xl);
-    }
-    .partners-page .lead {
-        font-size: var(--cf-font-size-sm);
-    }
-    .partners-page .call-to-action-section h3 {
-        font-size: var(--cf-font-size-lg);
-    }
-    .partners-page .call-to-action-section p {
-        font-size: var(--cf-font-size-sm);
-    }
-    .partners-page .btn-primary {
-        font-size: var(--cf-font-size-base);
-        padding: 10px 20px;
-    }
+    background-color: var(--cf-secondary-teal); /* Secondary Teal on hover */
+    border-color: var(--cf-secondary-teal);
 }

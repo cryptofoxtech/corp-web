@@ -1,150 +1,157 @@
 /* client/src/pages/Home/Home.css */
 
-.home-page {
-  /* No specific padding here, sections will handle their own */
-}
+/*
+    This file contains styles specific to the Home page sections.
+    It imports common page styles from pages-common.css.
+    All global design tokens (colors, fonts, spacing, etc.) are now sourced from index.css.
+*/
 
-/* Hero Section */
+@import '../../styles/pages-common.css'; /* Import the common page styles */
+
+/*
+    The .page-wrapper and .main-content classes are now defined in pages-common.css.
+    No specific styling for them here unless you need a unique override for the Home page.
+*/
+
+/* Hero Section - Specific styles for Home page's hero */
 .hero-section {
-  /*
-    Background image is now set via inline style in Home.js
-    Ensure background-size, position, and repeat are here for proper rendering
-  */
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
-
-  color: var(--cf-white); /* Using our white variable for text contrast */
-  text-align: center;
-  padding: 100px 20px; /* Padding for the hero content */
-  margin-bottom: 50px;
-  min-height: 500px; /* Ensure hero section has a minimum height */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
+    /* Most common hero styles (padding, min-height, display, align-items, justify-content, position)
+       are expected to be applied via classes like .service-content-section.hero in Home.js
+       and defined in pages-common.css.
+       Keep only what's unique to the Home page's hero here. */
+    background-image: url('../../assets/images/home-hero-bg.png'); /* Specific background image */
+    background-size: cover; /* Ensure image covers the section */
+    background-position: center center; /* Center the background image */
+    background-repeat: no-repeat; /* Do not repeat the background image */
+    color: var(--cf-white); /* Text color for hero section */
+    text-align: center; /* Center align text */
+    min-height: 500px; /* Example min-height, adjust as needed */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative; /* For text shadow positioning */
 }
 
+/* Hero Section H1 - Specific text shadow for Home page's hero */
 .hero-section h1 {
-  font-size: 3.5rem; /* Using rem for consistency, matching global h1 if appropriate */
-  font-family: var(--cf-font-heading); /* Applying heading font */
-  font-weight: 700; /* Using bold weight from Montserrat */
-  margin-bottom: 20px;
-  /* Stronger text shadow for better readability against the background */
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* Keeping rgba for specific shadow effect */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* Specific text shadow */
+    margin-top: 0; /* Ensures no extra top margin on the hero H1 */
+    /* Font size, family, weight, margin-bottom are handled by index.css or pages-common.css */
 }
 
+/* Hero Section Subtitle - Specific text shadow for Home page's hero */
 .hero-section .subtitle {
-  font-size: var(--cf-font-size-lg); /* Using large font size variable */
-  font-family: var(--cf-font-body); /* Applying body font */
-  font-weight: 400; /* Using regular weight from Open Sans */
-  margin-bottom: 40px;
-  /* Stronger text shadow for better readability against the background */
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); /* Keeping rgba for specific shadow effect */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); /* Specific text shadow */
+    /* If .subtitle is also a heading (h2, h3 etc.) that needs its top margin removed, add margin-top: 0 here too */
+    margin-top: var(--cf-spacing-md); /* Add some space below H1 */
+    margin-bottom: var(--cf-spacing-xl); /* Space before buttons */
+    font-size: var(--cf-font-size-lg); /* Ensure consistent size */
+    line-height: var(--cf-line-height-normal); /* Ensure consistent line height */
 }
 
+/* Hero Buttons - Specific margin */
 .hero-buttons .btn {
-  margin: 0 10px;
-  /* Button styles should primarily come from global Bootstrap overrides or direct usage of theme variables.
-     Ensure these buttons use:
-     background-color: var(--cf-secondary-teal) !important;
-     color: var(--cf-white) !important;
-     Hover: background-color: var(--cf-accent-soft-coral) !important; (or whatever you prefer)
-     And font-family: var(--cf-font-body); font-weight: 600; font-size: var(--cf-font-size-base);
-     These should be set where the actual button classes are defined (e.g., globally or per button).
-     For now, we'll assume they inherit from our global button styling or are set directly in `Home.js`.
-  */
+    margin: 0 var(--cf-spacing-xs); /* Using global spacing variable for 8px */
 }
 
-/* About Intro Section */
+/* About Intro Section - Specific styles for Home page's intro section */
 .about-intro-section {
-  text-align: center;
-  padding: 50px 20px;
-  margin-bottom: 50px;
-  background-color: var(--cf-neutral-light-gray); /* Using our light gray for background */
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Keeping rgba for specific shadow effect */
+    /* Most styles (text-align, padding, margin-bottom, background-color, border-radius,
+       box-shadow) are expected to be handled by pages-common.css's .service-content-section
+       or .section-block. Only unique overrides should be here. */
 }
 
+/* About Intro Section H2 - Specific font size */
 .about-intro-section h2 {
-  font-size: 2.5rem; /* Using rem for consistency, matching global h2 if appropriate */
-  font-family: var(--cf-font-heading); /* Applying heading font */
-  font-weight: 700; /* Using bold weight from Montserrat */
-  margin-bottom: 20px;
-  color: var(--cf-primary-dark-teal); /* Using our dark teal variable */
+    font-size: var(--cf-font-size-xxxl); /* Specific font size for this H2 */
+    /* Other properties are handled by pages-common.css or index.css */
 }
 
+/* About Intro Section P - Specific line height and max-width */
 .about-intro-section p {
-  font-size: var(--cf-font-size-base); /* Using base font size variable */
-  font-family: var(--cf-font-body); /* Applying body font */
-  font-weight: 400; /* Using regular weight from Open Sans */
-  line-height: 1.6;
-  max-width: 800px;
-  margin: 0 auto 30px auto;
-  color: var(--cf-neutral-charcoal); /* Using our charcoal variable */
+    line-height: var(--cf-line-height-normal); /* Using global line-height variable */
+    max-width: 800px; /* Specific max-width */
+    margin: 0 auto var(--cf-spacing-md) auto; /* Using global spacing variable for 16px */
+    /* Other properties are handled by pages-common.css or index.css */
 }
 
 /* Image Section Grid (Home page - DevOps, Cloud, AI images) */
 .image-section {
-  padding: 50px 0;
-  margin-bottom: 50px;
-  background-color: var(--cf-white); /* Using our white or another neutral for background */
+    padding: var(--cf-spacing-xl) 0; /* Using global spacing variable for 40px */
+    margin-bottom: var(--cf-spacing-xl); /* Using global spacing variable for 40px */
+    background-color: var(--cf-white); /* Specific background */
 }
 
 .image-grid {
-  display: grid;
-  /* Creates responsive columns: at least 300px wide, max 1 fraction of available space */
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px; /* Space between grid items */
-  justify-content: center; /* Center items if they don't fill the grid */
-  align-items: start; /* Align items to the start of their grid area */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--cf-spacing-md); /* Using global spacing variable for 16px (closest to 15px) */
+    justify-content: center;
+    align-items: start;
 }
 
 .image-grid img {
-  width: 100%; /* Make images take full width of their grid cell */
-  max-height: 250px; /* Limit image height for consistency */
-  object-fit: cover; /* Maintain aspect ratio and cover the area, cropping if necessary */
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Keeping rgba for specific shadow effect */
-  transition: transform 0.3s ease; /* Smooth hover effect */
+    width: 100%;
+    max-height: 220px;
+    object-fit: cover;
+    border-radius: var(--cf-border-radius-large); /* Using global border-radius variable for 8px */
+    box-shadow: 0 4px 8px var(--cf-shadow-color-medium); /* Corrected shadow offset to 4px, using global shadow variable */
+    transition: transform var(--cf-transition-slow); /* Using global transition variable for 0.3s ease */
 }
 
 .image-grid img:hover {
-  transform: translateY(-5px); /* Simple lift effect on hover */
+    transform: translateY(-5px);
 }
 
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {
-  .hero-section h1 {
-    font-size: 2.5rem; /* Using rem */
-  }
-
-  .hero-section .subtitle {
-    font-size: 1rem; /* Using rem */
-  }
-
-  .hero-buttons .btn {
-    display: block; /* Stack buttons vertically */
-    margin: 15px auto;
-    width: 80%; /* Make buttons wider */
-  }
-
-  .image-grid {
-    grid-template-columns: 1fr; /* Stack images on small screens */
-  }
+    .hero-section {
+        padding: var(--cf-spacing-xxxl) var(--cf-spacing-md); /* Using global spacing variables (64px 16px) */
+        min-height: 400px;
+    }
+    .hero-section h1 {
+        font-size: var(--cf-font-size-xxxl); /* Using global font size variable */
+    }
+    .hero-section .subtitle {
+        font-size: var(--cf-font-size-base); /* Using global font size variable */
+    }
+    .hero-buttons .btn {
+        display: block;
+        margin: var(--cf-spacing-sm) auto; /* Using global spacing variable for 12px */
+        width: 90%;
+    }
+    .about-intro-section {
+        padding: var(--cf-spacing-lg) var(--cf-spacing-md); /* Using global spacing variables (24px 16px) */
+        margin-bottom: var(--cf-spacing-lg); /* Using global spacing variable for 24px */
+    }
+    .about-intro-section h2 {
+        font-size: var(--cf-font-size-xxl); /* Using global font size variable */
+    }
+    .about-intro-section p {
+        margin-bottom: var(--cf-spacing-md); /* Using global spacing variable for 16px */
+    }
+    .image-section {
+        padding: var(--cf-spacing-lg) 0; /* Using global spacing variable for 24px */
+        margin-bottom: var(--cf-spacing-lg); /* Using global spacing variable for 24px */
+    }
+    .image-grid {
+        grid-template-columns: 1fr;
+        gap: var(--cf-spacing-sm); /* Using global spacing variable for 12px */
+    }
+    .image-grid img {
+        max-height: 200px;
+    }
 }
 
 @media (max-width: 480px) {
-  .hero-section h1 {
-    font-size: 2rem; /* Using rem */
-  }
-
-  .hero-section .subtitle {
-    font-size: var(--cf-font-size-base); /* Using base font size variable */
-  }
-
-  .about-intro-section h2 {
-    font-size: 2rem; /* Using rem */
-  }
+    .hero-section h1 {
+        font-size: var(--cf-font-size-xxl); /* Using global font size variable */
+    }
+    .hero-section .subtitle {
+        font-size: var(--cf-font-size-sm); /* Using global font size variable */
+    }
+    .about-intro-section h2 {
+        font-size: var(--cf-font-size-xl); /* Using global font size variable */
+    }
 }

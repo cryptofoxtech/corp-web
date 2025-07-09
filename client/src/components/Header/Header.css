@@ -1,101 +1,119 @@
 /* client/src/components/Header/Header.css */
 
 .navbar {
-    background-color: var(--cf-primary-dark-teal);
-    padding: 15px 0;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: var(--cf-neutral-light-mint); /* Using Light Mint for header background */
+  padding: 1rem 0;
+  box-shadow: 0 2px 4px var(--cf-shadow-color-light); /* Using global shadow variable */
+  /* REMOVED: position: fixed, top, left, width, z-index - these are now in Layout.css */
+}
 
-    /* --- Sticky Header Additions --- */
-    position: fixed !important; /* ADDED !important HERE */
-    top: 0;
-    width: 100%;
-    z-index: 1030;
-    /* --- End Sticky Header Additions --- */
+/* Styling for the Navbar Brand (logo + text) */
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  font-family: var(--cf-font-heading); /* Using heading font */
+  font-weight: 700; /* Bold */
+  font-size: var(--cf-font-size-xl); /* Using XL font size for brand */
+  color: var(--cf-primary-dark-teal) !important; /* Dark Teal, !important to override Bootstrap */
+  text-decoration: none !important; /* Remove underline */
+}
+
+.navbar-brand:hover,
+.navbar-brand:focus {
+  color: var(--cf-secondary-teal) !important; /* Secondary Teal on hover/focus */
+  text-decoration: none !important; /* Ensure no underline on hover/focus */
 }
 
 .navbar-brand img {
-    height: 40px;
-    margin-right: 10px;
+  height: 40px; /* Adjust logo height as needed */
+  margin-right: 10px;
 }
 
-.navbar-brand span {
-    color: var(--cf-white);
-    font-size: var(--cf-font-size-lg);
-    font-weight: 700;
-    font-family: var(--cf-font-heading);
+/* Styling for regular navigation links */
+.navbar .nav-link {
+  color: var(--cf-primary-dark-teal) !important; /* Dark Teal for links */
+  font-family: var(--cf-font-body); /* Using body font */
+  font-weight: 600;
+  margin: 0 10px;
+  transition: color 0.2s ease-in-out;
+  text-decoration: none !important; /* Remove underline from nav links too */
 }
 
-.nav-link {
-    color: var(--cf-white) !important;
-    font-weight: 600;
-    font-family: var(--cf-font-body);
-    margin-right: 15px;
-    transition: color 0.3s ease;
-    text-decoration: none; /* Ensure no default underline */
+.navbar .nav-link:hover,
+.navbar .nav-link:focus {
+  color: var(--cf-secondary-teal) !important; /* Secondary Teal on hover */
 }
 
-.nav-link:hover {
-    color: var(--cf-secondary-teal) !important;
-    text-decoration: none; /* Remove underline on hover specifically for nav links */
+/* Styling for NavDropdown titles */
+.navbar .nav-item .nav-link.dropdown-toggle {
+  color: var(--cf-primary-dark-teal) !important; /* Dark Teal for dropdown titles */
+  font-family: var(--cf-font-body); /* Using body font */
+  font-weight: 600;
+  text-decoration: none !important; /* Remove underline from dropdown titles */
 }
 
-/* --- Dropdown Specific Styles --- */
-.dropdown-menu {
-    background-color: var(--cf-white) !important;
-    border: 1px solid var(--cf-neutral-light-gray);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
-    padding: 10px 0;
+.navbar .nav-item .nav-link.dropdown-toggle:hover,
+.navbar .nav-item .nav-link.dropdown-toggle:focus {
+  color: var(--cf-secondary-teal) !important; /* Secondary Teal on hover */
 }
 
-.dropdown-item {
-    color: var(--cf-neutral-charcoal) !important;
-    padding: 10px 20px;
-    font-weight: 400;
-    font-family: var(--cf-font-body);
-    font-size: var(--cf-font-size-base);
-    transition: background-color 0.2s ease, color 0.2s ease;
-    text-decoration: none; /* Ensure no default underline */
+/* Styling for NavDropdown items */
+/* Targeting with higher specificity and aggressive resets */
+.navbar-nav .nav-item.dropdown .dropdown-menu {
+  background-color: var(--cf-white); /* White background for dropdown */
+  border: 1px solid var(--cf-border-light); /* Light border */
+  box-shadow: 0 4px 8px var(--cf-shadow-color-light); /* Light shadow */
+  border-radius: 8px;
+  padding: 0px 0px !important; /* AGGRESSIVE: Explicitly set 0px padding */
+  margin: 0px !important; /* AGGRESSIVE: Explicitly set 0px margin */
+  top: 100% !important; /* Ensures it starts right below the navbar */
+  min-width: unset !important; /* Prevent Bootstrap from setting a minimum width */
 }
 
-.dropdown-item:hover,
-.dropdown-item:focus {
-    background-color: var(--cf-neutral-light-mint) !important;
-    color: var(--cf-primary-dark-teal) !important;
-    text-decoration: none; /* Remove underline on hover specifically for dropdown items */
+/* Targeting individual dropdown items with higher specificity */
+.navbar-nav .nav-item.dropdown .dropdown-item {
+  color: var(--cf-primary-dark-teal) !important; /* Dark Teal for dropdown items */
+  font-family: var(--cf-font-body); /* Using body font */
+  padding: 6px 20px !important; /* Reduced vertical padding */
+  line-height: 1.2 !important; /* Control line height to reduce vertical space */
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  text-decoration: none !important; /* Remove underline from dropdown items */
+  margin: 0px !important; /* AGGRESSIVE: Explicitly set 0px margin */
+  height: auto !important; /* Ensure no fixed height is forcing space */
 }
 
-/* --- Get a Quote Button in Header --- */
+.navbar-nav .nav-item.dropdown .dropdown-item:hover,
+.navbar-nav .nav-item.dropdown .dropdown-item:focus {
+  background-color: var(--cf-accent-warm-gold) !important; /* Warm Gold background on hover */
+  color: var(--cf-white) !important; /* White text on hover */
+}
+
+/* Styling for dropdown dividers - thin line */
+.navbar-nav .nav-item.dropdown .dropdown-divider {
+  margin: 0 !important; /* Keep margins at zero */
+  height: 1px !important; /* Set a very thin height */
+  border: none !important; /* Remove all default borders */
+  border-top: 1px solid var(--cf-border-light) !important; /* Add a thin top border using your variable */
+  padding: 0 !important; /* Keep padding at zero */
+  overflow: hidden !important; /* Keep overflow hidden */
+  background-color: transparent !important; /* Ensure no background color */
+}
+
+/* Styling for the "Get a Quote" button */
 .btn-get-quote {
-    background-color: var(--cf-secondary-teal) !important;
-    color: var(--cf-white) !important;
-    border: none;
-    border-radius: 5px;
-    padding: 8px 20px;
-    font-weight: 600;
-    font-family: var(--cf-font-body);
-    font-size: var(--cf-font-size-base);
-    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  background-color: var(--cf-accent-warm-gold) !important; /* Warm Gold */
+  border-color: var(--cf-accent-warm-gold) !important;
+  color: var(--cf-white) !important;
+  padding: 8px 20px;
+  border-radius: 25px; /* More rounded */
+  font-weight: bold;
+  transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  text-decoration: none !important; /* Ensure no underline */
+  margin-left: 15px; /* Add some space from last nav item */
 }
 
 .btn-get-quote:hover {
-    background-color: var(--cf-accent-soft-coral) !important;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-/* Responsive adjustments */
-@media (max-width: 991.98px) {
-    .navbar-collapse {
-        background-color: var(--cf-primary-dark-teal);
-        padding: 15px;
-    }
-    .nav-link {
-        padding-top: 10px;
-        padding-bottom: 10px;
-    }
-    .btn-get-quote {
-        width: 100%;
-        margin-top: 15px;
-    }
+  background-color: var(--cf-primary-dark-teal) !important; /* Dark Teal on hover */
+  border-color: var(--cf-primary-dark-teal) !important;
+  color: var(--cf-white) !important;
 }

@@ -1,0 +1,313 @@
+/* client/src/pages/Services/DevelopmentServicesPage/DevelopmentServicesPage.css */
+
+/*
+    This file contains specific styles for the consolidated Development Services Page.
+    It builds upon the common styles defined in pages-common.css to elevate its appearance
+    without being overly stylized.
+*/
+
+/* --- Page-Level Wrappers (added for specific page overrides if needed) --- */
+/* These classes are applied to the top-level div and main elements in the JS */
+.development-services-page-wrapper {
+    /* Potential page-specific overrides for overall layout/background */
+}
+
+.development-services-main-content {
+    /* Potential main content area overrides */
+}
+
+/* --- Hero Section Specifics (for the new overall page intro) --- */
+/* This section now introduces the entire page's content */
+.services-hero {
+    padding: var(--cf-section-padding-vertical-xl) var(--cf-page-padding-horizontal); /* Consistent padding for hero sections */
+    background-color: var(--cf-neutral-lightest-gray); /* Subtle background for the hero */
+}
+
+.services-hero .services-headline {
+    color: var(--cf-primary-dark-teal); /* Ensure brand color for hero title */
+    margin-bottom: var(--cf-spacing-md);
+}
+
+.services-hero .services-intro {
+    font-size: var(--cf-font-size-lg);
+    color: var(--cf-neutral-charcoal);
+    max-width: 900px; /* Wider intro for readability */
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: var(--cf-spacing-xl); /* Space before content starts */
+}
+
+
+/* --- General Service Content Sections --- */
+/* Applied to all 'service-content-section' elements to ensure consistent vertical padding */
+.service-content-section {
+    padding: var(--cf-section-padding-vertical-large) var(--cf-page-padding-horizontal); /* Replaces removed Bootstrap py-5 */
+    /* Default background for sections if not overridden by specific classes below */
+    background-color: var(--cf-white); /* Ensures a default white background for cohesion */
+}
+
+/* --- Introduction Section Specifics (for the first service-content-section, i.e., Web Dev) --- */
+.bg-lighter-gray-intro {
+    background-color: var(--cf-neutral-lightest-gray); /* Matches hero background for smooth transition */
+}
+
+/* --- Section Separator (RULE REMOVED FROM CSS - element also removed from JS) --- */
+/* The previous .section-separator rule is now completely removed as the element is no longer in the HTML. */
+
+/* --- Alternating Background for sections --- */
+/* The .bg-light-gray-custom class is no longer applied to the AI section in JS
+   to create a more unified background after the intro section.
+   The definition remains here for potential future use elsewhere. */
+.bg-light-gray-custom {
+    background-color: var(--cf-neutral-light-gray);
+}
+
+/* --- Enhancements for Titles and Content --- */
+
+/* Ensure the H2 for the first content section (Web Dev) has good top margin and spacing */
+.service-content-section:first-of-type .section-title {
+    margin-top: 0; /* No extra top margin needed here, as section padding handles it */
+    margin-bottom: var(--cf-spacing-xl); /* More space below the main title of the section */
+}
+
+/* General section titles (H2) - enhance visibility */
+.service-content-section .section-title {
+    color: var(--cf-primary-dark-teal); /* Ensure primary brand color */
+    font-size: var(--cf-font-size-xxxl); /* Consistent with brand guidelines */
+    text-align: center; /* Center align all section titles */
+    margin-top: 0; /* Section padding takes care of top spacing */
+    margin-bottom: var(--cf-spacing-xxl); /* Ample space below titles */
+    padding-bottom: var(--cf-spacing-sm); /* Padding for potential border */
+    border-bottom: 2px solid var(--cf-secondary-teal); /* Subtle brand-colored underline */
+    display: inline-block; /* To make border-bottom fit content width if text-align: center */
+    position: relative; /* For potential future flourishes if desired */
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap; /* Prevents title from wrapping prematurely */
+}
+@media (max-width: 767.98px) {
+    .service-content-section .section-title {
+        font-size: var(--cf-font-size-xxl);
+        margin-top: 0;
+        margin-bottom: var(--cf-spacing-lg);
+        white-space: normal; /* Allow wrapping on smaller screens */
+        border-bottom: none; /* Remove border-bottom on very small screens to save space */
+        padding-bottom: 0;
+    }
+}
+
+/* Sub-section titles (H3) within content sections */
+.service-detail-content h3,
+.service-detail-offerings h3 {
+    color: var(--cf-primary-dark-teal);
+    font-size: var(--cf-font-size-xl);
+    margin-top: var(--cf-spacing-xl); /* More spacing above sub-sections */
+    margin-bottom: var(--cf-spacing-md);
+    border-left: 4px solid var(--cf-secondary-teal); /* Subtle brand border on left */
+    padding-left: var(--cf-spacing-md);
+    font-weight: 600; /* Ensure it's clearly bold */
+}
+
+/* Heading for lists of benefits/offerings (H4) */
+.service-detail-content h4 {
+    color: var(--cf-primary-dark-teal);
+    margin-top: var(--cf-spacing-lg);
+    margin-bottom: var(--cf-spacing-sm);
+    font-weight: 600;
+}
+
+/* General paragraph styling within sections */
+.service-detail-content p,
+.service-detail-offerings p {
+    font-size: var(--cf-font-size-base);
+    line-height: 1.7;
+    margin-bottom: var(--cf-spacing-md);
+    color: var(--cf-neutral-charcoal);
+}
+
+/* Strong text within paragraphs/lists */
+.service-detail-content strong,
+.service-detail-offerings strong {
+    font-weight: 700;
+    color: var(--cf-primary-dark-teal); /* Ensure strong text uses primary brand color */
+}
+
+/* List styling */
+.service-detail-content ul,
+.service-detail-offerings ul {
+    list-style-type: disc; /* Default disc */
+    margin-left: var(--cf-spacing-md); /* Indent lists */
+    margin-bottom: var(--cf-spacing-xl);
+    padding-left: 0; /* Bootstrap might add padding, ensure consistent */
+}
+
+.service-detail-content ul li,
+.service-detail-offerings ul li {
+    font-size: var(--cf-font-size-base);
+    line-height: 1.6;
+    margin-bottom: var(--cf-spacing-xs); /* More space between list items */
+    color: var(--cf-neutral-charcoal);
+}
+
+/* Specific style for the note paragraph (like AI section's note) */
+.service-detail-content p.note {
+    font-style: italic;
+    color: var(--cf-neutral-charcoal);
+    margin-top: var(--cf-spacing-lg);
+    border-left: 4px solid var(--cf-accent-warm-gold); /* Using warm gold for notes/asides */
+    padding-left: var(--cf-spacing-md);
+    background-color: var(--cf-neutral-lightest-gray); /* Subtle background for notes */
+    padding: var(--cf-spacing-md);
+    border-radius: var(--cf-border-radius-sm);
+}
+
+/* Image container and image styling */
+.service-detail-image-container {
+    padding: var(--cf-spacing-md); /* Some padding around the image within its container */
+}
+.service-detail-image-container img {
+    box-shadow: 0 4px 15px var(--cf-shadow-color-medium); /* Added consistent shadow for images */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.service-detail-image-container img:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px var(--cf-shadow-color-strong);
+}
+
+/* Call to Action section enhancements */
+.service-detail-cta-section {
+    background-color: var(--cf-secondary-teal); /* Brand color background for CTA */
+    color: var(--cf-white);
+    padding: var(--cf-section-padding-vertical-xl) var(--cf-page-padding-horizontal); /* More vertical padding for prominence */
+}
+
+.service-detail-cta-section .cta-title {
+    color: var(--cf-white); /* Ensure white text on dark background */
+    font-size: var(--cf-font-size-xxxl);
+    margin-bottom: var(--cf-spacing-xl);
+}
+
+.service-detail-cta-section .cta-description {
+    font-size: var(--cf-font-size-lg);
+    max-width: 700px;
+    margin: 0 auto var(--cf-spacing-xxl) auto;
+    line-height: 1.6;
+}
+
+/* Aligned with JS change from .cta-button to .btn-contact */
+.service-detail-cta-section .btn-contact {
+    background-color: var(--cf-accent-warm-gold); /* Gold button for high contrast */
+    color: var(--cf-white) !important; /* !important to override Bootstrap if needed */
+    border: none;
+    padding: var(--cf-spacing-md) var(--cf-spacing-xxl);
+    font-size: var(--cf-font-size-lg);
+    font-weight: 700;
+    border-radius: var(--cf-border-radius-md); /* Slightly more rounded */
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.service-detail-cta-section .btn-contact:hover {
+    background-color: var(--cf-primary-dark-teal); /* Dark teal on hover */
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px var(--cf-shadow-color-strong);
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 991.98px) {
+    .services-hero {
+        padding: var(--cf-section-padding-vertical-large) var(--cf-page-padding-horizontal);
+    }
+    .services-hero .services-intro {
+        font-size: var(--cf-font-size-base);
+        margin-bottom: var(--cf-spacing-lg);
+    }
+
+    .service-content-section {
+        padding: var(--cf-section-padding-vertical-medium) var(--cf-page-padding-horizontal);
+    }
+
+    .service-detail-content h3,
+    .service-detail-offerings h3 {
+        font-size: var(--cf-font-size-lg);
+        margin-top: var(--cf-spacing-lg);
+        margin-bottom: var(--cf-spacing-md);
+    }
+    .service-detail-content h4 {
+        font-size: var(--cf-font-size-md);
+        margin-top: var(--cf-spacing-md);
+        margin-bottom: var(--cf-spacing-xs);
+    }
+    .service-detail-content p,
+    .service-detail-offerings p,
+    .service-detail-content ul li,
+    .service-detail-offerings ul li {
+        font-size: var(--cf-font-size-sm);
+        margin-bottom: var(--cf-spacing-xs);
+    }
+    .service-detail-cta-section {
+        padding: var(--cf-section-padding-vertical-medium) var(--cf-page-padding-horizontal);
+    }
+    .service-detail-cta-section .cta-title {
+        font-size: var(--cf-font-size-xxl);
+    }
+    .service-detail-cta-section .cta-description {
+        font-size: var(--cf-font-size-base);
+        margin-bottom: var(--cf-spacing-lg);
+    }
+    .service-detail-cta-section .btn-contact {
+        font-size: var(--cf-font-size-md);
+        padding: var(--cf-spacing-sm) var(--cf-spacing-lg);
+    }
+}
+
+@media (max-width: 767.98px) {
+    .services-hero {
+        padding: var(--cf-section-padding-vertical-small) var(--cf-page-padding-horizontal);
+    }
+    .services-hero .services-headline {
+        font-size: var(--cf-font-size-xxl);
+    }
+    .services-hero .services-intro {
+        font-size: var(--cf-font-size-sm);
+    }
+
+    .service-content-section {
+        padding: var(--cf-section-padding-vertical-small) var(--cf-page-padding-horizontal);
+    }
+
+    .service-content-section:first-of-type .section-title {
+        margin-top: 0;
+        margin-bottom: var(--cf-spacing-md);
+    }
+    .service-detail-content h3,
+    .service-detail-offerings h3 {
+        font-size: var(--cf-font-size-md);
+        margin-top: var(--cf-spacing-md);
+        margin-bottom: var(--cf-spacing-xs);
+        padding-left: var(--cf-spacing-sm);
+        border-left: 3px solid var(--cf-secondary-teal); /* Slightly thinner border for small screens */
+    }
+    .service-detail-content h4 {
+        font-size: var(--cf-font-size-sm);
+        margin-top: var(--cf-spacing-xs);
+        margin-bottom: var(--cf-spacing-xxs);
+    }
+    .service-detail-content p.note {
+        padding: var(--cf-spacing-xs);
+    }
+    .service-detail-cta-section {
+        padding: var(--cf-section-padding-vertical-small) var(--cf-page-padding-horizontal);
+    }
+    .service-detail-cta-section .cta-title {
+        font-size: var(--cf-font-size-xl);
+    }
+    .service-detail-cta-section .cta-description {
+        font-size: var(--cf-font-size-sm);
+        margin-bottom: var(--cf-spacing-md);
+    }
+    .service-detail-cta-section .btn-contact {
+        font-size: var(--cf-font-size-sm);
+        padding: var(--cf-spacing-xs) var(--cf-spacing-md);
+    }
+}

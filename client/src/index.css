@@ -1,6 +1,12 @@
 /* client/src/index.css */
 
-/* --- GLOBAL CSS VARIABLES --- */
+/*
+    This CSS file is the single source of truth for all global styles and CSS Custom Properties (Design Tokens).
+    It contains color palette, typography scale, spacing, border-radius, transitions, and generic element styling.
+    Layout-specific rules (for html, body, #root, and .app-layout) are now in Layout.css.
+*/
+
+/* --- GLOBAL CSS VARIABLES (Design Tokens) --- */
 :root {
     /* --- Color Palette Variables --- */
     --cf-primary-dark-teal: #004d40;
@@ -9,36 +15,76 @@
     --cf-accent-soft-coral: #ff7043;
     --cf-neutral-light-mint: #b2dfdb;
     --cf-neutral-charcoal: #263238;
-    --cf-neutral-light-gray: #f5f5f5;
     --cf-white: #ffffff;
     --cf-support-slate-blue: #1976d2;
     --cf-support-soft-purple: #7e57c2;
+    --cf-neutral-light-gray: #f4f6f8;
+    --cf-neutral-lightest-gray: #fafbfc;
+    --cf-neutral-medium-gray: #d1d5db;
+    --cf-neutral-dark-gray: #455a64;
 
     /* --- Font Variables --- */
     --cf-font-heading: 'Montserrat', sans-serif;
     --cf-font-body: 'Open Sans', sans-serif;
     --cf-font-code: 'Source Code Pro', monospace;
 
-    /* --- Base Font Sizes (use rem for scalability) --- */
-    --cf-font-size-base: 1rem;     /* Equivalent to 16px usually */
-    --cf-font-size-sm: 0.875rem;   /* Small text, e.g., captions */
-    --cf-font-size-md: 1.125rem;   /* Medium text, often for buttons/icons */
-    --cf-font-size-lg: 1.25rem;    /* Large text, e.g., leads */
-    --cf-font-size-xl: 1.8rem;     /* Extra large (approx 2.2em for mobile headings) */
-    --cf-font-size-xxl: 2.3rem;    /* XX Large (approx 2.8em for tablet headings) */
-    --cf-font-size-xxxl: 2.8rem;   /* XXX Large (approx 2.5em for desktop content headings) */
-    --cf-font-size-xxxxl: 3.5rem;  /* XXXX Large (approx 3.2em for desktop hero headlines) */
+    /* --- Typography Scale (Refined & Unified) --- */
+    --cf-font-size-xs: 0.75rem;     /* 12px */
+    --cf-font-size-sm: 0.875rem;    /* 14px */
+    --cf-font-size-base: 1rem;      /* 16px */
+    --cf-font-size-md: 1.125rem;    /* 18px */
+    --cf-font-size-lg: 1.25rem;     /* 20px */
+    --cf-font-size-xl: 1.5rem;      /* 24px */
+    --cf-font-size-xxl: 1.875rem;  /* 30px */
+    --cf-font-size-xxxl: 2.25rem;  /* 36px */
+    --cf-font-size-xxxxl: 2.75rem; /* 44px */
 
+    /* --- Line Heights for Readability --- */
+    --cf-line-height-tight: 1.25;
+    --cf-line-height-normal: 1.5;
+    --cf-line-height-relaxed: 1.6;
+    --cf-line-height-loose: 1.8;
+
+    /* --- Spacing Tokens --- */
+    --cf-spacing-xs: 8px;
+    --cf-spacing-sm: 12px;
+    --cf-spacing-md: 16px;
+    --cf-spacing-lg: 24px;
+    --cf-spacing-xl: 32px;
+    --cf-spacing-xxl: 48px;
+    --cf-spacing-xxxl: 64px;
+
+    /* --- Section Padding Tokens --- */
+    --cf-section-padding-vertical: 32px;
+    --cf-section-padding-vertical-large: 48px;
+    --cf-section-padding-vertical-xl: 64px;
+
+    /* --- Content Max Widths --- */
+    --cf-content-max-width: 720px;
+    --cf-content-max-width-wide: 1140px;
+
+    /* --- Border Radius Tokens --- */
+    --cf-border-radius-small: 4px;
+    --cf-border-radius-default: 6px;
+    --cf-border-radius-large: 8px;
+
+    /* --- Transition Tokens --- */
+    --cf-transition-fast: 0.15s ease;
+    --cf-transition-medium: 0.25s ease;
+    --cf-transition-slow: 0.35s ease;
+
+    /* --- Border Accent Tokens --- */
+    --cf-border-accent-width: 3px;
+    --cf-border-accent-width-small: 2px;
 
     /* --- Alpha Colors & Shadows --- */
-    --cf-white-alpha-85: rgba(255,255,255,0.85); /* For hero section text opacity */
-    --cf-white-alpha-70: rgba(255,255,255,0.7); /* For muted white text */
-    --cf-white-alpha-20: rgba(255,255,255,0.2); /* For subtle white dividers */
-    --cf-shadow-color-light: rgba(0,0,0,0.05); /* Lighter shadow for general elements */
-    --cf-shadow-color-medium: rgba(0,0,0,0.15); /* Medium shadow for cards/images */
-    --cf-shadow-color-strong: rgba(0, 0, 0, 0.25); /* For stronger hover shadows */
-    --cf-shadow-color-dark: rgba(0,0,0,0.2); /* For darker shadows like footer */
-
+    --cf-white-alpha-85: rgba(255,255,255,0.85);
+    --cf-white-alpha-70: rgba(255,255,255,0.7);
+    --cf-white-alpha-20: rgba(255,255,255,0.2);
+    --cf-shadow-color-light: rgba(0,0,0,0.05);
+    --cf-shadow-color-medium: rgba(0,0,0,0.15);
+    --cf-shadow-color-strong: rgba(0, 0, 0, 0.25);
+    --cf-shadow-color-dark: rgba(0,0,0,0.2);
 
     /* --- Form & Feedback Colors --- */
     --cf-border-light: #ddd;
@@ -46,52 +92,54 @@
     --cf-success-text: #155724;
     --cf-error-bg: #f8d7da;
     --cf-error-text: #721c24;
-    --cf-focus-shadow-color: rgba(0, 121, 107, 0.25); /* Based on secondary teal */
+    --cf-focus-shadow-color: rgba(0, 121, 107, 0.25);
 
     /* --- Partners Page Specific --- */
     --cf-border-light-alt: #e0e0e0;
     --cf-partner-logo-grayscale: grayscale(90%);
     --cf-partner-logo-opacity: 0.7;
 
-    /* --- Global layout variables --- */
-    --cf-header-height: 70px; /* Estimated height of your fixed header */
+    /* --- Global layout variables (if needed) --- */
+    --cf-header-height: 70px;
     --cf-footer-height: 60px;
 }
 
-/* --- Base global styles --- */
-body {
-    margin: 0;
-    font-family: var(--cf-font-body);
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    color: var(--cf-neutral-charcoal);
-    background-color: var(--cf-white);
-    font-size: var(--cf-font-size-base);
-    line-height: 1.6;
-    /* --- IMPORTANT: padding-top removed from body --- */
-}
+/* Base global styles that apply to all elements within the document flow. */
 
 code {
     font-family: var(--cf-font-code);
+    background-color: var(--cf-neutral-light-mint);
+    padding: 2px 4px;
+    border-radius: 4px;
 }
 
 /* Global heading styles */
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--cf-font-heading);
     color: var(--cf-primary-dark-teal);
-    margin-top: 0;
+    margin-top: 1.5em;
     margin-bottom: 0.8em;
     line-height: 1.2;
     font-weight: 700;
 }
 
-/* Specific heading sizes - using rem */
-h1 { font-size: 3.5rem; }
-h2 { font-size: 2.5rem; }
-h3 { font-size: 2rem; }
-h4 { font-size: 1.75rem; }
-h5 { font-size: 1.5rem; }
-h6 { font-size: 1.25rem; }
+/* Specific heading sizes (using unified variables) */
+h1 { font-size: var(--cf-font-size-xxxxl); }
+h2 { font-size: var(--cf-font-size-xxxl); }
+h3 { font-size: var(--cf-font-size-xxl); }
+h4 { font-size: var(--cf-font-size-xl); }
+h5 { font-size: var(--cf-font-size-lg); }
+h6 { font-size: var(--cf-font-size-md); }
+
+/* Default paragraph styles (unified with pages-common.css intent) */
+p {
+    font-family: var(--cf-font-body);
+    font-size: var(--cf-font-size-base);
+    line-height: var(--cf-line-height-relaxed); /* Now using global variable: 1.6 */
+    margin-bottom: 1.25em; /* Unified value */
+    color: var(--cf-neutral-charcoal);
+    max-width: 65ch; /* Unified value for optimal reading width */
+}
 
 /* Default link styles */
 a {
@@ -105,29 +153,93 @@ a:hover {
     text-decoration: underline;
 }
 
-/* --- Bootstrap overrides for global container padding --- */
-.container {
-    padding-left: 15px;
-    padding-right: 15px;
+/* Default list styles (unified with pages-common.css intent) */
+ul, ol {
+    font-family: var(--cf-font-body); /* Added for consistency */
+    font-size: var(--cf-font-size-base); /* Added for consistency */
+    color: var(--cf-neutral-charcoal);
+    margin-left: var(--cf-spacing-lg); /* Unified using global variable */
+    margin-bottom: var(--cf-spacing-lg); /* Unified using global variable */
+    padding-left: 0; /* Unified to 0 */
+    /* REMOVED: max-width: 60ch; This was likely causing the stacking issue for .benefits-list */
 }
 
-@media (min-width: 576px) {
-    .container {
-        max-width: 540px;
-    }
+ul li, ol li {
+    margin-bottom: var(--cf-spacing-xs); /* Unified using global variable */
+    line-height: var(--cf-line-height-normal); /* Unified using global variable: 1.5 */
 }
-@media (min-width: 768px) {
-    .container {
-        max-width: 720px;
-    }
+
+/* Default strong (bold) text style (unified with pages-common.css intent) */
+strong {
+    font-weight: 600; /* Unified to 600 */
+    color: var(--cf-primary-dark-teal);
 }
-@media (min-width: 992px) {
-    .container {
-        max-width: 960px;
-    }
+
+/* Default emphasized (italic) text style */
+em {
+    font-style: italic;
 }
-@media (min-width: 1200px) {
-    .container {
-        max-width: 1140px;
-    }
+
+/* Default horizontal rules */
+hr {
+    border: none;
+    border-top: 1px solid var(--cf-border-light);
+    margin: 2.5em 0;
+}
+
+/* Default table styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 2em;
+    box-shadow: 0 2px 4px var(--cf-shadow-color-light);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+table th, table td {
+    border: 1px solid var(--cf-border-light);
+    padding: 12px 15px;
+    text-align: left;
+    color: var(--cf-neutral-charcoal);
+}
+
+table th {
+    background-color: var(--cf-neutral-light-mint);
+    font-weight: bold;
+    color: var(--cf-primary-dark-teal);
+}
+
+table tr:nth-child(even) {
+    background-color: var(--cf-neutral-light-mint);
+}
+
+/* Default blockquote styles */
+blockquote {
+    border-left: 4px solid var(--cf-secondary-teal);
+    padding: 15px 25px;
+    margin: 2em 0;
+    background-color: var(--cf-neutral-light-mint);
+    color: var(--cf-neutral-charcoal);
+    font-style: italic;
+    border-radius: 4px;
+}
+
+/* Default preformatted code blocks */
+pre {
+    background-color: var(--cf-neutral-charcoal);
+    color: var(--cf-white);
+    padding: 15px;
+    border-radius: 8px;
+    overflow-x: auto;
+    margin: 2em 0;
+    font-family: var(--cf-font-code);
+    font-size: var(--cf-font-size-sm);
+}
+
+pre code {
+    background-color: transparent;
+    color: inherit;
+    padding: 0;
+    border-radius: 0;
 }

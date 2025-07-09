@@ -1,80 +1,92 @@
 /* client/src/components/HomeSections/WhyChooseUs.css */
 
 .why-choose-us-section {
-    padding: 60px 20px;
-    text-align: center;
-    background-color: var(--cf-neutral-light-mint); /* Light mint background for contrast */
-    font-family: var(--cf-font-body); /* Apply body font to the entire section */
+    padding: var(--cf-section-padding-vertical-xxl) 0; /* Using global padding variable for 80px */
+    background-color: var(--cf-neutral-light-gray); /* Light gray background to match The Cryptofox Advantage */
+    text-align: center; /* Center align content */
+    margin-top: 0 !important; /* Ensure no top margin */
 }
 
-.why-choose-us-section .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
+.why-choose-us-section .section-headline {
+    color: var(--cf-primary-dark-teal); /* Using global color variable */
+    margin-bottom: var(--cf-spacing-md); /* Using global spacing variable for 20px */
+    font-size: var(--cf-font-size-xxxl); /* Using global font size variable */
+    position: relative;
+    padding-bottom: 15px; /* Specific padding for the ::after element */
+    margin-top: 0; /* Ensure the h2 itself has no default top margin pushing it down */
 }
 
-.section-headline {
-    font-size: var(--cf-font-size-xxl); /* Using a larger font size variable for main section headlines */
-    font-family: var(--cf-font-heading); /* Ensuring heading font */
-    font-weight: 700; /* Bold weight */
-    color: var(--cf-primary-dark-teal); /* Dark Teal */
-    margin-bottom: 40px;
+.why-choose-us-section .section-headline::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    width: 80px; /* Specific width */
+    height: 3px; /* Specific height */
+    background-color: var(--cf-accent-warm-gold); /* Using global color variable */
+    border-radius: var(--cf-border-radius-small); /* Using global border-radius variable for 2px */
 }
 
-.section-paragraph {
-    font-size: var(--cf-font-size-base); /* Using base font size variable */
-    line-height: 1.6;
+.why-choose-us-section .section-paragraph {
+    font-size: var(--cf-font-size-lg); /* Slightly larger for introductory paragraph */
     max-width: 800px;
-    margin: 0 auto 30px auto;
-    color: var(--cf-neutral-charcoal); /* Charcoal gray */
+    margin: 0 auto var(--cf-spacing-xxxl) auto; /* Using global spacing variable for 50px (closest is 48px) */
+    color: var(--cf-neutral-charcoal); /* Using global color variable */
 }
 
 .benefits-list {
     list-style: none; /* Remove default bullet points */
     padding: 0;
-    text-align: left; /* Align text to the left within the list */
-    max-width: 700px; /* Constrain list width */
-    margin: 20px auto;
+    display: grid;
+    /* Adjusted: This will allow between 1 and 3 columns, with each item having a minimum width of 350px.
+       It's more flexible and will prioritize fitting items horizontally before stacking, given enough space. */
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: var(--cf-spacing-xl); /* Increased gap for better visual separation between larger cards */
+    margin-top: var(--cf-spacing-xl); /* Using global spacing variable for 40px (closest is 32px) */
+    justify-content: center; /* Center the grid items if they don't fill the entire row */
 }
 
 .benefits-list li {
-    font-size: var(--cf-font-size-base); /* Using base font size */
-    line-height: 1.6; /* Ensure good line spacing */
-    margin-bottom: 12px;
-    padding-left: 30px; /* Space for custom bullet/icon */
-    position: relative; /* For absolute positioning of custom bullet */
-    color: var(--cf-neutral-charcoal); /* Charcoal gray for list item text */
+    background-color: var(--cf-white); /* White background for benefit items */
+    border-radius: var(--cf-border-radius-xl); /* Using global border-radius variable for 12px */
+    box-shadow: 0 6px 12px var(--cf-shadow-color-light); /* Lighter shadow for these cards */
+    padding: var(--cf-spacing-xl); /* Increased padding inside cards for better text layout */
+    text-align: left;
+    color: var(--cf-neutral-charcoal); /* Using global color variable */
+    font-size: var(--cf-font-size-base); /* Using global font size variable */
+    line-height: var(--cf-line-height-relaxed); /* Using global line-height variable for 1.7 */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    transition: transform var(--cf-transition-medium), box-shadow var(--cf-transition-medium); /* Using global transition variable for 0.3s ease-in-out */
 }
 
-/* Custom bullet point using pseudo-elements */
+.benefits-list li:hover {
+    transform: translateY(-5px); /* Subtle lift on hover */
+    box-shadow: 0 10px 20px var(--cf-shadow-color-medium); /* Slightly stronger shadow on hover */
+}
+
+/* Custom icon/bullet for list items */
 .benefits-list li::before {
-    content: '✓'; /* Checkmark icon */
-    color: var(--cf-secondary-teal); /* Bright Teal for checkmark */
-    font-weight: bold;
-    position: absolute;
-    left: 0;
-    top: 0;
-    font-size: var(--cf-font-size-md); /* Adjust checkmark size to match base text if needed */
+    content: "✅"; /* Checkmark emoji */
+    font-size: 1.8em; /* Size of the checkmark */
+    color: var(--cf-secondary-teal); /* Teal checkmark */
+    margin-bottom: var(--cf-spacing-sm); /* Using global spacing variable for 10px */
+    display: block;
 }
 
-/* Responsive adjustments if needed for smaller headings/paragraphs */
-@media (max-width: 768px) {
-    .section-headline {
-        font-size: var(--cf-font-size-xl); /* Adjust for smaller screens */
+/* Responsive Adjustments */
+/* On screens smaller than 768px, we can allow for a slightly tighter minmax if needed, or simply let auto-fit handle it.
+   For now, the single column on very small mobile will be sufficient. */
+@media (max-width: 576px) { /* On screens 576px or narrower, switch to single column */
+    .why-choose-us-section {
+        padding: var(--cf-section-padding-vertical-large) 0; /* Using global padding variable for 60px */
     }
     .benefits-list {
-        padding: 0 15px; /* Add some padding to list on smaller screens */
-    }
-}
-
-@media (max-width: 480px) {
-    .section-headline {
-        font-size: var(--cf-font-size-lg); /* Further adjust for very small screens */
-    }
-    .why-choose-us-section {
-        padding: 40px 15px; /* Reduce padding on smaller screens */
+        grid-template-columns: 1fr; /* Single column for very small mobile */
     }
     .benefits-list li {
-        padding-left: 25px; /* Adjust padding for very small screens */
+        padding: var(--cf-spacing-lg); /* Slightly less padding on very small mobile */
     }
 }

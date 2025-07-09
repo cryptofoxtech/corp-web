@@ -1,0 +1,255 @@
+/* client/src/pages/Contact/Contact.css */
+
+/*
+    This CSS file contains styles specific to the Contact Page content and layout.
+    Global styles for fonts, colors, and base element properties are handled in:
+    - client/src/index.css (general element resets, global variables)
+    - client/src/components/Layout/Layout.css (overall app structure, html/body/root)
+    - client/src/components/Header/Header.css
+    - client/src/components/Footer/Footer.css
+*/
+
+.contact-page {
+    padding: var(--cf-section-padding-vertical-large) 0; /* Consistent vertical padding (48px) */
+    background-color: var(--cf-neutral-light-gray);
+    /* Ensures the contact page expands to fill remaining vertical space,
+       pushing the footer down on pages with short content. */
+    min-height: calc(100vh - var(--cf-header-height) - var(--cf-footer-height, 60px)); /* Added fallback to 60px */
+    display: flex; /* Flex container to center content */
+    flex-direction: column;
+    align-items: center; /* Centers items horizontally in column direction */
+    justify-content: center; /* Centers items vertically if content is shorter than min-height */
+}
+
+.contact-page h1 {
+    font-size: var(--cf-font-size-xxxl); /* Explicit font size (36px) */
+    margin-bottom: var(--cf-spacing-md); /* Consistent margin (16px) */
+    text-align: center;
+    color: var(--cf-primary-dark-teal); /* Ensure color from brand */
+    font-family: var(--cf-font-heading); /* Ensure font from brand */
+}
+
+.page-intro {
+    font-size: var(--cf-font-size-lg); /* Explicit font size for lead paragraph (20px) */
+    text-align: center;
+    max-width: var(--cf-content-max-width-wide); /* Use wide max-width for intro (e.g., 900px) */
+    margin: 0 auto var(--cf-spacing-xl) auto; /* Consistent margin (24px) */
+    line-height: var(--cf-line-height-normal); /* Consistent line height (1.5) */
+    color: var(--cf-neutral-charcoal); /* Ensure color from brand */
+    font-family: var(--cf-font-body); /* Ensure font from brand */
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Default to single column on small screens */
+    gap: var(--cf-spacing-xl); /* Consistent gap (32px) */
+    width: 100%;
+    max-width: var(--cf-content-max-width-wide); /* Max width for the grid container itself (e.g., 900px) */
+    background-color: var(--cf-white);
+    border-radius: var(--cf-border-radius-large); /* Consistent border-radius (8px) */
+    box-shadow: 0 8px 20px var(--cf-shadow-color-light); /* Using variable */
+    padding: var(--cf-spacing-xl); /* Consistent padding (32px) */
+}
+
+/* Contact Info Section */
+.contact-info-section {
+    padding: var(--cf-spacing-md); /* Consistent padding (16px) */
+    background-color: var(--cf-neutral-light-mint);
+    border-radius: var(--cf-border-radius-default); /* Consistent border-radius (6px) */
+}
+
+.contact-info-section h2 {
+    font-size: var(--cf-font-size-xxl); /* Explicit font size (30px) */
+    margin-bottom: var(--cf-spacing-md); /* Consistent margin (16px) */
+    font-weight: 700; /* Use 700 for headings */
+    color: var(--cf-primary-dark-teal); /* Ensure color from brand */
+    font-family: var(--cf-font-heading); /* Ensure font from brand */
+}
+
+.contact-info-section p {
+    line-height: var(--cf-line-height-normal); /* Consistent line height (1.5) */
+    margin-bottom: var(--cf-spacing-md); /* Consistent margin (16px) */
+    color: var(--cf-neutral-charcoal); /* Ensure color from brand */
+    font-family: var(--cf-font-body); /* Ensure font from brand */
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: var(--cf-spacing-sm); /* Consistent margin (12px) */
+}
+
+.info-item i {
+    color: var(--cf-secondary-teal); /* Specific color for icons */
+    font-size: var(--cf-font-size-xl); /* Specific size for icons (24px) */
+    margin-right: var(--cf-spacing-sm); /* Consistent margin (12px) */
+    width: 25px; /* Fixed width for icon alignment */
+    text-align: center;
+}
+
+.info-item span {
+    font-weight: 600; /* Specific font-weight for labels */
+    margin-right: var(--cf-spacing-xs); /* Consistent margin (8px) */
+    color: var(--cf-primary-dark-teal); /* Specific color for labels */
+}
+
+.info-item a {
+    color: var(--cf-secondary-teal); /* Specific link color */
+    text-decoration: none;
+    transition: color var(--cf-transition-medium); /* Consistent transition (0.25s) */
+}
+
+.info-item a:hover {
+    color: var(--cf-primary-dark-teal); /* Specific hover color */
+    text-decoration: underline;
+}
+
+/* Social Links in Contact Section */
+.social-links-contact {
+    margin-top: var(--cf-spacing-md); /* Consistent margin (16px) */
+    display: flex;
+    gap: var(--cf-spacing-md); /* Consistent gap (16px) */
+    justify-content: center;
+}
+
+.social-links-contact a {
+    color: var(--cf-primary-dark-teal); /* Specific social icon color */
+    font-size: var(--cf-font-size-xxl); /* Specific social icon size (30px) */
+    transition: color var(--cf-transition-medium), transform var(--cf-transition-fast); /* Consistent transitions */
+}
+
+.social-links-contact a:hover {
+    color: var(--cf-secondary-teal);
+    transform: translateY(-3px);
+}
+
+/* Contact Form Section */
+.contact-form-section {
+    padding: var(--cf-spacing-md); /* Consistent padding (16px) */
+    background-color: var(--cf-neutral-light-mint);
+    border-radius: var(--cf-border-radius-default); /* Consistent border-radius (6px) */
+}
+
+.contact-form-section h2 {
+    font-size: var(--cf-font-size-xxl); /* Explicit font size (30px) */
+    margin-bottom: var(--cf-spacing-md); /* Consistent margin (16px) */
+    font-weight: 700; /* Use 700 for headings */
+    color: var(--cf-primary-dark-teal); /* Ensure color from brand */
+    font-family: var(--cf-font-heading); /* Ensure font from brand */
+}
+
+.form-group {
+    margin-bottom: var(--cf-spacing-md); /* Consistent margin (16px) */
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: var(--cf-spacing-xs); /* Consistent margin (8px) */
+    font-weight: 600; /* Specific font-weight */
+    color: var(--cf-primary-dark-teal); /* Specific color */
+    font-size: var(--cf-font-size-base); /* Explicit font size */
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea {
+    width: 100%;
+    padding: var(--cf-spacing-sm); /* Consistent padding (12px) */
+    border: 1px solid var(--cf-border-light);
+    border-radius: var(--cf-border-radius-small); /* Consistent border-radius (4px) */
+    box-sizing: border-box;
+    transition: border-color var(--cf-transition-medium), box-shadow var(--cf-transition-medium); /* Consistent transitions */
+    font-size: var(--cf-font-size-base); /* Explicit font size */
+    color: var(--cf-neutral-charcoal); /* Explicit text color */
+    font-family: var(--cf-font-body); /* Explicit font family */
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group textarea:focus {
+    border-color: var(--cf-secondary-teal);
+    box-shadow: 0 0 0 0.2rem var(--cf-focus-shadow-color); /* Using variable */
+    outline: none;
+}
+
+/* Style the submit button */
+.contact-form-section .btn {
+    background-color: var(--cf-secondary-teal);
+    color: var(--cf-white);
+    padding: var(--cf-spacing-sm) var(--cf-spacing-md); /* Consistent padding (12px 16px) */
+    border: none;
+    border-radius: var(--cf-border-radius-small); /* Consistent border-radius (4px) */
+    font-size: var(--cf-font-size-md); /* Explicit font size (18px) */
+    font-weight: 600; /* Custom font-weight */
+    cursor: pointer;
+    transition: background-color var(--cf-transition-medium), transform var(--cf-transition-fast); /* Consistent transitions */
+    width: auto;
+    font-family: var(--cf-font-body); /* Explicit font family */
+}
+
+.contact-form-section .btn:hover {
+    background-color: var(--cf-primary-dark-teal);
+    transform: translateY(-2px);
+}
+
+.form-status {
+    margin-top: var(--cf-spacing-md); /* Consistent margin (16px) */
+    padding: var(--cf-spacing-xs); /* Consistent padding (8px) */
+    border-radius: var(--cf-border-radius-small); /* Consistent border-radius (4px) */
+    text-align: center;
+    font-weight: 600;
+    font-size: var(--cf-font-size-base); /* Explicit font size (16px) */
+}
+.form-status.success {
+    background-color: var(--cf-success-bg); /* Using variable */
+    color: var(--cf-success-text); /* Using variable */
+}
+.form-status.error {
+    background-color: var(--cf-error-bg); /* Using variable */
+    color: var(--cf-error-text); /* Using variable */
+}
+
+/* Responsive adjustments */
+@media (min-width: 768px) {
+    .contact-grid {
+        grid-template-columns: 1fr 1fr; /* Two columns on larger screens */
+        padding: var(--cf-spacing-xxl); /* Larger padding for grid on larger screens (32px) */
+    }
+    .contact-info-section {
+        padding-right: var(--cf-spacing-md); /* Add padding for separation in two-column layout */
+    }
+    .contact-form-section {
+        padding-left: var(--cf-spacing-md); /* Add padding for separation in two-column layout */
+    }
+    .social-links-contact {
+        justify-content: flex-start; /* Align social links to the left in two-column layout */
+    }
+}
+
+@media (max-width: 767.98px) { /* For mobile phones */
+    .contact-page {
+        padding: var(--cf-section-padding-vertical-small) 0; /* Smaller vertical padding (32px) */
+    }
+    .contact-page h1 {
+        font-size: var(--cf-font-size-xxl); /* Scale down H1 on mobile (30px) */
+    }
+    .page-intro {
+        font-size: var(--cf-font-size-base); /* Scale down intro text on mobile (16px) */
+        margin-bottom: var(--cf-spacing-md); /* Adjust margin (16px) */
+    }
+    .contact-grid {
+        padding: var(--cf-spacing-md); /* Smaller padding for grid on mobile (16px) */
+    }
+    .contact-info-section,
+    .contact-form-section {
+        padding: var(--cf-spacing-md); /* Consistent padding (16px) */
+    }
+    .contact-info-section h2,
+    .contact-form-section h2 {
+        font-size: var(--cf-font-size-xl); /* Scale down H2s on mobile (24px) */
+        margin-bottom: var(--cf-spacing-sm); /* Adjust margin (12px) */
+    }
+    .social-links-contact {
+        justify-content: center; /* Center social links on mobile */
+    }
+}

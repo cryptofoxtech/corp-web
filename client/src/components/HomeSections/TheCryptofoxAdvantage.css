@@ -1,82 +1,95 @@
 /* client/src/components/HomeSections/TheCryptofoxAdvantage.css */
 
-.value-proposition-section {
-    padding: 60px 20px;
-    text-align: center;
-    background-color: var(--cf-neutral-light-gray); /* Light gray background for contrast */
-    font-family: var(--cf-font-body); /* Apply body font to the entire section */
+.the-cryptofox-advantage-section {
+  padding: 40px 0; /* Consistent padding top/bottom for the section */
+  background-color: var(--cf-neutral-light-gray); /* Light gray background for section differentiation */
+  text-align: center; /* Center align content within this section */
+  margin-top: 0 !important; /* Ensure no top margin from previous section */
 }
 
-.value-proposition-section .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
+.the-cryptofox-advantage-section h2 {
+  color: var(--cf-primary-dark-teal); /* Main heading color */
+  margin-bottom: 50px; /* Space below heading */
+  font-size: var(--cf-font-size-xxxl); /* Larger heading */
+  position: relative;
+  padding-bottom: 15px;
+  margin-top: 0; /* Ensure the h2 itself has no default top margin pushing it down */
 }
 
-.section-headline {
-    font-size: var(--cf-font-size-xxl); /* Using a larger font size variable for main section headlines */
-    font-family: var(--cf-font-heading); /* Ensuring heading font */
-    font-weight: 700; /* Bold weight */
-    color: var(--cf-primary-dark-teal); /* Dark Teal */
-    margin-bottom: 40px;
+.the-cryptofox-advantage-section h2::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0;
+  width: 80px; /* Short underline */
+  height: 3px;
+  background-color: var(--cf-accent-warm-gold); /* Warm gold underline */
+  border-radius: 2px;
 }
 
-.section-paragraph {
-    font-size: var(--cf-font-size-base); /* Using base font size variable */
-    line-height: 1.6;
-    max-width: 800px;
-    margin: 0 auto 30px auto;
-    color: var(--cf-neutral-charcoal); /* Charcoal gray */
+/* Styling for the introductory paragraph */
+.the-cryptofox-advantage-section .section-paragraph {
+  font-size: var(--cf-font-size-lg); /* Slightly larger for introductory paragraph */
+  max-width: 800px; /* Consistent max-width */
+  margin: 0 auto 50px auto; /* Consistent margin below paragraph */
+  color: var(--cf-neutral-charcoal); /* Consistent text color */
+  line-height: 1.6; /* Consistent line height */
 }
 
+/* Styling for the icon-grid (the container for the boxes) */
 .icon-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-    margin-top: 40px;
-    justify-content: center;
+  display: grid; /* Use CSS Grid for a responsive layout */
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive 3-column grid */
+  gap: 30px; /* Space between cards */
+  margin-top: 40px;
+  justify-content: center; /* Center the grid items */
 }
 
+/* Styling for individual icon items (the "nice boxes") */
 .icon-item {
-    padding: 20px;
-    border-radius: 8px;
-    background-color: var(--cf-white); /* White background for icon cards */
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Keeping rgba for specific shadow effect */
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  background-color: var(--cf-white); /* White background for the box */
+  border-radius: 12px; /* Rounded corners for the box */
+  box-shadow: 0 8px 16px var(--cf-shadow-color-medium); /* Shadow for depth (the "box" effect) */
+  padding: 30px; /* Internal spacing within the box */
+  text-align: center;
+  color: var(--cf-neutral-charcoal); /* Default text color within the box */
+  font-size: var(--cf-font-size-base); /* Base font size for text within the box */
+  line-height: 1.7;
+  display: flex; /* Use flexbox for internal alignment */
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
+.icon-item:hover {
+  transform: translateY(-8px); /* Lift effect on hover */
+  box-shadow: 0 12px 24px var(--cf-shadow-color-strong); /* Stronger shadow on hover */
+}
+
+/* Styling for images within icon items (if you re-add them) */
+.icon-item img {
+  max-width: 80px;
+  height: auto;
+  margin-bottom: 15px;
+}
+
+/* Styling for paragraphs within icon items */
 .icon-item p {
-    margin-top: 10px;
-    font-size: var(--cf-font-size-md); /* Using medium font size for icon text */
-    font-weight: 600; /* Semi-bold for emphasis */
-    color: var(--cf-secondary-teal); /* Bright Teal for emphasis */
-    font-family: var(--cf-font-body); /* Ensure paragraph in icon item uses body font */
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: var(--cf-font-size-md); /* Appropriate size for card text */
+  font-weight: 600; /* Semi-bold for emphasis */
+  color: var(--cf-secondary-teal); /* Bright Teal for emphasis */
+  line-height: 1.4; /* Adjust line height for card text */
 }
 
-/* Placeholder for icon styling within .icon-item if Allan uses background images or ::before */
-.icon-item::before {
-    /* Example: Allan might add an SVG icon here */
-    /* content: url('/path/to/icon.svg'); */
-    /* width: 50px; height: 50px; display: block; margin-bottom: 10px; */
-    /* If icons are images, ensure they are vertically aligned as part of the flex container */
-}
-
-/* Responsive adjustments if needed for smaller headings/paragraphs */
+/* Responsive adjustments */
 @media (max-width: 768px) {
-    .section-headline {
-        font-size: var(--cf-font-size-xl); /* Adjust for smaller screens */
-    }
-}
-
-@media (max-width: 480px) {
-    .section-headline {
-        font-size: var(--cf-font-size-lg); /* Further adjust for very small screens */
-    }
-    .value-proposition-section {
-        padding: 40px 15px; /* Reduce padding on smaller screens */
-    }
+  .the-cryptofox-advantage-section {
+    padding: 60px 0;
+  }
+  .icon-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Adjust columns for smaller screens */
+  }
 }

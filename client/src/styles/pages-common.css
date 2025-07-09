@@ -1,0 +1,345 @@
+/* client/src/styles/pages-common.css */
+
+/*
+    This file defines common styles for all content pages on the Cryptofox Technology website,
+    ensuring a consistent, professional brand aesthetic.
+    Individual page CSS files should only contain minimal, specific layout adjustments or minor overrides.
+    CSS Custom Properties and base element styles are now managed globally in index.css.
+*/
+
+/* --- General Page Structure --- */
+.page-wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/*
+    .main-content is an inner wrapper within .app-main-content (from Layout.js).
+    It should NOT have padding-top related to the header, as that's handled by .app-main-content
+    and the .header-spacer in Layout.css.
+*/
+.main-content {
+    flex-grow: 1;
+    padding-bottom: var(--cf-spacing-xxl);
+}
+
+/* --- Global Container Overrides --- */
+.container {
+    padding-left: var(--cf-spacing-sm);
+    padding-right: var(--cf-spacing-sm);
+    max-width: var(--cf-content-max-width-wide);
+}
+
+/* --- Section Styling (Common for most content blocks) --- */
+.service-content-section {
+    padding-top: var(--cf-section-padding-vertical-large);
+    padding-bottom: var(--cf-section-padding-vertical-large);
+    background-color: var(--cf-white);
+}
+
+/* Hero/intro sections get more padding */
+.service-content-section.hero {
+    padding-top: var(--cf-section-padding-vertical-xl);
+    padding-bottom: var(--cf-section-padding-vertical-xl);
+}
+
+/* Alternating background for visual flow */
+.bg-light-gray-custom {
+    background-color: var(--cf-neutral-light-gray);
+}
+
+.bg-lighter-gray-intro {
+    background-color: var(--cf-neutral-lightest-gray);
+}
+
+/* --- Section Separator (Horizontal Rule) --- */
+.section-separator {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), var(--cf-neutral-medium-gray), rgba(0, 0, 0, 0));
+    margin: var(--cf-spacing-xxxl) 0;
+}
+
+/* --- Common Headings Styling --- */
+
+/* Main page title / primary content heading - more refined */
+.section-title-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: var(--cf-spacing-xl);
+}
+
+.section-title {
+    font-family: var(--cf-font-heading);
+    color: var(--cf-primary-dark-teal);
+    font-weight: 600; /* Less bold, more elegant */
+    text-align: center;
+    line-height: var(--cf-line-height-tight);
+    letter-spacing: -0.02em; /* Slight negative letter spacing for larger text */
+    margin: 0;
+    position: relative;
+}
+
+/* Subtle underline accent - smaller and more elegant */
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 2px;
+    background-color: var(--cf-secondary-teal);
+    border-radius: 1px;
+}
+
+/* Responsive font sizes for .section-title - more balanced */
+@media (min-width: 1200px) {
+    .section-title {
+        font-size: var(--cf-font-size-xxxl); /* 36px */
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1199.98px) {
+    .section-title {
+        font-size: var(--cf-font-size-xxl); /* 30px */
+    }
+}
+
+@media (max-width: 767.98px) {
+    .section-title {
+        font-size: var(--cf-font-size-xl); /* 24px */
+    }
+
+    .section-title::after {
+        width: 40px;
+        bottom: -6px;
+    }
+
+    .section-title-container {
+        margin-bottom: var(--cf-spacing-lg);
+    }
+}
+
+/* Lead paragraph style (for intros directly below section titles) - more refined */
+.section-intro {
+    font-family: var(--cf-font-body);
+    font-size: var(--cf-font-size-md); /* Slightly smaller, more readable */
+    line-height: var(--cf-line-height-relaxed);
+    color: var(--cf-neutral-charcoal);
+    text-align: center;
+    max-width: var(--cf-content-max-width);
+    margin: 0 auto var(--cf-spacing-xl) auto;
+    font-weight: 400;
+}
+
+/* Sub-section titles (H3) within content areas - more balanced */
+.service-detail-content h3,
+.service-detail-offerings h3 {
+    font-family: var(--cf-font-heading);
+    color: var(--cf-primary-dark-teal);
+    font-weight: 600;
+    font-size: var(--cf-font-size-lg); /* More proportional */
+    line-height: var(--cf-line-height-tight);
+    margin-top: var(--cf-spacing-xl);
+    margin-bottom: var(--cf-spacing-md);
+    border-left: var(--cf-border-accent-width) solid var(--cf-secondary-teal);
+    padding-left: var(--cf-spacing-md);
+}
+
+@media (max-width: 767.98px) {
+    .service-detail-content h3,
+    .service-detail-offerings h3 {
+        font-size: var(--cf-font-size-md);
+        margin-top: var(--cf-spacing-lg);
+        margin-bottom: var(--cf-spacing-sm);
+        padding-left: var(--cf-spacing-sm);
+        border-left: var(--cf-border-accent-width-small) solid var(--cf-secondary-teal);
+    }
+}
+
+/* Smaller headings / list group titles (H4) - more subtle */
+.service-detail-content h4 {
+    font-family: var(--cf-font-heading);
+    color: var(--cf-primary-dark-teal);
+    font-weight: 600;
+    font-size: var(--cf-font-size-base); /* Much more reasonable size */
+    line-height: var(--cf-line-height-normal);
+    margin-top: var(--cf-spacing-lg);
+    margin-bottom: var(--cf-spacing-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: var(--cf-font-size-sm);
+}
+
+@media (max-width: 767.98px) {
+    .service-detail-content h4 {
+        font-size: var(--cf-font-size-xs);
+        margin-top: var(--cf-spacing-md);
+        margin-bottom: var(--cf-spacing-xs);
+    }
+}
+
+/* Nested lists (still relevant for pages-common specific styling of nested lists) */
+ul ul, ol ol, ul ol, ol ul {
+    margin-top: var(--cf-spacing-xs);
+    margin-bottom: var(--cf-spacing-xs);
+}
+
+/* For image containers within content */
+.service-detail-image-container {
+    margin-bottom: var(--cf-spacing-xl);
+}
+
+@media (min-width: 992px) {
+    .service-detail-image-container {
+        margin-bottom: var(--cf-spacing-lg);
+    }
+}
+
+/* --- Note/Aside Styling --- */
+.note {
+    font-family: var(--cf-font-body);
+    font-style: italic;
+    color: var(--cf-neutral-charcoal);
+    margin: var(--cf-spacing-lg) 0;
+    border-left: var(--cf-border-accent-width) solid var(--cf-accent-warm-gold);
+    padding: var(--cf-spacing-sm);
+    background-color: var(--cf-neutral-lightest-gray);
+    border-radius: var(--cf-border-radius-small);
+    line-height: 1.5;
+}
+
+/* --- Call to Action Section --- */
+.service-detail-cta-section {
+    background-color: var(--cf-secondary-teal);
+    color: var(--cf-white);
+    padding: var(--cf-spacing-xxxl) 0;
+    text-align: center;
+}
+
+.service-detail-cta-section .cta-title {
+    font-family: var(--cf-font-heading);
+    color: var(--cf-white);
+    font-size: var(--cf-font-size-xxl); /* More reasonable size */
+    font-weight: 600;
+    line-height: var(--cf-line-height-tight);
+    margin-bottom: var(--cf-spacing-md);
+    letter-spacing: -0.01em;
+}
+
+@media (max-width: 767.98px) {
+    .service-detail-cta-section .cta-title {
+        font-size: var(--cf-font-size-xl);
+    }
+}
+
+.service-detail-cta-section .cta-description {
+    font-family: var(--cf-font-body);
+    font-size: var(--cf-font-size-md);
+    max-width: 600px;
+    margin: 0 auto var(--cf-spacing-lg) auto;
+    line-height: var(--cf-line-height-relaxed);
+    color: var(--cf-white);
+    opacity: 0.95;
+}
+
+@media (max-width: 767.98px) {
+    .service-detail-cta-section .cta-description {
+        font-size: var(--cf-font-size-base);
+        margin-bottom: var(--cf-spacing-md);
+    }
+}
+
+.service-detail-cta-section .cta-button {
+    font-family: var(--cf-font-heading);
+    background-color: var(--cf-accent-warm-gold);
+    color: var(--cf-white) !important;
+    border: none;
+    padding: var(--cf-spacing-md) var(--cf-spacing-xl);
+    font-size: var(--cf-font-size-base); /* More reasonable button size */
+    font-weight: 600;
+    border-radius: var(--cf-border-radius-default);
+    transition: all var(--cf-transition-medium);
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    min-width: 160px;
+}
+
+.service-detail-cta-section .cta-button:hover {
+    background-color: var(--cf-primary-dark-teal);
+    transform: translateY(-2px); /* Subtle lift */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    color: var(--cf-white) !important;
+}
+
+.service-detail-cta-section .cta-button:focus {
+    outline: 2px solid var(--cf-accent-warm-gold);
+    outline-offset: 2px;
+    background-color: var(--cf-primary-dark-teal);
+}
+
+.service-detail-cta-section .cta-button:active {
+    transform: translateY(0);
+}
+
+@media (max-width: 767.98px) {
+    .service-detail-cta-section .cta-button {
+        font-size: var(--cf-font-size-sm);
+        padding: var(--cf-spacing-sm) var(--cf-spacing-lg);
+        min-width: 140px;
+    }
+}
+
+/* --- Utility Classes --- */
+.text-center {
+    text-align: center;
+}
+
+.mb-0 {
+    margin-bottom: 0 !important;
+}
+
+.mt-0 {
+    margin-top: 0 !important;
+}
+
+/* --- Focus Management for Accessibility --- */
+*:focus {
+    outline: 2px solid var(--cf-secondary-teal);
+    outline-offset: 2px;
+}
+
+/* Remove default focus styles for mouse users */
+*:focus:not(:focus-visible) {
+    outline: none;
+}
+
+/* --- Improved Animation Performance --- */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* --- Print Styles --- */
+@media print {
+    .service-detail-cta-section .cta-button {
+        background-color: transparent !important;
+        color: var(--cf-primary-dark-teal) !important;
+        border: 2px solid var(--cf-primary-dark-teal) !important;
+    }
+
+    .section-separator {
+        background-image: none;
+        border-top: 1px solid var(--cf-neutral-medium-gray);
+    }
+}

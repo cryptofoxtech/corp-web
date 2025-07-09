@@ -1,102 +1,70 @@
 /* client/src/components/Footer/Footer.css */
 
 .cryptofox-footer {
-    background-color: var(--cf-primary-dark-teal); /* Dark Teal - Primary Theme Color */
-    color: var(--cf-white); /* Default text color for the footer */
-    padding: 40px 20px;
-    /* Consider making a variable for consistent shadows if used across the site */
-    box-shadow: 0 -2px 5px var(--cf-shadow-color-dark); /* Using a new variable for consistency */
-    font-family: var(--cf-font-body); /* Apply body font to the entire footer */
-    font-size: var(--cf-font-size-base); /* Apply base font size */
-}
-
-.cryptofox-footer .container {
-    max-width: 1200px; /* Max width to align with header container */
-    margin: 0 auto;
-    padding: 0 20px;
-    text-align: left; /* Default text alignment */
+  background-color: var(--cf-neutral-light-mint); /* Using light mint from global vars */
+  color: var(--cf-primary-dark-teal); /* Dark Teal - Default text color for footer */
+  padding: 40px 0 20px 0; /* Reduced bottom padding */
+  font-size: var(--cf-font-size-sm); /* Using global font size variable */
 }
 
 .footer-heading {
-    color: var(--cf-secondary-teal); /* Brighter teal for headings */
-    font-size: var(--cf-font-size-lg); /* Using large font size variable for headings */
-    margin-bottom: 20px;
-    font-weight: 700; /* Using bold weight from Montserrat, or 600 from Open Sans */
-    font-family: var(--cf-font-heading); /* Apply heading font for consistency */
+  color: var(--cf-neutral-charcoal); /* Charcoal for headings */
+  font-weight: bold;
+  margin-bottom: 15px;
+  font-family: var(--cf-font-heading); /* Use heading font */
 }
 
 .footer-text {
-    font-size: var(--cf-font-size-sm); /* Using small font size variable for footer text */
-    line-height: 1.6;
-    color: var(--cf-white); /* Pure white for body text */
-    margin-bottom: 10px;
+  color: var(--cf-primary-dark-teal); /* Dark Teal for general text */
+  line-height: 1.6;
 }
 
-.list-unstyled { /* For quick links list */
-    padding-left: 0;
-    list-style: none;
-}
-
+/* Styling for footer links */
 .footer-link {
-    color: var(--cf-white); /* Pure white for links */
-    text-decoration: none;
-    transition: color 0.3s ease;
-    display: inline-block; /* Helps with padding and hover */
-    margin-bottom: 8px; /* Space between links */
-    font-size: var(--cf-font-size-sm); /* Apply small font size for links as well */
+  color: var(--cf-primary-dark-teal); /* Dark Teal for links by default */
+  text-decoration: none; /* No underline by default */
+  transition: color 0.2s ease-in-out, text-decoration 0.2s ease-in-out;
 }
 
-.footer-link:hover {
-    color: var(--cf-secondary-teal); /* Links turn brighter teal on hover */
-    text-decoration: none; /* Removed underline on hover for cleaner look, similar to header */
+.footer-link:hover,
+.footer-link:focus {
+  color: var(--cf-neutral-charcoal); /* Dark Charcoal on hover/focus */
+  text-decoration: underline; /* Underline on hover/focus */
 }
 
-/* Social Icons */
-.social-icons {
-    display: flex;
-    gap: 15px; /* Space between icons */
-    margin-top: 15px;
-    justify-content: flex-start; /* Align with column text */
+.footer-link:visited {
+  color: var(--cf-accent-warm-gold); /* Warm Gold for visited links */
 }
 
-.social-icon-link {
-    font-size: var(--cf-font-size-xl); /* Using XL font size variable for icon size (approx 1.8rem) */
-    color: var(--cf-white); /* Pure white for icons */
-    transition: color 0.3s ease;
-}
-
-.social-icon-link:hover {
-    color: var(--cf-secondary-teal); /* Icons turn brighter teal on hover */
+address.footer-text {
+  font-style: normal; /* Remove italic from address */
 }
 
 .footer-divider {
-    /* Using rgba on a pure white for transparency is fine, but could be a variable like --cf-divider-color if needed elsewhere */
-    border-top: 1px solid var(--cf-white-alpha-20); /* Using new alpha-white variable */
-    margin-top: 30px;
-    margin-bottom: 20px;
+  border-top: 1px solid rgba(0, 77, 64, 0.3); /* Lighter dark teal for divider */
+  margin-top: 30px;
+  margin-bottom: 20px;
 }
 
 .copyright-text {
-    font-size: var(--cf-font-size-sm); /* Using small font size variable for copyright text */
-    color: var(--cf-white-alpha-70); /* Using new alpha-white variable for copyright text */
-    text-align: center; /* Center copyright text */
+  color: var(--cf-primary-dark-teal); /* Dark Teal for copyright text */
+  font-size: var(--cf-font-size-sm); /* Using global font size variable */
+  margin-bottom: 0; /* Ensure no bottom margin on copyright text */
 }
 
-/* Responsive adjustments */
-@media (max-width: 767.98px) { /* Bootstrap's 'md' breakpoint */
-    .cryptofox-footer .container {
-        text-align: center; /* Center content on smaller screens */
-    }
+/* Styling for social icons */
+.social-icons .social-icon-link {
+  color: var(--cf-primary-dark-teal); /* Dark Teal for social icons by default */
+  font-size: var(--cf-font-size-lg); /* Using global font size variable */
+  margin-right: 15px;
+  transition: color 0.2s ease-in-out;
+}
 
-    .social-icons {
-        justify-content: center; /* Center social icons on smaller screens */
-    }
+.social-icons .social-icon-link:hover,
+.social-icons .social-icon-link:focus {
+  color: var(--cf-accent-warm-gold); /* Warm Gold on hover/focus */
+}
 
-    .mb-4.mb-md-0 { /* Adjust margin for columns on small screens */
-        margin-bottom: 20px !important; /* Override Bootstrap's default for consistency */
-    }
-
-    .footer-heading {
-        margin-bottom: 15px;
-    }
+.social-icons .social-icon-link:visited {
+  color: var(--cf-accent-warm-gold); /* Warm Gold for visited social icons */
 }

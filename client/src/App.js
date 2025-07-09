@@ -1,65 +1,68 @@
 // client/src/App.js
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Header from './components/Header/Header.js';
-import Footer from './components/Footer/Footer.js';
+// Only import Route and Routes, BrowserRouter is in index.js
+import { Route, Routes } from 'react-router-dom';
 
-// Import your general page components
+// Import your new Layout component
+import Layout from './components/Layout/Layout.js'; // Make sure this path is correct!
+
+// Import ScrollToTop (it will be rendered *inside* the Layout's main content area, for page-specific scroll)
+import ScrollToTop from './components/ScrollToTop/ScrollToTop.js';
+
+// --- General Page Components ---
 import Home from './pages/Home/Home.js';
-import About from './pages/About/About.js';
+import Blog from './pages/Blog/Blog.js';
 import Partners from './pages/Partners/Partners.js';
-import Contact from './pages/Contact/Contact.js';
 import Quote from './pages/Quote/Quote.js';
 
-// Import the NEW main Services landing page
+// --- About Us and its Sub-Pages ---
+import About from './pages/About/About.js';
+import CaseStudiesPage from './pages/About/CaseStudiesPage/CaseStudiesPage.js';
+import LegalPage from './pages/About/LegalPage/LegalPage.js';
+import Contact from './pages/About/Contact/Contact.js';
+
+// --- Services Pages (Consolidated) ---
 import Services from './pages/Services/Services.js';
+import DevelopmentServicesPage from './pages/Services/DevelopmentServicesPage/DevelopmentServicesPage.js';
+// Corrected: Reverted to your original, correct path for OperationsServicesPage
+import OperationsServicesPage from './pages/Services/OperationsServicesPage/OperationsServicesPage.js';
 
-// Import individual service detail pages (existing and new ones)
-import DevOpsPage from './pages/Services/DevOpsPage/DevOpsPage.js';
-import CloudPage from './pages/Services/CloudPage/CloudPage.js';
-import AIPage from './pages/Services/AIPage/AIPage.js';
-// NEW specific service pages
-import WebDevPage from './pages/Services/WebDevPage/WebDevPage.js';
-import SysAdminPage from './pages/Services/SysAdminPage/SysAdminPage.js';
-import BlockchainPage from './pages/Services/BlockchainPage/BlockchainPage.js';
-
-import ScrollToTop from './components/ScrollToTop/ScrollToTop.js'; // <--- ADDED THIS IMPORT
-
-// Import the global App.css - .css imports typically don't need .js
-import './App.css';
+// Remove the import of App.css from here.
+// Its global styles will be moved to index.css or Layout.css.
+// import './App.css';
 
 function App() {
-  return (
-    <Router>
-      <ScrollToTop /> {/* <--- ADDED THIS COMPONENT HERE */}
-      <Header />
-      <main className="app-main-content">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/partners" element={<Partners />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/quote" element={<Quote />} />
+    return (
+        // Removed the <Router> wrapper here, as BrowserRouter is already in index.js
+        <>
+            {/* ScrollToTop component can stay here, as it operates globally on scroll behavior. */}
+            <ScrollToTop />
 
-          {/* Route for the NEW Services Landing Page */}
-          <Route path="/services" element={<Services />} />
+            {/* Wrap the entire set of routes with the Layout component */}
+            <Layout>
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/blog" element={<Blog />} />
+                    <Route path="/partners" element={<Partners />} />
+                    <Route path="/quote" element={<Quote />} />
 
-          {/* Routes for Individual Service Detail Pages */}
-          <Route path="/services/devops" element={<DevOpsPage />} />
-          <Route path="/services/cloud" element={<CloudPage />} />
-          <Route path="/services/ai" element={<AIPage />} />
-          {/* NEW Routes for specific services */}
-          <Route path="/services/webdev" element={<WebDevPage />} />
-          <Route path="/services/sysadmin" element={<SysAdminPage />} />
-          <Route path="/services/blockchain" element={<BlockchainPage />} />
+                    {/* Services Pages (Consolidated) */}
+                    <Route path="/services" element={<Services />} />
+                    <Route path="/services/development" element={<DevelopmentServicesPage />} />
+                    <Route path="/services/operations" element={<OperationsServicesPage />} />
 
-          {/* Add a Catch-all 404 page later if desired */}
-          {/* <Route path="*" element={<NotFoundPage />} /> */}
-        </Routes>
-      </main>
-      <Footer />
-    </Router>
-  );
+                    {/* About Us and its Sub-Pages */}
+                    <Route path="/about" element={<About />} />
+                    <Route path="/about/case-studies" element={<CaseStudiesPage />} />
+                    <Route path="/about/legal" element={<LegalPage />} />
+                    <Route path="/about/contact" element={<Contact />} />
+
+                    {/* Add a Catch-all 404 page later if desired */}
+                    {/* <Route path="*" element={<NotFoundPage />} /> */}
+                </Routes>
+            </Layout>
+        </>
+    );
 }
 
 export default App;

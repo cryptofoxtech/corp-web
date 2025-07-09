@@ -1,101 +1,104 @@
 /* client/src/components/HomeSections/ServicesOverview.css */
 
 .services-overview-section {
-    padding: 60px 20px;
-    text-align: center;
-    background-color: var(--cf-white); /* White background */
-    font-family: var(--cf-font-body); /* Apply body font to the entire section */
+    padding: var(--cf-section-padding-vertical-large) 0; /* Using global padding variable for 40px */
+    background-color: var(--cf-white); /* White background for section */
+    text-align: center; /* Center align content */
+    margin-top: 0 !important; /* Ensure no top margin, specific override */
 }
 
-.services-overview-section .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
+.services-overview-section .section-headline {
+    color: var(--cf-primary-dark-teal); /* Main heading color */
+    margin-bottom: var(--cf-spacing-md); /* Using global spacing variable for 20px */
+    font-size: var(--cf-font-size-xxxl); /* Larger heading */
+    position: relative;
+    padding-bottom: 15px; /* Specific padding for the ::after element */
+    margin-top: 0; /* Ensure the h2 itself has no default top margin pushing it down */
 }
 
-.section-headline {
-    font-size: var(--cf-font-size-xxl); /* Using a larger font size variable for main section headlines */
-    font-family: var(--cf-font-heading); /* Ensuring heading font */
-    font-weight: 700; /* Bold weight */
-    color: var(--cf-primary-dark-teal); /* Dark Teal */
-    margin-bottom: 40px;
+.services-overview-section .section-headline::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    width: 80px; /* Specific width */
+    height: 3px; /* Specific height */
+    background-color: var(--cf-accent-warm-gold); /* Using global color variable */
+    border-radius: var(--cf-border-radius-small); /* Using global border-radius variable for 2px */
 }
 
-.section-paragraph {
-    font-size: var(--cf-font-size-base); /* Using base font size variable */
-    line-height: 1.6;
+.services-overview-section .section-paragraph {
+    font-size: var(--cf-font-size-lg); /* Slightly larger for introductory paragraph */
     max-width: 800px;
-    margin: 0 auto 30px auto;
-    color: var(--cf-neutral-charcoal); /* Charcoal gray */
+    margin: 0 auto var(--cf-spacing-xxxl) auto; /* Using global spacing variable for 50px (closest is 48px) */
+    color: var(--cf-neutral-charcoal); /* Using global color variable */
 }
 
 .service-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Adjusted for more flexibility */
-    gap: 30px;
-    margin-top: 40px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--cf-spacing-xl); /* Using global spacing variable for 30px (closest is 32px) */
+    margin-top: var(--cf-spacing-xl); /* Using global spacing variable for 40px (closest is 32px) */
+    justify-content: center;
 }
 
 .service-item {
-    background-color: var(--cf-neutral-light-gray); /* Light gray background for service cards */
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Keeping rgba for specific shadow effect */
-    text-align: left; /* Align text within item */
+    background-color: var(--cf-neutral-light-mint); /* Specific background for service cards */
+    border-radius: var(--cf-border-radius-xl); /* Using global border-radius variable for 12px */
+    box-shadow: 0 8px 16px var(--cf-shadow-color-medium); /* Using global shadow variable */
+    padding: var(--cf-spacing-xl); /* Using global spacing variable for 30px (closest is 32px) */
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Push Learn More link to bottom */
+    transition: transform var(--cf-transition-medium), box-shadow var(--cf-transition-medium); /* Using global transition variable */
+    height: 100%; /* Ensure cards in a row have same height */
+}
+
+.service-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px var(--cf-shadow-color-strong); /* Using global shadow variable */
 }
 
 .service-item h3 {
-    color: var(--cf-secondary-teal); /* Bright Teal for service item headings */
-    font-size: var(--cf-font-size-lg); /* Using large font size for sub-headings */
-    font-family: var(--cf-font-heading); /* Ensuring heading font */
-    font-weight: 600; /* Semi-bold */
-    margin-bottom: 15px;
+    color: var(--cf-primary-dark-teal); /* Specific color for card titles */
+    margin-top: 0; /* Override default h3 margin-top */
+    margin-bottom: var(--cf-spacing-md); /* Using global spacing variable for 15px (closest is 16px) */
+    line-height: var(--cf-line-height-tight); /* Using global line-height variable for 1.3 */
 }
 
 .service-item p {
-    font-size: var(--cf-font-size-sm); /* Using small font size for body text in items */
-    color: var(--cf-neutral-charcoal); /* Charcoal gray for body text */
-    line-height: 1.5; /* Added for better readability */
-    margin-bottom: 20px;
+    margin-bottom: var(--cf-spacing-md); /* Using global spacing variable for 20px (closest is 16px) */
+    flex-grow: 1; /* Allow paragraph to take up available space */
 }
 
-.learn-more-link {
+.service-item .learn-more-link {
     display: inline-block;
-    color: var(--cf-secondary-teal); /* Bright Teal for link text */
-    text-decoration: none; /* No underline by default */
-    font-weight: 600; /* Semi-bold */
-    border: 1px solid var(--cf-secondary-teal); /* Bright Teal border */
-    padding: 8px 15px;
-    border-radius: 5px;
-    transition: all 0.3s ease;
-    font-family: var(--cf-font-body); /* Ensure link uses body font */
-    font-size: var(--cf-font-size-base); /* Base font size */
+    color: var(--cf-accent-warm-gold) !important; /* Specific color for link */
+    font-weight: var(--cf-font-weight-semibold); /* Using global font-weight variable for 600 */
+    text-decoration: none !important;
+    transition: color var(--cf-transition-fast); /* Using global transition variable for 0.2s ease-in-out */
+    margin-top: auto; /* Push link to bottom of flex container */
 }
 
-.learn-more-link:hover {
-    background-color: var(--cf-secondary-teal); /* Bright Teal background on hover */
-    color: var(--cf-white); /* White text on hover */
-    text-decoration: none; /* Ensure no underline on hover */
+.service-item .learn-more-link:hover {
+    color: var(--cf-primary-dark-teal) !important; /* Using global color variable */
+    text-decoration: underline !important;
 }
 
-/* Responsive adjustments if needed for smaller headings/paragraphs */
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+    .service-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+}
+
 @media (max-width: 768px) {
-    .section-headline {
-        font-size: var(--cf-font-size-xl); /* Adjust for smaller screens */
-    }
-    .service-item h3 {
-        font-size: var(--cf-font-size-base); /* Smaller heading on small screens */
-    }
-}
-
-@media (max-width: 480px) {
-    .section-headline {
-        font-size: var(--cf-font-size-lg); /* Further adjust for very small screens */
-    }
     .services-overview-section {
-        padding: 40px 15px; /* Reduce padding on smaller screens */
+        padding: var(--cf-section-padding-vertical-large) 0; /* Using global padding variable for 60px */
     }
     .service-grid {
-        grid-template-columns: 1fr; /* Stack items on very small screens */
+        grid-template-columns: 1fr; /* Single column on mobile */
     }
 }

@@ -1,0 +1,90 @@
+/* client/src/components/Layout/Layout.css */
+
+/*
+    This CSS file defines the overall structure and layout of the application.
+    It ensures the header is fixed and the main content is correctly offset.
+*/
+
+/* Ensures html, body, and the root div (#root) fill the viewport
+    and establish a flex container for the overall app layout.
+*/
+html, body, #root {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    box-sizing: border-box; /* Crucial for consistent sizing */
+    display: flex;
+    flex-direction: column; /* Stacks header, main, footer vertically */
+}
+
+body {
+    font-family: var(--cf-font-body);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: var(--cf-neutral-charcoal);
+    background-color: var(--cf-white);
+    font-size: var(--cf-font-size-base);
+    line-height: var(--cf-line-height-relaxed); /* Use global variable for consistency */
+    overflow-y: scroll; /* Always show scrollbar to prevent content jump */
+}
+
+/* Main application layout container */
+.app-layout {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensure the layout takes at least the full viewport height */
+    flex-grow: 1; /* Allow this div to take available space */
+}
+
+/*
+    CRITICAL FIX: Make the header truly fixed.
+    Your Header component's outermost element has the class 'navbar'.
+    Only layout-related styles for the fixed header go here.
+*/
+.navbar {
+    position: fixed; /* Make the header fixed at the top of the viewport */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1030; /* Ensure header is above other content (Bootstrap's default z-index) */
+    /* Visual styles like background-color, padding, box-shadow are in Header.css */
+}
+
+/*
+    CRITICAL FIX: This spacer div pushes the content down.
+    Its height is exactly the header's height, preventing content from going underneath.
+    It uses the --cf-header-height variable defined in index.css.
+*/
+.header-spacer {
+    height: var(--cf-header-height); /* This will be 70px from index.css */
+    /* Optional: background-color: transparent; for debugging */
+}
+
+/* Main content area that will expand to push the footer down */
+.app-main-content {
+    flex-grow: 1; /* Allows the main content area to take up all available vertical space */
+    width: 100%;
+    /* No padding-top needed here, as the .header-spacer handles the offset. */
+    /* This prevents accumulation of padding/margin. */
+}
+
+/* REMOVED: .container overrides from here. These are handled by Bootstrap and index.css. */
+/*
+.container {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+@media (min-width: 576px) {
+    .container { max-width: 540px; }
+}
+@media (min-width: 768px) {
+    .container { max-width: 720px; }
+}
+@media (min-width: 992px) {
+    .container { max-width: 960px; }
+}
+@media (min-width: 1200px) {
+    .container { max-width: 1140px; }
+}
+*/

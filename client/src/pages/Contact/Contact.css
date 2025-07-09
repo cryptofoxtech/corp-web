@@ -1,9 +1,18 @@
 /* client/src/pages/Contact/Contact.css */
 
+/*
+    This CSS file contains styles specific to the Contact Page content and layout.
+    Global styles for fonts, colors, and base element properties are handled in:
+    - client/src/index.css (general element resets, global variables)
+    - client/src/components/Layout/Layout.css (overall app structure, html/body/root)
+    - client/src/components/Header/Header.css
+    - client/src/components/Footer/Footer.css
+*/
+
 .contact-page {
     padding: 60px 0; /* Add padding top/bottom */
     background-color: var(--cf-neutral-light-gray); /* Using light gray for the page background */
-    min-height: calc(100vh - var(--cf-header-height) - var(--cf-footer-height)); /* Ensure it takes up viewport height, using defined variables */
+    /* min-height: calc(100vh - var(--cf-header-height) - var(--cf-footer-height)); -- Removed, as Layout.css handles overall flex grow */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -18,6 +27,7 @@
     font-weight: 700;
     text-align: center;
     font-family: var(--cf-font-heading); /* Ensure heading font */
+    margin-top: 0; /* CRITICAL FIX: Remove top margin for the main H1 */
 }
 
 .page-intro {
@@ -51,9 +61,10 @@
 .contact-info-section h2 {
     color: var(--cf-primary-dark-teal); /* Dark teal for sub-heading */
     font-size: var(--cf-font-size-xxl); /* Using XXL for sub-headings */
-    margin-bottom: 25px;
+    margin-bottom: 20px;
     font-weight: 600;
     font-family: var(--cf-font-heading); /* Ensure heading font */
+    margin-top: 0; /* CRITICAL FIX: Remove top margin for H2s in this section */
 }
 
 .contact-info-section p {
@@ -101,7 +112,7 @@
     margin-top: 30px;
     display: flex;
     gap: 20px;
-    justify-content: center; /* Center social icons on small screens */
+    justify-content: center;
 }
 
 .social-links-contact a {
@@ -128,6 +139,7 @@
     margin-bottom: 25px;
     font-weight: 600;
     font-family: var(--cf-font-heading); /* Ensure heading font */
+    margin-top: 0; /* CRITICAL FIX: Remove top margin for H2s in this section */
 }
 
 .form-group {

@@ -1,0 +1,132 @@
+/* client/src/pages/Legal/LegalPage.css */
+
+/* Import common page styles */
+@import '../../../styles/pages-common.css';
+
+/* Styles for the overall Legal Page layout (consistent with other pages) */
+.legal-page-section {
+    padding: var(--cf-section-padding-vertical-large) 0;
+    background-color: var(--cf-white);
+    /* Potentially add display: flex; justify-content: center; here if it helps force centering */
+}
+
+/* Styles for the main content container where legal text resides */
+/* Let Bootstrap's Container handle overall width and responsiveness. */
+.legal-content-container {
+    /* Padding is handled by .legal-content-box now */
+    /* Remove any explicit width/margins here to avoid conflict */
+    padding: 0; /* Reset padding here if inherited, .legal-content-box will provide it */
+    margin: 0; /* Ensure no external margins pushing it */
+}
+
+/* New class for the legal text box - this creates the bordered, padded box */
+.legal-content-box {
+    border: 1px solid var(--cf-neutral-light-gray);
+    padding: var(--cf-spacing-xl); /* Generous padding inside the box */
+    border-radius: var(--cf-border-radius-small);
+    background-color: var(--cf-white); /* Ensure a white background */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Subtle shadow for depth */
+
+    /* Control the maximum width of the box for readability and center it */
+    max-width: 900px; /* A good readable width */
+    width: 100%; /* Ensure it takes full width up to max-width */
+    margin: 0 auto; /* Center the box */
+}
+
+
+/* Page Titles (Privacy Policy, Terms of Service) */
+/* Titles within the box should ideally be left-aligned for legal text */
+.legal-page-title {
+    text-align: left; /* Changed to left-align for legal documents */
+    color: var(--cf-primary-dark-teal);
+    font-family: var(--cf-font-heading);
+    font-size: var(--cf-font-size-h2); /* Slightly smaller for internal H1 */
+    margin-bottom: var(--cf-spacing-xl);
+    padding-bottom: var(--cf-spacing-md);
+    border-bottom: 2px solid var(--cf-secondary-teal);
+    /* Remove max-width here if it causes centering issues for title */
+    margin-left: 0; /* Ensure it's not trying to auto-center within the box */
+    margin-right: 0;
+}
+
+/* Section Headings within Privacy Policy/Terms (e.g., Information Collection, Acceptance of Terms) */
+.legal-content-box h2 { /* Target h2 specifically within the box */
+    color: var(--cf-primary-dark-teal);
+    font-family: var(--cf-font-heading);
+    font-size: var(--cf-font-size-xxl);
+    margin-top: var(--cf-spacing-xxxl);
+    margin-bottom: var(--cf-spacing-md);
+    border-left: 4px solid var(--cf-accent-warm-gold);
+    padding-left: 15px;
+}
+
+/* Sub-headings (e.g., within "Use of Information") */
+.legal-content-box h3 { /* Target h3 specifically within the box */
+    color: var(--cf-neutral-charcoal);
+    font-family: var(--cf-font-heading);
+    font-size: var(--cf-font-size-xl);
+    margin-top: var(--cf-spacing-xl);
+    margin-bottom: var(--cf-spacing-sm);
+}
+
+/* Main Paragraph Text - Set to var(--cf-font-size-base) for smaller appearance */
+.legal-content-box p { /* Target p specifically within the box */
+    color: var(--cf-neutral-charcoal);
+    font-size: var(--cf-font-size-base);
+    line-height: var(--cf-line-height-body);
+    margin-bottom: var(--cf-spacing-md);
+}
+
+/* List Items - Set to var(--cf-font-size-base) for smaller appearance */
+.legal-content-box ul,
+.legal-content-box ol { /* Target ul/ol specifically within the box */
+    margin-bottom: var(--cf-spacing-md);
+    padding-left: 30px;
+}
+
+.legal-content-box ul li,
+.legal-content-box ol li { /* Target li specifically within the box */
+    color: var(--cf-neutral-charcoal);
+    font-size: var(--cf-font-size-base);
+    line-height: var(--cf-line-height-body);
+    margin-bottom: 0.3em;
+}
+
+/* Specific styling for the horizontal rule separating Privacy Policy and Terms */
+.legal-section-separator {
+    border: none;
+    border-top: 1px dashed var(--cf-neutral-light-gray);
+    margin: var(--cf-spacing-xxxl) auto;
+    width: 60%;
+    max-width: 500px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 767.98px) {
+    .legal-page-title {
+        font-size: var(--cf-font-size-h2);
+        margin-bottom: var(--cf-spacing-xl);
+    }
+
+    .legal-content-box h2 {
+        font-size: var(--cf-font-size-xl);
+        margin-top: var(--cf-spacing-xxl);
+        padding-left: 10px;
+    }
+
+    .legal-content-box h3 {
+        font-size: var(--cf-font-size-lg);
+        margin-top: var(--cf-spacing-lg);
+    }
+
+    .legal-content-box p,
+    .legal-content-box ul li,
+    .legal-content-box ol li {
+        font-size: var(--cf-font-size-base);
+    }
+
+    .legal-section-separator {
+        margin: var(--cf-spacing-xxl) auto;
+        width: 80%;
+    }
+}

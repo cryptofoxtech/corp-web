@@ -1,177 +1,166 @@
 /* client/src/pages/About/About.css */
 
-.about-page {
-    padding: 40px 0 80px 0; /* Vertical padding for the entire page content */
-    font-family: var(--cf-font-body); /* Apply body font to the entire page */
-    color: var(--cf-neutral-charcoal); /* Default text color for the page */
+/* Overall page section styling - consistent vertical padding for the entire page */
+.about-page-section {
+    padding: var(--cf-section-padding-vertical-large) 0; /* Uses 48px from global vars */
+    background-color: var(--cf-white); /* Default background for the page */
 }
 
-.about-page h1 {
+/* Styling for the Main Page Title (e.g., "About Cryptofox Technology Ltd.") */
+.page-main-title {
     text-align: center;
-    margin-bottom: 20px;
-    color: var(--cf-primary-dark-teal); /* Using Dark Teal for primary headlines */
-    font-family: var(--cf-font-heading); /* Ensuring heading font */
-    font-weight: 700; /* Bold weight */
-    font-size: 3rem; /* Aligned with global h1, adjust if needed */
+    color: var(--cf-primary-dark-teal); /* Brand color */
+    font-family: var(--cf-font-heading); /* Heading font */
+    font-size: var(--cf-font-size-h1); /* H1 font size */
+    margin-bottom: var(--cf-spacing-xl); /* Space below title (24px) */
+    padding-bottom: var(--cf-spacing-md); /* Padding below title for underline (16px) */
+    border-bottom: 2px solid var(--cf-secondary-teal); /* Underline effect */
+    max-width: var(--cf-content-max-width-wide); /* Limit width for readability (e.g., 900px) */
+    margin-left: auto; /* Center the block itself */
+    margin-right: auto; /* Center the block itself */
 }
 
-.about-page .page-intro {
-    text-align: center;
-    font-size: var(--cf-font-size-lg); /* Using large font size variable */
-    max-width: 800px;
-    margin: 0 auto 50px auto;
-    color: var(--cf-neutral-charcoal); /* Using Charcoal for introductory text */
-    line-height: 1.6;
+/* Styling for the Main Page Intro Paragraph */
+.page-intro {
+    text-align: center; /* Center align */
+    color: var(--cf-neutral-charcoal); /* Neutral text color */
+    font-size: var(--cf-font-size-lg); /* Slightly larger for intro (20px) */
+    max-width: var(--cf-content-max-width-wide); /* Limit width for readability (e.g., 900px) */
+    margin: 0 auto var(--cf-spacing-xxxl) auto; /* Centered with generous space below (48px) */
+    line-height: var(--cf-line-height-body); /* Standard line height (1.6) */
+    word-wrap: break-word; /* Ensure long words break and wrap */
+    overflow-wrap: break-word; /* Alternative for word-wrap */
 }
 
-.about-section {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin-bottom: 60px;
-    padding: 30px;
-    background-color: var(--cf-white); /* White background for sections */
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.08); /* Keeping rgba for specific shadow effect */
+/* Styles for the rows containing content and images */
+.about-content-row {
+    padding: var(--cf-spacing-xxl) 0; /* Internal vertical padding for the entire row section (32px) */
+    /* Add optional visual separation between rows if desired */
+    /* border-bottom: 1px solid var(--cf-neutral-light-gray); */
 }
 
-.about-section.even-section {
-    flex-direction: row-reverse;
+/* Styling for alternating backgrounds */
+.about-content-row.even-section {
+    background-color: var(--cf-neutral-light-gray); /* Light gray background for alternating sections */
 }
 
-.about-section .about-content {
-    flex: 1;
-    padding: 0 30px;
+/* Styling for the text column within each content row */
+.about-content-row .text-col {
+    padding: var(--cf-spacing-lg); /* Add some padding inside the column for content separation (20px) */
 }
 
-.about-section .about-image {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-width: 400px;
+/* Styling for headings within the text column */
+.about-content-row .text-col h1,
+.about-content-row .text-col h2,
+.about-content-row .text-col h3,
+.about-content-row .text-col h4,
+.about-content-row .text-col h5,
+.about-content-row .text-col h6 {
+    color: var(--cf-primary-dark-teal); /* Dark Teal for headings within sections */
+    font-family: var(--cf-font-heading);
+    margin-bottom: var(--cf-spacing-md); /* Consistent heading margin (16px) */
+    text-align: left; /* Ensure headings align left within their column */
 }
 
-.about-section .about-image img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Keeping rgba for specific shadow effect */
+/* Styling for paragraphs and lists within the text column */
+.about-content-row .text-col p,
+.about-content-row .text-col ul,
+.about-content-row .text-col ol {
+    color: var(--cf-neutral-charcoal); /* Charcoal for body text */
+    font-size: var(--cf-font-size-base); /* Base font size (16px) */
+    line-height: var(--cf-line-height-body); /* Standard line height (1.6) */
+    margin-bottom: var(--cf-spacing-sm); /* Consistent paragraph margin (12px) */
+    text-align: left; /* Explicitly left-align text in columns for readability */
+    word-wrap: break-word; /* Ensure long words break and wrap */
+    overflow-wrap: break-word; /* Alternative for word-wrap */
 }
 
-.about-section h2 {
-    color: var(--cf-primary-dark-teal); /* Dark Teal for sub-headlines within sections */
-    font-size: var(--cf-font-size-xl); /* Using extra large font size */
-    font-family: var(--cf-font-heading); /* Ensuring heading font */
-    font-weight: 700; /* Bold weight */
-    margin-bottom: 1.5rem;
+.about-content-row .text-col ul {
+    list-style-type: disc; /* Default disc for unordered lists */
+    padding-left: var(--cf-spacing-xl); /* Indent lists (24px) */
 }
 
-.about-section h3 {
-    color: var(--cf-secondary-teal); /* Bright Teal for smaller headings */
-    font-size: var(--cf-font-size-lg); /* Using large font size */
-    font-family: var(--cf-font-heading); /* Ensuring heading font */
-    font-weight: 600; /* Semi-bold weight */
-    margin-top: 1rem;
-    margin-bottom: 0.8rem;
-}
-
-.about-section p {
-    line-height: 1.8;
-    margin-bottom: 1rem;
-    color: var(--cf-neutral-charcoal); /* Charcoal for paragraph text */
-    font-size: var(--cf-font-size-base); /* Base font size */
-}
-
-.values-section {
-    text-align: center;
-    padding: 40px 0;
-}
-
-.values-section h2 {
-    margin-bottom: 40px;
-    color: var(--cf-primary-dark-teal); /* Dark Teal for values section headline */
-    font-family: var(--cf-font-heading); /* Ensuring heading font */
-    font-weight: 700; /* Bold weight */
-    font-size: var(--cf-font-size-xxl); /* Using extra extra large font size */
-}
-
-.values-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-}
-
-.value-item {
-    background-color: var(--cf-white); /* White background for value cards */
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05); /* Keeping rgba for specific shadow effect */
-    text-align: left; /* Align text left within value items */
-}
-
-.value-item h3 {
-    color: var(--cf-accent-soft-coral); /* Soft Coral for value item headings (using cf-info equivalent) */
-    font-size: var(--cf-font-size-lg); /* Using large font size */
-    font-family: var(--cf-font-heading); /* Ensuring heading font */
-    font-weight: 600; /* Semi-bold weight */
-    margin-bottom: 15px;
-}
-
-.value-item p {
-    color: var(--cf-neutral-charcoal); /* Charcoal for value item paragraph text (using cf-secondary equivalent) */
-    line-height: 1.7;
-    font-size: var(--cf-font-size-sm); /* Using small font size */
+.about-content-row .text-col ul li {
+    margin-bottom: var(--cf-spacing-xs); /* Smaller margin for list items (8px) */
 }
 
 
-/* Responsive adjustments for About page */
-@media (max-width: 992px) {
-    .about-section, .about-section.even-section {
-        flex-direction: column;
-        padding: 20px;
+/* Styling for the image column within each content row */
+.about-content-row .image-col {
+    display: flex; /* Use flex to center image if it's smaller than its container */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    padding: var(--cf-spacing-lg); /* Add some padding inside the column around the image (20px) */
+}
+
+/* Styling for images within the image column (img-fluid, rounded, shadow are Bootstrap classes) */
+.about-content-row .image-col img {
+    object-fit: cover; /* Ensures images fill their space nicely without distortion if aspect ratio varies */
+    width: 100%; /* Ensure image takes up available width in its column */
+    max-height: 400px; /* Optional: Limit max height for very tall images to prevent overly large images */
+    border-radius: var(--cf-border-radius-large); /* Apply border-radius from brand guidelines (e.g., 8px) */
+    box-shadow: 0 4px 12px var(--cf-shadow-color-default); /* Subtle shadow for images */
+}
+
+
+/* Responsive adjustments based on Bootstrap breakpoints */
+
+/* For devices smaller than large (e.g., tablets/medium screens and below) */
+@media (max-width: 991.98px) {
+    .about-content-row {
+        flex-direction: column; /* Explicitly ensure stacking for clarity, though Bootstrap does this */
+        text-align: center; /* Center content when columns stack vertically */
     }
-    .about-section .about-content {
-        padding: 0;
-        order: 2;
+
+    .about-content-row .text-col,
+    .about-content-row .image-col {
+        width: 100%; /* On stacked layout, columns take full width */
+        flex-basis: auto; /* Reset flex-basis when columns stack */
     }
-    .about-section.even-section .about-content {
-        order: 2;
+
+    /* Adjust text alignment within stacked columns */
+    .about-content-row .text-col h1,
+    .about-content-row .text-col h2,
+    .about-content-row .text-col h3,
+    .about-content-row .text-col h4,
+    .about-content-row .text-col h5,
+    .about-content-row .text-col h6,
+    .about-content-row .text-col p,
+    .about-content-row .text-col ul,
+    .about-content-row .text-col ol {
+        text-align: center; /* Center all text elements when stacked */
+        margin-left: auto; /* Center text blocks within the column */
+        margin-right: auto;
+        max-width: 85%; /* Limit width of text for readability on smaller screens */
     }
-    .about-section .about-image {
-        min-width: unset;
-        width: 100%;
-        order: 1;
-        margin-bottom: 20px;
+
+    .about-content-row .text-col ul {
+        padding-left: 20px; /* Adjust list indent for centering */
     }
-    .about-section .about-image img {
-        max-width: 90%;
-    }
-    .about-page h1 {
-        font-size: 2.5rem; /* Adjust for tablet */
-    }
-    .about-page .page-intro {
-        font-size: var(--cf-font-size-base); /* Adjust for tablet */
+
+    .about-content-row .image-col img {
+        max-width: 90%; /* Adjust image size when stacked */
+        margin: 0 auto; /* Center image within its column when stacked */
     }
 }
 
-@media (max-width: 576px) {
-    .about-page h1 {
-        font-size: 2rem;
+/* For devices smaller than medium (e.g., mobile phones) */
+@media (max-width: 767.98px) {
+    .about-page-section {
+        padding: var(--cf-section-padding-vertical-small) 0; /* Smaller vertical padding (32px) */
     }
-    .about-page .page-intro {
-        font-size: var(--cf-font-size-sm); /* Further adjust for mobile */
+
+    .page-main-title {
+        font-size: var(--cf-font-size-h2); /* Scale down H1 on mobile */
     }
-    .about-section h2 {
-        font-size: var(--cf-font-size-lg); /* Adjust for mobile */
+
+    .page-intro {
+        font-size: var(--cf-font-size-base); /* Scale down intro text on mobile */
+        margin-bottom: var(--cf-spacing-xl) !important; /* Adjust margin */
     }
-    .about-section h3 {
-        font-size: var(--cf-font-size-base); /* Adjust for mobile */
-    }
-    .values-grid {
-        grid-template-columns: 1fr; /* Single column on very small screens */
-    }
-    .values-section h2 {
-        font-size: var(--cf-font-size-xl); /* Adjust for mobile */
+
+    .about-content-row {
+        margin-bottom: var(--cf-spacing-xxl); /* Reduce spacing between sections on smallest screens */
+        padding: var(--cf-spacing-xl) 0; /* Smaller internal padding for rows */
     }
 }

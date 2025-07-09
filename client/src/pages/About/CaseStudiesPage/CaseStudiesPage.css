@@ -1,0 +1,116 @@
+/* client/src/pages/About/CaseStudiesPage/CaseStudiesPage.css */
+
+/*
+    This CSS file contains styles specific to the Case Studies Page content.
+    It relies heavily on global styles from index.css, Layout.css, and pages-common.css.
+    Only add styles here that are truly unique to the visual presentation of case studies.
+*/
+
+@import '../../../styles/pages-common.css'; /* Import common page styles */
+
+/*
+    Removed .case-studies-page-wrapper and .case-studies-container specific layout rules.
+    The page now uses .page-wrapper and .main-content from Layout.js/pages-common.css
+    and Bootstrap's .container for consistent overall layout.
+*/
+
+/*
+    No specific styles needed for .section-title or .section-intro here,
+    as they are handled by pages-common.css.
+    The first section title's top margin is handled by the :first-of-type selector in pages-common.css.
+*/
+
+/* --- Individual Case Study Section Styling --- */
+/* These styles apply to the .service-content-section when used for case studies */
+.service-content-section .service-detail-content h2 {
+    /* Inherits from global h2 in index.css, and section-title in pages-common.css */
+    /* Add specific overrides if needed, e.g., a different color or border */
+    font-size: var(--cf-font-size-xxxl); /* Explicit font size */
+    margin-top: 0; /* Ensure no top margin for these H2s */
+    margin-bottom: 0.4em;
+    border-bottom: 1px solid var(--cf-secondary-teal);
+    padding-bottom: 0.2em;
+    position: relative;
+    padding-left: 0;
+}
+
+/* Gold dot for H2 headings (if desired, ensure it doesn't conflict with other h2 styles) */
+.service-content-section .service-detail-content h2::before {
+    content: "•";
+    color: var(--cf-accent-warm-gold);
+    font-size: 1.5em;
+    position: absolute;
+    left: -20px; /* Adjust as needed */
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 1;
+}
+
+/* --- H3 Styling within Case Study Sections --- */
+.service-content-section .service-detail-content h3 {
+    /* Inherits from global h3 in index.css and service-detail-content h3 in pages-common.css */
+    /* Add specific overrides if needed */
+    font-size: var(--cf-font-size-xxl); /* Explicit font size */
+    margin-top: 1.2em;
+    margin-bottom: 0.5em;
+    border-left: 4px solid var(--cf-primary-dark-teal);
+    padding-left: 15px;
+    font-weight: 600;
+}
+
+/* --- Paragraph Styling within Case Study Sections --- */
+.service-content-section .service-detail-content p {
+    /* Inherits from global p in index.css and pages-common.css */
+    /* Add specific overrides if needed */
+    font-size: var(--cf-font-size-md); /* Explicit font size */
+    line-height: 1.4;
+    margin-bottom: 0.6em;
+}
+
+/* --- Strong/Bold Text Styling (explicit color for emphasis over paragraph default) --- */
+.service-content-section .service-detail-content p strong {
+    color: var(--cf-primary-dark-teal);
+}
+
+/* --- List Styling within Case Study Sections (for Results) --- */
+.service-content-section .service-detail-content ul,
+.service-content-section .service-detail-content ol {
+    /* Inherits from global ul/ol in index.css and pages-common.css */
+    margin-bottom: 0.8em;
+    padding-left: 30px;
+    list-style-type: disc;
+}
+
+.service-content-section .service-detail-content ol {
+    list-style-type: decimal;
+}
+
+.service-content-section .service-detail-content ul li,
+.service-content-section .service-detail-content ol li {
+    margin-bottom: 0.3em;
+    line-height: 1.3;
+}
+
+/* --- Responsive Adjustments --- */
+/* These media queries should mirror those in pages-common.css for consistency */
+@media (max-width: 768px) {
+    .service-content-section .service-detail-content h2 {
+        font-size: var(--cf-font-size-xxl);
+        margin-bottom: 0.3em;
+        padding-bottom: 0.1em;
+    }
+    .service-content-section .service-detail-content h3 {
+        font-size: var(--cf-font-size-xl);
+        padding-left: 10px;
+        margin-top: 1em;
+        margin-bottom: 0.4em;
+    }
+    .service-content-section .service-detail-content p {
+        margin-bottom: 0.5em;
+    }
+    .service-content-section .service-detail-content ul,
+    .service-content-section .service-detail-content ol {
+        padding-left: 20px;
+        margin-bottom: 0.6em;
+    }
+}

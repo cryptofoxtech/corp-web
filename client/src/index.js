@@ -1,18 +1,28 @@
 // client/src/index.js
-import React from 'react'; // Re-import React
-import ReactDOM from 'react-dom/client'; // Re-import ReactDOM
+import React from 'react';
+import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App.js';
+// Import your main layout CSS - THIS IS THE MISSING PIECE!
+import './components/Layout/Layout.css'; // <--- ADD THIS LINE
 
 // Import Bootstrap CSS for global styling
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-// Get the root element from your HTML (public/index.html)
+// Import HelmetProvider for managing document head
+import { HelmetProvider } from 'react-helmet-async';
+
+// Import BrowserRouter for client-side routing
+import { BrowserRouter } from 'react-router-dom';
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
-// Render your App component into the root
 root.render(
   <React.StrictMode>
-    <App />
+    <HelmetProvider>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </HelmetProvider>
   </React.StrictMode>
 );

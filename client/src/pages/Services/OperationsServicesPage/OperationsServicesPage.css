@@ -1,0 +1,134 @@
+/* client/src/pages/Services/OperationsServicesPage/OperationsServicesPage.css */
+
+/*
+    This CSS file contains specific styles for the consolidated Operations Services Page.
+    It builds upon the common styles defined in pages-common.css to elevate its appearance
+    without being overly stylized.
+*/
+
+/* --- Introduction Section Specifics (for the first service-content-section) --- */
+.bg-lighter-gray-intro {
+    background-color: var(--cf-neutral-lightest-gray); /* Even lighter than light-gray-custom for a very subtle tint */
+    /* Add extra top/bottom padding to the section-title if needed, but rely mostly on .section-title from pages-common.css */
+}
+
+/* --- Section Separator --- */
+.section-separator {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), var(--cf-neutral-medium-gray), rgba(0, 0, 0, 0));
+    margin: 60px 0; /* Space above and below separator */
+}
+
+/* --- Alternating Background for sections --- */
+/* This class will be applied to every other section (e.g., Cloud Computing section) */
+.bg-light-gray-custom {
+    background-color: var(--cf-neutral-light-gray);
+}
+
+/* --- Enhancements for Titles and Content --- */
+
+/* Ensure the first H1 on the page has good top margin and spacing */
+.service-content-section:first-of-type .section-title {
+    /* CRITICAL FIX: Remove top margin from the very first section title on the page */
+    margin-top: 0;
+    margin-bottom: 20px; /* More space below the main title */
+}
+
+/* Style for the promoted lead paragraph */
+.service-content-section:first-of-type .section-intro {
+    font-size: var(--cf-font-size-lg); /* Slightly larger than base text */
+    color: var(--cf-neutral-charcoal);
+    margin-bottom: 40px; /* Good spacing before the next content block */
+    text-align: center; /* Center alignment for the intro */
+    max-width: 800px; /* Limit width for readability */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* General section titles (H2) - enhance visibility */
+.service-content-section .section-title {
+    color: var(--cf-primary-dark-teal);
+}
+
+/* Specific styling for content blocks */
+.service-detail-content h3 {
+    font-size: var(--cf-font-size-xl);
+    margin-top: 30px;
+    margin-bottom: 15px;
+    color: var(--cf-secondary-teal);
+}
+
+.service-detail-content h4 {
+    font-size: var(--cf-font-size-lg);
+    margin-top: 25px;
+    margin-bottom: 10px;
+    color: var(--cf-primary-dark-teal);
+}
+
+.service-detail-content p {
+    font-size: var(--cf-font-size-base);
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.service-detail-content ul {
+    list-style-type: disc;
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+.service-detail-content ul li {
+    margin-bottom: 8px;
+    line-height: 1.5;
+}
+
+.service-detail-image-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.service-detail-image-container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 991.98px) {
+    .service-content-section {
+        padding: 40px 0;
+    }
+    .service-content-section:first-of-type .section-title {
+        font-size: var(--cf-font-size-xxxl);
+    }
+    .service-content-section .section-title {
+        font-size: var(--cf-font-size-xxl);
+    }
+    .service-detail-content h3 {
+        font-size: var(--cf-font-size-lg);
+    }
+    .service-detail-content h4 {
+        font-size: var(--cf-font-size-base);
+    }
+}
+
+@media (max-width: 767.98px) {
+    .service-content-section {
+        padding: 30px 0;
+    }
+    .service-content-section:first-of-type .section-title {
+        font-size: var(--cf-font-size-xxl);
+    }
+    .service-content-section .section-title {
+        font-size: var(--cf-font-size-xl);
+    }
+    .service-detail-content h3 {
+        font-size: var(--cf-font-size-md);
+    }
+    .service-detail-content h4 {
+        font-size: var(--cf-font-size-sm);
+    }
+}

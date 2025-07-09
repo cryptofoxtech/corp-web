@@ -1,13 +1,8 @@
 /* client/src/App.css */
 
-/* Styles for the main content area to clear the fixed header */
+/* Main content area - works with flexbox layout from index.css */
 .app-main-content {
-    /* This padding pushes the main content down to clear the fixed header. */
-    /* It uses the header height variable defined in index.css. */
-    padding-top: var(--cf-header-height);
-
-    /* These are good default layout properties for the main content area */
-    flex-grow: 1; /* Allows this content to expand and push the footer down */
-    display: flex; /* Often needed for inner layout within main */
-    flex-direction: column; /* To stack content vertically within main */
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
 }
