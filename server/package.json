@@ -2,7 +2,7 @@
   "name": "cryptofox-azure-functions",
   "version": "1.0.0",
   "description": "Azure Functions API for Cryptofox Technology Ltd corporate website",
-  "main": "index.js", # Keep this, as some Azure Functions tooling expects it.
+  "main": "index.js",
   "scripts": {
     "test": "echo \"No tests specified for functions\" && exit 0"
   },
@@ -20,7 +20,6 @@
     "dotenv": "^16.4.5",
     "gray-matter": "^4.0.3",
     "marked": "^16.0.0"
-    // Remove "express" as it's not needed for Azure Functions directly
   },
   "devDependencies": {
     "eslint": "^9.28.0",
