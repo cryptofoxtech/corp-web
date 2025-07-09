@@ -1,15 +1,15 @@
 # .github/workflows/deploy-dev.yml
-name: Deploy Cryptofox Corp Web (Dev) - Frontend Only
+name: Deploy Cryptofox Corp Web (Dev) - Frontend & API
 
 on:
   push:
     branches:
       - main
-      - master # Added this branch to trigger deployment
-      - develop # Add this if you also deploy dev from a 'develop' branch
+      - master
+      - develop
 
 jobs:
-  build_and_deploy_frontend:
+  build_and_deploy:
     runs-on: ubuntu-latest
     environment: dev
 
@@ -20,12 +20,21 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20.x' # Use Node.js 20.x for consistency
-          cache: 'npm'
+          node-version: '20.x'
+
+      - name: Clean npm cache (Client)
+        run: npm cache clean --force
+        working-directory: ./client
+
+      - name: Remove client node_modules and package-lock.json
+        run: |
+          rm -rf node_modules
+          rm package-lock.json
+        working-directory: ./client
 
       - name: Install Frontend Dependencies
         working-directory: ./client
-        run: npm install --legacy-peer-deps # Added --legacy-peer-deps
+        run: npm install --legacy-peer-deps
 
       - name: Build Frontend (React)
         working-directory: ./client
@@ -33,7 +42,21 @@ jobs:
         env:
           CI: false
 
-      - name: Deploy Frontend to Azure Static Web Apps
+      - name: Clean npm cache (Server/API)
+        run: npm cache clean --force
+        working-directory: ./server
+
+      - name: Remove server node_modules and package-lock.json
+        run: |
+          rm -rf node_modules
+          rm package-lock.json
+        working-directory: ./server
+
+      - name: Install API Dependencies
+        working-directory: ./server
+        run: npm install
+
+      - name: Deploy Frontend & API to Azure Static Web Apps
         id: swa_deploy
         uses: azure/static-web-apps-deploy@v1
         with:
@@ -41,10 +64,10 @@ jobs:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           action: 'upload'
           app_location: 'client/build'
-          api_location: ''
+          api_location: 'server'
           output_location: ''
           skip_app_build: true
-          skip_api_build: true
+          skip_api_build: false
 
       - name: Output Deployment Details
         run: |
