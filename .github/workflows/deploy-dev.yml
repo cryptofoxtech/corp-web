@@ -21,7 +21,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20.x'
-          cache: 'npm' # Keep this for standard caching but rely on explicit cleanup below
+          cache: 'npm'
           cache-dependency-path: 'client/package-lock.json'
 
       # === Client (Frontend) Build Steps ===
@@ -37,12 +37,12 @@ jobs:
 
       - name: Install Frontend Dependencies (Reverted to npm install)
         working-directory: ./client
-        run: npm install --legacy-peer-deps # Use npm install to generate/update package-lock.json
+        run: npm install --legacy-peer-deps
 
-      # --- Keep this step to address AJV error ---
+      # --- CRITICAL FIX: Added --legacy-peer-deps to this step ---
       - name: Force AJV-keywords compatible version
         working-directory: ./client
-        run: npm install ajv-keywords@^3.5.2
+        run: npm install ajv-keywords@^3.5.2 --legacy-peer-deps # <--- ADDED THIS FLAG
 
       - name: Build Frontend (React)
         working-directory: ./client
@@ -63,7 +63,7 @@ jobs:
 
       - name: Install API Dependencies (Reverted to npm install)
         working-directory: ./server
-        run: npm install # Use npm install to generate/update package-lock.json
+        run: npm install
 
       - name: Deploy Frontend & API to Azure Static Web Apps
         id: swa_deploy
