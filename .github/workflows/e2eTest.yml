@@ -33,7 +33,7 @@ jobs:
 
       - name: Install client and server dependencies
         run: |
-          npm install --prefix client
+          npm install --prefix client --force
           npm install --prefix server
 
       - name: Install Playwright browsers
