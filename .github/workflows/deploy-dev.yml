@@ -1,60 +1,41 @@
-# GitHub Actions Workflow for Cryptofox Corp Web Deployment
-# This workflow focuses on deploying the React frontend to Azure Static Web Apps.
-# The API deployment is skipped in this version to isolate frontend issues.
-
-name: Deploy Cryptofox Corp Web (Dev) - Frontend Only
-
-on:
-  push:
-    branches:
-      - main
-      - master # Added this branch to trigger deployment
-      - develop # Add this if you also deploy dev from a 'develop' branch
-
 jobs:
-  build_and_deploy_frontend: # Renamed job for clarity
-    runs-on: ubuntu-latest # Use a Linux runner for the build and deploy steps
-    environment: dev # Associate this job with the 'dev' environment (optional, for GitHub Environments)
+  build_and_deploy_frontend:
+    runs-on: ubuntu-latest
+    environment: dev
 
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v4 # Checkout the source code from your repository
+        uses: actions/checkout@v4
 
       - name: Set up Node.js
-        uses: actions/setup-node@v4 # Use Node.js 18.x as specified in your Bicep
+        uses: actions/setup-node@v4
         with:
-          node-version: '18.x'
-          cache: 'npm' # Cache npm dependencies for faster builds
+          node-version: '18.x' # Or '20.x' if you prefer consistency with e2e tests
+          cache: 'npm'
 
       - name: Install Frontend Dependencies
-        working-directory: ./client # Navigate to the client directory
-        run: npm install # Install npm packages for the React frontend
+        working-directory: ./client
+        run: npm install --legacy-peer-deps # Added --legacy-peer-deps
 
       - name: Build Frontend (React)
-        working-directory: ./client # Navigate to the client directory
-        run: npm run build # Run the build script defined in client/package.json
+        working-directory: ./client
+        run: npm run build
         env:
-          CI: false # Suppress warnings treated as errors in CI environments
-
-      # --- API Deployment Steps Removed/Skipped Below ---
-      # The 'Install Backend Dependencies' step is removed as we are not deploying the API in this workflow.
+          CI: false
 
       - name: Deploy Frontend to Azure Static Web Apps
         id: swa_deploy
-        uses: azure/static-web-apps-deploy@v1 # Use the Azure Static Web Apps Deploy action
+        uses: azure/static-web-apps-deploy@v1
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_DEV }}
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           action: 'upload'
-          app_location: 'client/build' # Points to the built frontend artifacts
-          api_location: '' # <--- CRITICAL CHANGE: Set to empty string to skip API deployment
-          output_location: '' # Empty, as app_location is already the final output
-          skip_app_build: true # We built the app in a previous step
-          skip_api_build: true # <--- CRITICAL CHANGE: Explicitly skip API build
-          # Removed api_language and api_runtime as we are skipping API deployment
+          app_location: 'client/build'
+          api_location: ''
+          output_location: ''
+          skip_app_build: true
+          skip_api_build: true
 
       - name: Output Deployment Details
         run: |
           echo "Frontend URL: ${{ steps.swa_deploy.outputs.static_web_app_url }}"
-          # The backend URL will not be available in this frontend-only deployment
-          # echo "Backend URL: ${{ steps.swa_deploy.outputs.api_url }}"
