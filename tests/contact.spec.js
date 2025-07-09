@@ -6,7 +6,7 @@ test.describe('Contact Page', () => {
   // Before each test in this describe block, navigate to the contact page
   test.beforeEach(async ({ page }) => {
     // Ensure your React app is running on localhost:3000
-    await page.goto('http://localhost:3000/contact');
+    await page.goto('http://localhost:3000/about/contact');
   });
 
   test('should display the Contact Us heading and form', async ({ page }) => {

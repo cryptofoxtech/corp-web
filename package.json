@@ -21,9 +21,10 @@
   "homepage": "https://github.com/cryptofoxtech/corp-web#readme",
   "description": "",
   "devDependencies": {
-    "@playwright/test": "^1.52.0",
+    "@playwright/test": "^1.53.2",
     "@types/node": "^22.15.29",
     "concurrently": "^8.2.2",
+    "playwright": "^1.53.2",
     "start-server-and-test": "^2.0.3"
   }
 }
