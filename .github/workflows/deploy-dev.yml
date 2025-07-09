@@ -7,8 +7,9 @@ name: Deploy Cryptofox Corp Web (Dev) - Frontend Only
 on:
   push:
     branches:
-      - main # Trigger on pushes to the main branch
-      # Consider adding 'develop' here if your development branch also triggers dev deployments
+      - main
+      - master # Added this branch to trigger deployment
+      - develop # Add this if you also deploy dev from a 'develop' branch
 
 jobs:
   build_and_deploy_frontend: # Renamed job for clarity
@@ -20,9 +21,9 @@ jobs:
         uses: actions/checkout@v4 # Checkout the source code from your repository
 
       - name: Set up Node.js
-        uses: actions/setup-node@v4 # Use Node.js 20.x for consistency with E2E tests
+        uses: actions/setup-node@v4 # Use Node.js 18.x as specified in your Bicep
         with:
-          node-version: '20.x' # Changed from '18.x' to '20.x' for consistency
+          node-version: '18.x'
           cache: 'npm' # Cache npm dependencies for faster builds
 
       - name: Install Frontend Dependencies
@@ -42,15 +43,15 @@ jobs:
         id: swa_deploy
         uses: azure/static-web-apps-deploy@v1 # Use the Azure Static Web Apps Deploy action
         with:
-          # Ensure this secret name matches exactly what you configured in GitHub (AZURE_STATIC_WEB_APPS_API_TOKEN_DEV)
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_DEV }}
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           action: 'upload'
           app_location: 'client/build' # Points to the built frontend artifacts
-          api_location: '' # Set to empty string to explicitly skip API deployment via SWA
+          api_location: '' # <--- CRITICAL CHANGE: Set to empty string to skip API deployment
           output_location: '' # Empty, as app_location is already the final output
           skip_app_build: true # We built the app in a previous step
-          skip_api_build: true # Explicitly skip API build
+          skip_api_build: true # <--- CRITICAL CHANGE: Explicitly skip API build
+          # Removed api_language and api_runtime as we are skipping API deployment
 
       - name: Output Deployment Details
         run: |
