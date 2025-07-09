@@ -20,7 +20,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20.x'
+          node-version: '20.x' # This sets Node for the GitHub Actions runner itself
           cache: 'npm'
           cache-dependency-path: 'client/package-lock.json'
 
@@ -39,10 +39,9 @@ jobs:
         working-directory: ./client
         run: npm install --legacy-peer-deps
 
-      # --- CRITICAL FIX: Added --legacy-peer-deps to this step ---
       - name: Force AJV-keywords compatible version
         working-directory: ./client
-        run: npm install ajv-keywords@^3.5.2 --legacy-peer-deps # <--- ADDED THIS FLAG
+        run: npm install ajv-keywords@^3.5.2 --legacy-peer-deps
 
       - name: Build Frontend (React)
         working-directory: ./client
@@ -51,19 +50,9 @@ jobs:
           CI: false
 
       # === Server (API) Build Steps ===
-      - name: Clean npm cache (Server/API - Aggressive)
-        run: npm cache clean --force
-        working-directory: ./server
-
-      - name: Remove server node_modules and package-lock.json (Aggressive)
-        run: |
-          rm -rf node_modules
-          rm package-lock.json
-        working-directory: ./server
-
-      - name: Install API Dependencies (Reverted to npm install)
-        working-directory: ./server
-        run: npm install
+      # Note: We're removing the explicit npm install steps here,
+      # as Oryx will perform its own installation and build based on api_location.
+      # The previous manual installs caused issues or were redundant.
 
       - name: Deploy Frontend & API to Azure Static Web Apps
         id: swa_deploy
@@ -75,8 +64,16 @@ jobs:
           app_location: 'client/build'
           api_location: 'server'
           output_location: ''
-          skip_app_build: true
+          skip_app_build: true # We pre-built the client
           skip_api_build: false
+          # --- NEW CRITICAL CHANGE: Explicitly pass NODE_VERSION to Oryx ---
+          api_build_properties: "NODE_VERSION=~20" # This instructs Oryx to use Node.js 20
+                                                    # The "~" means compatible with 20.x
+          # Alternatively, you could try setting a specific version like "NODE_VERSION=20.x" or "NODE_VERSION=20.19.3"
+                                                    # if "~20" doesn't work.
+                                                    # For Node.js functions, Oryx often auto-detects from package.json
+                                                    # but explicitly setting it here should override any misdetection.
+
 
       - name: Output Deployment Details
         run: |
