@@ -1,22 +1,26 @@
 // client/src/components/Blog/BlogPostDetail.js
 import React, { useState, useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom'; // Added useNavigate
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
-import './BlogPostDetail.css'; // We'll create this CSS file next
+// import './BlogPostDetail.css'; // Keep this if you have the CSS file
 
 const BlogPostDetail = () => {
-    const { slug } = useParams(); // Get the 'slug' from the URL parameters
+    const { slug } = useParams();
+    const navigate = useNavigate(); // Added navigate hook
     const [post, setPost] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
     useEffect(() => {
         const fetchPost = async () => {
+            setLoading(true);
+            setError(null); // Clear previous errors
             try {
-                const apiUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000';
-                const response = await fetch(`${apiUrl}/api/blog/posts/${slug}`);
-                
+                // *** THIS IS THE CRITICAL CHANGE ***
+                // We are now relying on the 'proxy' setting in client/package.json
+                const response = await fetch(`/api/blogApi?slug=${slug}`); // Changed URL and endpoint to match Azure Function
+
                 if (!response.ok) {
                     if (response.status === 404) {
                         throw new Error("Blog post not found.");
@@ -33,7 +37,9 @@ const BlogPostDetail = () => {
             }
         };
 
-        fetchPost();
+        if (slug) { // Only fetch if slug is available
+            fetchPost();
+        }
     }, [slug]); // Re-run effect if slug changes
 
     if (loading) {
@@ -44,7 +50,7 @@ const BlogPostDetail = () => {
         return (
             <div className="blog-detail-container error">
                 <p>{error}</p>
-                <Link to="/blog" className="back-to-blog-link">Back to Blog List</Link>
+                <button onClick={() => navigate('/blog')} className="back-to-blog-link">Back to Blog List</button> {/* Changed Link to button with navigate */}
             </div>
         );
     }
@@ -53,7 +59,7 @@ const BlogPostDetail = () => {
         return (
             <div className="blog-detail-container no-post">
                 <p>No blog post data available.</p>
-                <Link to="/blog" className="back-to-blog-link">Back to Blog List</Link>
+                <button onClick={() => navigate('/blog')} className="back-to-blog-link">Back to Blog List</button> {/* Changed Link to button with navigate */}
             </div>
         );
     }
@@ -67,7 +73,7 @@ const BlogPostDetail = () => {
             <div className="blog-detail-content">
                 <ReactMarkdown remarkPlugins={[remarkGfm]}>{post.content}</ReactMarkdown>
             </div>
-            <Link to="/blog" className="back-to-blog-link">← Back to All Posts</Link>
+            <button onClick={() => navigate('/blog')} className="back-to-blog-link">← Back to All Posts</button> {/* Changed Link to button with navigate */}
         </div>
     );
 };
