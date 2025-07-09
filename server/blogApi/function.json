@@ -8,7 +8,8 @@
       "methods": [
         "get",
         "post"
-      ]
+      ],
+      "route": "blogApi" // Explicitly define the route
     },
     {
       "type": "http",
@@ -16,5 +17,5 @@
       "name": "res"
     }
   ],
-  "script": "index.cjs" // <-- ADD OR CORRECT THIS LINE
+  "script": "index.cjs"
 }
