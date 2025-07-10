@@ -23,7 +23,7 @@ module.exports = async function (context, req) {
 
     // CORRECTED PATH: Navigate up two levels from blogApi/ (to repo root), then into 'posts'
     // This assumes 'posts' is copied to the wwwroot alongside the API.
-    const postsDirectory = path.join(__dirname, '..', '..', 'posts');
+    const postsDirectory = path.join(__dirname, '..', 'posts');
 
     context.log(`DEBUG: Calculated postsDirectory: ${postsDirectory}`);
 
