@@ -1,94 +1,105 @@
 /* client/src/components/HomeSections/HeroSection.css */
 
 .hero-section {
-    position: relative;
+    position: relative; /* Needed for absolute positioning of child image */
     width: 100%;
-    height: 60vh; /* Responsive height */
-    overflow: hidden;
-    display: flex; /* Use flexbox to center content */
+    min-height: 500px; /* Adjust as needed for hero section height */
+    display: flex;
     align-items: center; /* Vertically center content */
     justify-content: center; /* Horizontally center content */
-    text-align: center;
-    /* Removed redundant padding/margin top overrides here.
-       The header-spacer in Layout.js/Layout.css handles the main offset. */
-    /* padding-top: 0 !important; */
-    /* margin-top: 0 !important; */
-    margin-bottom: 0; /* Keep if you want no bottom margin on the section itself */
-
-    /* Styles for the background image */
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    padding: var(--cf-section-padding-vertical-xl) 0; /* Use existing padding variable */
+    overflow: hidden; /* Hide overflow if image goes beyond bounds */
+    color: var(--cf-white); /* Ensure text is visible over dark image */
+    text-align: center; /* Center align text content */
 }
 
-.hero-section .container {
-    position: relative;
-    z-index: 1;
-    max-width: 850px;
-    padding: 20px;
+/* Style for the new <img> tag that acts as a background */
+.hero-background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image covers the entire area without distortion */
+    z-index: 1; /* Place the image behind the content */
+}
+
+/* Styling for the content layer */
+.hero-content {
+    position: relative; /* Ensure content stays above the image */
+    z-index: 2; /* Content must be higher than the image */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: var(--cf-content-max-width-wide); /* Use your existing max-width */
 }
 
 .hero-headline {
-    /* Inherits font-family, font-size, line-height from global h1 in index.css */
-    color: var(--cf-neutral-light-gray) !important; /* Specific color for hero text */
-    margin-bottom: 20px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    max-width: 95%;
-    margin-left: auto;
-    margin-right: auto;
-    letter-spacing: 1.5px;
-    /* CRITICAL FIX: Ensure top margin is explicitly removed for the hero headline */
-    margin-top: 0;
+    font-family: var(--cf-font-heading);
+    font-size: var(--cf-font-size-xxxxl); /* Use your largest heading size */
+    font-weight: 700;
+    color: var(--cf-white); /* Ensure headline is white */
+    margin-bottom: var(--cf-spacing-xl);
+    line-height: var(--cf-line-height-tight);
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Add subtle shadow for readability */
 }
 
-.hero-section .btn-get-quote {
-    background-color: var(--cf-accent-warm-gold) !important;
-    border-color: var(--cf-accent-warm-gold) !important;
-    color: var(--cf-white) !important;
-    padding: 12px 30px;
-    font-size: var(--cf-font-size-lg); /* Use global variable for button font size */
-    font-weight: bold;
-    border-radius: 50px;
-    transition: background-color 0.3s ease, border-color 0.3s ease;
-    text-decoration: none !important;
+.btn-get-quote {
+    background-color: var(--cf-accent-warm-gold);
+    color: var(--cf-primary-dark-teal) !important; /* Ensure text is dark teal on gold */
+    border: none;
+    padding: var(--cf-spacing-md) var(--cf-spacing-xl);
+    font-size: var(--cf-font-size-base);
+    font-weight: 600;
+    border-radius: var(--cf-border-radius-default);
+    transition: all var(--cf-transition-medium);
+    cursor: pointer;
+    text-decoration: none;
     display: inline-block;
-    margin-top: 30px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    min-width: 200px; /* Give button a consistent minimum width */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
-.hero-section .btn-get-quote:hover {
-    background-color: var(--cf-primary-dark-teal) !important;
-    border-color: var(--cf-primary-dark-teal) !important;
+.btn-get-quote:hover {
+    background-color: var(--cf-primary-dark-teal);
     color: var(--cf-white) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
 }
 
-/* Media queries for responsiveness */
-@media (max-width: 992px) {
+.btn-get-quote:focus {
+    outline: 2px solid var(--cf-secondary-teal); /* Focus style using your brand teal */
+    outline-offset: 3px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 991.98px) { /* Tablet and smaller */
     .hero-section {
-        height: 50vh;
-    }
-    .hero-section .container {
-        max-width: 760px;
+        min-height: 400px;
+        padding: var(--cf-section-padding-vertical-large) 0;
     }
     .hero-headline {
-        font-size: var(--cf-font-size-xxxl); /* Adjust for tablets */
-        letter-spacing: 1px;
+        font-size: var(--cf-font-size-xxxl);
+        margin-bottom: var(--cf-spacing-lg);
+    }
+    .btn-get-quote {
+        font-size: var(--cf-font-size-sm);
+        padding: var(--cf-spacing-sm) var(--cf-spacing-lg);
+        min-width: 160px;
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767.98px) { /* Mobile */
     .hero-section {
-        height: 40vh;
-    }
-    .hero-section .container {
-        max-width: 600px;
+        min-height: 350px;
+        padding: var(--cf-section-padding-vertical) 0;
     }
     .hero-headline {
-        font-size: var(--cf-font-size-xxl); /* Adjust for mobile */
-        line-height: 1.3;
-        letter-spacing: 0.5px;
-    }
-    .hero-section .btn-get-quote {
-        font-size: var(--cf-font-size-md);
-        padding: 10px 25px;
+        font-size: var(--cf-font-size-xxl);
+        margin-bottom: var(--cf-spacing-md);
+        padding: 0 var(--cf-spacing-sm); /* Add some horizontal padding for smaller screens */
     }
 }

@@ -10,25 +10,23 @@ import heroBgPng from '../../assets/images/home-hero-bg.png';
 import heroBgWebp from '../../assets/images/home-hero-bg.webp';
 
 const HeroSection = () => {
-    // Function to determine which image format to use based on browser WebP support.
-    // This is a simple, quick client-side check.
-    const getHeroImage = () => {
-        // Create a canvas element and check if it can export to 'image/webp'
-        // This is a reliable way to detect WebP support in the browser.
-        const supportsWebP = document.createElement('canvas').toDataURL('image/webp').indexOf('data:image/webp') === 0;
-        return supportsWebP ? heroBgWebp : heroBgPng;
-    };
-
-    // Get the appropriate image URL for the current browser
-    const currentHeroImage = getHeroImage();
-
     return (
-        <section
-            className="hero-section"
-            // Apply the selected background image here using inline style
-            style={{ backgroundImage: `url(${currentHeroImage})` }}
-        >
-            <div className="container">
+        <section className="hero-section">
+            {/* The background image is now an <img> element for LCP optimization */}
+            <picture>
+                {/* Source for WebP browsers */}
+                <source srcSet={heroBgWebp} type="image/webp" />
+                {/* Fallback for browsers that don't support WebP or if WebP fails */}
+                <img
+                    src={heroBgPng} // Fallback PNG
+                    alt="Abstract background representing AI and technology, for Cryptofox IT Solutions" // Meaningful alt text for accessibility
+                    className="hero-background-image" // Class for CSS styling
+                    loading="eager" // Important: tells browser to load immediately
+                    fetchPriority="high" // Crucial: tells browser this image is very important
+                />
+            </picture>
+
+            <div className="container hero-content"> {/* Added hero-content class for styling */}
                 <h1 className="hero-headline">Human Expertise. AI Power. Unrivaled IT Solutions.</h1>
                 <Button as={Link} to="/quote" className="btn-get-quote">
                     Get a Free Consultation
