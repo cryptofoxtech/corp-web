@@ -24,6 +24,25 @@ jobs:
           cache: 'npm'
           cache-dependency-path: 'client/package-lock.json'
 
+      # === Server (API) Pre-Build Steps for Shared Resources ===
+      # IMPORTANT: Moved 'Copy Blog Posts to API Folder' here to run BEFORE client build
+      # This ensures 'server/posts' exists BEFORE client build (which includes sitemap generation)
+      - name: Copy Blog Posts to API Folder
+        run: cp -R posts ./server/posts # This copies 'posts' from repo root to 'server/posts'
+                                       # So it gets included when 'server' is deployed as API AND available for client sitemap generation
+
+      # Add these lines for a super clean API install during deployment
+      - name: Clean npm cache (API - Aggressive)
+        run: npm cache clean --force
+        working-directory: ./server
+
+      - name: Remove API node_modules and package-lock.json (Aggressive)
+        run: |
+          rm -rf node_modules
+          rm package-lock.json || true # '|| true' to prevent error if no lock file
+        working-directory: ./server
+      # End of aggressive clean for API
+
       # === Client (Frontend) Build Steps ===
       - name: Clean npm cache (Client - Aggressive)
         run: npm cache clean --force
@@ -48,25 +67,6 @@ jobs:
         run: npm run build
         env:
           CI: false
-
-      # === Server (API) Build Steps ===
-      # CRITICAL STEP: Copy posts directory into the server/ directory for API build
-      # This ensures your Markdown files are deployed with your API functions to the managed backend.
-      - name: Copy Blog Posts to API Folder
-        run: cp -R posts ./server/posts # This copies 'posts' from repo root to 'server/posts'
-                                       # So it gets included when 'server' is deployed as API
-
-      # Add these lines for a super clean API install during deployment
-      - name: Clean npm cache (API - Aggressive)
-        run: npm cache clean --force
-        working-directory: ./server
-
-      - name: Remove API node_modules and package-lock.json (Aggressive)
-        run: |
-          rm -rf node_modules
-          rm package-lock.json || true # '|| true' to prevent error if no lock file
-        working-directory: ./server
-      # End of aggressive clean for API
 
       - name: Deploy Frontend & API to Azure Static Web Apps
         id: swa_deploy
