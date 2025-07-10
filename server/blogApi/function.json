@@ -9,7 +9,7 @@
         "get",
         "post"
       ],
-      "route": "blogApi" // Explicitly define the route
+      "route": "blogApi"
     },
     {
       "type": "http",
