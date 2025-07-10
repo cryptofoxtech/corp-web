@@ -33,7 +33,7 @@
 }
 
 .footer-link:visited {
-  color: var(--cf-accent-warm-gold); /* Warm Gold for visited links */
+  color: #888888; /* Changed from warm gold to a neutral dark gray */
 }
 
 address.footer-text {
@@ -66,5 +66,5 @@ address.footer-text {
 }
 
 .social-icons .social-icon-link:visited {
-  color: var(--cf-accent-warm-gold); /* Warm Gold for visited social icons */
+  color: #888888; /* Changed from warm gold to a neutral dark gray for consistency */
 }

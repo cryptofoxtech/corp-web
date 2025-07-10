@@ -11,6 +11,13 @@
     overflow: hidden; /* Hide overflow if image goes beyond bounds */
     color: var(--cf-white); /* Ensure text is visible over dark image */
     text-align: center; /* Center align text content */
+
+    /* CRITICAL FIX: Explicitly remove any CSS background-image */
+    background-image: none;
+    background-color: transparent; /* Ensure no unwanted background color */
+    background-size: auto; /* Reset to default */
+    background-position: initial; /* Reset to default */
+    background-repeat: initial; /* Reset to default */
 }
 
 /* Style for the new <img> tag that acts as a background */

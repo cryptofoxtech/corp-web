@@ -21,22 +21,30 @@ const Footer = () => {
             </p>
           </Col>
 
-          {/* Column 2: Quick Links - Updated to match Header/Sitemap */}
+          {/* Column 2: Quick Links - SPLIT INTO TWO COLUMNS */}
           <Col md={3} className="mb-4 mb-md-0">
             <h5 className="footer-heading">Quick Links</h5>
-            <ul className="list-unstyled">
-              <li><Link to="/" className="footer-link">Home</Link></li>
-              <li><Link to="/blog" className="footer-link">Blog</Link></li>
-              <li><Link to="/partners" className="footer-link">Partners</Link></li>
-              <li><Link to="/services" className="footer-link">All Services</Link></li>
-              <li><Link to="/services/development" className="footer-link">Development Services</Link></li>
-              <li><Link to="/services/operations" className="footer-link">Operations Services</Link></li>
-              <li><Link to="/about" className="footer-link">About Us</Link></li>
-              <li><Link to="/about/case-studies" className="footer-link">Case Studies</Link></li>
-              <li><Link to="/about/legal" className="footer-link">Legal (Terms & Privacy)</Link></li>
-              <li><Link to="/about/contact" className="footer-link">Contact Us</Link></li>
-              <li><Link to="/quote" className="footer-link">Get a Quote</Link></li>
-            </ul>
+            <Row> {/* Nested Row for sub-columns */}
+              <Col xs={6}> {/* First sub-column */}
+                <ul className="list-unstyled">
+                  <li><Link to="/" className="footer-link">Home</Link></li>
+                  <li><Link to="/blog" className="footer-link">Blog</Link></li>
+                  <li><Link to="/partners" className="footer-link">Partners</Link></li>
+                  <li><Link to="/services" className="footer-link">All Services</Link></li>
+                  <li><Link to="/services/development" className="footer-link">Development Services</Link></li>
+                </ul>
+              </Col>
+              <Col xs={6}> {/* Second sub-column */}
+                <ul className="list-unstyled">
+                  <li><Link to="/services/operations" className="footer-link">Operations Services</Link></li>
+                  <li><Link to="/about" className="footer-link">About Us</Link></li>
+                  <li><Link to="/about/case-studies" className="footer-link">Case Studies</Link></li>
+                  <li><Link to="/about/legal" className="footer-link">Legal (Terms & Privacy)</Link></li>
+                  <li><Link to="/about/contact" className="footer-link">Contact Us</Link></li>
+                  <li><Link to="/quote" className="footer-link">Get a Quote</Link></li>
+                </ul>
+              </Col>
+            </Row>
           </Col>
 
           {/* Column 3: Contact Info */}
@@ -72,6 +80,29 @@ const Footer = () => {
         {/* Copyright Section */}
         <Row>
           <Col className="text-center">
+            {/* W3C CSS Validation Badges - Modified for horizontal display */}
+            <div className="d-flex justify-content-center align-items-center mb-3"> {/* Added Bootstrap flex utilities and margin-bottom */}
+                <p className="mb-0 me-2"> {/* mb-0 removes default bottom margin, me-2 adds margin-right */}
+                    <a href="https://jigsaw.w3.org/css-validator/check/referer" target="_blank" rel="noopener noreferrer">
+                        <img
+                            style={{ border: '0', width: '88px', height: '31px' }}
+                            src="https://jigsaw.w3.org/css-validator/images/vcss"
+                            alt="Valid CSS!"
+                        />
+                    </a>
+                </p>
+
+                <p className="mb-0"> {/* mb-0 removes default bottom margin */}
+                    <a href="https://jigsaw.w3.org/css-validator/check/referer" target="_blank" rel="noopener noreferrer">
+                        <img
+                            style={{ border: '0', width: '88px', height: '31px' }}
+                            src="https://jigsaw.w3.org/css-validator/images/vcss-blue"
+                            alt="Valid CSS!"
+                        />
+                    </a>
+                </p>
+            </div>
+
             <p className="copyright-text mb-0">&copy; {siteConfig.copyrightYear} {siteConfig.company.name}. All rights reserved.</p>
           </Col>
         </Row>
