@@ -1,3 +1,7 @@
 # https://www.robotstxt.org/robotstxt.html
+
 User-agent: *
-Disallow:
+Disallow: /api/       # Disallow crawling of your API endpoints
+Allow: /              # Explicitly allow crawling of everything else
+
+Sitemap: https://www.cryptofoxtech.com/sitemap.xml # Replace with your actual sitemap URL when created
