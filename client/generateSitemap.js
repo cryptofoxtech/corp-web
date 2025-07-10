@@ -1,7 +1,8 @@
 // client/generateSitemap.js
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { existsSync, mkdirSync, writeFileSync } from 'fs';
+import { existsSync, mkdirSync, writeFileSync, readdirSync, readFileSync } from 'fs'; // IMPORTANT: Added readdirSync, readFileSync
+import matter from 'gray-matter'; // IMPORTANT: Added gray-matter
 import routesConfig from './src/routesConfig.js'; // Your static routes configuration
 
 // Get __dirname equivalent in ES Module scope
@@ -12,13 +13,16 @@ const __dirname = path.dirname(__filename);
 const PUBLIC_DIR = path.resolve(__dirname, 'public');
 const SITEMAP_FILE = path.join(PUBLIC_DIR, 'sitemap.xml');
 
-// Base URL for your website (important for absolute URLs in sitemap)
-const BASE_URL = 'https://www.cryptofoxtech.com'; // Confirmed as correct
+// Base URL for your website
+const BASE_URL = 'https://www.cryptofoxtech.com';
 
-// API URL to fetch blog post slugs
-// When running locally, this will hit your local func start.
-// When running in CI/CD (GitHub Actions), this will hit the deployed Azure Static Web App API.
-const BLOG_API_URL = `${BASE_URL}/api/blogApi`;
+// IMPORTANT: Removed BLOG_API_URL as we are no longer fetching from the API
+
+// Path to the posts directory relative to the project root
+// In GitHub Actions, 'client' is at /home/runner/work/corp-web/corp-web/client
+// The 'server/posts' is at /home/runner/work/corp-web/corp-web/server/posts
+// So, we need to go up from 'client' and then into 'server/posts'
+const POSTS_DIR = path.resolve(__dirname, '..', 'server', 'posts'); // IMPORTANT: Adjusted path to read local files
 
 const generateSitemap = async () => {
   console.log('Generating sitemap...');
@@ -31,52 +35,64 @@ const generateSitemap = async () => {
       console.log(`Directory already exists: ${PUBLIC_DIR}`);
     }
 
-    // Start building the sitemap XML string
     let sitemapContent = `<?xml version="1.0" encoding="UTF-8"?>\n`;
     sitemapContent += `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n`;
 
-    // Add each static route from routesConfig to the sitemap
+    // Add static routes
     routesConfig.forEach(route => {
       const fullUrl = `${BASE_URL}${route}`;
       sitemapContent += `  <url>\n`;
       sitemapContent += `    <loc>${fullUrl}</loc>\n`;
-      sitemapContent += `    <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>\n`; // Current date (YYYY-MM-DD)
+      sitemapContent += `    <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>\n`;
       sitemapContent += `    <changefreq>daily</changefreq>\n`;
       sitemapContent += `    <priority>0.7</priority>\n`;
       sitemapContent += `  </url>\n`;
     });
 
-    // --- NEW: Fetch dynamic blog post URLs ---
-    console.log(`Fetching blog post slugs from: ${BLOG_API_URL}`);
-    const response = await fetch(BLOG_API_URL);
-    if (!response.ok) {
-      throw new Error(`Failed to fetch blog posts from API: ${response.status} ${response.statusText}`);
+    // --- MODIFIED: Read blog post slugs directly from files ---
+    console.log(`Reading blog post slugs from local directory: ${POSTS_DIR}`); // Changed log message
+    if (!existsSync(POSTS_DIR)) {
+      console.error(`Error: Blog posts directory not found at ${POSTS_DIR}`);
+      throw new Error(`Blog posts directory not found: ${POSTS_DIR}`);
     }
-    const blogPosts = await response.json();
+
+    const postFiles = readdirSync(POSTS_DIR);
+    const blogPosts = [];
+
+    postFiles.forEach(file => {
+      if (file.endsWith('.md')) {
+        const filePath = path.join(POSTS_DIR, file);
+        const fileContent = readFileSync(filePath, 'utf8');
+        const { data } = matter(fileContent);
+        // Assuming your front matter includes a 'slug' and 'date' field
+        if (data.slug) {
+          blogPosts.push({
+            slug: data.slug,
+            date: data.date || new Date().toISOString().split('T')[0] // Use post date or current if missing
+          });
+        }
+      }
+    });
 
     blogPosts.forEach(post => {
-      const fullUrl = `${BASE_URL}/blog/${post.slug}`; // Construct blog post URL
+      const fullUrl = `${BASE_URL}/blog/${post.slug}`;
       sitemapContent += `  <url>\n`;
       sitemapContent += `    <loc>${fullUrl}</loc>\n`;
-      // Use post.date for lastmod if available, otherwise current date
-      sitemapContent += `    <lastmod>${post.date ? new Date(post.date).toISOString().split('T')[0] : new Date().toISOString().split('T')[0]}</lastmod>\n`;
-      sitemapContent += `    <changefreq>weekly</changefreq>\n`; // Blog posts might change less frequently than main pages
-      sitemapContent += `    <priority>0.8</priority>\n`; // Blog posts are often high-priority content
+      sitemapContent += `    <lastmod>${new Date(post.date).toISOString().split('T')[0]}</lastmod>\n`;
+      sitemapContent += `    <changefreq>weekly</changefreq>\n`;
+      sitemapContent += `    <priority>0.8</priority>\n`;
       sitemapContent += `  </url>\n`;
     });
-    // --- END NEW SECTION ---
+    // --- END MODIFIED SECTION ---
 
-    // Close the urlset tag
     sitemapContent += `</urlset>`;
 
-    // Write the complete XML string to the sitemap file
     writeFileSync(SITEMAP_FILE, sitemapContent, 'utf8');
 
     console.log(`Sitemap generated successfully at ${SITEMAP_FILE}`);
   } catch (error) {
     console.error("Error generating sitemap:", error);
-    // Exit with a non-zero code to fail the CI/CD build if sitemap generation fails
-    process.exit(1);
+    process.exit(1); // Ensure CI/CD fails on error
   }
 };
 
