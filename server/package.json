@@ -2,7 +2,6 @@
   "name": "cryptofox-azure-functions",
   "version": "1.0.0",
   "description": "Azure Functions API for Cryptofox Technology Ltd corporate website",
-  "main": "index.cjs", // This should ideally be index.cjs to match your entry file
   "scripts": {
     "test": "echo \"No tests specified for functions\" && exit 0"
   },

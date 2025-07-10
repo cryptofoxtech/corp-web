@@ -1,5 +1,6 @@
 // client/src/components/Blog/BlogList.js
 import React, { useEffect, useState } from 'react';
+import './BlogList.css';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion'; // Ensure you've installed framer-motion: npm install framer-motion
 

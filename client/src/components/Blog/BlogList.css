@@ -1,11 +1,13 @@
 /* client/src/components/Blog/BlogList.css */
 
 .blog-list-container {
-    padding: 40px 20px;
-    max-width: 1200px;
+    /* Adjusted to match BlogPostDetail's container for consistent width and padding */
+    padding: 20px; /* Consistent padding */
+    max-width: 800px; /* Consistent max-width */
     margin: 0 auto;
     font-family: 'Open Sans', sans-serif; /* Using your brand's body font */
     color: #333; /* A neutral gray */
+    background-color: #f8f9fa; /* Very light grey background */
 }
 
 .blog-list-container h1 {
@@ -20,6 +22,7 @@
 .posts-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    /* You might want to adjust the gap if 800px width makes it too crowded */
     gap: 30px;
 }
 
@@ -101,4 +104,18 @@
 
 .blog-list-container.error {
     color: #d9534f; /* A soft red for errors */
+}
+
+/* Consider adjusting grid for smaller max-width */
+@media (max-width: 820px) { /* Adjust based on new max-width + padding */
+    .posts-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Allow smaller cards on narrower screens */
+        gap: 20px;
+    }
+}
+
+@media (max-width: 600px) {
+    .posts-grid {
+        grid-template-columns: 1fr; /* Stack cards vertically on very small screens */
+    }
 }

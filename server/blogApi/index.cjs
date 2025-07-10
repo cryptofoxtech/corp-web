@@ -1,16 +1,19 @@
 // server/blogApi/index.cjs
 const path = require('path');
 const fs = require('fs').promises;
-const { marked } = require('marked'); // Make sure 'marked' is installed in server/package.json
-const matter = require('gray-matter'); // Make sure 'gray-matter' is installed in server/package.json
+const matter = require('gray-matter'); // For parsing front matter from Markdown files
+
+// IMPORTANT: No 'marked' or 'markedInstance' needed here.
+// The API will send raw Markdown content, and the frontend (ReactMarkdown)
+// will handle the conversion to HTML for display.
 
 module.exports = async function (context, req) {
     context.log('HTTP trigger function processed a request.');
 
     // --- DEBUGGING PATHS ---
+    // This path calculation assumes 'posts' directory is copied into the 'server' directory
+    // during deployment or manually for local testing.
     context.log(`DEBUG: Function Dir (__dirname): ${__dirname}`);
-    // Corrected path: Go up one level from blogApi/ (to server/), then into 'posts'
-    // This assumes the 'posts' directory is copied into the 'server' directory by the CI/CD.
     const postsDirectory = path.join(__dirname, '..', 'posts');
     context.log(`DEBUG: Calculated postsDirectory: ${postsDirectory}`);
     // --- END DEBUGGING PATHS ---
@@ -49,8 +52,9 @@ module.exports = async function (context, req) {
                 author: frontMatter.author || 'Anonymous',
                 date: frontMatter.date ? new Date(frontMatter.date).toISOString() : new Date().toISOString(),
                 slug: slug,
-                // Use marked to convert markdown content to HTML for the frontend
-                content: marked(markdownContent), // Convert Markdown to HTML here
+                // CRITICAL CHANGE: Send the raw markdownContent here.
+                // The frontend's ReactMarkdown component will render it.
+                content: markdownContent,
             };
 
             context.res.status = 200;
@@ -68,7 +72,7 @@ module.exports = async function (context, req) {
             }
         }
     } else {
-        // Logic for listing all blog posts
+        // Logic for listing all blog posts (no change to content here, as it's just summary)
         try {
             context.log(`DEBUG: Attempting to read directory for listing: ${postsDirectory}`);
             const files = await fs.readdir(postsDirectory);
@@ -90,6 +94,7 @@ module.exports = async function (context, req) {
                     author: frontMatter.author || 'Anonymous',
                     date: frontMatter.date ? new Date(frontMatter.date).toISOString() : new Date().toISOString(),
                     slug: slug,
+                    // For the summary, we're already just taking a substring, so this is fine.
                     summary: frontMatter.summary || markdownContent.substring(0, Math.min(markdownContent.length, 150)) + '...',
                 };
             }));

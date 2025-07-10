@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom'; // Added useNavigate
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
-// import './BlogPostDetail.css'; // Keep this if you have the CSS file
+import './BlogPostDetail.css'; // Keep this if you have the CSS file
 
 const BlogPostDetail = () => {
     const { slug } = useParams();
