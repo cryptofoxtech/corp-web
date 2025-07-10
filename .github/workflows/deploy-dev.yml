@@ -51,7 +51,7 @@ jobs:
 
       # === Server (API) Build Steps ===
       # CRITICAL STEP: Copy posts directory into the server/ directory for API build
-      # This ensures your Markdown files are deployed with your API functions.
+      # This ensures your Markdown files are deployed with your API functions to the managed backend.
       - name: Copy Blog Posts to API Folder
         run: cp -R posts ./server/posts # This copies 'posts' from repo root to 'server/posts'
                                        # So it gets included when 'server' is deployed as API
@@ -64,11 +64,11 @@ jobs:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           action: 'upload'
           app_location: 'client/build'
-          api_location: 'server'
+          api_location: 'server' # This targets the managed function app backend
           output_location: ''
           skip_app_build: true # We pre-built the client
           skip_api_build: false
-          # Removed: api_build_properties: "NODE_VERSION=~20" as it's not a valid input for this action version
+          # The api_build_properties line is removed as it's not needed for the managed backend and caused warnings.
 
       - name: Output Deployment Details
         run: |
