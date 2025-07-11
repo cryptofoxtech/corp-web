@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Azure Functions API for Cryptofox Technology Ltd corporate website",
   "scripts": {
-    "start": "func start",  <-- ADD THIS LINE
+    "start": "func start",
     "test": "echo \"No tests specified for functions\" && exit 0"
   },
   "keywords": [
