@@ -9,181 +9,133 @@ import { Link } from 'react-router-dom';
 import '../../../styles/pages-common.css';
 import './OperationsServicesPage.css'; // This will contain styles specific to this page
 
-// Import images for the sections (using placeholders as actual images were not provided)
-import devopsImage from '../../../assets/images/services-devops.png';
-import cloudImage from '../../../assets/images/services-cloud.png';
-import sysadminImage from '../../../assets/images/services-other.png';
+// Import images for the sections. We will use two.
+import devopsImage from '../../../assets/images/services-devops.png'; // Image for proactive ops/security
+import cloudImage from '../../../assets/images/services-cloud.png';   // Image for continuous improvement/support
 
 const OperationsServicesPage = () => {
   return (
     <>
       <Helmet>
-        <title>Operations Services: DevOps, Cloud & SysAdmin - Cryptofox Technology</title>
-        <meta name="description" content="Optimize your IT operations with Cryptofox Technology's DevOps, Cloud Infrastructure, and System Administration services. Enhance efficiency, security, and scalability." />
+        <title>IT Operations & Optimization: Sustaining Performance & Security - Cryptofox Technology</title>
+        <meta name="description" content="Ensure peak IT performance, robust security, and cost-efficiency with Cryptofox Technology's AI-augmented IT Operations & DevOps support." />
+        {/* Consider adding a canonical tag if this page has a stable, preferred URL, e.g.: */}
+        {/* <link rel="canonical" href="https://www.cryptofoxtech.com/services/it-operations-optimization" /> */}
       </Helmet>
 
       <div className="page-wrapper">
         <main className="main-content">
 
-          {/* DevOps Strategy Section - Added 'bg-lighter-gray-intro' for subtle intro background */}
-          <section className="service-content-section py-5 bg-lighter-gray-intro">
+          {/* Hero/Introduction Section - Emphasizing overall value and AI augmentation */}
+          <section className="service-hero-intro py-5 bg-lighter-gray-intro">
             <Container>
-              <h1 className="section-title">DevOps, Cloud & System Administration: Operational Excellence</h1>
-              <p className="lead section-intro">Streamline, Secure, and Scale Your Infrastructure</p>
-              <Row className="align-items-center mb-5">
-                <Col lg={5} className="text-center order-lg-2">
-                  <div className="service-detail-image-container">
-                    <img src={devopsImage} alt="DevOps Strategy" className="img-fluid rounded shadow" />
-                  </div>
-                </Col>
-                <Col lg={7} className="order-lg-1">
-                  <div className="service-detail-content">
-                    <h3>Our Integrated Operations Approach:</h3>
-                    <ul>
-                      <li>
-                        <strong>DevOps Transformation & CI/CD:</strong>
-                        <p>Implementing robust CI/CD pipelines using tools like Jenkins, Ansible, Kubernetes, Docker, and GitHub Actions to automate your software delivery lifecycle, ensuring faster, more reliable deployments.</p>
-                      </li>
-                      <li>
-                        <strong>Cloud Infrastructure Management (Azure/IBM Cloud):</strong>
-                        <p>Designing, deploying, and managing scalable and secure cloud environments on Microsoft Azure and IBM Cloud. This includes Infrastructure as Code (IaC) with Azure Bicep and Terraform, ensuring consistency and cost optimization.</p>
-                      </li>
-                      <li>
-                        <strong>Enterprise Applications & Middleware:</strong>
-                        <p>Providing expert administration and support for critical enterprise applications and middleware like WebSphere ND 9, IBM Sterling, Mule, Tomcat, and Apache, ensuring 24/7 availability and performance.</p>
-                      </li>
-                      <li>
-                        <strong>Proactive Monitoring & Security:</strong>
-                        <p>Setting up comprehensive monitoring solutions (Azure Monitor, New Relic, Zabbix, Graylog, ELK stack) for real-time insights and predictive maintenance. Implementing robust security measures including SSL/TLS, PGP, SSH, Kerberos, and MFA.</p>
-                      </li>
-                    </ul>
-                  </div>
-                </Col>
-              </Row>
-              <Row>
-                <Col>
-                  <div className="service-detail-offerings">
-                    <h3>Our Core Technologies & Expertise:</h3>
-                    <ul>
-                      <li><strong>Cloud Platforms:</strong> Microsoft Azure, IBM Cloud (IaC with Azure Bicep, Terraform).</li>
-                      <li><strong>Containerization & Orchestration:</strong> Docker, Kubernetes.</li>
-                      <li><strong>CI/CD Tools:</strong> Jenkins, Ansible, GitHub Actions, Azure DevOps.</li>
-                      <li><strong>Middleware:</strong> WebSphere ND 9, IBM Sterling, Mule, Tomcat, Apache, Nginx.</li>
-                      <li><strong>Monitoring:</strong> Azure Monitor, New Relic, Zabbix, Graylog, ELK Stack.</li>
-                      <li><strong>Security:</strong> SSL/TLS, PGP, SSH, Kerberos, MFA.</li>
-                      <li><strong>Scripting:</strong> Bash, PowerShell.</li>
-                      <li><strong>Databases:</strong> PostgreSQL, MongoDB, MySQL, SQL Server, Redis, Cosmos DB.</li>
-                    </ul>
-                  </div>
-                </Col>
-              </Row>
-            </Container>
-          </section>
-
-          <hr className="section-separator" /> {/* Visual separator */}
-
-          {/* Cloud Computing Section */}
-          <section className="service-content-section py-5 bg-light-gray-custom">
-            <Container>
-              <h2 className="section-title">Cloud Infrastructure & DevOps: Agility and Resilience</h2>
-              <Row className="align-items-center mb-5">
+              <Row className="align-items-center">
                 <Col lg={7}>
-                  <div className="service-detail-content">
-                    <h3>Maximize Your Cloud Investment</h3>
-                    <p>Unlock the full potential of cloud computing with Cryptofox Technology. We offer end-to-end cloud infrastructure services, from strategic planning and migration to ongoing management and optimization. Our expertise in DevOps ensures that your cloud environment is not only robust and secure but also agile and efficient, supporting rapid development and deployment cycles.</p>
-                    <h4>Key Benefits:</h4>
-                    <ul>
-                      <li><strong>Scalability & Flexibility:</strong> Easily scale resources up or down based on demand.</li>
-                      <li><strong>Cost Optimization:</strong> Implement strategies for efficient resource utilization and cost savings.</li>
-                      <li><strong>Enhanced Security:</strong> Leverage cloud-native security features and best practices.</li>
-                      <li><strong>Disaster Recovery & Business Continuity:</strong> Build resilient architectures for uninterrupted operations.</li>
-                      <li><strong>Automation & Efficiency:</strong> Automate infrastructure provisioning and management with IaC.</li>
-                    </ul>
+                  <h1 className="section-title">IT Operations & Optimization: Sustain Performance, Enhance Security</h1>
+                  <p></p>
+                  <p className="lead section-intro">
+                    Effective IT operations are crucial for sustained business growth. Cryptofox Technology provides
+                    comprehensive IT operations and DevOps support, <strong>augmented by AI</strong>, to ensure your systems
+                    don't just run, but thrive. We deliver continuous performance, robust security, and operational
+                    efficiency, minimizing overhead and maximizing stability.
+                  </p>
+                  {/* Wrap button in a div with text-center to center it without making it full width */}
+                  <div className="text-center">
+                    <Button as={Link} to="/contact" className="cta-button primary-theme-bg mt-3">
+                      Optimize Your Operations Now
+                    </Button>
                   </div>
                 </Col>
-                <Col lg={5} className="text-center">
-                  <div className="service-detail-image-container">
-                    <img src={cloudImage} alt="Cloud Infrastructure" className="img-fluid rounded shadow" />
-                  </div>
-                </Col>
-              </Row>
-              <Row>
-                <Col>
-                  <div className="service-detail-offerings">
-                    <h3>Our Cloud & DevOps Service Offerings:</h3>
-                    <ul>
-                      <li><strong>Cloud Strategy & Consulting:</strong> Develop a tailored cloud adoption roadmap.</li>
-                      <li><strong>Cloud Migration:</strong> Seamlessly migrate existing applications and data to the cloud.</li>
-                      <li><strong>Infrastructure as Code (IaC):</strong> Implement IaC using Azure Bicep and Terraform for automated provisioning.</li>
-                      <li><strong>Containerization (Docker & Kubernetes):</strong> Package and deploy applications efficiently.</li>
-                      <li><strong>CI/CD Pipeline Development:</strong> Build automated pipelines for continuous integration and delivery.</li>
-                      <li><strong>Cloud Security & Compliance:</strong> Implement robust security measures and ensure regulatory compliance.</li>
-                      <li><strong>Cost Management & Optimization:</strong> Monitor and optimize cloud spending.</li>
-                      <li><strong>Cloud Monitoring & Alerting:</strong> Set up comprehensive monitoring with Azure Monitor, New Relic, etc.</li>
-                    </ul>
-                  </div>
+                <Col lg={5} className="text-center mt-4 mt-lg-0">
+                  <img
+                    src={devopsImage} // Primary image for hero
+                    alt="Optimized IT Operations and DevOps"
+                    className="img-fluid rounded shadow-lg service-hero-image"
+                  />
                 </Col>
               </Row>
             </Container>
           </section>
 
-          <hr className="section-separator" /> {/* Visual separator */}
-
-          {/* System Administration Section */}
+          {/* Main Content Section 1: Proactive Operations, Security & Optimization */}
           <section className="service-content-section py-5">
             <Container>
-              <h2 className="section-title">Enterprise Applications & System Administration: 24/7 Support</h2>
-              <Row className="align-items-center mb-5">
-                <Col lg={5} className="text-center order-lg-2">
-                  <div className="service-detail-image-container">
-                    <img src={sysadminImage} alt="System Administration" className="img-fluid rounded shadow" />
-                  </div>
+              <Row className="align-items-center">
+                <Col lg={6}>
+                  <img
+                    src={cloudImage} // First content section image
+                    alt="Proactive IT Performance Monitoring and Cybersecurity"
+                    className="img-fluid rounded shadow mb-4 mb-lg-0"
+                  />
                 </Col>
-                <Col lg={7} className="order-lg-1">
-                  <div className="service-detail-content">
-                    <h3>Reliable Operations, Uninterrupted Performance</h3>
-                    <p>Cryptofox Technology provides comprehensive system administration and support for your critical enterprise applications and infrastructure. Our 24/7 monitoring and proactive maintenance ensure your systems are always running smoothly, securely, and efficiently. From middleware management to network security and log analysis, we keep your operations optimized and resilient.</p>
-                    <h4>Key Benefits:</h4>
-                    <ul>
-                      <li><strong>24/7 Monitoring & Support:</strong> Continuous oversight and rapid response to incidents.</li>
-                      <li><strong>Predictive Maintenance:</strong> AI-driven log analysis to anticipate and prevent issues.</li>
-                      <li><strong>Enhanced Security Posture:</strong> Implement and manage robust security protocols.</li>
-                      <li><strong>Performance Optimization:</strong> Fine-tune systems for maximum efficiency and speed.</li>
-                      <li><strong>Reduced Downtime:</strong> Proactive issue resolution minimizes disruptions.</li>
-                    </ul>
-                  </div>
+                <Col lg={6}>
+                  <h2 className="mb-4">Proactive Performance, Ironclad Security & Cost Optimization</h2>
+                  <p>
+                    Inefficient systems, security vulnerabilities, and unpredictable costs can hinder any business.
+                    Cryptofox mitigates these risks, ensuring your IT infrastructure operates at peak efficiency with maximum security.
+                    We leverage <strong>AI-driven insights</strong> to monitor system health, predict potential issues, and optimize resource usage for predictable spending.
+                  </p>
+                  <p>Our comprehensive services include:</p>
+                  <ul className="mb-4">
+                    <li className="mb-2"><strong>Intelligent Monitoring:</strong> Implementing robust frameworks (Azure Monitor, New Relic, Zabbix, ELK) for continuous performance tuning and predictive maintenance.</li>
+                    <li className="mb-2"><strong>Secure CI/CD Pipelines:</strong> Designing and deploying automated pipelines (Jenkins, Ansible, GitHub Actions, Azure DevOps) for rapid, secure releases.</li>
+                    <li className="mb-2"><strong>Built-in Security & Compliance:</strong> Covering SSL/TLS, PGP, SSH, Kerberos, MFA, and Azure Key Vault, with a strong focus on data privacy, especially for AI components.</li>
+                    <li className="mb-2"><strong>Cloud Cost Optimization:</strong> Managing and optimizing your cloud spend (Azure, IBM Cloud, IaC) through smart resource management and automated shutdowns for tangible ROI.</li>
+                  </ul>
                 </Col>
               </Row>
-              <Row>
-                <Col>
-                  <div className="service-detail-offerings">
-                    <h3>Our System Administration Offerings:</h3>
-                    <ul>
-                      <li><strong>Middleware Administration:</strong> Expert management of WebSphere ND 9, IBM Sterling, Mule, Tomcat, Apache, Nginx.</li>
-                      <li><strong>Operating System Management:</strong> Linux (Ubuntu, RHEL), Windows Server administration.</li>
-                      <li><strong>Network & Security Management:</strong> Firewalls, VPNs, SSL/TLS, PGP, SSH, Kerberos, MFA.</li>
-                      <li><strong>Database Administration:</strong> Support for PostgreSQL, MongoDB, MySQL, SQL Server, Redis, Cosmos DB.</li>
-                      <li><strong>Log Management & Analysis:</strong> Centralized logging with Graylog, ELK stack, AI-driven log analysis.</li>
-                      <li><strong>Performance Tuning & Optimization:</strong> System and application performance enhancements.</li>
-                      <li><strong>Backup & Disaster Recovery:</strong> Implementing robust data protection and recovery plans.</li>
-                      <li><strong>Patch Management:</strong> Ensuring systems are up-to-date with the latest security patches.</li>
-                    </ul>
-                  </div>
+            </Container>
+          </section>
+
+          <hr className="section-separator" />
+
+          {/* Main Content Section 2: Empowering Your Team & Sustaining Value */}
+          <section className="service-content-section py-5 bg-light-gray-custom">
+            <Container>
+              <Row className="align-items-center flex-row-reverse"> {/* Reverse columns for visual variety */}
+                <Col lg={6}>
+                  <img
+                    src={devopsImage} // Second content section image (could be sysadminImage if you re-add it)
+                    alt="IT Team Empowerment and Continuous System Support"
+                    className="img-fluid rounded shadow mb-4 mb-lg-0"
+                  />
+                </Col>
+                <Col lg={6}>
+                  <h2 className="mb-4">Empowering Your Team for Continuous Improvement & Sustained Value</h2>
+                  <p>
+                    Operational excellence extends beyond technology to include your people and processes. Cryptofox
+                    empowers your internal teams with the knowledge and tools needed for effective day-to-day management,
+                    ensuring lasting success. We also provide expert 24/7 administration for your critical enterprise
+                    applications and underlying infrastructure, minimizing disruptions.
+                  </p>
+                  <p>Our support and administration services cover:</p>
+                  <ul className="mb-4">
+                    <li className="mb-2"><strong>Team Empowerment:</strong> Customized training sessions and development of clear operational playbooks to foster self-sufficiency.</li>
+                    <li className="mb-2"><strong>Middleware Administration:</strong> Expert management of platforms like WebSphere ND 9, IBM Sterling, Mule, Tomcat, Apache, and Nginx.</li>
+                    <li className="mb-2"><strong>Operating System Management:</strong> Comprehensive administration for Linux and Windows Server environments.</li>
+                    <li className="mb-2"><strong>Database Administration:</strong> Robust support for PostgreSQL, MongoDB, MySQL, SQL Server, Redis, and Cosmos DB.</li>
+                    <li className="mb-2"><strong>Advanced Log Management:</strong> Utilizing Graylog and ELK stack with AI analysis for proactive issue identification.</li>
+                    <li className="mb-2"><strong>Backup & Disaster Recovery:</strong> Implementing robust plans to ensure maximum uptime and business continuity.</li>
+                  </ul>
                 </Col>
               </Row>
             </Container>
           </section>
 
           {/* Consolidated Call to Action Section */}
-          <section className="service-detail-cta-section py-5 text-center">
+          <section className="service-detail-cta-section py-5 text-center primary-theme-bg text-white">
             <Container>
-              <h2 className="cta-title">Ready for Optimized IT Operations?</h2>
-              <p className="cta-description">
-                Connect with Cryptofox Technology to discuss how we can enhance your operational efficiency and ensure robust IT infrastructure.
+              <h2 className="cta-title">Ready for Resilient & Efficient IT Operations?</h2>
+              <p className="cta-description text-white-75">
+                Let Cryptofox Technology be your partner in achieving unparalleled operational excellence.
+                Contact us today for a consultation tailored to your unique infrastructure needs.
               </p>
-              <Button as={Link} to="/contact" className="cta-button">
-                Get a Free Operations Consultation
-              </Button>
+              {/* This section already has text-center on its section, but wrapping the button ensures consistency */}
+              <div className="text-center">
+                <Button as={Link} to="/contact" className="cta-button secondary-theme-bg">
+                  Get Your Operations Assessment
+                </Button>
+              </div>
             </Container>
           </section>
 

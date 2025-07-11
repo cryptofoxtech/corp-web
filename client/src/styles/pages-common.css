@@ -1,11 +1,11 @@
 /* client/src/styles/pages-common.css */
 
 /*
-    This file defines common styles for all content pages on the Cryptofox Technology website,
-    ensuring a consistent, professional brand aesthetic.
-    Individual page CSS files should only contain minimal, specific layout adjustments or minor overrides.
-    CSS Custom Properties and base element styles are now managed globally in index.css.
-*/
+ * This file defines common styles for all content pages on the Cryptofox Technology website,
+ * ensuring a consistent, professional brand aesthetic.
+ * Individual page CSS files should only contain minimal, specific layout adjustments or minor overrides.
+ * CSS Custom Properties and base element styles are now managed globally in index.css.
+ */
 
 /* --- General Page Structure --- */
 .page-wrapper {
@@ -15,10 +15,10 @@
 }
 
 /*
-    .main-content is an inner wrapper within .app-main-content (from Layout.js).
-    It should NOT have padding-top related to the header, as that's handled by .app-main-content
-    and the .header-spacer in Layout.css.
-*/
+ * .main-content is an inner wrapper within .app-main-content (from Layout.js).
+ * It should NOT have padding-top related to the header, as that's handled by .app-main-content
+ * and the .header-spacer in Layout.css.
+ */
 .main-content {
     flex-grow: 1;
     padding-bottom: var(--cf-spacing-xxl);

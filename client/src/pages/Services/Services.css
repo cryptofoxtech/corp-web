@@ -1,233 +1,321 @@
 /* client/src/pages/Services/Services.css */
 
 /*
-    This CSS file contains styles specific to the main Services page layout and content.
-    It extends and overrides common page styles defined in pages-common.css.
-*/
+ * This file defines specific styles for the main Services landing page layout,
+ * including the hero section, service grid, and the main page's call-to-action.
+ */
 
-@import '../../styles/pages-common.css';
-
-/* Specific overrides/additions for .services-page-wrapper */
+/* --- Page Structure Specific to Services Index Page --- */
 .services-page-wrapper {
-    /* These properties are specific to the services page wrapper */
-    min-height: calc(100vh - var(--cf-header-height) - var(--cf-footer-height, 60px)); /* Added fallback */
+    /* Ensures the main content takes up remaining vertical space below header/above footer */
+    min-height: calc(100vh - var(--cf-header-height) - var(--cf-footer-height, 60px));
     display: flex;
     flex-direction: column;
 }
 
-/* Specific overrides/additions for .services-main-content */
 .services-main-content {
-    flex-grow: 1;
-    padding-top: var(--cf-spacing-xxl); /* Specific padding for this page's main content (32px) */
-    padding-bottom: var(--cf-spacing-xxl); /* Specific padding for this page's main content (32px) */
-    background-color: var(--cf-neutral-light-gray); /* Specific background for this page */
+    flex-grow: 1; /* Allows content area to fill available vertical space */
+    padding-top: var(--cf-spacing-xxl); /* Top padding for content area */
+    padding-bottom: var(--cf-spacing-xxl); /* Bottom padding for content area */
+    background-color: var(--cf-neutral-light-gray); /* Light background for the overall section */
 }
 
-/* Hero Section - .services-hero acts as the specific override for the hero section */
+/* --- Adjustments for layout and spacing on this page --- */
+
+/* Reduce margin for section separators on this page */
+.section-separator {
+    margin: var(--cf-spacing-xl) 0; /* Changed from var(--cf-spacing-xxxl) (60px) to var(--cf-spacing-xl) (32px) */
+}
+
+/* Adjust vertical padding for general content sections on this specific page */
+.services-main-content .service-content-section {
+    padding-top: var(--cf-spacing-xxl); /* 32px */
+    padding-bottom: var(--cf-spacing-xxl); /* 32px */
+    /* Horizontal padding comes from default .container or page-level variables */
+    padding-left: var(--cf-spacing-md); /* Ensures consistent horizontal padding */
+    padding-right: var(--cf-spacing-md); /* Ensures consistent horizontal padding */
+}
+
+/* --- Hero Section (Main Services Page) --- */
 .services-hero {
-    background-color: var(--cf-primary-dark-teal);
-    color: var(--cf-white); /* Specific color for hero text */
-    padding: var(--cf-section-padding-vertical-xl) var(--cf-spacing-md); /* Consistent padding (80px 20px) */
-    text-align: center;
+    background-color: var(--cf-primary-dark-teal); /* Dark Teal background for striking hero */
+    color: var(--cf-white); /* White text for contrast */
+    padding: var(--cf-section-padding-vertical-xl) var(--cf-page-padding-horizontal);
+    text-align: center; /* Center align all content */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 40vh; /* Ensure a decent height for the hero section */
 }
 
-/* Specific styles for headline within hero. section-title comes from pages-common.css */
 .services-hero .services-headline {
-    font-size: var(--cf-font-size-xxxl); /* Explicit font size (36px), overriding section-title if needed */
-    margin-bottom: var(--cf-spacing-md); /* Consistent margin (20px -> 16px) */
-    margin-top: 0; /* CRITICAL FIX: Ensure no top margin for the main headline */
-    font-family: var(--cf-font-heading); /* Ensure proper font family */
-    font-weight: 700; /* Ensure proper font weight */
+    font-family: var(--cf-font-heading);
+    font-size: var(--cf-font-size-xxxxl); /* Larger headline for impact (e.g., 48px) */
+    font-weight: 700;
+    line-height: var(--cf-line-height-tight);
+    margin-bottom: var(--cf-spacing-md);
+    letter-spacing: -0.03em; /* Tighter letter spacing for large titles */
+    color: var(--cf-white);
 }
 
-/* Specific styles for intro text within hero. section-intro comes from pages-common.css */
 .services-hero .services-intro {
-    font-size: var(--cf-font-size-lg); /* Explicit font size (20px) */
-    max-width: var(--cf-content-max-width-wide); /* Consistent max-width (800px -> 900px maybe?) */
-    margin: 0 auto;
-    color: var(--cf-white-alpha-85); /* Specific alpha-white color for hero intro text */
-    line-height: var(--cf-line-height-normal); /* Consistent line height (1.6 -> 1.5) */
-    font-family: var(--cf-font-body); /* Ensure proper font family */
+    font-family: var(--cf-font-body);
+    font-size: var(--cf-font-size-lg); /* Readable intro text (e.g., 20px) */
+    line-height: var(--cf-line-height-normal);
+    max-width: var(--cf-content-max-width-medium); /* Optimal line length */
+    margin: 0 auto var(--cf-spacing-xl) auto;
+    color: var(--cf-white-alpha-85); /* Slightly transparent white for subtle depth */
 }
 
-/* Services Grid Section */
+/* --- Services Grid Section --- */
 .services-grid-section {
-    padding: var(--cf-section-padding-vertical-large) var(--cf-spacing-md); /* Consistent padding (60px -> 48px/20px) */
-    background-color: var(--cf-neutral-light-gray); /* Match main-content background or be specific */
+    padding: var(--cf-section-padding-vertical-large) var(--cf-page-padding-horizontal);
+    background-color: var(--cf-white); /* White background for the grid area */
+    text-align: center; /* Center align section title/intro */
 }
 
-/* No specific h2 style here, relying on .section-title from pages-common.css for h2 styling */
-/* If you need unique h2 style for this section, you'd add:
-.services-grid-section h2 {
-    font-size: var(--cf-font-size-xxxl);
-    margin-bottom: var(--cf-spacing-xxxl);
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid columns */
+    gap: var(--cf-spacing-xl); /* Gap between grid items */
+    margin-top: var(--cf-spacing-xxl); /* Space below section intro */
 }
-*/
 
-/* Individual Service Card Styles */
+/* --- Individual Service Card Styling --- */
 .service-card {
     background-color: var(--cf-white);
-    border: none;
-    border-radius: var(--cf-border-radius-default); /* Consistent border-radius (10px -> 6px) */
-    box-shadow: 0 4px 15px var(--cf-shadow-color-light);
-    padding: var(--cf-spacing-xl); /* Consistent padding (30px -> 32px) */
+    border-radius: var(--cf-border-radius-default); /* Consistent border radius */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* Subtle shadow for depth */
+    padding: var(--cf-spacing-xl);
     text-align: center;
-    transition: transform var(--cf-transition-medium), box-shadow var(--cf-transition-medium); /* Consistent transitions */
-    height: 100%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effects */
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    align-items: center;
 }
 
 .service-card:hover {
-    transform: translateY(-8px); /* Keep this as it is, specific hover effect */
-    box-shadow: 0 8px 25px var(--cf-shadow-color-medium);
+    transform: translateY(-5px); /* Slight lift on hover */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); /* More pronounced shadow on hover */
 }
 
-/* Assuming .card-icon is for Font Awesome, ensure Font Awesome is linked in public/index.html */
-.service-card .card-icon {
-    font-size: var(--cf-font-size-xxxl); /* Consistent font size (36px) */
-    color: var(--cf-secondary-teal);
-    margin-bottom: var(--cf-spacing-md); /* Consistent margin (20px -> 16px) */
+.service-icon-container {
+    margin-bottom: var(--cf-spacing-lg);
+    /* For potentially larger icons or specific alignment needs within card */
 }
 
-.service-card .card-img-top {
-    height: 180px; /* Adjust as needed for image consistency, can be variable if desired */
-    object-fit: cover;
-    border-radius: var(--cf-border-radius-default); /* Match card border radius (8px -> 6px) */
-    margin-bottom: var(--cf-spacing-md); /* Consistent margin (20px -> 16px) */
+.service-icon {
+    font-size: var(--cf-font-size-icon-xl); /* Large icon size (e.g., 64px) */
+    color: var(--cf-secondary-teal); /* Secondary Teal for icons */
+    margin-bottom: var(--cf-spacing-md);
 }
 
-.service-card .service-card-image {
-    max-width: 100%;
-    height: auto;
-    border-radius: var(--cf-border-radius-default); /* Consistent border-radius (8px -> 6px) */
-    margin-bottom: var(--cf-spacing-md); /* Consistent margin (20px -> 16px) */
-}
-
-.service-card .service-card-title {
-    font-size: var(--cf-font-size-xl); /* Consistent font size (24px) */
-    font-weight: 700; /* Use 700 for titles */
-    color: var(--cf-primary-dark-teal);
-    margin-bottom: var(--cf-spacing-sm); /* Consistent margin (15px -> 12px) */
-    font-family: var(--cf-font-heading); /* Ensure proper font family */
-}
-
-.service-card .service-card-description {
-    font-size: var(--cf-font-size-base); /* Consistent font size (16px) */
-    line-height: var(--cf-line-height-normal); /* Consistent line height (1.6 -> 1.5) */
-    margin-bottom: var(--cf-spacing-lg); /* Consistent margin (25px -> 20px) */
-    color: var(--cf-neutral-charcoal); /* Ensure proper color */
-    font-family: var(--cf-font-body); /* Ensure proper font family */
-}
-
-.service-card .btn-learn-more {
-    background-color: var(--cf-secondary-teal);
-    color: var(--cf-white) !important;
-    border: none;
-    border-radius: var(--cf-border-radius-small); /* Consistent border-radius (5px -> 4px) */
-    padding: var(--cf-spacing-xs) var(--cf-spacing-md); /* Consistent padding (10px 25px -> 8px 16px) */
+.service-card-title {
+    font-family: var(--cf-font-heading);
+    font-size: var(--cf-font-size-xxl); /* Prominent title (e.g., 30px) */
+    color: var(--cf-primary-dark-teal); /* Dark Teal for titles */
     font-weight: 600;
-    font-size: var(--cf-font-size-md); /* Consistent font size (18px) */
-    transition: background-color var(--cf-transition-medium), transform var(--cf-transition-fast), box-shadow var(--cf-transition-medium); /* Consistent transitions */
-    margin-top: auto;
+    line-height: var(--cf-line-height-tight);
+    margin-bottom: var(--cf-spacing-md);
+}
+
+.service-card-description {
+    font-family: var(--cf-font-body);
+    font-size: var(--cf-font-size-base); /* Standard body text size (e.g., 16px) */
+    line-height: var(--cf-line-height-relaxed);
+    color: var(--cf-neutral-charcoal);
+    margin-bottom: var(--cf-spacing-xl); /* Space before the button */
+    flex-grow: 1; /* Ensures descriptions take up available space in varied card heights */
+}
+
+.service-card-button {
+    font-family: var(--cf-font-heading);
+    background-color: var(--cf-accent-warm-gold);
+    color: var(--cf-white) !important; /* Important to override any global button styles */
+    border: none;
+    padding: var(--cf-spacing-sm) var(--cf-spacing-lg);
+    font-size: var(--cf-font-size-md); /* Button text size */
+    font-weight: 600;
+    border-radius: var(--cf-border-radius-default);
+    transition: all var(--cf-transition-medium);
+    cursor: pointer;
     text-decoration: none;
     display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
-.service-card .btn-learn-more:hover {
+.service-card-button:hover {
     background-color: var(--cf-primary-dark-teal);
     transform: translateY(-2px);
-    box-shadow: 0 3px 6px var(--cf-shadow-color-light); /* Keep specific shadow, or define a variable for it */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    color: var(--cf-white) !important;
 }
 
-/* Call to Action Section */
-.services-cta-section { /* Renamed from services-cta for consistency with other sections */
-    background-color: var(--cf-neutral-light-mint);
-    padding: var(--cf-section-padding-vertical-large) var(--cf-spacing-md); /* Consistent padding (60px -> 48px/20px) */
+.service-card-button:focus {
+    outline: 2px solid var(--cf-accent-warm-gold);
+    outline-offset: 2px;
+    background-color: var(--cf-primary-dark-teal);
+}
+
+.service-card-button:active {
+    transform: translateY(0);
+}
+
+/* --- Call to Action Section (Main Services Page) --- */
+.services-cta-section {
+    background-color: var(--cf-neutral-light-mint); /* Light mint (or similar light neutral) for this CTA */
+    padding: var(--cf-section-padding-vertical-large) var(--cf-page-padding-horizontal);
     text-align: center;
-    color: var(--cf-primary-dark-teal); /* Ensure consistent text color for this section */
+    color: var(--cf-primary-dark-teal);
 }
 
-.services-cta-section .cta-title { /* Explicitly target cta-title within this section */
-    font-size: var(--cf-font-size-xxxl); /* Consistent font size (36px) */
-    margin-bottom: var(--cf-spacing-md); /* Consistent margin (20px -> 16px) */
-    font-family: var(--cf-font-heading); /* Ensure proper font family */
-    font-weight: 700; /* Ensure proper font weight */
+.services-cta-section .cta-title {
+    font-family: var(--cf-font-heading);
+    font-size: var(--cf-font-size-xxxl); /* Large title for CTA */
+    margin-bottom: var(--cf-spacing-md);
+    font-weight: 700;
+    color: var(--cf-primary-dark-teal);
 }
 
-.services-cta-section .cta-description { /* Explicitly target cta-description within this section */
-    font-size: var(--cf-font-size-lg); /* Consistent font size (20px) */
-    max-width: var(--cf-content-max-width-medium); /* Consistent max-width (700px -> 768px maybe?) */
-    margin: 0 auto var(--cf-spacing-xl) auto; /* Consistent margin (30px -> 32px) */
-    line-height: var(--cf-line-height-normal); /* Consistent line height (1.6 -> 1.5) */
-    color: var(--cf-neutral-charcoal); /* Ensure proper color */
-    font-family: var(--cf-font-body); /* Ensure proper font family */
+.services-cta-section .cta-description {
+    font-family: var(--cf-font-body);
+    font-size: var(--cf-font-size-lg);
+    max-width: var(--cf-content-max-width-medium);
+    margin: 0 auto var(--cf-spacing-xl) auto;
+    line-height: var(--cf-line-height-normal);
+    color: var(--cf-neutral-charcoal);
 }
 
 .services-cta-section .btn-contact {
-    background-color: var(--cf-secondary-teal);
+    background-color: var(--cf-secondary-teal); /* Secondary Teal for this CTA button */
     color: var(--cf-white) !important;
     border: none;
-    border-radius: var(--cf-border-radius-small); /* Consistent border-radius (5px -> 4px) */
-    padding: var(--cf-spacing-sm) var(--cf-spacing-lg); /* Consistent padding (12px 30px -> 12px 20px) */
-    font-size: var(--cf-font-size-md); /* Consistent font size (18px) */
-    font-weight: 700; /* Use 700 for buttons */
-    transition: background-color var(--cf-transition-medium), transform var(--cf-transition-fast), box-shadow var(--cf-transition-medium); /* Consistent transitions */
+    border-radius: var(--cf-border-radius-default);
+    padding: var(--cf-spacing-md) var(--cf-spacing-xl);
+    font-size: var(--cf-font-size-base);
+    font-weight: 600;
+    transition: background-color var(--cf-transition-medium), transform var(--cf-transition-fast), box-shadow var(--cf-transition-medium);
     text-decoration: none;
     display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .services-cta-section .btn-contact:hover {
     background-color: var(--cf-primary-dark-teal);
     transform: translateY(-3px);
-    box-shadow: 0 4px 8px var(--cf-shadow-color-strong); /* Keep specific shadow, or define a variable for it */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
-/* Responsive adjustments */
-@media (max-width: 991.98px) { /* Medium devices (tablets, 768px and up) */
+/* --- Responsive Adjustments for Services Page --- */
+@media (min-width: 992px) and (max-width: 1199.98px) { /* Large devices (desktops) */
     .services-hero .services-headline {
-        font-size: var(--cf-font-size-xxl); /* Scale down (30px) */
+        font-size: var(--cf-font-size-xxxl);
     }
     .services-hero .services-intro {
-        font-size: var(--cf-font-size-base); /* Scale down (16px) */
+        font-size: var(--cf-font-size-base);
     }
-    .services-grid-section .section-title, /* Target section-title here */
-    .services-cta-section .cta-title { /* Target cta-title here */
-        font-size: var(--cf-font-size-xxl); /* Scale down (30px) */
+    .services-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: var(--cf-spacing-lg);
     }
-    .services-cta-section .cta-description { /* Target cta-description here */
-        font-size: var(--cf-font-size-base); /* Scale down (16px) */
+    .service-card {
+        padding: var(--cf-spacing-lg);
+    }
+    .service-card-title {
+        font-size: var(--cf-font-size-xl);
+    }
+    .services-cta-section .cta-title {
+        font-size: var(--cf-font-size-xxl);
+    }
+    .services-cta-section .cta-description {
+        font-size: var(--cf-font-size-md);
     }
 }
 
-@media (max-width: 767.98px) { /* Small devices (landscape phones, 576px and up) */
-    .services-hero,
-    .services-grid-section,
+@media (min-width: 768px) and (max-width: 991.98px) { /* Medium devices (tablets) */
+    .services-hero {
+        padding: var(--cf-section-padding-vertical-large) var(--cf-spacing-xl);
+    }
+    .services-hero .services-headline {
+        font-size: var(--cf-font-size-xxl);
+    }
+    .services-hero .services-intro {
+        font-size: var(--cf-font-size-sm);
+        margin-bottom: var(--cf-spacing-lg);
+    }
+    .services-grid-section {
+        padding: var(--cf-section-padding-vertical-medium) var(--cf-spacing-xl);
+    }
+    .services-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: var(--cf-spacing-md);
+    }
+    .service-card {
+        padding: var(--cf-spacing-md);
+    }
+    .service-card-title {
+        font-size: var(--cf-font-size-lg);
+    }
+    .service-card-description {
+        font-size: var(--cf-font-size-sm);
+        margin-bottom: var(--cf-spacing-md);
+    }
     .services-cta-section {
-        padding: var(--cf-section-padding-vertical-small) var(--cf-spacing-sm); /* Smaller padding (32px 12px) */
+        padding: var(--cf-section-padding-vertical-medium) var(--cf-spacing-xl);
+    }
+    .services-cta-section .cta-title {
+        font-size: var(--cf-font-size-xl);
+    }
+    .services-cta-section .cta-description {
+        font-size: var(--cf-font-size-sm);
+        margin-bottom: var(--cf-spacing-lg);
+    }
+}
+
+@media (max-width: 767.98px) { /* Small devices (portrait phones) */
+    .services-hero {
+        padding: var(--cf-section-padding-vertical-medium) var(--cf-spacing-md);
     }
     .services-hero .services-headline {
-        font-size: var(--cf-font-size-xl); /* Further scale down (24px) */
+        font-size: var(--cf-font-size-xl);
+        margin-bottom: var(--cf-spacing-sm);
     }
     .services-hero .services-intro {
-        font-size: var(--cf-font-size-sm); /* Further scale down (14px) */
+        font-size: var(--cf-font-size-xs);
+        margin-bottom: var(--cf-spacing-md);
     }
-    .services-grid-section .section-title, /* Target section-title here */
-    .services-cta-section .cta-title { /* Target cta-title here */
-        font-size: var(--cf-font-size-xl); /* Further scale down (24px) */
+    .services-grid-section {
+        padding: var(--cf-section-padding-vertical-small) var(--cf-spacing-md);
     }
-    .service-card .service-card-title {
-        font-size: var(--cf-font-size-lg); /* Scale down (20px) */
+    .services-grid {
+        grid-template-columns: 1fr; /* Single column on small screens */
+        gap: var(--cf-spacing-lg);
     }
-    .service-card .service-card-description {
-        font-size: var(--cf-font-size-sm); /* Scale down (14px) */
+    .service-card {
+        padding: var(--cf-spacing-lg);
     }
-    .service-card .btn-learn-more {
-        font-size: var(--cf-font-size-base); /* Scale down button text */
+    .service-card-title {
+        font-size: var(--cf-font-size-lg);
     }
-    .services-cta-section .btn-contact {
-        font-size: var(--cf-font-size-base); /* Scale down button text */
-        padding: var(--cf-spacing-xs) var(--cf-spacing-md); /* Adjust padding */
+    .service-card-description {
+        font-size: var(--cf-font-size-sm);
+        margin-bottom: var(--cf-spacing-md);
+    }
+    .service-card-button {
+        font-size: var(--cf-font-size-sm);
+        padding: var(--cf-spacing-sm) var(--cf-spacing-md);
+    }
+    .services-cta-section {
+        padding: var(--cf-section-padding-vertical-small) var(--cf-spacing-md);
+    }
+    .services-cta-section .cta-title {
+        font-size: var(--cf-font-size-xl);
+    }
+    .services-cta-section .cta-description {
+        font-size: var(--cf-font-size-base);
+        margin-bottom: var(--cf-spacing-lg);
     }
 }
