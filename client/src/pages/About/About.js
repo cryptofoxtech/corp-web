@@ -1,7 +1,12 @@
-// client/src/pages/About/AboutUs.js
 import React, { useState } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import './About.css';
+
+// Importing images using the confirmed correct relative path from Home.js example
+import aboutStory from '../../assets/images/about-story.png';
+import aboutVision from '../../assets/images/about-vision.png';
+import aboutDifferentiator from '../../assets/images/about-differentiator.png';
+import aboutTeam from '../../assets/images/about-team.png';
 
 function About() {
   // Content directly embedded in state for each section, pulled from the Marketing Plan
@@ -55,42 +60,42 @@ function About() {
         </p>
 
         {/* Our Story Section - Text then Image */}
-        <Row className="align-items-center my-5 py-3 about-content-row odd-section">
+        <Row className="align-items-center about-content-row odd-section">
           <Col lg={7} md={12} className="text-col">
             {ourStoryContent}
           </Col>
           <Col lg={5} md={12} className="image-col mt-md-4 mt-lg-0">
-            <img src="/assets/images/about-story.png" alt="Our Story" className="img-fluid rounded shadow" />
+            <img src={aboutStory} alt="Our Story" className="img-fluid rounded shadow" />
           </Col>
         </Row>
 
         {/* Our Mission & Vision Section - Image then Text (flex-row-reverse) */}
-        <Row className="align-items-center my-5 py-3 about-content-row even-section flex-lg-row-reverse">
+        <Row className="align-items-center about-content-row even-section flex-lg-row-reverse">
           <Col lg={7} md={12} className="text-col">
             {missionVisionContent}
           </Col>
           <Col lg={5} md={12} className="image-col mt-md-4 mt-lg-0">
-            <img src="/assets/images/about-vision.png" alt="Our Mission and Vision" className="img-fluid rounded shadow" />
+            <img src={aboutVision} alt="Our Mission and Vision" className="img-fluid rounded shadow" />
           </Col>
         </Row>
 
         {/* Our Core Differentiator Section - Text then Image */}
-        <Row className="align-items-center my-5 py-3 about-content-row odd-section">
+        <Row className="align-items-center about-content-row odd-section">
           <Col lg={7} md={12} className="text-col">
             {coreDifferentiatorContent}
           </Col>
           <Col lg={5} md={12} className="image-col mt-md-4 mt-lg-0">
-            <img src="/assets/images/about-differentiator.png" alt="Core Differentiator" className="img-fluid rounded shadow" />
+            <img src={aboutDifferentiator} alt="Core Differentiator" className="img-fluid rounded shadow" />
           </Col>
         </Row>
 
         {/* Meet the Founder Section - Image then Text (flex-row-reverse) */}
-        <Row className="align-items-center my-5 py-3 about-content-row even-section flex-lg-row-reverse">
+        <Row className="align-items-center about-content-row even-section flex-lg-row-reverse">
           <Col lg={7} md={12} className="text-col">
             {meetTheFounderContent}
           </Col>
           <Col lg={5} md={12} className="image-col mt-md-4 mt-lg-0">
-            <img src="/assets/images/about-team.png" alt="Meet the Founder" className="img-fluid rounded shadow" />
+            <img src={aboutTeam} alt="Meet the Founder" className="img-fluid rounded shadow" />
           </Col>
         </Row>
       </Container>
