@@ -19,7 +19,7 @@
        are expected to be applied via classes like .service-content-section.hero in Home.js
        and defined in pages-common.css.
        Keep only what's unique to the Home page's hero here. */
-    background-image: url('../../assets/images/home-hero-bg.png'); /* Specific background image */
+   /* background-image: url('../../assets/images/home-hero-bg.png'); /* Specific background image */
     background-size: cover; /* Ensure image covers the section */
     background-position: center center; /* Center the background image */
     background-repeat: no-repeat; /* Do not repeat the background image */
