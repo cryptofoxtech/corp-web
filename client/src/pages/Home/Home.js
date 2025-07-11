@@ -36,8 +36,8 @@ const Home = () => {
             <Helmet>
                 {/* Page Title: Crucial for SEO, appears in browser tab and search results */}
                 <title>Cryptofox Technology Ltd. - Expert DevOps, Cloud, AI & Web Development</title>
-                {/* Meta Description: A brief, compelling summary for search results */}
-                <meta name="description" content="Accelerating your digital future with expert DevOps, Cloud, and AI solutions tailored for your business. Partner with Cryptofox Technology Ltd. for innovation." />
+                {/* Meta Description: A brief, compelling summary for search results - Optimized for length */}
+                <meta name="description" content="Accelerate your digital future with Cryptofox Technology. Expert DevOps, Cloud, AI, and Web Development solutions." />
                 {/* Canonical Tag: Tells search engines the preferred version of this page for SEO */}
                 <link rel="canonical" href={canonicalUrl} />
 
@@ -48,7 +48,7 @@ const Home = () => {
                     rel="preload"
                     as="image"
                     href={homeHeroBgWebp} // Webpack will resolve this import to the correct hashed URL for the WebP image
-                    type="image/webp"     // Specify the MIME type for browser efficiency
+                    type="image/webp"    // Specify the MIME type for browser efficiency
                 />
             </Helmet>
 
