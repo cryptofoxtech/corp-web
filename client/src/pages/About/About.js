@@ -31,11 +31,11 @@ function About() {
   const [coreDifferentiatorContent] = useState(
     <>
       <h2>Our Core Differentiator: Human-AI Hybrid Advantage</h2>
-      <p>What sets Cryptofox Technology Ltd. apart is our unique **Human-AI Hybrid Model**. We don't just provide IT solutions; we augment them.</p>
+      <p>What sets Cryptofox Technology Ltd. apart is our unique <strong>Human-AI Hybrid Model</strong>. We don't just provide IT solutions; we augment them.</p>
       <ul>
-        <li>**Strategic Insight:** Our seasoned IT professionals bring deep industry knowledge and strategic thinking.</li>
-        <li>**AI-Powered Efficiency:** Advanced AI analytics and automation accelerate problem-solving, optimize performance, and enhance security.</li>
-        <li>**Cost-Effectiveness:** This blend ensures solutions that are not only innovative but also practical, scalable, and truly cost-effective.</li>
+        <li><strong>Strategic Insight:</strong> Our seasoned IT professionals bring deep industry knowledge and strategic thinking.</li>
+        <li><strong>AI-Powered Efficiency:</strong> Advanced AI analytics and automation accelerate problem-solving, optimize performance, and enhance security.</li>
+        <li><strong>Cost-Effectiveness:</strong> This blend ensures solutions that are not only innovative but also practical, scalable, and truly cost-effective.</li>
       </ul>
       <p>This means faster diagnostics, smarter automation, and more innovative solutions, all delivered with precision and a human touch.</p>
     </>

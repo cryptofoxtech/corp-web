@@ -11,7 +11,6 @@
     text-align: center;
     color: var(--cf-primary-dark-teal); /* Brand color */
     font-family: var(--cf-font-heading); /* Heading font */
-    font-size: var(--cf-font-size-h1); /* H1 font size */
     margin-bottom: var(--cf-spacing-xl); /* Space below title (24px) */
     padding-bottom: var(--cf-spacing-md); /* Padding below title for underline (16px) */
     border-bottom: 2px solid var(--cf-secondary-teal); /* Underline effect */

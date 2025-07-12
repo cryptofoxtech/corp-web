@@ -63,75 +63,93 @@
 
 /* --- Common Headings Styling --- */
 
-/* Main page title / primary content heading - more refined */
+/* Wrapper for main section titles to ensure centering */
 .section-title-container {
     display: flex;
     justify-content: center;
-    margin-bottom: var(--cf-spacing-xl);
+    margin-bottom: var(--cf-spacing-xl); /* Space below the heading and its underline */
 }
 
+/* Main page title / primary content heading (e.g., "Our Comprehensive Approach", "Deep Dive...") */
+/* This is your primary H1/H2 for major page sections. */
 .section-title {
-    font-family: var(--cf-font-heading);
-    color: var(--cf-primary-dark-teal);
-    font-weight: 600; /* Less bold, more elegant */
+    font-family: var(--cf-font-heading); /* Montserrat */
+    color: var(--cf-primary-dark-teal); /* Dark Teal */
+    font-weight: 700; /* Bolder weight for prominence */
     text-align: center;
     line-height: var(--cf-line-height-tight);
-    letter-spacing: -0.02em; /* Slight negative letter spacing for larger text */
+    letter-spacing: -0.03em; /* Slightly more negative for large text */
     margin: 0;
     position: relative;
+    padding-bottom: var(--cf-spacing-md); /* Space between text and underline */
+    /* Base size - will be overridden by media queries for specific breakpoints */
+    font-size: var(--cf-font-size-xxxl); /* Starting large, e.g., 48px if xxxl is 3rem */
 }
 
-/* Subtle underline accent - smaller and more elegant */
+/* Subtle underline accent for main section titles */
 .section-title::after {
     content: '';
     position: absolute;
-    bottom: -8px;
+    bottom: 0; /* Align with padding-bottom of parent */
     left: 50%;
     transform: translateX(-50%);
-    width: 60px;
-    height: 2px;
-    background-color: var(--cf-secondary-teal);
-    border-radius: 1px;
+    width: 100px; /* INCREASED LENGTH for more prominence */
+    height: 4px; /* INCREASED THICKNESS for more prominence */
+    background-color: var(--cf-accent-warm-gold); /* Warm Gold accent color */
+    border-radius: 2px;
 }
 
-/* Responsive font sizes for .section-title - more balanced */
-@media (min-width: 1200px) {
+/* Responsive font sizes for .section-title */
+@media (min-width: 1200px) { /* Extra large screens */
     .section-title {
-        font-size: var(--cf-font-size-xxxl); /* 36px */
+        font-size: var(--cf-font-size-xxxxl); /* Make it really large for desktop, e.g., 60px */
     }
-}
-
-@media (min-width: 768px) and (max-width: 1199.98px) {
-    .section-title {
-        font-size: var(--cf-font-size-xxl); /* 30px */
-    }
-}
-
-@media (max-width: 767.98px) {
-    .section-title {
-        font-size: var(--cf-font-size-xl); /* 24px */
-    }
-
     .section-title::after {
-        width: 40px;
-        bottom: -6px;
-    }
-
-    .section-title-container {
-        margin-bottom: var(--cf-spacing-lg);
+        width: 120px; /* Longer underline on very large screens */
     }
 }
 
-/* Lead paragraph style (for intros directly below section titles) - more refined */
+@media (min-width: 768px) and (max-width: 1199.98px) { /* Tablets and smaller desktops */
+    .section-title {
+        font-size: var(--cf-font-size-xxxl); /* Large on tablets, e.g., 48px */
+    }
+    .section-title::after {
+        width: 80px;
+    }
+}
+
+@media (max-width: 767.98px) { /* Mobile devices */
+    .section-title {
+        font-size: var(--cf-font-size-xxl); /* Still prominent on mobile, e.g., 36px */
+        padding-bottom: var(--cf-spacing-sm); /* Adjust padding for smaller size */
+    }
+    .section-title::after {
+        width: 60px; /* Shorter underline on mobile */
+        height: 3px; /* Thinner underline on mobile */
+    }
+    .section-title-container {
+        margin-bottom: var(--cf-spacing-lg); /* Adjust margin for mobile */
+    }
+}
+
+/* Lead paragraph style (for intros directly below section titles) */
 .section-intro {
-    font-family: var(--cf-font-body);
-    font-size: var(--cf-font-size-md); /* Slightly smaller, more readable */
+    font-family: var(--cf-font-body); /* Open Sans */
+    font-size: var(--cf-font-size-lg); /* INCREASED SIZE: More readable, e.g., 18px */
     line-height: var(--cf-line-height-relaxed);
     color: var(--cf-neutral-charcoal);
     text-align: center;
-    max-width: var(--cf-content-max-width);
-    margin: 0 auto var(--cf-spacing-xl) auto;
+    max-width: var(--cf-content-max-width); /* Adjust max-width if needed to control line length */
+    margin: 0 auto var(--cf-spacing-xl) auto; /* Center and add bottom margin */
     font-weight: 400;
+}
+
+/* Responsive adjustment for intro text */
+@media (max-width: 767.98px) {
+    .section-intro {
+        font-size: var(--cf-font-size-base); /* Standard base size on mobile, e.g., 16px */
+        margin-bottom: var(--cf-spacing-lg); /* Adjust margin for mobile */
+    }
 }
 
 /* Sub-section titles (H3) within content areas - more balanced */
@@ -140,7 +158,7 @@
     font-family: var(--cf-font-heading);
     color: var(--cf-primary-dark-teal);
     font-weight: 600;
-    font-size: var(--cf-font-size-lg); /* More proportional */
+    font-size: var(--cf-font-size-xl); /* Adjusted for better hierarchy, e.g., 24px */
     line-height: var(--cf-line-height-tight);
     margin-top: var(--cf-spacing-xl);
     margin-bottom: var(--cf-spacing-md);
@@ -151,7 +169,7 @@
 @media (max-width: 767.98px) {
     .service-detail-content h3,
     .service-detail-offerings h3 {
-        font-size: var(--cf-font-size-md);
+        font-size: var(--cf-font-size-lg); /* Adjust for mobile, e.g., 18px */
         margin-top: var(--cf-spacing-lg);
         margin-bottom: var(--cf-spacing-sm);
         padding-left: var(--cf-spacing-sm);
@@ -164,18 +182,17 @@
     font-family: var(--cf-font-heading);
     color: var(--cf-primary-dark-teal);
     font-weight: 600;
-    font-size: var(--cf-font-size-base); /* Much more reasonable size */
+    font-size: var(--cf-font-size-base); /* Consistent with body text, e.g., 16px */
     line-height: var(--cf-line-height-normal);
     margin-top: var(--cf-spacing-lg);
     margin-bottom: var(--cf-spacing-sm);
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    font-size: var(--cf-font-size-sm);
 }
 
 @media (max-width: 767.98px) {
     .service-detail-content h4 {
-        font-size: var(--cf-font-size-xs);
+        font-size: var(--cf-font-size-sm); /* Smaller on mobile, e.g., 14px */
         margin-top: var(--cf-spacing-md);
         margin-bottom: var(--cf-spacing-xs);
     }
@@ -222,7 +239,7 @@ ul ul, ol ol, ul ol, ol ul {
 .service-detail-cta-section .cta-title {
     font-family: var(--cf-font-heading);
     color: var(--cf-white);
-    font-size: var(--cf-font-size-xxl); /* More reasonable size */
+    font-size: var(--cf-font-size-xxxl); /* Re-evaluating for better impact, e.g., 48px */
     font-weight: 600;
     line-height: var(--cf-line-height-tight);
     margin-bottom: var(--cf-spacing-md);
@@ -231,13 +248,13 @@ ul ul, ol ol, ul ol, ol ul {
 
 @media (max-width: 767.98px) {
     .service-detail-cta-section .cta-title {
-        font-size: var(--cf-font-size-xl);
+        font-size: var(--cf-font-size-xxl); /* Adjust for mobile, e.g., 36px */
     }
 }
 
 .service-detail-cta-section .cta-description {
     font-family: var(--cf-font-body);
-    font-size: var(--cf-font-size-md);
+    font-size: var(--cf-font-size-lg); /* INCREASED SIZE: More readable for CTA */
     max-width: 600px;
     margin: 0 auto var(--cf-spacing-lg) auto;
     line-height: var(--cf-line-height-relaxed);
@@ -258,7 +275,7 @@ ul ul, ol ol, ul ol, ol ul {
     color: var(--cf-white) !important;
     border: none;
     padding: var(--cf-spacing-md) var(--cf-spacing-xl);
-    font-size: var(--cf-font-size-base); /* More reasonable button size */
+    font-size: var(--cf-font-size-lg); /* INCREASED SIZE: More prominent button, e.g., 18px */
     font-weight: 600;
     border-radius: var(--cf-border-radius-default);
     transition: all var(--cf-transition-medium);
@@ -289,7 +306,7 @@ ul ul, ol ol, ul ol, ol ul {
 
 @media (max-width: 767.98px) {
     .service-detail-cta-section .cta-button {
-        font-size: var(--cf-font-size-sm);
+        font-size: var(--cf-font-size-base); /* Adjust for mobile, e.g., 16px */
         padding: var(--cf-spacing-sm) var(--cf-spacing-lg);
         min-width: 140px;
     }
